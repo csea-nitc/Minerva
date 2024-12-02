@@ -42,3 +42,5 @@ vite.config.ts
 # Static assets
 *.css.map
 *.js.map
+
+.gitignore
