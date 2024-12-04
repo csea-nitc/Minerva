@@ -11,6 +11,10 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily:{
+        teko:['Teko','sans-serif'],
+        saira:['Saira','sans-serif'],
+      }
     },
   },
   plugins: [],
