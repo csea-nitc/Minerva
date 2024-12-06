@@ -7,9 +7,17 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        teko: ['Teko', 'Sans'], // Add 'Teko' as a custom font
+        poppins: ['Poppins', 'Sans'], // Add 'Teko' as a custom font
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },screens: {
+        'max-920': { max: '920px' }, 
+        'max-1060': { max: '1060px' }, 
+        'max-800': { max: '800px' }, 
       },
     },
   },
