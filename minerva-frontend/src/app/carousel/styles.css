@@ -1,0 +1,43 @@
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  transition: filter 0.8s ease-in-out;
+}
+
+.swiper-slide:not(.swiper-slide-active) {
+  filter: brightness(0.5) contrast(1.2); /* Adjust brightness and contrast */
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  border-radius: 30px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: white; /* Change arrow color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  
+  padding: 0;
+  background-color: #800080;
+  padding: 35px;
+  border-radius: 50px;
+}
+
+/* Position the navigation arrows beside the centered image */
+.swiper-button-prev {
+  left: 15%; /* Position to the left */
+  transform: translateY(-30%);
+}
+
+.swiper-button-next {
+  right: 15%; /* Position to the right */
+  transform: translateY(-30%);
+}
+
+@media (min-width: 1200px) {
+  .swiper-button-next,.swiper-button-prev{
+    display: hidden;
+  }
+}
