@@ -18,7 +18,7 @@ export default function App({images,flag}) {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
     <>
-    <div className='w-[60%] h-[78%] flex flex-col justify-between border-2 border-black'>
+    <div className='w-[60%] h-[75%] flex flex-col justify-between border-2 border-black'>
       <Swiper
         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         navigation = {true}
@@ -47,7 +47,7 @@ export default function App({images,flag}) {
       ))}
       </Swiper>
       <div className={ (!flag?"hidden ":'') + 'w-full flex justify-center items-center'}>
-          <button className='border-4 text-accent font-bold text-4xl p-3 rounded-2xl border-accent'>{images[activeIndex]["tag"] + "🔗"}</button>
+          <button className='border-4 text-accent font-Teko font-bold tracking-wide text-4xl p-3 rounded-2xl border-accent'>{images[activeIndex]["tag"] + "🔗"}</button>
       </div>
 
     </div>
