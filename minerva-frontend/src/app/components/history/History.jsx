@@ -11,15 +11,15 @@ const History = () => {
     useEffect(() => {
         if (typeof window !== "undefined") {
             gsap.fromTo(
-                ".history-text-down",
-                { y: "-3vh", opacity: 0 },
+                ".history-text",
+                { x: 500, opacity: 0 },
                 {
-                    y: "20vw",
+                    x: 0,
                     opacity: 1,
                     scrollTrigger: {
                         trigger: ".history-image",
-                        start: "top center",
-                        end: "bottom center",
+                        start: "center bottom",
+                        end: "center center",
                         scrub: true,
                         toggleActions: "play reverse play reverse",
                     },
@@ -105,9 +105,9 @@ const History = () => {
                 </p>
             </div>
 
-            <div className="relative flex justify-end lg:justify-center items-center md:mt-[15rem] mt-[8rem] lg:mt-[5rem] mb-[5rem] md:ml-[5rem] md:mr-[13rem] w-[90%] ml-[2.5rem] sm:ml-[3.5rem]">
-                {/** Slide Down (for lg+) **/}
-                <div className=" absolute history-text-down text-[#800080] font-bold 2xl:text-[10rem] lg:text-[6rem] text-[7rem] font-[verdana]  lg:flex hidden justify-center items-center">
+            <div className="relative flex justify-end md:mt-[15rem] mt-[8rem] lg:mt-[5rem] mb-[5rem] md:ml-[5rem] md:mr-[13rem] w-[90%] ml-[2.5rem] sm:ml-[3.5rem]">
+                {/** Slide Left (for lg+) **/}
+                <div className="lg:static absolute history-text text-[#800080] font-bold 2xl:text-[12rem] lg:text-[8rem] text-[7rem] font-[verdana] right-[60%] lg:flex hidden justify-center items-center">
                     1985
                 </div>
                 {/** Slide up (for md-) **/}
@@ -115,7 +115,7 @@ const History = () => {
                     1985
                 </div>
                 {/** Slide up and Slide Left (for md-lg) **/}
-                <div className=" text-center lg:static absolute history-text-md text-[#800080] font-bold 2xl:mt-[5rem] 2xl:text-[10rem] md:text-[10rem] sm:text-[8rem] text-[4rem] font-[verdana] lg:right-[60%] right-[1rem] sm:right-0 md:right-8 hidden md:flex lg:hidden justify-center items-center lg:mt-[2rem] w-[100%] md:top-[-15rem] sm:top-[-10rem] top-[-7rem] pl-[8rem]">
+                <div className="text-center lg:static absolute history-text-md text-[#800080] font-bold 2xl:mt-[5rem] 2xl:text-[12rem] md:text-[10rem] sm:text-[8rem] text-[4rem] font-[verdana] lg:right-[60%] right-[1rem] sm:right-0 md:right-8 hidden md:flex lg:hidden justify-center items-center lg:mt-[2rem] w-[100%] md:top-[-15rem] sm:top-[-10rem] top-[-7rem] pl-[8rem]">
                     1985
                 </div>
                 <Image
@@ -123,11 +123,11 @@ const History = () => {
                     alt="History Image"
                     width={500}
                     height={300}
-                    className="history-image rounded-md lg:w-[65%] md:w-[70%] w-[90%] mr-[2rem] md:mr-[4.5rem] lg:mr-0 lg:mb-[100px] lg-xl:mb-[250px] flex justify-center items-center xl:mb-[8rem]"
+                    className="history-image rounded-md lg:w-[50%] md:w-[70%] w-[90%] mr-[2rem] md:mr-[4.5rem] lg:mr-[6rem] xl:mr-[8rem] z-10"
                 />
             </div>
 
-            <div className="text-black w-[89%] text-justify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.7rem] md:text-[1.6rem] sm:text-[1.4rem] text-[1.2rem] md:ml-[3rem] sm:ml-[3rem] ml-[1.6rem] mt-[5rem]">
+            <div className="text-black w-[89%] text-justify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.7rem] md:text-[1.6rem] sm:text-[1.4rem] text-[1.2rem] md:ml-[3rem] sm:ml-[3rem] ml-[1.6rem]">
                 <p className="w-[95%]">
                     Undergraduate programme in Computer Science and Engineering
                     started in the year 1985 in the then Electrical Engineering
