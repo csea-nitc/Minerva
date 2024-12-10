@@ -12,7 +12,8 @@ module.exports = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-            verdana: ["Verdana", "sans-serif"],
+        verdana: ["Verdana", "sans-serif"],
+        mont: ["Montserrat", "sans-serif"],
       },
     },
   },

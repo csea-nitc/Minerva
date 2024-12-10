@@ -21,8 +21,22 @@ body {
 }
 
 @font-face {
-  font-family: 'Verdana';
-  src: url('./fonts/verdana.ttf') format('truetype');
+  font-family: "Verdana";
+  src: url("./fonts/verdana.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Verdana";
+  src: url("./fonts/verdana-bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
