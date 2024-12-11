@@ -13,6 +13,7 @@ module.exports = {
       },
       fontFamily: {
         verdana: ["Verdana", "sans-serif"],
+        mont: ["Montserrat", "sans-serif"],
       },
       screens: {
         xs: "480px", // Extra small devices
@@ -26,7 +27,7 @@ module.exports = {
         "xl-2xl": "1408px", // Middle of extra large and 2xl
         "2xl": "1536px", // Default 2xl
         "3xl": "1920px", // Custom large screen
-      },
+     },
     },
   },
   plugins: [],

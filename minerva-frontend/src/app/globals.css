@@ -22,6 +22,26 @@ body {
     --foreground: #171717;
 }
 
+@font-face {
+  font-family: "Verdana";
+  src: url("./fonts/verdana.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Verdana";
+  src: url("./fonts/verdana-bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 @media (prefers-color-scheme: dark) {
   :root {
       --background: #0a0a0a;
@@ -41,11 +61,4 @@ body {
   shape-outside: circle(50%);
   margin-left: 2.5rem;
   margin-bottom: 2.5rem;
-}
-
-@font-face {
-  font-family: "Verdana";
-  src: url("./fonts/verdana.ttf") format("truetype");
-  /* font-weight: normal;
-  font-style: normal; */
 }
