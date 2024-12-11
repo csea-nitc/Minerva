@@ -123,7 +123,7 @@ const History = () => {
                     alt="History Image"
                     width={500}
                     height={300}
-                    className="history-image rounded-md lg:w-[50%] md:w-[70%] w-[90%] mr-[2rem] md:mr-[4.5rem] lg:mr-[6rem] xl:mr-[8rem]"
+                    className="history-image rounded-md lg:w-[50%] md:w-[70%] w-[90%] mr-[2rem] md:mr-[4.5rem] lg:mr-[6rem] xl:mr-[8rem] z-10"
                 />
             </div>
 
