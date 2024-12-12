@@ -9,7 +9,9 @@ module.exports = {
     extend: {
       fontFamily: {
         teko: ['Teko', 'Sans'], // Add 'Teko' as a custom font
-        poppins: ['Poppins', 'Sans'], // Add 'Teko' as a custom font
+        poppins: ['Poppins', 'Sans'],
+        montserrat:['Montserrat','Sans'] ,// Add 'Teko' as a custom font
+        saira:['Saira','Sans']
       },
       colors: {
         background: "var(--background)",

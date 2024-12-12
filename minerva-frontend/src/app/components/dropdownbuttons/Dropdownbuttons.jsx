@@ -12,7 +12,7 @@ function DropdownButtons({dropdownContent}) {
   return (
     <div>
       <div
-        className="relative flex space-x-4 justify-between py-5 border mt-5"
+        className="relative z-0 flex space-x-4 justify-between py-5 border mt-5"
         style={{ borderColor: "#800080", borderWidth: "3px" }}
       >
         {["Curriculum", "Syllabi", "Ordinances and Regulations"].map(
@@ -32,7 +32,7 @@ function DropdownButtons({dropdownContent}) {
       {["Curriculum", "Syllabi", "Ordinances and Regulations"].map((button) => (
         <div
         key={button}
-          className={` left-0 w-full shadow-lg transition-all duration-300 ease-in-out ${
+          className={` w-full shadow-lg transition-all duration-300 ease-in-out ${
             activeButton === button ? "opacity-100" : "max-h-0 py-0 opacity-0"
           }`}
           style={{ backgroundColor: "#800080" }}

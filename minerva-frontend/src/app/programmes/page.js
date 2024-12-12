@@ -3,25 +3,20 @@ import tabData from "./data";
 import { useState } from "react";
 import InfoSection from "../components/programmesutil/infosection";
 export default function Programmes() {
-
-  
-  
   const [selectedTab, setSelectedTab] = useState(tabData["B. Tech"]);
 
   return (
-    <div className="bg-gray-100 min-h-screen p-6 pt-[100px] font-poppins">
+    <div className="bg-gray-100 min-h-screen p-6 pt-[140px] font-saira  text-[18px] ">
       {/* Header */}
-      <div className="">
-        <h1
-          className="text-8xl font-bold uppercase"
-          style={{ color: "#800080" }}
-        >
-          Programmes
-        </h1>
+      <div
+        className=" font-bold uppercase text-right text-[7em]"
+        style={{ color: "#800080" }}
+      >
+        Programmes
       </div>
 
       <div className="flex justify-center mt-6 space-x-4">
-      {Object.keys(tabData).map((tab) => (
+        {Object.keys(tabData).map((tab) => (
           <button
             onClick={() => setSelectedTab(tabData[tab])}
             key={tab}
@@ -37,7 +32,7 @@ export default function Programmes() {
       </div>
 
       <InfoSection
-        title={Object.keys(tabData).find((key)=>tabData[key]===selectedTab)}
+        title={Object.keys(tabData).find((key) => tabData[key] === selectedTab)}
         para1={selectedTab.para1}
         para2={selectedTab.para2}
         downloadables={selectedTab.dropdownContent}

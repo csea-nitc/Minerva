@@ -12,18 +12,18 @@ export default function InfoSection({
   return (
     <div className="flex flex-col">
       <div className="mt-8">
-        <div className="text-7xl font-extrabold" style={{ color: "#800080" }}>
-          ///{title}
+        <div className="text-[5em] font-extrabold text" style={{ color: "#800080" }}>
+          /// {title}
         </div>
         <div
-          className="h-[7px]  w-screen mt-4"
+          className="h-[7px]  w-full mt-4"
           style={{ backgroundColor: "#800080" }}
         ></div>
 
         <DropdownButtons dropdownContent={downloadables} />
 
-        <div className="font-poppins font-semibold text-2xl leading-[42px]">
-          <div className="my-12 text-justify flex">
+        <div className="font-montserrat font-semibold text-[1em] leading-[35px]">
+          <div className="py-[4em] text-justify flex">
             <p className=" w-1/2 ">{para1}</p>
 
             <div className=" pl-[70px]">
