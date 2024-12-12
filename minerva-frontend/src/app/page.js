@@ -6,7 +6,7 @@ import Vision from "./components/vision/Vision";
 import Mission from "./components/mission/Mission";
 import History from "./components/history/History";
 import McaProgramme from "./components/mca_programme/mcaProgramme";
-
+import Footer from "./components/Footer/Footer"
 
 export default function Home() {
   return (
@@ -19,6 +19,7 @@ export default function Home() {
                 <Mission />
                 <History />
                 <McaProgramme />
+                <Footer />
             </main>
     </div>
   );
