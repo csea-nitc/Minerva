@@ -10,6 +10,10 @@ import McaProgramme from "./components/mca_programme/mcaProgramme";
 
 export default function Home() {
   return (
+    <div className="overflow-hidden">
+<img src="landing.png" className="w-full"></img>
+<img src="landing.png" className="w-full"></img>
+<img src="landing.png" className="w-full"></img>
     <div>
         <Sidebar />
             <main className="m-0 p-0 bg-white">
