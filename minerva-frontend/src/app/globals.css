@@ -18,8 +18,8 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
-    --background: #ffffff;
-    --foreground: #171717;
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
 @font-face {
@@ -42,10 +42,25 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Saira Semi Condensed";
+  src: url("./fonts/SairaSemiCondensed-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Teko";
+  src: url("./fonts/Teko-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
-      --background: #0a0a0a;
-      --foreground: #ededed;
+    --background: #0a0a0a;
+    --foreground: #ededed;
   }
 }
 
