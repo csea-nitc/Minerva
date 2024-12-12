@@ -8,16 +8,17 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        teko: ['Teko', 'Sans'], // Add 'Teko' as a custom font
-        poppins: ['Poppins', 'Sans'], // Add 'Teko' as a custom font
+        teko: ["Teko", "Sans"], // Add 'Teko' as a custom font
+        poppins: ["Poppins", "Sans"], // Add 'Teko' as a custom font
       },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-      },screens: {
-        'max-920': { max: '920px' }, 
-        'max-1060': { max: '1060px' }, 
-        'max-800': { max: '800px' }, 
+      },
+      screens: {
+        "max-920": { max: "920px" },
+        "max-1060": { max: "1060px" },
+        "max-800": { max: "800px" },
       },
       fontFamily: {
         verdana: ["Verdana", "sans-serif"],
@@ -35,7 +36,7 @@ module.exports = {
         "xl-2xl": "1408px", // Middle of extra large and 2xl
         "2xl": "1536px", // Default 2xl
         "3xl": "1920px", // Custom large screen
-     },
+      },
     },
   },
   plugins: [],
