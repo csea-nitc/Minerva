@@ -3,6 +3,8 @@ import Hero from "./components/heropage/Hero";
 
 export default function Home() {
   return (
-    <Hero/>
+    <>
+      <Hero/>
+    </>
   );
 }
