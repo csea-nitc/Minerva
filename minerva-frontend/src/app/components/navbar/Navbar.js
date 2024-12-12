@@ -12,12 +12,12 @@ const Navbar = () => {
   };
 
   return (
-    <div className="absolute ">
+    <div className=" absolute">
       <div
         style={{ backgroundColor: "#800080" }}
         className="h-1 w-screen"
       ></div>
-      <div className="navbar font-teko pr-12 pl-6  items-start justify-between h-[160px] pt-5  sticky top-0 z-10  transition-all duration-300 ease-linear max-920:h-[120px] max-800:items-center ">
+      <div className="navbar font-teko pr-12 pl-6  items-start justify-between h-[160px] pt-5 sticky top-0 z-10  transition-all duration-10 ease-linear max-920:h-[120px] max-800:items-center ">
         <div className="flex gap-6 logo ">
           <img className="h-[90px] pl-3 -mt-2  max-1060:h-[80px] max-800:h-[70px] " src="/logo.svg" alt="Logo" />
 
