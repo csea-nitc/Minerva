@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dccs",
+  "info": {
+    "singularName": "dcc",
+    "pluralName": "dccs",
+    "displayName": "DCC"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "pdf": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
