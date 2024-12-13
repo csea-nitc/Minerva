@@ -13,6 +13,8 @@ module.exports = {
             },
             fontFamily: {
                 verdana: ["Verdana", "sans-serif"],
+                saira: ["Saira Semi Condensed", "sans-serif"],
+                mont: ["Montserrat", "sans-serif"],
             },
             screens: {
                 xs: "480px", // Extra small devices
