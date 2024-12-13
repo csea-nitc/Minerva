@@ -10,10 +10,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="max-w-[1160px] mx-auto ">
-        {/* <Navbar /> */}
-       
+      {/* <body className="max-w-[1160px] mx-auto "> */}
+      <body className="overflow-x-hidden">
         
+        <Navbar />
           
         {children}
       </body>
