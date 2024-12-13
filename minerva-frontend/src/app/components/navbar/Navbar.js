@@ -12,10 +12,10 @@ const Navbar = () => {
   };
 
   return (
-    <div className="left-0  fixed  top-0 z-20">
+    <div className="absolute w-full top-0 z-20">
       <div
         style={{ backgroundColor: "#800080" }}
-        className="h-1 w-[100vw]"
+        className="h-1 "
       ></div>
       <div className="navbar font-teko pr-12 pl-6  items-start justify-between h-[160px] pt-5   transition-all duration-10 ease-linear max-920:h-[120px] max-800:items-center ">
         <div className="relative  flex gap-6 logo ">

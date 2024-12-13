@@ -9,7 +9,7 @@ export default function InfoSection({
 }) {
   return (
     <div className="flex flex-col">
-      <div className="mt-8">
+      <div className="mt-1">
         <div
           className="text-[3em] sm:text-[5em] font-extrabold text sm:"
           style={{ color: "#800080" }}
@@ -17,7 +17,7 @@ export default function InfoSection({
           /// {title}
         </div>
         <div
-          className="h-[7px]  w-full mt-4"
+          className="h-[7px]  w-full mt-1"
           style={{ backgroundColor: "#800080" }}
         ></div>
 
