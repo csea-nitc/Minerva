@@ -12,15 +12,17 @@ function DropdownButtons({dropdownContent}) {
   return (
     <div>
       <div
-        className="relative z-0 flex space-x-4 justify-between py-5 border mt-5"
-        style={{ borderColor: "#800080", borderWidth: "3px" }}
+        className="relative z-0 flex  justify-between w-full  mt-5"
+        style={{ borderColor: "#800080", borderWidth: "3px" ,borderRightWidth:"0"}}
       >
         {["Curriculum", "Syllabi", "Ordinances and Regulations"].map(
           (button) => (
-            <div key={button} className="">
+            <div key={button} className="flex flex-1   justify-center py-2 border-r-[3px] border-black"    style={{ borderColor: "#800080",color: "#800080"  }} >
               <button
-                className="px-6 py-2 font-bold rounded hover:bg-gray-300"
-                onClick={() => handleButtonClick(button)}
+                className="sm:px-6 text-[1.3em] sm:text-[1.5em] rounded  uppercase"
+                onClick={() => handleButtonClick(button)
+                  
+                }
               >
                 {button}
               </button>
@@ -32,14 +34,14 @@ function DropdownButtons({dropdownContent}) {
       {["Curriculum", "Syllabi", "Ordinances and Regulations"].map((button) => (
         <div
         key={button}
-          className={` w-full shadow-lg transition-all duration-300 ease-in-out ${
+          className={` w-full shadow-lg  ${
             activeButton === button ? "opacity-100" : "max-h-0 py-0 opacity-0"
           }`}
           style={{ backgroundColor: "#800080" }}
         >
           <ul className="p-2">
             {dropdownContent[button].map((link, index) => (
-              <li key={index} className="px-4 py-2 text-white">
+              <li key={index} className="px-4 py-2 text-white text-[1.3em]">
                 <a href="#">{link}</a>
               </li>
             ))}

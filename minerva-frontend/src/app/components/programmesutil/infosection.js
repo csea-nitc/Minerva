@@ -7,12 +7,13 @@ export default function InfoSection({
   img2,
   downloadables,
 }) {
- 
-
   return (
     <div className="flex flex-col">
       <div className="mt-8">
-        <div className="text-[5em] font-extrabold text" style={{ color: "#800080" }}>
+        <div
+          className="text-[3em] sm:text-[5em] font-extrabold text sm:"
+          style={{ color: "#800080" }}
+        >
           /// {title}
         </div>
         <div
@@ -22,29 +23,30 @@ export default function InfoSection({
 
         <DropdownButtons dropdownContent={downloadables} />
 
-        <div className="font-montserrat font-semibold text-[1em] leading-[35px]">
-          <div className="py-[4em] text-justify flex">
-            <p className=" w-1/2 ">{para1}</p>
+        <div className="font-montserrat text-[1.2em] leading-[35px] max-800:leading-7">
+  {/* First Section */}
+  <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 text-justify ">
+    <div className="w-[90%] flex  order-1 sm:order-2 mx-auto sm:justify-self-end sm:mx-0">
+      <img
+        src={img1}
+        className="object-cover h-[300px] shadow-[-20px_20px_0px_#CF92CE]  "
+      />
+    </div>
+    <p className="w-full sm:pr-4 order-2 mt-6 sm:order-none sm:mt-0">{para1}</p>
+  </div>
 
-            <div className=" pl-[70px]">
-              <img
-                src={img1}
-                className="w-full object-cover h-[300px] shadow-[-20px_20px_0px_#800080]"
-              />
-            </div>
-          </div>
+  {/* Second Section */}
+  <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 text-justify">
+    <div className="w-[90%] mx-auto">
+      <img
+        src={img2}
+        className="object-cover h-[300px] shadow-[-20px_20px_0px_#CF92CE]"
+      />
+    </div>
+    <p className="w-full mt-6 sm:mt-0">{para2}</p>
+  </div>
+</div>
 
-          <div className="my-6 text-justify flex">
-            <div className=" pl-[20px] flex ">
-              <img
-                src={img2}
-                className="w-full h-auto shadow-[-20px_20px_0px_#800080]"
-              />
-            </div>
-
-            <p className=" w-1/2 pl-[50px] ">{para2}</p>
-          </div>
-        </div>
       </div>
     </div>
   );
