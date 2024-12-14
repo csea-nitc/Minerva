@@ -12,20 +12,21 @@
   import './styles.css';
 
   // import required modules
-  import { EffectCoverflow, Navigation } from 'swiper/modules';
+  import { EffectCoverflow, Navigation, Autoplay} from 'swiper/modules';
 
-  export default function App({images,flag}) {
+  export default function App({images,flag,view,width}) {
     const [activeIndex, setActiveIndex] = useState(0);
     return (
       <>
-      <div className='w-[52%] border-2'>
+      <div className='w-[100%]'>
         <Swiper
+          modules={[EffectCoverflow, Navigation, Autoplay]}
           onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
           navigation = {true}
           effect={'coverflow'}
           centeredSlides={true}
-          slidesPerView={3} 
-          spaceBetween={-200} 
+          slidesPerView={view} 
+          spaceBetween={20} 
           initialSlide={2}
           coverflowEffect={{
             rotate: 0,
@@ -34,10 +35,23 @@
             modifier: 1,
             slideShadows: false
           }}
-          loop = {false}
+          breakpoints={
+            {
+              640 : {
+                slidesPerView : 3,
+                spaceBetween : -120,
+                loop : false,
+                autoplay: false
+              }
+            }
+          }
+          autoplay={{ 
+            delay: 2000, // 2 seconds per slide
+            disableOnInteraction: true
+          }}
+          loop = {true}
           speed={1500}
-          modules={[EffectCoverflow, Navigation]}
-          className="mySwiper w-[100%] h-[85%]"
+          className={"mySwiper "+width}
           style={{ transitionTimingFunction: 'ease-in-out' }}
         >
           {images.map((image, index) => (
