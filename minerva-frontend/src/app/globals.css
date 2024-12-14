@@ -77,3 +77,22 @@ body {
   margin-left: 2.5rem;
   margin-bottom: 2.5rem;
 }
+
+@font-face {
+    font-family: "Saira Semi Condensed";
+    src: url("./fonts/SairaSemiCondensed-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Montserrat";
+    src: url("./fonts/Montserrat-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@layer utilities {
+    .text-stroke {
+        -webkit-text-stroke: 2px black;
+        text-stroke: 2px black;
+    }
+}

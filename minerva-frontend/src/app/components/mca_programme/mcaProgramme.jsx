@@ -1,6 +1,6 @@
 export default function McaProgramme() {
     return (
-        <div className="bg-[#800080] font-verdana text-white lg:h-[25rem] overflow-hidden relative sm-md:rounded-tr-[250px] sm-md:p-[4rem] p-[2rem]">
+        <div className="bg-[#800080] font-mont text-white lg:h-[25rem] overflow-hidden relative sm-md:rounded-tr-[250px] sm-md:p-[4rem] p-[2rem]">
             <div className="relative">
                 <img
                     src="/images/csea.png"
