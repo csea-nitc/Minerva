@@ -7,9 +7,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily : {
-        Teko : ["Teko","sans-serif"]
-      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
@@ -18,6 +15,7 @@ module.exports = {
       fontFamily: {
         verdana: ["Verdana", "sans-serif"],
         mont: ["Montserrat", "sans-serif"],
+        Teko : ["Teko","sans-serif"]
       },
       screens: {
         xs: "480px", // Extra small devices
