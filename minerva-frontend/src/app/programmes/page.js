@@ -8,55 +8,55 @@ import InfoSection from "../components/programmesutil/infosection";
 export default function Programmes() {
   const [selectedTab, setSelectedTab] = useState(tabData["B. Tech"]);
 
-  // Client-side only initialization of GSAP and ScrollTrigger
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // Register the GSAP plugin only on the client-side
+      // Register the GSAP plugin
       gsap.registerPlugin(ScrollTrigger);
-
-      // GSAP animation for Programmes text (moving from center to above tabs)
-      useEffect(() => {
-        if (typeof window !== "undefined") {
-          // Register the GSAP plugin
-          gsap.registerPlugin(ScrollTrigger);
-      
-          // GSAP animation for Programmes text
-          gsap.fromTo(
-            ".programmes-text",
-            { y: "0", x: "0", color: "#ffffff", opacity: 1 }, // Initial state: White text
-            {
-              y: "45vh", // Move down
-              x: "16vw", // Adjust position
-              color: "#800080", // Change color to the current theme color
-              opacity: 1, // Keep visible
-              duration: 3, // Smooth animation
-              scrollTrigger: {
-                trigger: ".programmes-text", // Trigger animation when Programmes text enters viewport
-                start: "top 0", // Start animation
-                end: "bottom 30%", // End animation
-                scrub: 1, // Synchronize animation with scroll
-                toggleActions: "play reverse play reverse", // Replay animation when scrolling up
-              },
-            }
-          );
+  
+      // Get a reference to the div beneath "Programmes" text
+      const contentDiv = document.querySelector(".content-div");
+  
+      // GSAP animation for Programmes text
+      gsap.fromTo(
+        ".programmes-text",
+        { y: "0", opacity: 1 }, // Initial state
+        {
+          y: "45vh", x:"13vw", // Move down
+          opacity: 1,
+          duration: 3,
+          scrollTrigger: {
+            trigger: ".programmes-text",
+            start: "top 0", // Start animation
+            end: "bottom 0", // End animation
+            scrub: 1, // Sync animation with scroll
+            markers: true,
+            onUpdate: (self) => {
+              // Dynamically adjust padding-top of the content div
+              const progress = self.progress; // Animation progress (0 to 1)
+              contentDiv.style.paddingTop = `${5 + progress * 23}vh`; // From 5vh to 25vh
+            },
+          },
         }
-      }, []);
+      );
+
+      
+
       
     }
   }, []);
 
   return (
     <div className="min-h-screen font-saira text-[18px] max-800:text-[13px] max-1060:text-[15px]">
-      <div className="relative top-0 w-full h-[70vh]">
+      <div className="relative top-0 w-full h-[40vh] sm:h-[70vh]">
         <img
           src="landing.png"
-          className="rounded-b-3xl absolute w-full h-full object-cover -z-20"
+          className=" absolute  w-full h-[40vh] sm:h-full object-cover -z-20"
           alt="Background"
         />
-        <div className="absolute rounded-b-3xl inset-0 bg-[#800080] opacity-45 -z-20"></div>
-        <div className="absolute rounded-b-3xl inset-0 bg-black opacity-35 -z-20"></div>
+        <div className="absolute  inset-0  h-[40vh] sm:h-full bg-[#800080] opacity-45 -z-20"></div>
+        <div className="absolute  inset-0 h-[40vh] sm:h-full bg-black opacity-35 -z-20"></div>
         <div
-          className="font-saira programmes-text text-[4.5em] pt-[25vh] font-bold uppercase text-center sm:text-[7em]"
+          className="font-saira programmes-text text-[4.5em] pt-[17vh] sm:pt-[25vh] font-bold uppercase text-center sm:text-[7em]"
           style={{ color: "#800080" }}
         >
           Programmes
@@ -64,16 +64,16 @@ export default function Programmes() {
       </div>
 
       <div
-        className="content-div  max-w-[1240px] mx-auto pl-5 pt-[27vh]"
+        className="content-div  max-w-[1240px] mx-auto relative  -mt-0 pl-5 pt-[27vh]"
         style={{ borderColor: "#800080", borderLeftWidth: "14px" }}
       >
         {/* Tab Navigation */}
-        <div className="flex flex-row justify-start items-center">
+        <div className="flex flex-row w-full  sm:w-[80vw]  ">
           {Object.keys(tabData).map((tab, index) => (
             <div key={tab} className="flex items-center">
               <button
                 onClick={() => setSelectedTab(tabData[tab])}
-                className={`px-4 py-2 font-bold text-[1.8em] rounded-lg transition-colors duration-200 ${
+                className={`px-4 max-800:px-2 py-2 font-bold text-[1.5em] max-920:text-[1.3em] rounded-lg transition-colors duration-200 ${
                   selectedTab === tabData[tab]
                     ? "bg-[#800080] text-white"
                     : "hover:bg-[#800080] hover:text-white"
@@ -82,13 +82,12 @@ export default function Programmes() {
                 {tab}
               </button>
               {index < Object.keys(tabData).length - 1 && (
-                <div className="-ml-1 mr-3 w-[4px] h-[3em] bg-[#800080] opacity-40 rounded-full"></div>
+                <div className="mx-3 w-[4px] h-[3em] bg-[#800080] opacity-40 rounded-full"></div>
               )}
             </div>
           ))}
         </div>
 
-        {/* Info Section */}
         <InfoSection
           title={Object.keys(tabData).find(
             (key) => tabData[key] === selectedTab
