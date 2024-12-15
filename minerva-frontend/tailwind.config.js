@@ -12,7 +12,7 @@ module.exports = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        saira-alt:['Saira','Sans'],
+        sairaalt: ["Saira", "Sans"],
         verdana: ["Verdana", "sans-serif"],
         saira: ["Saira Semi Condensed", "sans-serif"],
         mont: ["Montserrat", "sans-serif"],
@@ -34,7 +34,7 @@ module.exports = {
         "max-920": { max: "920px" }, // Max-width screens
         "max-1060": { max: "1060px" },
         "max-800": { max: "800px" },
-        "max-1240":{max:'1240px'},
+        "max-1240": { max: "1240px" },
       },
     },
   },

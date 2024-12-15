@@ -1,9 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-
 import "./Navbar.css";
-
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -13,17 +11,20 @@ const Navbar = () => {
 
   return (
     <div className="absolute w-full top-0 z-20">
-      <div
-        style={{ backgroundColor: "#800080" }}
-        className="h-1 "
-      ></div>
+      <div style={{ backgroundColor: "#800080" }} className="h-1 "></div>
       <div className="navbar font-teko pr-12 pl-6  items-start justify-between h-[160px] pt-5   transition-all duration-10 ease-linear max-920:h-[120px] max-800:items-center ">
         <div className="relative  flex gap-6 logo ">
-          <img className="h-[90px] pl-3   max-1060:h-[80px] max-800:h-[70px] " src="/logo.svg" alt="Logo" />
+          <img
+            className="h-[90px] pl-3   max-1060:h-[80px] max-800:h-[70px] "
+            src="/logo.svg"
+            alt="Logo"
+          />
 
-          <div className="text-white text-2xl space-[20px] pt-1 hidden max-w-[200px] max-800:block">National Institute of Technology Calicut</div>
+          <div className="text-white text-2xl space-[20px] pt-1 hidden max-w-[200px] max-800:block">
+            National Institute of Technology Calicut
+          </div>
         </div>
-       
+
         <div
           className="hamburger hidden max-800:flex gap-[6px] flex-col"
           onClick={toggleMenu}
@@ -77,19 +78,15 @@ const Navbar = () => {
               <a href="/activites">Activities</a>
               <a href="/downloads">Downloads</a>
               <div className=" bg-white flex w-[77px]  text-violet-700 py-[0.5] px-3 rounded-lg">
-              <a
-                href="/login"
-                className="login  "
-              >
-                Login
-              </a>
+                <a href="/login" className="login  ">
+                  Login
+                </a>
               </div>
-              
             </div>
             <div
-                style={{ backgroundColor: "#800080" }}
-                className="h-1 w-[100vw] mt-3"
-              ></div>
+              style={{ backgroundColor: "#800080" }}
+              className="h-1 w-[100vw] mt-3"
+            ></div>
           </div>
         </div>
       </div>

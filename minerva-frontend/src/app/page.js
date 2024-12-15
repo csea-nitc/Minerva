@@ -7,13 +7,6 @@ import Mission from "./components/mission/Mission";
 import History from "./components/history/History";
 import McaProgramme from "./components/mca_programme/mcaProgramme";
 
-
 export default function Home() {
-  return (
-    <div className="overflow-hidden">
-<img src="landing.png" className="w-full"></img>
-<img src="landing.png" className="w-full"></img>
-<img src="landing.png" className="w-full"></img>
-    </div>
-  );
+  return <div className="overflow-hidden"></div>;
 }
