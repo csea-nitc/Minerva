@@ -6,14 +6,22 @@ import Vision from "./components/vision/Vision";
 import Mission from "./components/mission/Mission";
 import History from "./components/history/History";
 import McaProgramme from "./components/mca_programme/mcaProgramme";
+import Navbar from "./components/navbar/Navbar";
 
 
 export default function Home() {
   return (
     <div className="overflow-hidden">
-<img src="landing.png" className="w-full"></img>
-<img src="landing.png" className="w-full"></img>
-<img src="landing.png" className="w-full"></img>
+   <Navbar/>
+        <Sidebar />
+            <main className="m-0 p-0 bg-white">
+                {/* <h1 className="text-black">Test</h1> */}
+                <Profile />
+                <Vision />
+                <Mission />
+                <History />
+                <McaProgramme />
+            </main>
     </div>
   );
 }
