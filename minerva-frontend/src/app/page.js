@@ -1,5 +1,3 @@
-import Image from "next/image";
-import dynamic from "next/dynamic";
 import Sidebar from "./components/sidebar/Sidebar";
 import Profile from "./components/profile/Profile";
 import Vision from "./components/vision/Vision";
@@ -12,7 +10,13 @@ import Data from "./data.json";
 export default function Home() {
   return (
     <div>
-      <Hero props={Data}/>
-      <div className="text-5xl">h</div>
+      <Hero props={Data} />
+      <Sidebar />
+      <Profile />
+      <Vision />
+      <Mission />
+      <History />
+      <McaProgramme />
     </div>
   );
+}
