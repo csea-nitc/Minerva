@@ -11,10 +11,31 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
-      fontFamily:{
-        teko:['Teko','sans-serif'],
-        saira:['Saira','sans-serif'],
-      }
+      fontFamily: {
+        sairaalt: ["Saira", "Sans"],
+        verdana: ["Verdana", "sans-serif"],
+        saira: ["Saira Semi Condensed", "sans-serif"],
+        mont: ["Montserrat", "sans-serif"],
+        teko: ["Teko", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
+      },
+      screens: {
+        xs: "480px", // Extra small devices
+        sm: "640px", // Small devices
+        "sm-md": "704px", // Middle of small and medium
+        md: "768px", // Medium devices
+        "md-lg": "896px", // Middle of medium and large
+        lg: "1024px", // Large devices
+        "lg-xl": "1152px", // Middle of large and extra large
+        xl: "1280px", // Extra large devices
+        "xl-2xl": "1408px", // Middle of extra large and 2xl
+        "2xl": "1536px", // Default 2xl
+        "3xl": "1920px", // Custom large screen
+        "max-920": { max: "920px" }, // Max-width screens
+        "max-1060": { max: "1060px" },
+        "max-800": { max: "800px" },
+        "max-1240": { max: "1240px" },
+      },
     },
   },
   plugins: [],
