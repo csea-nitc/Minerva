@@ -2,6 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Teko';
+  src: url('/fonts/Teko.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Saira';
+  src: url('/fonts/SairaSemiCondensed-ExtraBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: "Saira Semi Condensed";
+    src: url("./fonts/SairaSemiCondensed-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Montserrat-alt";
+    src: url("./fonts/Montserrat-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -9,8 +51,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #050505;
   }
 }
 
@@ -21,6 +63,7 @@ body {
     --background: #ffffff;
     --foreground: #171717;
 }
+
 
 @font-face {
   font-family: "Teko";
@@ -61,4 +104,11 @@ body {
   shape-outside: circle(50%);
   margin-left: 2.5rem;
   margin-bottom: 2.5rem;
+}
+
+@layer utilities {
+    .text-stroke {
+        -webkit-text-stroke: 2px black;
+        text-stroke: 2px black;
+    }
 }
