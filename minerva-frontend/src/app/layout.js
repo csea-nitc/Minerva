@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "../app/components/Navbar";
+import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/Footer";
 
 export const metadata = {
     title: "Create Next App",
@@ -8,12 +9,13 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-    return (
-        <html lang="en">
-            <body>
-                {/* <Navbar /> */}
-                {children}
-            </body>
-        </html>
-    );
+  return (
+    <html lang="en">
+      <body className="overflow-x-hidden ">
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
+    </html>
+  );
 }

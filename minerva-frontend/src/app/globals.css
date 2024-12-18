@@ -8,6 +8,19 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Saira';
+  src: url('/fonts/SairaSemiCondensed-ExtraBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 @font-face {
   font-family: 'Poppins';
