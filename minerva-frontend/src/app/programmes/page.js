@@ -5,8 +5,69 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import InfoSection from "../components/programmesutil/infosection";
 
+const token = process.env.NEXT_PUBLIC_TOKEN;
+const backendUrl = process.env.NEXT_PUBLIC_API_URL; 
+
 export default function Programmes() {
   const [selectedTab, setSelectedTab] = useState(tabData["B. Tech"]);
+
+  useEffect(() => {
+      const fetchData = async () => {
+        const btechcurriculum = await fetch(`${backendUrl}/api/btech-curricula?populate=*`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        
+        const btechsyllabus = await fetch(`${backendUrl}/api/btech-syllabi?populate=*`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        
+        const btechrules = await fetch(`${backendUrl}/api/btech-rules?populate=*`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        
+        const mtechrules = await fetch(`${backendUrl}/api/mtech-rules?populate=*`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        
+        const mtechcsesyllabus = await fetch(`${backendUrl}/api/mtech-syllabi?populate=*`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        
+        const mtechaidasyllabus = await fetch(`${backendUrl}/api/mtechaida-syllabi?populate=*`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });        
+        
+        const mtechissyllabus = await fetch(`${backendUrl}/api/mtechis-syllabi?populate=*`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        const btechcurriculumData = await btechcurriculum.json();
+        const btechsyllabusData = await btechsyllabus.json();
+        const btechrulesData = await btechrules.json(); 
+        const mtechrulesData = await mtechrules.json();
+        const mtechcsesyllabusData = await mtechcsesyllabus.json(); 
+        const mtechaidasyllabusData = await mtechaidasyllabus.json(); 
+        const mtechissyllabusData = await mtechissyllabus.json();
+        
+      
+      };
+
+      fetchData();
+  });
 
   useEffect(() => {
     if (typeof window !== "undefined") {
