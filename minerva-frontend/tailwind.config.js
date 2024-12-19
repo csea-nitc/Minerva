@@ -17,7 +17,7 @@ module.exports = {
         verdana: ["Verdana", "sans-serif"],
         saira: ["Saira Semi Condensed", "sans-serif"],
         mont: ["Montserrat", "sans-serif"],
-        Teko : ["Teko","sans-serif"]
+        Teko : ["Teko","sans-serif"],
         teko: ["Teko", "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
       },
