@@ -8,6 +8,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Montserrat';
   src: url('/fonts/Montserrat-SemiBold.ttf') format('truetype');
@@ -27,6 +28,20 @@
   src: url('/fonts/poppins.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+    font-family: "Saira Semi Condensed";
+    src: url("./fonts/SairaSemiCondensed-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Montserrat-alt";
+    src: url("./fonts/Montserrat-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
 }
 
 :root {
@@ -51,8 +66,8 @@ body {
 
 
 @font-face {
-  font-family: "Verdana";
-  src: url("./fonts/verdana.ttf") format("truetype");
+  font-family: "Teko";
+  src: url('./fonts/Teko-Medium.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -89,4 +104,11 @@ body {
   shape-outside: circle(50%);
   margin-left: 2.5rem;
   margin-bottom: 2.5rem;
+}
+
+@layer utilities {
+    .text-stroke {
+        -webkit-text-stroke: 2px black;
+        text-stroke: 2px black;
+    }
 }

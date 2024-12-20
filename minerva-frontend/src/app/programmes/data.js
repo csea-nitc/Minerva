@@ -55,5 +55,5 @@ const tabData = {
       img2link: "/image.png",
     },
   };
-
+  
   export default tabData;
