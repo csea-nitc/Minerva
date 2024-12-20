@@ -56,7 +56,7 @@ const Navbar = () => {
             <a href="/academics">Academics</a>
             <a href="/placements">Placement and Internships</a>
             <a href="/activites">Activities</a>
-            <a href="/donwloads">Downloads</a>
+            <a href="/awards">Awards</a>
           </div>
         </div>
       </div>
@@ -76,7 +76,7 @@ const Navbar = () => {
               <a href="/academics">Academics</a>
               <a href="/placements">Placement and Internships</a>
               <a href="/activites">Activities</a>
-              <a href="/downloads">Downloads</a>
+              <a href="/awards">Awards</a>
               <div className=" bg-white flex w-[77px]  text-violet-700 py-[0.5] px-3 rounded-lg">
                 <a href="/login" className="login  ">
                   Login
