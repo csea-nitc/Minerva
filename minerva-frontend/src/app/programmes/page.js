@@ -6,83 +6,103 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import InfoSection from "../components/programmesutil/infosection";
 
 const token = process.env.NEXT_PUBLIC_TOKEN;
-const backendUrl = process.env.NEXT_PUBLIC_API_URL; 
+const backendUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export default function Programmes() {
   const [selectedTab, setSelectedTab] = useState(tabData["B. Tech"]);
 
   useEffect(() => {
-      const fetchData = async () => {
-        const btechcurriculum = await fetch(`${backendUrl}/api/btech-curricula?populate=*`, {
+    const fetchData = async () => {
+      const btechcurriculum = await fetch(
+        `${backendUrl}/api/btech-curricula?populate=*`,
+        {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        });
-        
-        const btechsyllabus = await fetch(`${backendUrl}/api/btech-syllabi?populate=*`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        
-        const btechrules = await fetch(`${backendUrl}/api/btech-rules?populate=*`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        
-        const mtechrules = await fetch(`${backendUrl}/api/mtech-rules?populate=*`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        
-        const mtechcsesyllabus = await fetch(`${backendUrl}/api/mtech-syllabi?populate=*`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        
-        const mtechaidasyllabus = await fetch(`${backendUrl}/api/mtechaida-syllabi?populate=*`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });        
-        
-        const mtechissyllabus = await fetch(`${backendUrl}/api/mtechis-syllabi?populate=*`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        }
+      );
 
-        const btechcurriculumData = await btechcurriculum.json();
-        const btechsyllabusData = await btechsyllabus.json();
-        const btechrulesData = await btechrules.json(); 
-        const mtechrulesData = await mtechrules.json();
-        const mtechcsesyllabusData = await mtechcsesyllabus.json(); 
-        const mtechaidasyllabusData = await mtechaidasyllabus.json(); 
-        const mtechissyllabusData = await mtechissyllabus.json();
-        
-      
-      };
+      const btechsyllabus = await fetch(
+        `${backendUrl}/api/btech-syllabi?populate=*`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
-      fetchData();
+      const btechrules = await fetch(
+        `${backendUrl}/api/btech-rules?populate=*`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const mtechrules = await fetch(
+        `${backendUrl}/api/mtech-rules?populate=*`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const mtechcsesyllabus = await fetch(
+        `${backendUrl}/api/mtech-syllabi?populate=*`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const mtechaidasyllabus = await fetch(
+        `${backendUrl}/api/mtechaida-syllabi?populate=*`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const mtechissyllabus = await fetch(
+        `${backendUrl}/api/mtechis-syllabi?populate=*`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const btechcurriculumData = await btechcurriculum.json();
+      const btechsyllabusData = await btechsyllabus.json();
+      const btechrulesData = await btechrules.json();
+      const mtechrulesData = await mtechrules.json();
+      const mtechcsesyllabusData = await mtechcsesyllabus.json();
+      const mtechaidasyllabusData = await mtechaidasyllabus.json();
+      const mtechissyllabusData = await mtechissyllabus.json();
+    };
+
+    fetchData();
   });
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       // Register the GSAP plugin
       gsap.registerPlugin(ScrollTrigger);
-  
+
       // Get a reference to the div beneath "Programmes" text
       const contentDiv = document.querySelector(".content-div");
-  
+
       // GSAP animation for Programmes text
       gsap.fromTo(
         ".programmes-text",
         { y: "0", opacity: 1 }, // Initial state
         {
-          y: "45vh", x:"13vw", // Move down
+          y: "45vh",
+          x: "13vw", // Move down
           opacity: 1,
           duration: 3,
           scrollTrigger: {
@@ -99,10 +119,6 @@ export default function Programmes() {
           },
         }
       );
-
-      
-
-      
     }
   }, []);
 
@@ -114,7 +130,6 @@ export default function Programmes() {
           className=" absolute  w-full h-[40vh] sm:h-full object-cover -z-20"
           alt="Background"
         />
-        <div className="absolute  inset-0  h-[40vh] sm:h-full bg-[#800080] opacity-45 -z-20"></div>
         <div className="absolute  inset-0 h-[40vh] sm:h-full bg-black opacity-35 -z-20"></div>
         <div
           className="font-saira programmes-text text-[4.5em] pt-[17vh] sm:pt-[25vh] font-bold uppercase text-center sm:text-[7em]"
