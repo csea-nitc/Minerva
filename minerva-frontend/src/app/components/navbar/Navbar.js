@@ -44,7 +44,7 @@ const Navbar = () => {
           </div>
           <div>
             <Link
-              href="/login"
+              href="https://minerva.arunnats.com/admin"
               style={{ color: "#800080" }}
               className="login bg-white p-[0.5] text-[28px] px-3 rounded-sm"
             >
@@ -53,7 +53,7 @@ const Navbar = () => {
           </div>
           <div className="flex justify-end gap-2 uppercase section2">
             <Link href="/faculty">Faculty</Link>
-            <Link href="/academics">Academics</Link>
+            <Link href="/programmes">Academics</Link>
             <Link href="/placements">Placement and Internships</Link>
             <Link href="/activites">Activities</Link>
             <Link href="/awards">Awards</Link>
@@ -73,7 +73,7 @@ const Navbar = () => {
               <Link href="/news">News and Announcements</Link>
               <Link href="/contact">Contact Us</Link>
               <Link href="/faculty">Faculty</Link>
-              <Link href="/academics">Academics</Link>
+              <Link href="/programmes">Academics</Link>
               <Link href="/placements">Placement and Internships</Link>
               <Link href="/activites">Activities</Link>
               <Link href="/awards">Awards</Link>

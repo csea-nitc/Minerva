@@ -123,7 +123,7 @@ export default function Programmes() {
   }, []);
 
   return (
-    <div className="min-h-screen font-saira text-[18px] max-800:text-[13px] max-1060:text-[15px]">
+    <div className="min-h-screen font-saira text-[18px] max-800:text-[13px] max-1060:text-[15px] mb-9">
       <div className="relative top-0 w-full h-[40vh] sm:h-[70vh]">
         <img
           src="landing.png"
@@ -141,7 +141,7 @@ export default function Programmes() {
 
       <div
         className="content-div  max-w-[1240px] mx-auto relative  -mt-0 pl-5 pt-[27vh]"
-        style={{ borderColor: "#800080", borderLeftWidth: "14px" }}
+        // style={{ borderColor: "#800080", borderLeftWidth: "14px" }}
       >
         {/* Tab Navigation */}
         <div className="flex flex-row w-full  sm:w-[80vw]  ">

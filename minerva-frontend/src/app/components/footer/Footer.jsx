@@ -3,8 +3,8 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <>
-      <footer className="px-[3%] py-[1%] bg-[#800080] font-verdana">
-        <div className="py-2 flex flex-col md:flex-row justify-between items-center gap-6 border-b border-b-white text-white">
+      <footer className="px-[3%] py-[1%] bg-[#800080] font-verdana text-white">
+        <div className="py-2 flex flex-col md:flex-row justify-between items-center gap-6 border-b border-b-white ">
           <div>
             <div className="px-2 md:px-4 flex items-center gap-6">
               <img className="h-[96px] w-[81px]" src="/nitc-logo.png" alt="" />
@@ -52,7 +52,7 @@ export default function Footer() {
         </div>
         <div className="py-4 flex justify-between tracking-wide">
           <div className="flex flex-col gap-2">
-            <p>Copyright © 2010-2016 CSED, NIT Calicut</p>
+            <p>Copyright © 2024-2025 CSED, NIT Calicut</p>
             <p>All Rights Reserved</p>
           </div>
           <div>
