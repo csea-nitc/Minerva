@@ -27,16 +27,16 @@ export default function Footer() {
           <div className="max-w-[350px] flex-grow">
             <div className="flex flex-col text-nowrap text-[4vw] sm:[3vw] md:text-[2vw] lg:[1.5vw] xl:text-[1.2vw]">
               <p className="px-2 py-4 border-b border-white"></p>
-              <Link className="px-2 py-4 border-b border-white" href="">
+              <Link className="px-2 py-4 border-b border-white" href="/terms">
                 Terms of Use
               </Link>
-              <Link className="px-2 py-4 border-b border-white" href="">
+              <Link className="px-2 py-4 border-b border-white" href="/accessibility">
                 Accessibility Statement
               </Link>
-              <Link className="px-2 py-4 border-b border-white" href="">
+              <Link className="px-2 py-4 border-b border-white" href="/about-site">
                 About the Site
               </Link>
-              <Link className="px-2 py-4 border-b border-white" href="">
+              <Link className="px-2 py-4 border-b border-white" href="/feedback">
                 Feedback
               </Link>
               <Link className="px-2 py-4 border-b border-white" href="">
