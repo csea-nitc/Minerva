@@ -50,7 +50,7 @@ export default function Footer() {
             alt=""
           />
         </div>
-        <div className="py-4 flex justify-between tracking-wide">
+        <div className="py-4 flex justify-between tracking-wide text-white">
           <div className="flex flex-col gap-2">
             <p>Copyright © 2010-2016 CSED, NIT Calicut</p>
             <p>All Rights Reserved</p>
