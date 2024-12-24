@@ -8,7 +8,7 @@ export default function InfoSection({
   downloadables,
 }) {
   return (
-    <div className="flex flex-col max-1240:pr-[2vw]">
+    <div className="flex flex-col max-1240:pr-[2vw] mb-[10vh] ">
       <div
         className="text-[3em] sm:text-[5em] font-extrabold text sm:"
         style={{ color: "#800080" }}
@@ -30,7 +30,7 @@ export default function InfoSection({
               className="object-cover h-[300px] shadow-[-20px_20px_0px_#CF92CE]  "
             />
           </div>
-          <p className="w-full sm:pr-4 order-2 mt-6 sm:order-none sm:mt-0">
+          <p className="w-full  pr-5 pl-2 sm:px-0 sm:pr-4 sm:pl-0  font-poppins order-2 mt-6 sm:order-none sm:mt-0">
             {para1}
           </p>
         </div>
@@ -39,10 +39,10 @@ export default function InfoSection({
           <div className="w-[90%] mx-auto">
             <img
               src={img2}
-              className="object-cover h-[300px] shadow-[-20px_20px_0px_#CF92CE]"
+              className="object-cover h-[300px]  shadow-[-20px_20px_0px_#CF92CE]"
             />
           </div>
-          <p className="w-full mt-6 sm:mt-0">{para2}</p>
+          <p className="w-full mt-6 font-poppins pl-2 pr-5 sm:px-0 sm:mt-0">{para2}</p>
         </div>
       </div>
     </div>

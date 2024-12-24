@@ -20,6 +20,7 @@ module.exports = {
         Teko : ["Teko","sans-serif"],
         teko: ["Teko", "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
+        jakarta: ["Jakarta", "sans-serif"],
       },
       screens: {
         xs: "480px", // Extra small devices
