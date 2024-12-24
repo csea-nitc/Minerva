@@ -5,7 +5,8 @@ import Mission from "./components/mission/Mission";
 import History from "./components/history/History";
 import McaProgramme from "./components/mca_programme/mcaProgramme";
 import Hero from "./components/heropage/Hero";
-import Data from "./data.json";
+import Data from "./data.json";import Navbar from "./components/navbar/Navbar";
+
 
 export default function Home() {
   return (
