@@ -10,12 +10,14 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        accent: "#800080"
       },
       fontFamily: {
         sairaalt: ["Saira", "Sans"],
         verdana: ["Verdana", "sans-serif"],
         saira: ["Saira Semi Condensed", "sans-serif"],
         mont: ["Montserrat", "sans-serif"],
+        Teko : ["Teko","sans-serif"],
         teko: ["Teko", "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
       },

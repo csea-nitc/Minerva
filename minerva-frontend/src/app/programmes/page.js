@@ -5,23 +5,104 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import InfoSection from "../components/programmesutil/infosection";
 
+const token = process.env.NEXT_PUBLIC_TOKEN;
+const backendUrl = process.env.NEXT_PUBLIC_API_URL;
+
 export default function Programmes() {
   const [selectedTab, setSelectedTab] = useState(tabData["B. Tech"]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const btechcurriculum = await fetch(
+        `${backendUrl}/api/btech-curricula?populate=*`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const btechsyllabus = await fetch(
+        `${backendUrl}/api/btech-syllabi?populate=*`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const btechrules = await fetch(
+        `${backendUrl}/api/btech-rules?populate=*`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const mtechrules = await fetch(
+        `${backendUrl}/api/mtech-rules?populate=*`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const mtechcsesyllabus = await fetch(
+        `${backendUrl}/api/mtech-syllabi?populate=*`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const mtechaidasyllabus = await fetch(
+        `${backendUrl}/api/mtechaida-syllabi?populate=*`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const mtechissyllabus = await fetch(
+        `${backendUrl}/api/mtechis-syllabi?populate=*`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const btechcurriculumData = await btechcurriculum.json();
+      const btechsyllabusData = await btechsyllabus.json();
+      const btechrulesData = await btechrules.json();
+      const mtechrulesData = await mtechrules.json();
+      const mtechcsesyllabusData = await mtechcsesyllabus.json();
+      const mtechaidasyllabusData = await mtechaidasyllabus.json();
+      const mtechissyllabusData = await mtechissyllabus.json();
+    };
+
+    fetchData();
+  });
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       // Register the GSAP plugin
       gsap.registerPlugin(ScrollTrigger);
-  
+
       // Get a reference to the div beneath "Programmes" text
       const contentDiv = document.querySelector(".content-div");
-  
+
       // GSAP animation for Programmes text
       gsap.fromTo(
         ".programmes-text",
         { y: "0", opacity: 1 }, // Initial state
         {
-          y: "45vh", x:"13vw", // Move down
+          y: "45vh",
+          x: "13vw", // Move down
           opacity: 1,
           duration: 3,
           scrollTrigger: {
@@ -38,22 +119,17 @@ export default function Programmes() {
           },
         }
       );
-
-      
-
-      
     }
   }, []);
 
   return (
-    <div className="min-h-screen font-saira text-[18px] max-800:text-[13px] max-1060:text-[15px]">
+    <div className="min-h-screen font-saira text-[18px] max-800:text-[13px] max-1060:text-[15px] mb-9">
       <div className="relative top-0 w-full h-[40vh] sm:h-[70vh]">
         <img
           src="landing.png"
           className=" absolute  w-full h-[40vh] sm:h-full object-cover -z-20"
           alt="Background"
         />
-        <div className="absolute  inset-0  h-[40vh] sm:h-full bg-[#800080] opacity-45 -z-20"></div>
         <div className="absolute  inset-0 h-[40vh] sm:h-full bg-black opacity-35 -z-20"></div>
         <div
           className="font-saira programmes-text text-[4.5em] pt-[17vh] sm:pt-[25vh] font-bold uppercase text-center sm:text-[7em]"
@@ -65,7 +141,7 @@ export default function Programmes() {
 
       <div
         className="content-div  max-w-[1240px] mx-auto relative  -mt-0 pl-5 pt-[27vh]"
-        style={{ borderColor: "#800080", borderLeftWidth: "14px" }}
+        // style={{ borderColor: "#800080", borderLeftWidth: "14px" }}
       >
         {/* Tab Navigation */}
         <div className="flex flex-row w-full  sm:w-[80vw]  ">
