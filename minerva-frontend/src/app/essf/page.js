@@ -1,12 +1,15 @@
 const bankDetails = require("./bankDetails.json");
 const studentRepresentatives = require("./studentRepresentatives.json");
+import ImageHero from "../components/imagehero/Imagehero";
 export default function ESSFPage() {
     return (
-        <div className="pt-10 mt-10 lg:px-[20vw] md:px-[15vw] px-[10vw] w-[100vw]">
+        <>
+         <ImageHero title={"Emergency Student Support Fund"} font={"60px"} mobileFont={"20px"} contentdiv={".content-div"}  />
+         <div className="pt-10 max-w-6xl px-6 mx-auto w-[100vw]">
             <h1 className="md:text-4xl font-mont font-bold text-2xl">
                 Emergency Student Support Fund
             </h1>
-            <div className="font-mont pt-6 pb-6">
+            <div className="font-mont pt-6 pb-6 ">
                 <h2 className="md:text-2xl font-bold">What is ESSF?</h2>
                 <p className="md:text-lg pt-2">
                     ESSF(Emergency Student Support Fund) aims to support
@@ -74,5 +77,8 @@ export default function ESSFPage() {
                 </div>
             </div>
         </div>
+         </>
+        
+      
     );
 }

@@ -1,6 +1,10 @@
+import ImageHero from "../components/imagehero/Imagehero";
+
 export default function TermsPage() {
     return (
-        <div className="pt-10 mt-10 lg:px-[20vw] md:px-[15vw] px-[10vw] w-[100vw]">
+        <>
+            <ImageHero title={"Terms of Use"} font={"60px"} mobileFont={"50px"} contentdiv={".content-div"}  /> 
+        <div className="pt-10 max-w-6xl mx-auto w-[100vw]">
             <h1 className="md:text-4xl font-mont font-bold text-2xl">
                 Terms of Use
             </h1>
@@ -104,6 +108,7 @@ export default function TermsPage() {
                     </a>
                 </p>
             </div>
-        </div>
+        </div></>
+       
     );
 }
