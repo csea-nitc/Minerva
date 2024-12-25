@@ -68,7 +68,7 @@ const Navbar = () => {
             menuOpen ? "opacity-100" : "max-h-0 py-0 opacity-0 hidden"
           }`}
         >
-          <div className="relative z-10 dropdown backdrop-blur-[5px] -mt-[120px] pt-[120px]">
+          <div className="relative z-10 dropdown backdrop-blur-[5px] -mt-[140px] pt-[120px]">
             <div className="flex font-teko flex-col pt-6 p-9 uppercase text-[30px] text-white">
               <Link href="/">Home</Link>
               <Link href="/news">News and Announcements</Link>
