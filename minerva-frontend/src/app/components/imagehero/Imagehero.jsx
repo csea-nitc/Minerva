@@ -3,7 +3,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect } from "react";
 
-export default function ImageHero({ title }) {
+export default function ImageHero({ title,font }) {
   useEffect(() => {
     if (typeof window !== "undefined") {
       // Register the GSAP plugin
@@ -95,7 +95,7 @@ export default function ImageHero({ title }) {
   }, []);
 
   return (
-    <div className="relative top-0 w-full h-[40vh] sm:h-[70vh]">
+    <div className="relative  top-0 w-full h-[40vh] sm:h-[70vh]">
       <img
         src="landing.png"
         className="absolute w-full h-[40vh] sm:h-full object-cover -z-20"
@@ -104,7 +104,11 @@ export default function ImageHero({ title }) {
       <div className="absolute inset-0 h-[40vh] sm:h-full bg-black opacity-35 -z-20"></div>
       <div
         className="font-saira programmes-text text-[5em] pt-[17vh] sm:pt-[25vh] font-bold uppercase text-center sm:text-[7em]"
-        style={{ color: "white" }} // Initial color set to white
+       
+        style={{
+          color: "white", // Initial color set to white
+          fontSize: font, // Apply dynamic font size from prop
+        }}
       >
         {title}
       </div>

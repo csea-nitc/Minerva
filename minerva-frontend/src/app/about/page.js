@@ -1,5 +1,5 @@
 import React from 'react';
-import Footer from '../components/Footer/Footer'
+import Footer from '../components/footer/Footer';
 import Swiper  from '../components/image-carousel/swiper';
 const images = [{"img":"https://swiperjs.com/demos/images/nature-1.jpg","tag":"Software Systems Labortary"},{"img":"https://swiperjs.com/demos/images/nature-2.jpg","tag":"Goofy Systems Laboratory"},{"img":"https://swiperjs.com/demos/images/nature-3.jpg","tag":"Skibidi Laboratory"}]
 const Page = () => {
