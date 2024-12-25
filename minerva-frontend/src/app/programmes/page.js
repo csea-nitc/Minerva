@@ -1,8 +1,8 @@
 "use client";
 import tabData from "./data";
 import { useState, useEffect } from "react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import ImageHero from "../components/imagehero/Imagehero";
+
 import InfoSection from "../components/programmesutil/infosection";
 
 const token = process.env.NEXT_PUBLIC_TOKEN;
@@ -88,63 +88,20 @@ export default function Programmes() {
     fetchData();
   });
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      // Register the GSAP plugin
-      gsap.registerPlugin(ScrollTrigger);
-
-      // Get a reference to the div beneath "Programmes" text
-      const contentDiv = document.querySelector(".content-div");
-
-      // GSAP animation for Programmes text
-      gsap.fromTo(
-        ".programmes-text",
-        { y: "0", opacity: 1 }, // Initial state
-        {
-          y: "45vh",
-          x: "13vw", // Move down
-          opacity: 1,
-          duration: 3,
-          scrollTrigger: {
-            trigger: ".programmes-text",
-            start: "top 0", // Start animation
-            end: "bottom 0", // End animation
-            scrub: 1, // Sync animation with scroll
-            markers: true,
-            onUpdate: (self) => {
-              // Dynamically adjust padding-top of the content div
-              const progress = self.progress; // Animation progress (0 to 1)
-              contentDiv.style.paddingTop = `${5 + progress * 23}vh`; // From 5vh to 25vh
-            },
-          },
-        }
-      );
-    }
-  }, []);
+ 
 
   return (
     <div className="min-h-screen font-saira text-[18px] max-800:text-[13px] max-1060:text-[15px] mb-9">
-      <div className="relative top-0 w-full h-[40vh] sm:h-[70vh]">
-        <img
-          src="landing.png"
-          className=" absolute  w-full h-[40vh] sm:h-full object-cover -z-20"
-          alt="Background"
-        />
-        <div className="absolute  inset-0 h-[40vh] sm:h-full bg-black opacity-35 -z-20"></div>
-        <div
-          className="font-saira programmes-text text-[4.5em] pt-[17vh] sm:pt-[25vh] font-bold uppercase text-center sm:text-[7em]"
-          style={{ color: "#800080" }}
-        >
-          Programmes
-        </div>
-      </div>
+
+      <ImageHero title={"Programmes"}/>
+     
 
       <div
         className="content-div  max-w-[1240px] mx-auto relative  -mt-0 pl-5 pt-[27vh]"
         // style={{ borderColor: "#800080", borderLeftWidth: "14px" }}
       >
         {/* Tab Navigation */}
-        <div className="flex flex-row w-full  sm:w-[80vw]  ">
+        <div className="flex flex-row w-full pr-4 sm:w-[80vw]  ">
           {Object.keys(tabData).map((tab, index) => (
             <div key={tab} className="flex items-center">
               <button
