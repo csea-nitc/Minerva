@@ -16,3 +16,4 @@ export default function Home() {
       <div className="text-5xl">h</div>
     </div>
   );
+}
