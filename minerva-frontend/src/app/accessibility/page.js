@@ -3,11 +3,11 @@ export default function accessibility() {
     return (
         <div>
             <ImageHero title={"Accessibility Statement"} font={"60px"} mobileFont={"30px"}  contentdiv={".content-div"}  />
-        <div className="content-div pt-10 max-w-6xl mx-auto px-6 w-[100vw]">
-            <h1 className="md:text-4xl font-mont font-bold text-2xl">
+        <div className="content-div pt-10 max-w-6xl mx-auto text-justify px-6 w-[100vw] ">
+            <h1 className="md:text-4xl font-serif font-bold text-2xl">
                 Accessibility Statement
             </h1>
-            <div className="font-mont pt-6 pb-6">
+            <div className=" pt-6 pb-6 font-jakarta">
                 <p className="md:text-lg">
                     We are trying to ensure that the CSED Website is accessible
                     to all users irrespective of device in use, technology or
@@ -32,8 +32,8 @@ export default function accessibility() {
                     of usability and universal design, which should help all
                     visitors of this website.
                 </p>
-                <p className="md:text-lg pt-6">
-                    <strong>Place Holder &darr;&darr;&darr;</strong>
+                <p className="md:text-lg pt-6  ">
+                    <strong className="">Place Holder &darr;&darr;&darr;</strong>
                     <br />
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                     Totam optio distinctio natus nemo. Exercitationem sed

@@ -112,7 +112,7 @@ export default function ImageHero({ title, font, mobileFont, contentdiv }) {
         className="font-saira programmes-text flex justify-center items-center pt-14 sm:pt-0 h-full font-bold uppercase text-center"
         style={{
           color: "white", // Default color
-          fontSize: `clamp(${mobileFont}, 5vw, ${font})`, // Dynamic font size: mobileFont for smaller screens, scaling up to font
+          fontSize: `clamp(${mobileFont}, 10vw, ${font})`, // Dynamic font size: mobileFont for smaller screens, scaling up to font
         }}
       >
         {title}
