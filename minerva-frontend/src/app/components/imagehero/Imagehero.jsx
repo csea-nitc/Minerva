@@ -101,7 +101,7 @@ export default function ImageHero({ title, font, mobileFont, contentdiv }) {
   // }, [contentdiv]);
 
   return (
-    <div className="relative top-0 w-full h-[40vh] sm:h-[70vh]">
+    <div className="relative top-0 w-full h-[40vh] sm:h-[40vh]">
       <img
         src="landing.png"
         className="absolute w-full h-[40vh] sm:h-full object-cover -z-20"
@@ -109,7 +109,7 @@ export default function ImageHero({ title, font, mobileFont, contentdiv }) {
       />
       <div className="absolute inset-0 h-[40vh] sm:h-full bg-black opacity-35 -z-20"></div>
       <div
-        className="font-saira programmes-text flex justify-center items-center pt-14 sm:pt-0 h-full font-bold uppercase text-center"
+        className="translate-y-12 font-saira programmes-text flex justify-center items-center pt-14 sm:pt-0 h-full font-bold uppercase text-center"
         style={{
           color: "white", // Default color
           fontSize: `clamp(${mobileFont}, 5vw, ${font})`, // Dynamic font size: mobileFont for smaller screens, scaling up to font
