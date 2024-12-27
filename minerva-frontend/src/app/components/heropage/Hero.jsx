@@ -12,6 +12,7 @@ const Hero = ({ props }) => {
           DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING
         </p>
         <div className="bg-[#FFFBF2] min-[400px]:w-[40%] w-[45%] md:w-[60%] rounded-t-2xl relative mb-0 mt-auto">
+
           <div className="flex flex-col md:flex-row justify-around p-5 w-[100%] text-[#812981] font-teko md:text-left">
             <div className="flex flex-col justify-center md:w-[33%] border-b md:border-b-0 md:border-r-4 border-[#DEBDDD] md:mr-3 mt-3 pb-3 md:pb-0 md:pr-3">
               <a className="text-xl md:text-3xl font-bold">NEWS</a>
@@ -39,4 +40,3 @@ const Hero = ({ props }) => {
 };
 
 export default Hero;
-//top-[120px] xs:top-[150px] sm:top-52 md:top-60 lg:top-56 xl:top-60 2xl:top-64

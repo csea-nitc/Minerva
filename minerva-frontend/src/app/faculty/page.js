@@ -1,112 +1,74 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, use } from "react";
 import gsap from "gsap";
 import FacultyDetails from "../components/facultydetails/FacultyDetails";
+import axios from "axios";
+import https from "https";
 
-const hod = {
-    name: "Dr. Sumesh Divakaran",
-    position: "Associate Professor",
-    email: "sumesh@example.com",
-    officeLocation: "Block A, Room 101",
-    officeContact: "1234567890",
-    education: "Ph.D. in Computer Science",
-    specialization: "Artificial Intelligence",
-    frgs: "AI Research Group",
-    externalLinks: ["Google Scholar", "Personal Website"],
-    additionalInfo: "Lorem ipsum dolor sit amet.",
-    image: "https://i.pinimg.com/originals/75/02/e1/7502e1505ab906dc739cefebed94de1f.jpg",
-};
-const facultyData = [
-    {
-        name: "Dr. Sumesh Divakaran",
-        position: "Associate Professor",
-        email: "sumesh@example.com",
-        officeLocation: "Block A, Room 101",
-        officeContact: "1234567890",
-        education: "Ph.D. in Computer Science",
-        specialization: "Artificial Intelligence",
-        frgs: "AI Research Group",
-        externalLinks: ["Google Scholar", "Personal Website"],
-        additionalInfo: "Lorem ipsum dolor sit amet.",
-        image: "https://i.pinimg.com/originals/75/02/e1/7502e1505ab906dc739cefebed94de1f.jpg",
-    },
-    {
-        name: "Dr. Jane Doe",
-        position: "Professor",
-        email: "jane@example.com",
-        officeLocation: "Block B, Room 202",
-        officeContact: "0987654321",
-        education: "Ph.D. in Data Science",
-        specialization: "Big Data Analytics",
-        frgs: "Data Science Research Group",
-        externalLinks: ["Google Scholar", "Institute Webpage"],
-        additionalInfo: "Consectetur adipiscing elit.",
-        image: "https://images4.alphacoders.com/131/1319447.jpeg",
-    },
-    {
-        name: "Dr. John Smith",
-        position: "Assistant Professor",
-        email: "john@example.com",
-        officeLocation: "Block C, Room 303",
-        officeContact: "1122334455",
-        education: "Ph.D. in Software Engineering",
-        specialization: "DevOps",
-        frgs: "Software Engineering Group",
-        externalLinks: ["Google Scholar"],
-        additionalInfo: "Curabitur vel tincidunt nunc.",
-        image: "https://img.redbull.com/images/c_fill,g_auto,w_450,h_600/q_auto:low,f_auto/redbullcom/2024/4/24/lctpqlt7uup7fjvsegfg/clove-valorant",
-    },
-    {
-        name: "Dr. Sarah Johnson",
-        position: "Associate Professor",
-        email: "sarah.johnson@example.com",
-        officeLocation: "Block A, Room 205",
-        officeContact: "2233445566",
-        education: "M.S. in Data Science",
-        specialization: "Machine Learning",
-        frgs: "Data Science and Analytics Group",
-        externalLinks: ["ResearchGate", "LinkedIn"],
-        additionalInfo:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        image: "https://i.pinimg.com/736x/6f/d8/18/6fd818ea26d5d3296b902aa917d58547.jpg",
-    },
 
-    {
-        name: "Dr. Chamber",
-        position: "Professor",
-        email: "michael.davis@example.com",
-        officeLocation: "Block B, Room 104",
-        officeContact: "3344556677",
-        education: "Ph.D. in Artificial Intelligence",
-        specialization: "Computer Vision",
-        frgs: "Artificial Intelligence Research Group",
-        externalLinks: ["Google Scholar", "Academia"],
-        additionalInfo:
-            "Pellentesque habitant morbi tristique senectus et netus et malesuada.",
-        image: "https://avatarfiles.alphacoders.com/322/thumb-1920-322435.jpg",
-    },
-
-    {
-        name: "Dr. Emily Clark",
-        position: "Lecturer",
-        email: "emily.clark@example.com",
-        officeLocation: "Block D, Room 502",
-        officeContact: "4455667788",
-        education: "M.A. in Computer Science",
-        specialization: "Cybersecurity",
-        frgs: "Cybersecurity and Network Systems Group",
-        externalLinks: ["GitHub", "Twitter"],
-        additionalInfo:
-            "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;",
-        image: "https://i.pinimg.com/originals/06/3a/c0/063ac094ea7d4d379bf2acb82df601e1.jpg",
-    },
-];
 
 export default function Home() {
     const [isHodInfoVisible, setIsHodInfoVisible] = useState(false);
     const [activeIndex, setActiveIndex] = useState(null);
     const hodDetailsRefs = useRef([]);
     const [strokeSize, setStrokeSize] = useState("4px");
+    const [facultyData, setFacultyData] = useState([]);
+    const [hod, setHod] = useState([]);
+
+    const backend_url = process.env.NEXT_PUBLIC_API_URL;
+    const token = process.env.NEXT_PUBLIC_TOKEN;
+
+    useEffect(() => {
+        const fetchData = async () => {      
+            try {
+                const response = await fetch(`${backend_url}/api/faculty-pages?populate=photograph`, {
+                    headers: {
+                    Authorization: `Bearer ${token}`,
+                    },
+                });
+      
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+      
+                const result = await response.json();
+                console.log(result);
+        
+                if (result && result.data && Array.isArray(result.data)) {
+                setFacultyData(result.data);
+                } else {
+                console.error("Data structure is unexpected:", result);
+                }
+        
+            } catch (err) {
+                console.error("Fetch error:", err);
+            }
+        };
+      
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        const fetchHodData = async () => {
+            try {   
+                const response = await fetch(`${backend_url}/api/hod?populate=photograph`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+                
+                const result = await response.json();
+                console.log("something has happened");
+                console.log(result.data);
+                setHod(result.data);
+            } catch (error) {   
+                console.error("Error fetching hod data:", error);
+            }
+        }
+
+        fetchHodData();
+    }, []);
+
     useEffect(() => {
         const updateStrokeSize = () => {
             if (window.innerWidth >= 1024) {
@@ -126,30 +88,11 @@ export default function Home() {
             window.removeEventListener("resize", updateStrokeSize);
         };
     }, []);
+
     const handleImageClick = () => {
         setIsHodInfoVisible(!isHodInfoVisible);
     };
-    // useEffect(() => {
-    //     if (isHodInfoVisible) {
-    //         gsap.fromTo(
-    //             hodDetailsRefs.current[1],
-    //             { height: 0, opacity: 0 },
-    //             {
-    //                 duration: 0.3,
-    //                 height: "auto",
-    //                 opacity: 1,
-    //                 ease: "power2.out",
-    //             }
-    //         );
-    //     } else {
-    //         gsap.to(hodDetailsRefs.current[1], {
-    //             duration: 0.3,
-    //             height: 0,
-    //             opacity: 0,
-    //             ease: "power2.out",
-    //         });
-    //     }
-    // }, [isHodInfoVisible]);
+
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (
@@ -167,6 +110,7 @@ export default function Home() {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, []);
+
     return (
         <div className="relative overflow-hidden bg-white">
             <div className={`p-8 `}>
@@ -191,7 +135,7 @@ export default function Home() {
                             onClick={handleImageClick}
                         >
                             <img
-                                src={hod.image}
+                                src={`${backend_url}/${hod?.photograph?.[0]?.url}`}
                                 alt={hod.name}
                                 className="h-[25rem] w-[20rem] object-cover border-[10px] border-[#800080] object-top rounded-[10px]"
                             />
@@ -200,7 +144,7 @@ export default function Home() {
                                     {hod.name}
                                 </h1>
                                 <p className="text-[1.2rem] text-center">
-                                    {hod.position}
+                                    {hod.designation}
                                 </p>
                             </div>
                         </div>
@@ -233,34 +177,43 @@ export default function Home() {
                                 {hod.name}
                             </h1>
                             <h2 className="text-white lg-xl:text-[2rem] md:text-[1.5rem] text-[1.3rem]">
-                                {hod.position}
+                                {hod.designation}
                             </h2>
                         </div>
                         <div className="fac-det-details bg-[#d9d9d9] text-black md-lg:w-2/3 w-full font-bold">
                             <ul className="text-sm md:text-base p-4">
-                                <li className="m-4">Email: {hod.email}</li>
+                            {hod.contact_email && (
+                                <li className="m-4">Email: {hod.contact_email}</li>
+                            )}
+                            {hod.office_location && (
+                                <li className="m-4">Office Location: {hod.office_location}</li>
+                            )}
+
+                            {hod.office_no && (
+                                <li className="m-4">Office Contact: {hod.office_no}</li>
+                            )}
+
+                            {hod.education && (
+                                <li className="m-4">Education: {hod.education}</li>
+                            )}
+
+                            {hod.specialisation && (
+                                <li className="m-4">Specialization: {hod.specialisation}</li>
+                            )}
+
+                            {hod.associated_frgs && (
+                                <li className="m-4">Associated FRGs: {hod.associated_frgs}</li>
+                            )}
+
+                            {hod.external_links && (
                                 <li className="m-4">
-                                    Office Location: {hod.officeLocation}
+                                    External Links: {hod.external_links}
                                 </li>
-                                <li className="m-4">
-                                    Office Contact: {hod.officeContact}
-                                </li>
-                                <li className="m-4">
-                                    Education: {hod.education}
-                                </li>
-                                <li className="m-4">
-                                    Specialization: {hod.specialization}
-                                </li>
-                                <li className="m-4">
-                                    Associated FRGs: {hod.frgs}
-                                </li>
-                                <li className="m-4">
-                                    External Links:{" "}
-                                    {hod.externalLinks.join(", ")}
-                                </li>
-                                <li className="m-4">
-                                    Additional Info: {hod.additionalInfo}
-                                </li>
+                            )}
+
+                            {hod.additional_info && (
+                                <li className="m-4">Additional Info: {hod.additional_info}</li>
+                            )}
                             </ul>
                         </div>
                     </div>
@@ -282,7 +235,7 @@ export default function Home() {
                 </h2>
             </div>
             <FacultyDetails
-                data={{ facultyData }}
+                data={ {facultyData} }
                 className={`${isHodInfoVisible ? "blur-[2px]" : ""}`}
                 activeIndex={activeIndex}
                 setActiveIndex={setActiveIndex}
