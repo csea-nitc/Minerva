@@ -8,7 +8,7 @@ const Hero = ({ props }) => {
         style={{ backgroundImage: "url('./Hero/hero-bg.png')" }}
       >
         
-        <p className="text-white font-saira text-4xl sm:text-5xl lg:text-6xl font-extrabold w-[65%] p-auto relative top-[18%] xs:top-[25%] sm:top-[30%] md:top-[32%] lg:top-[40%] xl:top-[40%] 2xl:top-[40%] ">
+        <p className="text-white font-saira text-4xl sm:text-5xl lg:text-6xl font-extrabold w-[65%] p-auto relative top-[18%] xs:top-[25%] sm:top-[30%] md:top-[32%] lg:top-[42%] xl:top-[42%] 2xl:top-[45%]">
           DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING
         </p>
         <div className="bg-[#FFFBF2] min-[400px]:w-[40%] w-[45%] md:w-[60%] rounded-t-2xl relative mb-0 mt-auto">
