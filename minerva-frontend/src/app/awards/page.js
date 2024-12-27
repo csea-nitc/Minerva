@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import ListComp from "../components/newscomp/ListComp";
+import ImageHero from "../components/imagehero/Imagehero";
 
 const token = process.env.NEXT_PUBLIC_TOKEN;
 const backend_url = process.env.NEXT_PUBLIC_API_URL;
@@ -28,6 +29,8 @@ export default function Home() {
   }, []);
 
   return (
+    <>
+       <ImageHero title={"Awards"} font={"60px"} mobileFont={"50px"} contentdiv={".content-div"}  /> 
     <div className="container mx-auto px-4 py-8 mt-20">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-saira font-bold text-foreground mb-6">
@@ -40,6 +43,7 @@ export default function Home() {
           <p className="text-lg font-saira text-gray-500">No awards available.</p>
         )}
       </div>
-    </div>
+    </div></>
+      
   );
 }

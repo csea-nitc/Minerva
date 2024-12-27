@@ -11,6 +11,7 @@ import Data from "./data.json";import Navbar from "./components/navbar/Navbar";
 export default function Home() {
   return (
     <div>
+
       <Hero props={Data} />
        <div className="overflow-hidden">
             <div>

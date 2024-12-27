@@ -1,10 +1,13 @@
 import React from 'react';
-import Footer from '../components/Footer/Footer'
+import Footer from '../components/footer/Footer';
+import ImageHero from '../components/imagehero/Imagehero';
 import Swiper  from '../components/image-carousel/swiper';
 const images = [{"img":"https://swiperjs.com/demos/images/nature-1.jpg","tag":"Software Systems Labortary"},{"img":"https://swiperjs.com/demos/images/nature-2.jpg","tag":"Goofy Systems Laboratory"},{"img":"https://swiperjs.com/demos/images/nature-3.jpg","tag":"Skibidi Laboratory"}]
 const Page = () => {
   return (
+
     <>
+      {/* <ImageHero title={"About CSED"} font={"5vw"} contentdiv={".content-div"}  /> */}
     <div className = " overflow-hidden w-[100%] bg-accent flex justify-end items-center">
       <div className='max-h-[90vh] min-h-[790px] w-[97.5%] bg-white'>
         <div className='h-[30%] md:h-[22%] p-10 mt-[10px] flex flex-col md:flex-row justify-center items-center gap-4'>
