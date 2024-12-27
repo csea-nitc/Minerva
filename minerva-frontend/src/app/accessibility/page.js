@@ -1,6 +1,9 @@
+import ImageHero from "../components/imagehero/Imagehero";
 export default function accessibility() {
     return (
-        <div className="pt-10 mt-10 lg:px-[20vw] md:px-[15vw] px-[10vw] w-[100vw]">
+        <div>
+            <ImageHero title={"Accessibility Statement"} font={"60px"} mobileFont={"30px"}  contentdiv={".content-div"}  />
+        <div className="content-div pt-10 max-w-6xl mx-auto px-6 w-[100vw]">
             <h1 className="md:text-4xl font-mont font-bold text-2xl">
                 Accessibility Statement
             </h1>
@@ -61,5 +64,7 @@ export default function accessibility() {
                 </p>
             </div>
         </div>
+        </div>
+        
     );
 }

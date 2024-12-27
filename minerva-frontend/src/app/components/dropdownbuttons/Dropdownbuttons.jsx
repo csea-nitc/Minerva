@@ -10,9 +10,9 @@ function DropdownButtons({dropdownContent}) {
   };
 
   return (
-    <div>
+    <div className="px-1  sm:px-0">
       <div
-        className="relative z-0 flex  justify-between   mt-5  "
+        className="relative z-0 flex  justify-between   mt-5"
         style={{ borderColor: "#800080", borderWidth: "3px" ,borderRightWidth:"0"}}
       >
         {["Curriculum", "Syllabi", "Ordinances and Regulations"].map(

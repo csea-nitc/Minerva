@@ -1,8 +1,13 @@
 import Activities from "../components/csea/Activities";
+import ImageHero from "../components/imagehero/Imagehero";
 const activitiesDetails = require("./activities.json");
 export default function CSEAPage() {
     return (
-        <div className="pt-10 mt-10 lg:px-[20vw] md:px-[15vw] px-[10vw] w-[100vw] font-mont">
+        <>
+        
+  
+   <ImageHero title={"Computer Science and Engineering Association"} font={"55px"} mobileFont={"20px"} contentdiv={".content-div"}  /> 
+         <div className="pt-10  max-w-6xl mx-auto px-6 w-[100vw] font-mont">
             <h1 className="md:text-4xl font-mont font-bold text-2xl">
                 Computer Science and Engineering Association
             </h1>
@@ -27,6 +32,7 @@ export default function CSEAPage() {
                 </a>
             </p>
             <Activities activitiesDetails={activitiesDetails} />
-        </div>
+        </div></>
+       
     );
 }
