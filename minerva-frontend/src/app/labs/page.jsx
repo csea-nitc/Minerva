@@ -6,8 +6,8 @@ const images = [{"img":"https://swiperjs.com/demos/images/nature-1.jpg","tag":"S
 const page = () => {
   return (
     <>
-    <div className='h-[100vh]'>
-      <ImgCard title={"nigga"} />
+    <div className='h-[95vh]'>
+      <ImgCard title={"Labs"} />
     </div>
     <div className='w-[100%] flex justify-center items-cente h-[420px] sm:h-[460px] md:h-[460px]'>
         <Carousel flag={1} images={images} width={"w-[300px] sm:w-[700px] md:w-[800px]"}/>
