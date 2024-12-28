@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
-const Dropdown = ({ tabs }) => {
+const Dropdown = ({ tabs, isOpen }) => {
+  const dropdownRef = useRef(null);
+
+  // This will be used to trigger the animation based on `isOpen`
+  const [opacity, setOpacity] = useState(0);
+
+  useEffect(() => {
+    if (isOpen) {
+     
+      setOpacity(1);
+    } else {
+    
+      setOpacity(0);
+    }
+  }, [isOpen]);
+
   return (
-    <div className="absolute top-12 left-4 font-jakarta font-semibold bg-white/70 backdrop-blur-md shadow-lg rounded-md px-3 p-2">
+    <div
+      ref={dropdownRef}
+      className="absolute top-12 left-4 font-jakarta font-semibold bg-white/70 backdrop-blur-md shadow-lg rounded-md px-3 p-2 transition-all ease-out duration-300"
+      style={{  opacity }}
+    >
       <div className="text-[16px] max-1060:text-[13px] text-black flex flex-col gap-1">
         {tabs.map((tab, index) => (
           <React.Fragment key={index}>

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
-const DropdownMob = ({ label, items }) => {
+const DropdownMob = ({ label, items , closeMenu }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -32,6 +32,7 @@ const DropdownMob = ({ label, items }) => {
               <React.Fragment key={index}>
                 <Link
                   href={item.href}
+                  onClick={()=>{closeMenu();}}
                   className="block px-4 "
                 >
                   {item.label}

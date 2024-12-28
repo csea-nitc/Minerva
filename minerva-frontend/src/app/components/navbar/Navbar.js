@@ -7,14 +7,18 @@ import DropdownMob from "./DropdownMob";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null); // Track the active dropdown
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
+  const toggleDropdown = (index) => {
+    setActiveDropdown(activeDropdown === index ? null : index); // Toggle the clicked dropdown
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false); // Close the mobile menu
   };
 
   const dropdownActivites = [
@@ -22,7 +26,26 @@ const Navbar = () => {
     { href: "/activities/essf", label: "ESSF" },
   ];
 
-  
+  const dropdownAcademics = [
+    { href: "/programmes", label: "Programmes" },
+    { href: "/research", label: "Research" },
+    { href: "/laboratory", label: "Laboratory" },
+    { href: "/academic_integrity", label: "Academic Integrity" },
+  ];
+
+  const dropdownPlacements = [
+    { href: "/programmes", label: "Placement Statistics" },
+    { href: "/research", label: "Summer Internships" },
+  ];
+
+  const dropdownPeople = [
+    { href: "/faculty", label: "Faculty" },
+    { href: "/staff", label: "Staff" },
+    { href: "/adhoc_faculty", label: "Adhoc Faculty" },
+    { href: "/adhoc_staff", label: "Adhoc Staff" },
+    { href: "/students", label: "Students" },
+    { href: "/alumini", label: "Alumini" },
+  ];
 
   return (
     <div className="absolute w-[100vw] top-0 z-20">
@@ -54,18 +77,21 @@ const Navbar = () => {
             <Link
               href="/"
               className="text-[26px] text-aliceblue px-3 transition-all duration-100 ease-in-out  max-1060:text-[22px] max-920:text-[18px]"
+              onClick={closeMenu}
             >
               Home
             </Link>
             <Link
               href="/news"
               className="text-[26px] text-aliceblue px-3 transition-all duration-100 ease-in-out  max-1060:text-[22px] max-920:text-[18px]"
+              onClick={closeMenu}
             >
               News and Announcements
             </Link>
             <Link
               href="/contact"
               className="text-[26px] text-aliceblue px-3 transition-all duration-100 ease-in-out  max-1060:text-[22px] max-920:text-[18px]"
+              onClick={closeMenu}
             >
               Contact Us
             </Link>
@@ -75,6 +101,7 @@ const Navbar = () => {
                 href="https://minerva.arunnats.com/admin"
                 style={{ color: "#800080" }}
                 className=""
+                onClick={closeMenu}
               >
                 Login
               </Link>
@@ -84,37 +111,72 @@ const Navbar = () => {
             <Link
               href="/faculty"
               className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
+              onClick={closeMenu}
             >
               Faculty
             </Link>
             <div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
-            <Link
-              href="/programmes"
-              className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
-            >
-              Academics
-            </Link>
-            <div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
-            <Link
-              href="/placements"
-              className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
-            >
-              Placement and Internships
-            </Link>
-            <div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
-            <div className="relative" onClick={toggleDropdown}>
-              <Link
-                href="#"
-                className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
-              >
-                Activities
-              </Link>
-              {dropdownOpen && <Dropdown tabs={dropdownActivites} />}
-            </div>
+
+            <div className="relative" onClick={() => toggleDropdown(0)}>
+  <Link
+    href="#"
+    className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
+  >
+    Academics
+  </Link>
+  {/* Pass `isOpen` prop to the Dropdown component */}
+  {activeDropdown === 0 && <Dropdown tabs={dropdownAcademics} isOpen={true} />}
+  {activeDropdown !== 0 && <Dropdown tabs={dropdownAcademics} isOpen={false} />}
+</div>
+
+<div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
+
+<div className="relative" onClick={() => toggleDropdown(1)}>
+  <Link
+    href="#"
+    className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
+  >
+    Placement and Internships
+  </Link>
+  {/* Pass `isOpen` prop to the Dropdown component */}
+  {activeDropdown === 1 && <Dropdown tabs={dropdownPlacements} isOpen={true} />}
+  {activeDropdown !== 1 && <Dropdown tabs={dropdownPlacements} isOpen={false} />}
+</div>
+
+<div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
+
+<div className="relative" onClick={() => toggleDropdown(2)}>
+  <Link
+    href="#"
+    className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
+  >
+    Activities
+  </Link>
+  {/* Pass `isOpen` prop to the Dropdown component */}
+  {activeDropdown === 2 && <Dropdown tabs={dropdownActivites} isOpen={true} />}
+  {activeDropdown !== 2 && <Dropdown tabs={dropdownActivites} isOpen={false} />}
+</div>
+
+<div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
+
+<div className="relative" onClick={() => toggleDropdown(3)}>
+  <Link
+    href="#"
+    className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
+  >
+    People
+  </Link>
+  {/* Pass `isOpen` prop to the Dropdown component */}
+  {activeDropdown === 3 && <Dropdown tabs={dropdownPeople} isOpen={true} />}
+  {activeDropdown !== 3 && <Dropdown tabs={dropdownPeople} isOpen={false} />}
+</div>
+
+
             <div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
             <Link
               href="/awards"
               className="text-[26px] pl-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
+              onClick={closeMenu}
             >
               Awards
             </Link>
@@ -130,19 +192,43 @@ const Navbar = () => {
         >
           <div className="relative z-10 dropdown backdrop-blur-[5px] -mt-[140px] pt-[120px] bg-gradient-to-b from-black/50 to-black/50">
             <div className="flex font-teko flex-col pt-6 p-9 uppercase text-[30px] text-white">
-              <Link href="/" className="">Home</Link>
-              <Link href="/news">News and Announcements</Link>
-              <Link href="/contact">Contact Us</Link>
-              <Link href="/faculty">Faculty</Link>
-              <DropdownMob label="Activities" items={dropdownActivites} />
-              <Link href="/placements">Placement and Internships</Link>
-              <Link href="/activites">Activities</Link>
-              <Link href="/awards">Awards</Link>
+              <Link href="/" className="" onClick={closeMenu}>
+                Home
+              </Link>
+              <Link href="/news" onClick={closeMenu}>
+                News and Announcements
+              </Link>
+              <Link href="/contact" onClick={closeMenu}>
+                Contact Us
+              </Link>
+              <DropdownMob
+                label="People"
+                items={dropdownPeople}
+                closeMenu={closeMenu}
+              />
+              <DropdownMob
+                label="Activities"
+                items={dropdownActivites}
+                closeMenu={closeMenu}
+              />
+              <DropdownMob
+                label="Placements and Internships"
+                items={dropdownPlacements}
+                closeMenu={closeMenu}
+              />
+              <DropdownMob
+                label="Academics"
+                items={dropdownAcademics}
+                closeMenu={closeMenu}
+              />
+              <Link href="/awards" onClick={closeMenu}>
+                Awards
+              </Link>
               <div
                 className="bg-white w-[87px] px-4 rounded-lg"
                 style={{ color: "#800080" }}
               >
-                <Link href="/login" className="login">
+                <Link href="/login" className="login" onClick={closeMenu}>
                   Login
                 </Link>
               </div>
