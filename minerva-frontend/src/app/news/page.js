@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import ListComp from "../components/newscomp/ListComp";
 import ImageHero from "../components/imagehero/Imagehero";
-import ImageHero from "../components/imagehero/Imagehero";
 
 const token = process.env.NEXT_PUBLIC_TOKEN;
 const backend_url = process.env.NEXT_PUBLIC_API_URL;
