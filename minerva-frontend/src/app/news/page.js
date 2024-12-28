@@ -13,16 +13,16 @@ export default function Home() {
     const fetchData = async () => {
       try {
 
-        const announcementsD = await fetch(`${backend_url}/api/announcements?populate=*`, {
+        const newsD = await fetch(`${backend_url}/api/news?populate=*`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
 
-        const announcementsData = await announcementsD.json();
+        const newsData = await newsD.json();
 
-        console.log("ANNOUNCEMENTS:", announcementsData);
-        setAnnouncements(announcementsData.data || []); 
+        console.log("NEWS:", newsData);
+        setNews(newsData.data || []); 
       } catch (err) {
         console.error("Fetch error:", err);
       }
