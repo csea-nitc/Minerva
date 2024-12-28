@@ -5,7 +5,12 @@ export default function ContactUsPage() {
   return (
     <>
       <div>
-        <ImageHero title="Contact Us" />
+        <ImageHero
+          title="Contact Us"
+          font={"60px"}
+          mobileFont={"50px"}
+          contentdiv={".content-div"}
+        />
         <div className="pt-10 mt-10 lg:px-[20vw] md:px-[15vw] px-[10vw] w-[100vw]">
           <h1 className="md:text-4xl font-mont font-bold text-2xl">
             Contact Us
