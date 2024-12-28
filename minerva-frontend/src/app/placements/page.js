@@ -1,4 +1,5 @@
 import ImageHero from "../components/imagehero/Imagehero";
+import PDF from "../components/pdf/PDF";
 
 export default function Placements() {
   return (
@@ -41,8 +42,11 @@ export default function Placements() {
             </div>
           </div>
         </div>
-        <div>
-          
+        <div className="my-12 flex flex-col items-center gap-2">
+          <PDF
+            title="2023 B.Tech CSE Syllabus"
+            url="https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2024/10/2024102841.pdf"
+          />
         </div>
       </div>
     </>
