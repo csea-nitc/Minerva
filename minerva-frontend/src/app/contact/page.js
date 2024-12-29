@@ -1,3 +1,5 @@
+import ImageHero from "../components/imagehero/Imagehero";
+
 const hodDetails = require("./hodDetails.json");
 import ImageHero from "../components/imagehero/Imagehero";
 export default function ContactUsPage() {
@@ -60,4 +62,5 @@ export default function ContactUsPage() {
             </div>
         </>
     );
+
 }

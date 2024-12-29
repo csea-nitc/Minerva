@@ -88,16 +88,17 @@ export default function Programmes() {
     fetchData();
   });
 
- 
-
   return (
     <div className="min-h-screen font-saira text-[18px] max-800:text-[13px] max-1060:text-[15px] mb-9">
-
-      <ImageHero title={"Programmes"}/>
-     
+      <ImageHero
+        title={"Programmes"}
+        font={"60px"}
+        mobileFont={"50px"}
+        contentdiv={".content-div"}
+      />
 
       <div
-        className="content-div  max-w-[1240px] mx-auto relative  -mt-0 pl-5 pt-[27vh]"
+        className="content-div  max-w-[1240px] mx-auto relative  pl-5 mt-[6vh]"
         // style={{ borderColor: "#800080", borderLeftWidth: "14px" }}
       >
         {/* Tab Navigation */}
