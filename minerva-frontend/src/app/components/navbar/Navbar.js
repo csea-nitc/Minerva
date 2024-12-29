@@ -6,12 +6,14 @@ import Dropdown from "./Dropdown"; // Import the new Dropdown component
 import DropdownMob from "./DropdownMob";
 
 const Navbar = () => {
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null); // Track the active dropdown
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+
 
   const toggleDropdown = (index) => {
     setActiveDropdown(activeDropdown === index ? null : index); // Toggle the clicked dropdown
@@ -58,19 +60,20 @@ const Navbar = () => {
             alt="Logo"
           />
 
-          <div className="text-white text-2xl space-[20px] pt-1 hidden max-w-[200px] max-800:block">
-            National Institute of Technology Calicut
-          </div>
-        </div>
+                    <div className="text-white text-2xl space-[20px] pt-1 hidden max-w-[200px] max-800:block">
+                        National Institute of Technology Calicut
+                    </div>
+                </div>
 
-        <div
-          className="hamburger z-20 absolute right-8 top-14 hidden max-800:flex gap-[6px] flex-col"
-          onClick={toggleMenu}
-        >
-          <div className="h-1 w-8 rounded-md bg-white"></div>
-          <div className="h-1 w-8 rounded-md bg-white"></div>
-          <div className="h-1 w-8 rounded-md bg-white"></div>
-        </div>
+                <div
+                    className="hamburger z-20 absolute right-8 top-14 hidden max-800:flex gap-[6px] flex-col"
+                    onClick={toggleMenu}
+                >
+                    <div className="h-1 w-8 rounded-md bg-white"></div>
+                    <div className="h-1 w-8 rounded-md bg-white"></div>
+                    <div className="h-1 w-8 rounded-md bg-white"></div>
+                </div>
+
 
         <div className="flex-col gap-4 max-1060:gap-2 uppercase flex max-800:hidden links">
           <div className="flex justify-end gap-6 h-10 section1 text-white mt-2">
@@ -233,15 +236,8 @@ const Navbar = () => {
                 </Link>
               </div>
             </div>
-            <div
-              style={{ backgroundColor: "#800080" }}
-              className="h-1 w-[100vw] mt-3"
-            ></div>
-          </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Navbar;
