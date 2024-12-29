@@ -88,13 +88,14 @@ export default function Programmes() {
     fetchData();
   });
 
- 
-
   return (
     <div className="min-h-screen font-saira text-[18px] max-800:text-[13px] max-1060:text-[15px] mb-9">
-
-      <ImageHero title={"Programmes"} font={"8rem"} mobileFont={"30px"}  contentdiv={".content-div"} />
-     
+      <ImageHero
+        title={"Programmes"}
+        font={"60px"}
+        mobileFont={"50px"}
+        contentdiv={".content-div"}
+      />
 
       <div
         className="content-div  max-w-[1240px] mx-auto relative  pl-5 mt-[6vh]"

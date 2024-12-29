@@ -12,17 +12,20 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-
-        const newsD = await fetch(`${backend_url}/api/news?populate=*`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const announcementsD = await fetch(
+          `${backend_url}/api/announcements?populate=*`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
         const newsData = await newsD.json();
 
-        console.log("NEWS:", newsData);
-        setNews(newsData.data || []); 
+        console.log("ANNOUNCEMENTS:", announcementsData);
+        setAnnouncements(announcementsData.data || []);
+
       } catch (err) {
         console.error("Fetch error:", err);
       }
@@ -33,21 +36,26 @@ export default function Home() {
 
   return (
     <div>
-      <ImageHero title="NEWS"/>
+      <ImageHero
+        title="NEWS"
+        font={"60px"}
+        mobileFont={"50px"}
+        contentdiv={".content-div"}
+      />
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl font-saira font-bold text-foreground mb-6">
+          {/* <h1 className="text-3xl font-saira font-bold text-foreground mb-6">
             News
-          </h1>
+          </h1> */}
 
           {news && news.length > 0 ? (
             news.map((item) => <ListComp key={item.id} item={item} />)
           ) : (
-            <p className="text-lg font-saira text-gray-500">No news available.</p>
+            <p className="text-lg font-saira text-gray-500">
+              No news available.
+            </p>
           )}
         </div>
-
-        
       </div>
     </div>
   );
