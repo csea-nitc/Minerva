@@ -6,14 +6,12 @@ import Dropdown from "./Dropdown"; // Import the new Dropdown component
 import DropdownMob from "./DropdownMob";
 
 const Navbar = () => {
-
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null); // Track the active dropdown
 
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
-
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   const toggleDropdown = (index) => {
     setActiveDropdown(activeDropdown === index ? null : index); // Toggle the clicked dropdown
@@ -60,20 +58,19 @@ const Navbar = () => {
             alt="Logo"
           />
 
-                    <div className="text-white text-2xl space-[20px] pt-1 hidden max-w-[200px] max-800:block">
-                        National Institute of Technology Calicut
-                    </div>
-                </div>
+          <div className="text-white text-2xl space-[20px] pt-1 hidden max-w-[200px] max-800:block">
+            National Institute of Technology Calicut
+          </div>
+        </div>
 
-                <div
-                    className="hamburger z-20 absolute right-8 top-14 hidden max-800:flex gap-[6px] flex-col"
-                    onClick={toggleMenu}
-                >
-                    <div className="h-1 w-8 rounded-md bg-white"></div>
-                    <div className="h-1 w-8 rounded-md bg-white"></div>
-                    <div className="h-1 w-8 rounded-md bg-white"></div>
-                </div>
-
+        <div
+          className="hamburger z-20 absolute right-8 top-14 hidden max-800:flex gap-[6px] flex-col"
+          onClick={toggleMenu}
+        >
+          <div className="h-1 w-8 rounded-md bg-white"></div>
+          <div className="h-1 w-8 rounded-md bg-white"></div>
+          <div className="h-1 w-8 rounded-md bg-white"></div>
+        </div>
 
         <div className="flex-col gap-4 max-1060:gap-2 uppercase flex max-800:hidden links">
           <div className="flex justify-end gap-6 h-10 section1 text-white mt-2">
@@ -121,59 +118,74 @@ const Navbar = () => {
             <div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
 
             <div className="relative" onClick={() => toggleDropdown(0)}>
-  <Link
-    href="#"
-    className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
-  >
-    Academics
-  </Link>
-  {/* Pass `isOpen` prop to the Dropdown component */}
-  {activeDropdown === 0 && <Dropdown tabs={dropdownAcademics} isOpen={true} />}
-  {activeDropdown !== 0 && <Dropdown tabs={dropdownAcademics} isOpen={false} />}
-</div>
+              <Link
+                href="#"
+                className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
+              >
+                Academics
+              </Link>
+              {/* Pass `isOpen` prop to the Dropdown component */}
+              {activeDropdown === 0 && (
+                <Dropdown tabs={dropdownAcademics} isOpen={true} />
+              )}
+              {activeDropdown !== 0 && (
+                <Dropdown tabs={dropdownAcademics} isOpen={false} />
+              )}
+            </div>
 
-<div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
+            <div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
 
-<div className="relative" onClick={() => toggleDropdown(1)}>
-  <Link
-    href="#"
-    className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
-  >
-    Placement and Internships
-  </Link>
-  {/* Pass `isOpen` prop to the Dropdown component */}
-  {activeDropdown === 1 && <Dropdown tabs={dropdownPlacements} isOpen={true} />}
-  {activeDropdown !== 1 && <Dropdown tabs={dropdownPlacements} isOpen={false} />}
-</div>
+            <div className="relative" onClick={() => toggleDropdown(1)}>
+              <Link
+                href="#"
+                className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
+              >
+                Placement and Internships
+              </Link>
+              {/* Pass `isOpen` prop to the Dropdown component */}
+              {activeDropdown === 1 && (
+                <Dropdown tabs={dropdownPlacements} isOpen={true} />
+              )}
+              {activeDropdown !== 1 && (
+                <Dropdown tabs={dropdownPlacements} isOpen={false} />
+              )}
+            </div>
 
-<div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
+            <div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
 
-<div className="relative" onClick={() => toggleDropdown(2)}>
-  <Link
-    href="#"
-    className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
-  >
-    Activities
-  </Link>
-  {/* Pass `isOpen` prop to the Dropdown component */}
-  {activeDropdown === 2 && <Dropdown tabs={dropdownActivites} isOpen={true} />}
-  {activeDropdown !== 2 && <Dropdown tabs={dropdownActivites} isOpen={false} />}
-</div>
+            <div className="relative" onClick={() => toggleDropdown(2)}>
+              <Link
+                href="#"
+                className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
+              >
+                Activities
+              </Link>
+              {/* Pass `isOpen` prop to the Dropdown component */}
+              {activeDropdown === 2 && (
+                <Dropdown tabs={dropdownActivites} isOpen={true} />
+              )}
+              {activeDropdown !== 2 && (
+                <Dropdown tabs={dropdownActivites} isOpen={false} />
+              )}
+            </div>
 
-<div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
+            <div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
 
-<div className="relative" onClick={() => toggleDropdown(3)}>
-  <Link
-    href="#"
-    className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
-  >
-    People
-  </Link>
-  {/* Pass `isOpen` prop to the Dropdown component */}
-  {activeDropdown === 3 && <Dropdown tabs={dropdownPeople} isOpen={true} />}
-  {activeDropdown !== 3 && <Dropdown tabs={dropdownPeople} isOpen={false} />}
-</div>
-
+            <div className="relative" onClick={() => toggleDropdown(3)}>
+              <Link
+                href="#"
+                className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
+              >
+                People
+              </Link>
+              {/* Pass `isOpen` prop to the Dropdown component */}
+              {activeDropdown === 3 && (
+                <Dropdown tabs={dropdownPeople} isOpen={true} />
+              )}
+              {activeDropdown !== 3 && (
+                <Dropdown tabs={dropdownPeople} isOpen={false} />
+              )}
+            </div>
 
             <div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
             <Link
@@ -236,8 +248,15 @@ const Navbar = () => {
                 </Link>
               </div>
             </div>
+            <div
+              style={{ backgroundColor: "#800080" }}
+              className="h-1 w-[100vw] mt-3"
+            ></div>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Navbar;

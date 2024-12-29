@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
-const DropdownMob = ({ label, items , closeMenu }) => {
+const DropdownMob = ({ label, items, closeMenu }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -17,14 +17,20 @@ const DropdownMob = ({ label, items , closeMenu }) => {
       >
         {label}
         {/* Show downwards "v" symbol when dropdown is closed, and upwards "v" when open */}
-        <span className={`ml-2 text-sm transition-transform ${dropdownOpen ? 'rotate-180' : ''}`}>
+        <span
+          className={`ml-2 text-sm transition-transform ${
+            dropdownOpen ? "rotate-180" : ""
+          }`}
+        >
           ▼
         </span>
       </button>
 
       {/* Dropdown Menu */}
       <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${dropdownOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+          dropdownOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+        }`}
       >
         {dropdownOpen && (
           <div className="bg-none text-white w-full">
@@ -32,7 +38,9 @@ const DropdownMob = ({ label, items , closeMenu }) => {
               <React.Fragment key={index}>
                 <Link
                   href={item.href}
-                  onClick={()=>{closeMenu();}}
+                  onClick={() => {
+                    closeMenu();
+                  }}
                   className="block px-4 "
                 >
                   {item.label}
