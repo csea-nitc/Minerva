@@ -39,7 +39,8 @@ const Navbar = () => {
                 <div className="flex-col gap-4 max-1060:gap-2  uppercase flex  max-800:hidden links ">
                     <div className="flex justify-end gap-6 h-10 section1">
                         <Link href="/">Home</Link>
-                        <Link href="/news">News and Announcements</Link>
+                        <Link href="/news">News</Link>
+                        <Link href="/announcements">Announcements</Link>
                         <Link href="/contact">Contact Us</Link>
 
                         <div className="login bg-white text-[28px] h-fit pt-1 flex items-center max-920:px-3 px-4 justify-center rounded-md">
