@@ -19,11 +19,12 @@ const Navbar = () => {
 
   const closeMenu = () => {
     setMenuOpen(false); // Close the mobile menu
+    setActiveDropdown(null);
   };
 
   const dropdownActivites = [
-    { href: "/activities/csea", label: "CSEA" },
-    { href: "/activities/essf", label: "ESSF" },
+    { href: "/csea", label: "CSEA" },
+    { href: "/essf", label: "ESSF" },
   ];
 
   const dropdownAcademics = [
@@ -64,7 +65,7 @@ const Navbar = () => {
         </div>
 
         <div
-          className="hamburger z-20 absolute right-8 top-14 hidden max-800:flex gap-[6px] flex-col"
+          className="hamburger z-20 absolute right-8 top-18 hidden max-800:flex gap-[6px] flex-col"
           onClick={toggleMenu}
         >
           <div className="h-1 w-8 rounded-md bg-white"></div>
@@ -108,17 +109,12 @@ const Navbar = () => {
             </div>
           </div>
           <div className="flex gap-1 uppercase section2 text-white">
-            <Link
-              href="/faculty"
-              className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
-              onClick={closeMenu}
-            >
-              Faculty
-            </Link>
-            <div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
+           
+           
 
             <div className="relative" onClick={() => toggleDropdown(0)}>
   <Link
+
     href="#"
     className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
   >
