@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 
 export default function FacultyDetails({
     data,
@@ -94,7 +95,7 @@ export default function FacultyDetails({
                                         {faculty.name}
                                     </h1>
                                     <p className="lg-xl:text-[0.8rem] text-[0.65rem] text-center">
-                                        {faculty.position}
+                                        {faculty.designation}
                                     </p>
                                 </div>
                             </div>
@@ -119,42 +120,42 @@ export default function FacultyDetails({
                                             <h2 className="text-white lg-xl:text-[1.5rem] md:text-[1.2rem] text-[1rem]">
                                                 {
                                                     facultyData[activeIndex]
-                                                        .position
+                                                        .designation
                                                 }
                                             </h2>
                                         </div>
                                         <div className="fac-det-details bg-[#d9d9d9] text-black md-lg:w-[71.5%] w-full font-bold rounded-lg md-lg:rounded-tl-none md-lg:rounded-bl-none rounded-tl-none rounded-tr-none md-lg:rounded-tr-lg">
                                             <ul className="text-[0.7rem] md:text-[0.85rem] lg:text-[0.95rem] p-0">
                                                 {facultyData[activeIndex]
-                                                    .email && (
+                                                    .contact_email && (
                                                     <li className="m-4">
                                                         Email:{" "}
                                                         {
                                                             facultyData[
                                                                 activeIndex
-                                                            ].email
+                                                            ].contact_email
                                                         }
                                                     </li>
                                                 )}
                                                 {facultyData[activeIndex]
-                                                    .officeLocation && (
+                                                    .office_location && (
                                                     <li className="m-4">
                                                         Office Location:{" "}
                                                         {
                                                             facultyData[
                                                                 activeIndex
-                                                            ].officeLocation
+                                                            ].office_location
                                                         }
                                                     </li>
                                                 )}
                                                 {facultyData[activeIndex]
-                                                    .officeContact && (
+                                                    .office_no && (
                                                     <li className="m-4">
                                                         Office Contact:{" "}
                                                         {
                                                             facultyData[
                                                                 activeIndex
-                                                            ].officeContact
+                                                            ].offic_no
                                                         }
                                                     </li>
                                                 )}
@@ -170,46 +171,84 @@ export default function FacultyDetails({
                                                     </li>
                                                 )}
                                                 {facultyData[activeIndex]
-                                                    .specialization && (
+                                                    .specialisation && (
                                                     <li className="m-4">
-                                                        Specialization:{" "}
+                                                        Specialisation:{" "}
                                                         {
                                                             facultyData[
                                                                 activeIndex
-                                                            ].specialization
+                                                            ].specialisation
                                                         }
                                                     </li>
                                                 )}
                                                 {facultyData[activeIndex]
-                                                    .frgs && (
+                                                    .associated_frgs && (
                                                     <li className="m-4">
                                                         Associated FRGs:{" "}
                                                         {
                                                             facultyData[
                                                                 activeIndex
-                                                            ].frgs
+                                                            ].associated_frgs
                                                         }
                                                     </li>
                                                 )}
                                                 {facultyData[activeIndex]
-                                                    .externalLinks && (
+                                                    .external_links && (
                                                     <li className="m-4">
-                                                        External Links:{" "}
-                                                        {facultyData[
-                                                            activeIndex
-                                                        ].externalLinks.join(
-                                                            ", "
-                                                        )}
+                                                        External Links:
+                                                        <ul className="list-none flex flex-wrap space-x-2">
+                                                            {facultyData[
+                                                                activeIndex
+                                                            ].external_links.map(
+                                                                (
+                                                                    link,
+                                                                    index
+                                                                ) => (
+                                                                    <li
+                                                                        key={
+                                                                            index
+                                                                        }
+                                                                        className="flex items-center"
+                                                                    >
+                                                                        <Link
+                                                                            href={
+                                                                                link
+                                                                            }
+                                                                            target="_blank"
+                                                                            rel="noopener noreferrer"
+                                                                        >
+                                                                            <span className="text-blue-500 hover:underline">
+                                                                                {
+                                                                                    link
+                                                                                }
+                                                                            </span>
+                                                                        </Link>
+                                                                        {index <
+                                                                            facultyData[
+                                                                                activeIndex
+                                                                            ]
+                                                                                .external_links
+                                                                                .length -
+                                                                                1 && (
+                                                                            <span className="mx-1">
+                                                                                ,
+                                                                            </span>
+                                                                        )}
+                                                                    </li>
+                                                                )
+                                                            )}
+                                                        </ul>
                                                     </li>
                                                 )}
+
                                                 {facultyData[activeIndex]
-                                                    .additionalInfo && (
+                                                    .additional_info && (
                                                     <li className="m-4">
                                                         Additional Info:{" "}
                                                         {
                                                             facultyData[
                                                                 activeIndex
-                                                            ].additionalInfo
+                                                            ].additional_info
                                                         }
                                                     </li>
                                                 )}

@@ -1,11 +1,19 @@
 import FeedBack from "../components/feedback/Feedback";
+import ImageHero from "../components/imagehero/Imagehero";
 export default function FeedbackPage() {
     return (
-        <div className="pt-10 mt-10 lg:px-[20vw] md:px-[15vw] px-[10vw] w-[100vw]">
-            <h1 className="md:text-4xl font-mont font-bold text-2xl">
-                Feedback
-            </h1>
-            <FeedBack />
-        </div>
+        <>
+            <ImageHero
+                title={"Feedback"}
+                font={"80px"}
+                mobileFont={"20px"}
+                contentdiv={".content-div"}
+            />
+            <div className="py-10 w-[100vw] mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
+                <div className="sm:w-[65%] w-[85%] mx-auto">
+                    <FeedBack />
+                </div>
+            </div>
+        </>
     );
 }
