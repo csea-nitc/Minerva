@@ -96,8 +96,9 @@ export default function Programmes() {
         mobileFont={"50px"}
         contentdiv={".content-div"}
       />
+
       <div
-        className="content-div  max-w-[1240px] mx-auto relative  -mt-0 pl-5 pt-[27vh]"
+        className="content-div  max-w-[1240px] mx-auto relative  pl-5 mt-[6vh]"
         // style={{ borderColor: "#800080", borderLeftWidth: "14px" }}
       >
         {/* Tab Navigation */}

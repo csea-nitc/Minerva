@@ -21,10 +21,11 @@ export default function Home() {
           }
         );
 
-        const announcementsData = await announcementsD.json();
+        const newsData = await newsD.json();
 
         console.log("ANNOUNCEMENTS:", announcementsData);
         setAnnouncements(announcementsData.data || []);
+
       } catch (err) {
         console.error("Fetch error:", err);
       }
