@@ -35,3 +35,15 @@
   right: -4%;
   transform: translateY(-20%);
 }
+
+@media(min-width:640px) {
+  .swiper-button-prev {
+    left: 18%; 
+    transform: translateY(-10%);
+  }
+  .swiper-button-next {
+    right: 18%;
+    transform: translateY(-10%);
+  }
+  
+}
