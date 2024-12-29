@@ -2,6 +2,7 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import App from '../image-carousel/swiper';
 import remarkGfm from "remark-gfm";
+import PDF from "../pdf/PDF";
 
 const ListComp = ({ item }) => {
   const backend_url = process.env.NEXT_PUBLIC_API_URL;
@@ -60,13 +61,7 @@ const ListComp = ({ item }) => {
       {item.pdf && item.pdf.length > 0 && (
         <div className="mt-4">
           {item.pdf.map((pdf) => (
-            <a
-              key={pdf.id}
-              href={`${backend_url}${pdf.url}`}
-              className="inline-flex items-center font-mont text-accent hover:underline"
-            >
-              View PDF ({pdf.name})
-            </a>
+            <PDF title = {`${pdf.name}`} url = {`${backend_url}${pdf.url}`} > </PDF>
           ))}
         </div>
       )}
