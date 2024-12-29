@@ -4,18 +4,48 @@ import Image from "next/image";
 
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
     };
 
     useEffect(() => {
-        if (isOpen) {
+        const handleResize = () => {
+            if (window.innerWidth <= 640) {
+                setIsMobile(true);
+            } else {
+                setIsMobile(false);
+            }
+        };
+
+        handleResize(); // Initial check
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (!isMobile && isOpen) {
             document.body.style.overflow = "hidden";
-        } else {
+            document.body.style.paddingRight = "17px";
+        } else if (!isMobile) {
             document.body.style.overflow = "auto";
+            document.body.style.paddingRight = "0";
         }
-    }, [isOpen]);
+    }, [isOpen, isMobile]);
+
+    useEffect(() => {
+        if (isMobile) {
+            if (isOpen) {
+                document.body.style.overflow = "hidden";
+            } else {
+                document.body.style.overflow = "auto";
+            }
+        }
+    }, [isOpen, isMobile]);
 
     return (
         <div>
