@@ -22,6 +22,7 @@ export default function Home() {
                 );
 
                 const awardsData = await awardsD.json();
+                console.log( awardsData ) ; 
                 setAwards(awardsData.data || []);
             } catch (err) {
                 console.error("Fetch error:", err);
