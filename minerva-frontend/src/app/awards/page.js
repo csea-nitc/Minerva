@@ -36,8 +36,8 @@ export default function Home() {
         <>
             <ImageHero
                 title={"Awards"}
-                font={"60px"}
-                mobileFont={"50px"}
+                font={"80px"}
+                mobileFont={"20px"}
                 contentdiv={".content-div"}
             />
             <div className="py-10 w-[100vw] mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">

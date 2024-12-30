@@ -12,7 +12,7 @@ export default function Home() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const announcementsD = await fetch(
+                const newsD= await fetch(
                     `${backend_url}/api/announcements?populate=*`,
                     {
                         headers: {
@@ -22,9 +22,7 @@ export default function Home() {
                 );
 
                 const newsData = await newsD.json();
-
-                console.log("ANNOUNCEMENTS:", announcementsData);
-                setAnnouncements(announcementsData.data || []);
+                setNews(newsData.data || []);
             } catch (err) {
                 console.error("Fetch error:", err);
             }
@@ -43,10 +41,6 @@ export default function Home() {
             />
             <div className="py-10 w-[100vw] mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
                 <div className="sm:w-[65%] w-[85%] mx-auto">
-                    {/* <h1 className="text-3xl font-saira font-bold text-foreground mb-6">
-                        News
-                    </h1> */}
-
                     {news && news.length > 0 ? (
                         news.map((item) => (
                             <ListComp key={item.id} item={item} />
