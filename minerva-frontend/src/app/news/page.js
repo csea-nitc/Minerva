@@ -7,56 +7,57 @@ const token = process.env.NEXT_PUBLIC_TOKEN;
 const backend_url = process.env.NEXT_PUBLIC_API_URL;
 
 export default function Home() {
-  const [news, setNews] = useState([]);
+    const [news, setNews] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const announcementsD = await fetch(
-          `${backend_url}/api/announcements?populate=*`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const announcementsD = await fetch(
+                    `${backend_url}/api/announcements?populate=*`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
 
-        const newsData = await newsD.json();
+                const newsData = await newsD.json();
 
-        console.log("ANNOUNCEMENTS:", announcementsData);
-        setAnnouncements(announcementsData.data || []);
+                console.log("ANNOUNCEMENTS:", announcementsData);
+                setAnnouncements(announcementsData.data || []);
+            } catch (err) {
+                console.error("Fetch error:", err);
+            }
+        };
 
-      } catch (err) {
-        console.error("Fetch error:", err);
-      }
-    };
+        fetchData();
+    }, []);
 
-    fetchData();
-  }, []);
+    return (
+        <>
+            <ImageHero
+                title="NEWS"
+                font={"80px"}
+                mobileFont={"20px"}
+                contentdiv={".content-div"}
+            />
+            <div className="py-10 w-[100vw] mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
+                <div className="sm:w-[65%] w-[85%] mx-auto">
+                    {/* <h1 className="text-3xl font-saira font-bold text-foreground mb-6">
+                        News
+                    </h1> */}
 
-  return (
-    <div>
-      <ImageHero
-        title="NEWS"
-        font={"60px"}
-        mobileFont={"50px"}
-        contentdiv={".content-div"}
-      />
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto">
-          {/* <h1 className="text-3xl font-saira font-bold text-foreground mb-6">
-            News
-          </h1> */}
-
-          {news && news.length > 0 ? (
-            news.map((item) => <ListComp key={item.id} item={item} />)
-          ) : (
-            <p className="text-lg font-saira text-gray-500">
-              No news available.
-            </p>
-          )}
-        </div>
-      </div>
-    </div>
-  );
+                    {news && news.length > 0 ? (
+                        news.map((item) => (
+                            <ListComp key={item.id} item={item} />
+                        ))
+                    ) : (
+                        <p className="text-lg font-saira text-gray-500">
+                            No news available.
+                        </p>
+                    )}
+                </div>
+            </div>
+        </>
+    );
 }
