@@ -319,26 +319,7 @@ export default function Home() {
 
                                     {hod.external_links && (
                                         <li className="m-4">
-                                            External Links:{" "}
-                                            {hod.external_links.map(
-                                                (link, index) => (
-                                                    <span key={index}>
-                                                        <Link
-                                                            href={link}
-                                                            target="_blank"
-                                                            rel="noopener noreferrer"
-                                                        >
-                                                            <span className="text-blue-500 hover:underline">
-                                                                {link}
-                                                            </span>
-                                                        </Link>
-                                                        {index <
-                                                            hod.external_links
-                                                                .length -
-                                                                1 && ", "}
-                                                    </span>
-                                                )
-                                            )}
+                                            External Links: {hod.external_links}
                                         </li>
                                     )}
 

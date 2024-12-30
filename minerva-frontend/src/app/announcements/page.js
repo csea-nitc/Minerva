@@ -33,28 +33,26 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <>
       <ImageHero
-        title="announcements"
-        font={"60px"}
-        mobileFont={"50px"}
-        contentdiv={".content-div"}
+          title="ANNOUNCEMENTS"
+          font={"80px"}
+          mobileFont={"20px"}
+          contentdiv={".content-div"}
       />
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto ">
-          {/* <h1 className="text-3xl font-saira font-semibold text-foreground mb-6">
-                        Announcements
-                    </h1> */}
-
-          {announcements && announcements.length > 0 ? (
-            announcements.map((item) => <ListComp key={item.id} item={item} />)
-          ) : (
-            <p className="text-lg font-saira text-gray-500">
-              No announcements available.
-            </p>
-          )}
-        </div>
+      <div className="py-10 w-[100vw] mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
+          <div className="sm:w-[65%] w-[85%] mx-auto">
+              {announcements && announcements.length > 0 ? (
+                  announcements.map((item) => (
+                      <ListComp key={item.id} item={item} />
+                  ))
+              ) : (
+                  <p className="text-lg font-saira text-gray-500">
+                      No announcements available.
+                  </p>
+              )}
+          </div>
       </div>
-    </div>
+  </>
   );
 }

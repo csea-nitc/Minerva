@@ -8,6 +8,7 @@ export default function FacultyDetails({
     activeIndex,
     setActiveIndex,
 }) {
+    const backend_url = process.env.NEXT_PUBLIC_API_URL;
     // const [activeIndex, setActiveIndex] = useState(null);
     const [cols, setCols] = useState(1);
     const containerRef = useRef(null);
@@ -72,7 +73,7 @@ export default function FacultyDetails({
                         >
                             <div className="relative">
                                 <img
-                                    src={faculty.image}
+                                    src={`${backend_url}/${faculty?.photograph?.url}`} 
                                     alt={faculty.name}
                                     className={`lg-xl:h-[18rem] lg-xl:w-[14.4rem] md-lg:h-[16rem] md-lg:w-[12.8rem] md:h-[13rem] md:w-[10.6rem] h-[250px] w-[200px] object-cover shadow-lg hover:shadow-xl transition-all 300 ease-in-out border-[10px] lg-xl:text-[0.9rem] text-[0.75rem] text-center ${
                                         activeIndex == null
@@ -155,7 +156,7 @@ export default function FacultyDetails({
                                                         {
                                                             facultyData[
                                                                 activeIndex
-                                                            ].offic_no
+                                                            ].office_no
                                                         }
                                                     </li>
                                                 )}
@@ -192,52 +193,9 @@ export default function FacultyDetails({
                                                         }
                                                     </li>
                                                 )}
-                                                {facultyData[activeIndex]
-                                                    .external_links && (
+                                                {facultyData[activeIndex].external_links && (
                                                     <li className="m-4">
-                                                        External Links:
-                                                        <ul className="list-none flex flex-wrap space-x-2">
-                                                            {facultyData[
-                                                                activeIndex
-                                                            ].external_links.map(
-                                                                (
-                                                                    link,
-                                                                    index
-                                                                ) => (
-                                                                    <li
-                                                                        key={
-                                                                            index
-                                                                        }
-                                                                        className="flex items-center"
-                                                                    >
-                                                                        <Link
-                                                                            href={
-                                                                                link
-                                                                            }
-                                                                            target="_blank"
-                                                                            rel="noopener noreferrer"
-                                                                        >
-                                                                            <span className="text-blue-500 hover:underline">
-                                                                                {
-                                                                                    link
-                                                                                }
-                                                                            </span>
-                                                                        </Link>
-                                                                        {index <
-                                                                            facultyData[
-                                                                                activeIndex
-                                                                            ]
-                                                                                .external_links
-                                                                                .length -
-                                                                                1 && (
-                                                                            <span className="mx-1">
-                                                                                ,
-                                                                            </span>
-                                                                        )}
-                                                                    </li>
-                                                                )
-                                                            )}
-                                                        </ul>
+                                                        External Links: {facultyData[activeIndex].external_links}
                                                     </li>
                                                 )}
 
