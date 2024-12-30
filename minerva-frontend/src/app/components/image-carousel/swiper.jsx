@@ -49,7 +49,7 @@
             delay: 2000, // 2 seconds per slide
             disableOnInteraction: true
           }}
-          loop = {true}
+          loop = {false}
           speed={1500}
           className={"mySwiper "+width}
           style={{ transitionTimingFunction: 'ease-in-out' }}
@@ -60,9 +60,9 @@
           </SwiperSlide>
         ))}
         </Swiper>
-        {/* <div className={ (!flag?"hidden ":'') + 'mt-6 w-full flex justify-center items-center'}>
-            <button className='border-4 text-accent font-Teko font-bold tracking-wide text-4xl p-3 rounded-2xl border-accent'>{images[activeIndex]["tag"] + "🔗"}</button>
-        </div> */}
+        { <div className={ (!flag?"hidden ":'') + 'mt-6 w-full flex justify-center items-center'}>
+            <button className='border-4 text-accent font-Teko font-bold tracking-wide text-2xl p-3 sm:text-4xl rounded-2xl border-accent'>{images[activeIndex]["tag"] + "🔗"}</button>
+        </div> }
       </div>
       </>
     );
