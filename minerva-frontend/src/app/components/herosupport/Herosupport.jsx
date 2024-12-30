@@ -28,8 +28,8 @@ const Herosupport = () => {
             <div className='flex flex-col relative bottom-14 md:bottom-0 md:top-2 2xl:mx-10 lg:left-24 font-teko h-[100%] items-center justify-center text-center'>
                 <div className='text-white text-3xl text-bold font-Teko m-2 mb-4'>LINKS</div>
                 <div className='flex flex-row md:flex-col'>
-                    <div className='text-white text-2xl   px-5 py-2'>Placeholder1</div>
-                    <div className='text-white text-2xl px-5 py-2'>Placeholder1</div>
+                    <div className='text-white text-3xl px-5 py-2'>Placeholder1</div>
+                    <div className='text-white text-3xl px-5 py-2'>Placeholder1</div>
                    
                 </div>
             </div>
