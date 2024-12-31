@@ -4,14 +4,14 @@ import PDF from "../components/pdf/PDF";
 export default function Placements() {
   return (
     <>
-      <div>
-        <ImageHero
-          title="PLACEMENTS"
-          font={"60px"}
-          mobileFont={"50px"}
-          contentdiv={".content-div"}
-        />
-        <div className="mt-24">
+      <ImageHero
+        title={"Placements"}
+        font={"80px"}
+        mobileFont={"20px"}
+        contentdiv={".content-div"}
+      />
+      <div className="py-10 w-[100vw] mt-[40vh] sm:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
+        <div>
           <p className="text-center font-teko text-[3vw]">
             Btech - Computer Science and Engineering
           </p>

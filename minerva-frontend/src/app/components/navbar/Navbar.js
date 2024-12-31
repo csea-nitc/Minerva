@@ -34,7 +34,7 @@ const Navbar = () => {
   ];
 
   const dropdownPlacements = [
-    { href: "/programmes", label: "Placement Statistics" },
+    { href: "/placements", label: "Placement Statistics" },
     { href: "/research", label: "Summer Internships" },
   ];
 
