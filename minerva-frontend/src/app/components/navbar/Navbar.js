@@ -48,7 +48,7 @@ const Navbar = () => {
     ];
 
     return (
-        <div className="absolute w-[100vw] top-0 z-20">
+        <div className="absolute w-[100vw] top-0 z-50">
             <div style={{ backgroundColor: "#800080" }} className="h-1"></div>
             <div className="navbar flex bg-gradient-to-b from-black/90 to-transparent font-teko pr-12 pl-6 items-start justify-between h-[180px] pt-5 transition-all duration-10 ease-linear max-920:h-[140px] max-800:items-center">
                 <div className="relative z-20 flex gap-6 logo">

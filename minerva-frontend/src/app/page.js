@@ -6,6 +6,7 @@ import History from "./components/history/History";
 import McaProgramme from "./components/mca_programme/mcaProgramme";
 import Hero from "./components/heropage/Hero";
 import Data from "./data.json";import Navbar from "./components/navbar/Navbar";
+import Herosupport from "./components/herosupport/Herosupport";
 
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
     <div>
 
       <Hero props={Data} />
+      <Herosupport/>
        <div className="overflow-hidden">
             <div>
                 <Sidebar />
