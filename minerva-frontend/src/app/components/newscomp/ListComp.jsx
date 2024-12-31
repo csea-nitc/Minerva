@@ -61,7 +61,7 @@ const ListComp = ({ item }) => {
       {item.pdf && item.pdf.length > 0 && (
         <div className="mt-4">
           {item.pdf.map((pdf) => (
-            <PDF title = {`${pdf.name}`} url = {`${backend_url}${pdf.url}`} > </PDF>
+            <PDF title = {`${pdf.name}`} url = {`${backend_url}${pdf.url}`} /> 
           ))}
         </div>
       )}
