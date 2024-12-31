@@ -12,7 +12,7 @@ const Graph = ({ data }) => (
             padding={0.3}
             groupMode="grouped"
             layout="horizontal"
-            colors={['#D8B8E4', '#9B59B6']}  // Light purple and darker purple combination
+            colors={['#D8B8E4', '#9B59B6']}  
             borderRadius={4}
             axisBottom={{
                 tickSize: 5,
