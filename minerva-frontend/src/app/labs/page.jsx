@@ -29,11 +29,14 @@ const page = () => {
                     font={"80px"}
                     mobileFont={"20px"}
                     contentdiv={".content-div"}
+                    className = 'sticky'
                 />
-    <div className='mt-[80vh] w-[100%] flex justify-center items-cente h-[420px] sm:h-[460px] md:h-[460px]'>
-        <Carousel flag={1} images={images} width={"w-[300px] sm:w-[700px] md:w-[800px]"}/>
-    </div>
-    {lab.map((e) => ( <Card title={e.title} faculty={e.faculty} staff = {e.staff} location={e.location} /> )) }  
+    <div className='relative z-10 w-[100vw] mt-[40vh] pt-[5vh] sm:mt-[50vh] md:mt-[55vh] lg:mt-[70vh] bg-white border-2 border-accent'>
+      <div className='w-[100%]flex justify-center items-cente h-[420px] sm:h-[460px] md:h-[460px]'>
+          <Carousel flag={1} images={images} width={"w-[300px] sm:w-[700px] md:w-[800px]"}/>
+      </div>
+    {lab.map((e) => ( <Card title={e.title} faculty={e.faculty} staff = {e.staff} location={e.location} /> )) } 
+    </div> 
     </>
   )
 }
