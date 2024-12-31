@@ -5,6 +5,7 @@ import Graph from "../components/graph/Graph";
 import ListComp from "../components/newscomp/ListComp";
 import { ResponsiveBar } from '@nivo/bar';
 import React, { useEffect, useState } from "react";
+import Loading from "../components/loading/loading";
 
 //placeholder data for graph 
 const data = [
@@ -99,9 +100,7 @@ export default function Placements() {
                             <ListComp key={item.id} item={item} />
                         ))
                     ) : (
-                        <p className="text-lg font-mont text-gray-500">
-                            No statistics available.
-                        </p>
+                        <Loading />
                     )}
           </div>
         </div>
