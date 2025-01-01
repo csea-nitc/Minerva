@@ -10,10 +10,10 @@ const DropdownMob = ({ label, items , closeMenu }) => {
   };
 
   return (
-    <div className="relative ">
+    <div className="relative">
       <button
         onClick={toggleDropdown}
-        className="flex items-center text-white cursor-pointer text-left"
+        className="flex items-center text-white cursor-pointer"
       >
         {label}
         {/* Show downwards "v" symbol when dropdown is closed, and upwards "v" when open */}
