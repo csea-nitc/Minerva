@@ -87,7 +87,14 @@ const Navbar = () => {
               className="text-[26px] text-aliceblue px-3 transition-all duration-100 ease-in-out  max-1060:text-[22px] max-920:text-[18px]"
               onClick={closeMenu}
             >
-              News and Announcements
+              News
+            </Link>
+            <Link
+              href="/announcements"
+              className="text-[26px] text-aliceblue px-3 transition-all duration-100 ease-in-out  max-1060:text-[22px] max-920:text-[18px]"
+              onClick={closeMenu}
+            >
+              Announcements
             </Link>
             <Link
               href="/contact"
@@ -192,7 +199,10 @@ const Navbar = () => {
                 Home
               </Link>
               <Link href="/news" onClick={closeMenu}>
-                News and Announcements
+                News
+              </Link>
+              <Link href="/announcements" onClick={closeMenu}>
+                Announcements
               </Link>
               <Link href="/contact" onClick={closeMenu}>
                 Contact Us
