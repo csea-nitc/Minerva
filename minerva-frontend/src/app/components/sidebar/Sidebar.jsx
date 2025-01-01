@@ -1,10 +1,38 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Loading from "../loading/loading";
+
+const token = process.env.NEXT_PUBLIC_TOKEN;
+const backend_url = process.env.NEXT_PUBLIC_API_URL;
 
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const [link, setLinks] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const linksD = await fetch(
+                    `${backend_url}/api/quick-links?populate=*`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
+
+                const linksData = await linksD.json();
+                console.log( linksData ) ; 
+                setLinks(linksData.data ? [...linksData.data].reverse() : []);
+            } catch (err) {
+                console.error("Fetch error:", err);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
@@ -107,20 +135,23 @@ const Sidebar = () => {
                         <a href="">Home</a>
                     </li>
                     <li className="h-[0.1rem] w-[80%] bg-[#800080]"></li>
-                    <li className="m-4 text-black border-white border-2 text-center rounded-s">
-                        <a href="">PHD Admissions</a>
-                    </li>
+                    <ul>
+                        {link && link.length > 0 ? (
+                            link.map((item) => (
+                                <li
+                                    key={item.id}
+                                    className="m-4 text-black border-white border-2 text-center rounded-s"
+                                >
+                                    <a href={`/node/${item.Title}`}>{item.Title}</a>
+                                </li>
+                            ))
+                        ) : (
+                            <Loading />
+                        )}
+                    </ul>
                     <li className="h-[0.1rem] w-[80%] bg-[#800080]"></li>
                     <li className="m-4 text-black border-white border-2 text-center rounded-s">
-                        <a href="">Ad HOC Faculty Recruitment</a>
-                    </li>
-                    <li className="h-[0.1rem] w-[80%] bg-[#800080]"></li>
-                    <li className="m-4 text-black border-white border-2 text-center rounded-s">
-                        <a href="">Timetable- Monsoon Semester 2024</a>
-                    </li>
-                    <li className="h-[0.1rem] w-[80%] bg-[#800080]"></li>
-                    <li className="m-4 text-black border-white border-2 text-center rounded-s">
-                        <a href="">DCC Minutes</a>
+                        <a href="/dcc">DCC Minutes</a>
                     </li>
                 </ul>
                 <button className="sm:text-[2rem] text-[2rem] text-black font-verdana font-bold bg-[#e3c7e3] w-[100%] text-center p-3">
