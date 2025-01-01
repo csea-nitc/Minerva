@@ -35,7 +35,7 @@ const Navbar = () => {
   ];
 
   const dropdownPlacements = [
-    { href: "/placements", label: "Placement Statistics" },
+    { href: "/programmes", label: "Placement Statistics" },
     { href: "/research", label: "Summer Internships" },
   ];
 
@@ -49,8 +49,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="absolute w-[100vw] top-0 z-20 overflow-hidden">
-
+    <div className="absolute w-[100vw] top-0 z-20">
       <div style={{ backgroundColor: "#800080" }} className="h-1"></div>
       <div className="navbar flex bg-gradient-to-b from-black/90 to-transparent font-teko pr-12 pl-6 items-start justify-between h-[180px] pt-5 transition-all duration-10 ease-linear max-920:h-[140px] max-800:items-center">
         <div className="relative z-20 flex gap-6 logo">
@@ -188,7 +187,6 @@ const Navbar = () => {
             </div>
 
             <div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
-
             <Link
               href="/awards"
               className="text-[26px] pl-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
