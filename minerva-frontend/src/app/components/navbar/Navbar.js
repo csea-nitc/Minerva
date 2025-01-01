@@ -19,6 +19,7 @@ const Navbar = () => {
 
   const closeMenu = () => {
     setMenuOpen(false); // Close the mobile menu
+    setActiveDropdown(null);
   };
 
   const dropdownActivites = [
@@ -34,7 +35,7 @@ const Navbar = () => {
   ];
 
   const dropdownPlacements = [
-    { href: "/programmes", label: "Placement Statistics" },
+    { href: "/placements", label: "Placement Statistics" },
     { href: "/research", label: "Summer Internships" },
   ];
 
@@ -49,6 +50,7 @@ const Navbar = () => {
 
   return (
     <div className="absolute w-[100vw] top-0 z-20 overflow-hidden">
+
       <div style={{ backgroundColor: "#800080" }} className="h-1"></div>
       <div className="navbar flex bg-gradient-to-b from-black/90 to-transparent font-teko pr-12 pl-6 items-start justify-between h-[180px] pt-5 transition-all duration-10 ease-linear max-920:h-[140px] max-800:items-center">
         <div className="relative z-20 flex gap-6 logo">
@@ -64,7 +66,7 @@ const Navbar = () => {
         </div>
 
         <div
-          className="hamburger z-20 absolute right-8 top-14 hidden max-800:flex gap-[6px] flex-col"
+          className="hamburger z-20 absolute right-8 top-18 hidden max-800:flex gap-[6px] flex-col"
           onClick={toggleMenu}
         >
           <div className="h-1 w-8 rounded-md bg-white"></div>
@@ -86,7 +88,14 @@ const Navbar = () => {
               className="text-[26px] text-aliceblue px-3 transition-all duration-100 ease-in-out  max-1060:text-[22px] max-920:text-[18px]"
               onClick={closeMenu}
             >
-              News and Announcements
+              News
+            </Link>
+            <Link
+              href="/announcements"
+              className="text-[26px] text-aliceblue px-3 transition-all duration-100 ease-in-out  max-1060:text-[22px] max-920:text-[18px]"
+              onClick={closeMenu}
+            >
+              Announcements
             </Link>
             <Link
               href="/contact"
@@ -108,15 +117,6 @@ const Navbar = () => {
             </div>
           </div>
           <div className="flex gap-1 uppercase section2 text-white">
-            <Link
-              href="/faculty"
-              className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
-              onClick={closeMenu}
-            >
-              Faculty
-            </Link>
-            <div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
-
             <div className="relative" onClick={() => toggleDropdown(0)}>
               <Link
                 href="#"
@@ -188,6 +188,7 @@ const Navbar = () => {
             </div>
 
             <div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
+
             <Link
               href="/awards"
               className="text-[26px] pl-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
@@ -211,7 +212,10 @@ const Navbar = () => {
                 Home
               </Link>
               <Link href="/news" onClick={closeMenu}>
-                News and Announcements
+                News
+              </Link>
+              <Link href="/announcements" onClick={closeMenu}>
+                Announcements
               </Link>
               <Link href="/contact" onClick={closeMenu}>
                 Contact Us
