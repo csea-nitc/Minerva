@@ -35,7 +35,7 @@ const Navbar = () => {
   ];
 
   const dropdownPlacements = [
-    { href: "/programmes", label: "Placement Statistics" },
+    { href: "/placements", label: "Placement Statistics" },
     { href: "/research", label: "Summer Internships" },
   ];
 
@@ -49,7 +49,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="absolute w-[100vw] top-0 z-20">
+    <div className="absolute w-[99.2vw] top-0 z-20 overflow-hidden">
       <div style={{ backgroundColor: "#800080" }} className="h-1"></div>
       <div className="navbar flex bg-gradient-to-b from-black/90 to-transparent font-teko pr-12 pl-6 items-start justify-between h-[180px] pt-5 transition-all duration-10 ease-linear max-920:h-[140px] max-800:items-center">
         <div className="relative z-20 flex gap-6 logo">
@@ -117,63 +117,78 @@ const Navbar = () => {
           </div>
           <div className="flex gap-1 uppercase section2 text-white">
            
-           
+          <div className="relative" onClick={() => toggleDropdown(0)}>
+            <Link
+              href="#"
+              className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
+            >
+              Academics
+            </Link>
+            {/* Pass `isOpen` prop to the Dropdown component */}
+            {activeDropdown === 0 && <Dropdown tabs={dropdownAcademics} isOpen={true} />}
+            {activeDropdown !== 0 && <Dropdown tabs={dropdownAcademics} isOpen={false} />}
+          </div>
 
-            <div className="relative" onClick={() => toggleDropdown(0)}>
-  <Link
+          <div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
 
-    href="#"
-    className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
-  >
-    Academics
-  </Link>
-  {/* Pass `isOpen` prop to the Dropdown component */}
-  {activeDropdown === 0 && <Dropdown tabs={dropdownAcademics} isOpen={true} />}
-  {activeDropdown !== 0 && <Dropdown tabs={dropdownAcademics} isOpen={false} />}
-</div>
+          <div className="relative" onClick={() => toggleDropdown(1)}>
+            <Link
+              href="#"
+              className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
+            >
+              Placement and Internships
+            </Link>
+            {/* Pass `isOpen` prop to the Dropdown component */}
+            {activeDropdown === 1 && <Dropdown tabs={dropdownPlacements} isOpen={true} />}
+            {activeDropdown !== 1 && <Dropdown tabs={dropdownPlacements} isOpen={false} />}
+          </div>
 
-<div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
+          <div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
 
-<div className="relative" onClick={() => toggleDropdown(1)}>
-  <Link
-    href="#"
-    className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
-  >
-    Placement and Internships
-  </Link>
-  {/* Pass `isOpen` prop to the Dropdown component */}
-  {activeDropdown === 1 && <Dropdown tabs={dropdownPlacements} isOpen={true} />}
-  {activeDropdown !== 1 && <Dropdown tabs={dropdownPlacements} isOpen={false} />}
-</div>
+          <div className="relative" onClick={() => toggleDropdown(2)}>
+            <Link
+              href="#"
+              className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
+            >
+              Activities
+            </Link>
+            {/* Pass `isOpen` prop to the Dropdown component */}
+            {activeDropdown === 2 && <Dropdown tabs={dropdownActivites} isOpen={true} />}
+            {activeDropdown !== 2 && <Dropdown tabs={dropdownActivites} isOpen={false} />}
+          </div>
 
-<div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
+          <div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
 
-<div className="relative" onClick={() => toggleDropdown(2)}>
-  <Link
-    href="#"
-    className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
-  >
-    Activities
-  </Link>
-  {/* Pass `isOpen` prop to the Dropdown component */}
-  {activeDropdown === 2 && <Dropdown tabs={dropdownActivites} isOpen={true} />}
-  {activeDropdown !== 2 && <Dropdown tabs={dropdownActivites} isOpen={false} />}
-</div>
+          <div className="relative" onClick={() => toggleDropdown(3)}>
+            <Link
+              href="#"
+              className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
+            >
+              People
+            </Link>
+            {/* Pass `isOpen` prop to the Dropdown component */}
+            {activeDropdown === 3 && <Dropdown tabs={dropdownPeople} isOpen={true} />}
+            {activeDropdown !== 3 && <Dropdown tabs={dropdownPeople} isOpen={false} />}
+          </div>
 
-<div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
 
-<div className="relative" onClick={() => toggleDropdown(3)}>
-  <Link
-    href="#"
-    className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
-  >
-    People
-  </Link>
-  {/* Pass `isOpen` prop to the Dropdown component */}
-  {activeDropdown === 3 && <Dropdown tabs={dropdownPeople} isOpen={true} />}
-  {activeDropdown !== 3 && <Dropdown tabs={dropdownPeople} isOpen={false} />}
-</div>
+            <div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
 
+            <div className="relative" onClick={() => toggleDropdown(3)}>
+              <Link
+                href="#"
+                className="text-[26px] px-5 transition-all duration-100 ease-in-out max-1060:text-[22px] max-920:text-[18px]"
+              >
+                People
+              </Link>
+              {/* Pass `isOpen` prop to the Dropdown component */}
+              {activeDropdown === 3 && (
+                <Dropdown tabs={dropdownPeople} isOpen={true} />
+              )}
+              {activeDropdown !== 3 && (
+                <Dropdown tabs={dropdownPeople} isOpen={false} />
+              )}
+            </div>
 
             <div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
             <Link

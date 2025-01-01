@@ -2,48 +2,75 @@
 import React, { useEffect, useState } from "react";
 import ListComp from "../components/newscomp/ListComp";
 import ImageHero from "../components/imagehero/Imagehero";
+import Loading from "../components/loading/loading";
 
 const token = process.env.NEXT_PUBLIC_TOKEN;
 const backend_url = process.env.NEXT_PUBLIC_API_URL;
 
 export default function Home() {
-  const [awards, setAwards] = useState([]);
+    const [awards, setAwards] = useState([]);
+    const [displayCount, setDisplayCount] = useState(5);
+    const itemsPerPage = 5;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const awardsD = await fetch(`${backend_url}/api/awards?populate=*`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const awardsD = await fetch(
+                    `${backend_url}/api/awards?populate=*`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
 
-        const awardsData = await awardsD.json();
-        setAwards(awardsData.data || []); 
-      } catch (err) {
-        console.error("Fetch error:", err);
-      }
+                const awardsData = await awardsD.json();
+                console.log(awardsData);
+                //setAwards(awardsData.data ? [...awardsData.data].reverse() : []);
+                setAwards(awardsData.data || []);
+            } catch (err) {
+                console.error("Fetch error:", err);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const handleShowMore = () => {
+        setDisplayCount(prevCount => prevCount + itemsPerPage);
     };
 
-    fetchData();
-  }, []);
-
-  return (
-    <>
-       <ImageHero title={"Awards"} font={"60px"} mobileFont={"50px"} contentdiv={".content-div"}  /> 
-    <div className="container mx-auto px-4 py-8 mt-20">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-saira font-bold text-foreground mb-6">
-          Awards
-        </h1>
-
-        {awards && awards.length > 0 ? (
-          awards.map((item) => <ListComp key={item.id} item={item} />)
-        ) : (
-          <p className="text-lg font-saira text-gray-500">No awards available.</p>
-        )}
-      </div>
-    </div></>
-      
-  );
+    return (
+        <>
+            <ImageHero
+                title={"Awards"}
+                font={"80px"}
+                mobileFont={"20px"}
+                contentdiv={".content-div"}
+            />
+            <div className="py-10 w-[100vw] mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
+                <div className="sm:w-[65%] w-[85%] mx-auto">
+                    {awards && awards.length > 0 ? (
+                        <>
+                            {awards.slice(0, displayCount).map((item) => (
+                                <ListComp key={item.id} item={item} />
+                            ))}
+                            {awards.length > displayCount && (
+                                <div className="text-center mt-8">
+                                    <button
+                                        onClick={handleShowMore}
+                                        className="bg-accent hover:bg-foreground text-white font-saira py-2 px-6 rounded-lg transition-colors duration-200"
+                                    >
+                                        Show More
+                                    </button>
+                                </div>
+                            )}
+                        </>
+                    ) : (
+                        <Loading/>
+                    )}
+                </div>
+            </div>
+        </>
+    );
 }
