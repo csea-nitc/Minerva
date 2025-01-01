@@ -16,7 +16,7 @@ export default function Home() {
         const fetchData = async () => {
             try {
                 const newsD = await fetch(
-                    `${backend_url}/api/announcements?populate=*`,
+                    `${backend_url}/api/news?populate=*`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,

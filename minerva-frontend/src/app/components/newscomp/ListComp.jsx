@@ -22,33 +22,44 @@ const ListComp = ({ item }) => {
 
       {item.description && (
         <div className="prose prose-sm max-w-none mt-4 font-mont text-foreground">
-          <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          components={{
-            table: ({ children }) => (
-              <table className="min-w-full table-auto border-collapse mt-4 mb-6">
-                {children}
-              </table>
-            ),
-            th: ({ children }) => (
-              <th className="px-4 py-2 text-left border-b font-bold text-gray-700 bg-gray-100">
-                {children}
-              </th>
-            ),
-            td: ({ children }) => (
-              <td className="px-4 py-2 border-b text-gray-600">
-                {children}
-              </td>
-            ),
-            tr: ({ children }) => (
-              <tr className="hover:bg-gray-50">
-                {children}
-              </tr>
-            ),
-          }}
-        >
-          {item.description}
-        </ReactMarkdown>
+        <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        components={{
+          table: ({ children }) => (
+            <table className="min-w-full table-auto border-collapse mt-4 mb-6">
+              {children}
+            </table>
+          ),
+          th: ({ children }) => (
+            <th className="px-4 py-2 text-left border-b font-bold text-gray-700 bg-gray-100">
+              {children}
+            </th>
+          ),
+          td: ({ children }) => (
+            <td className="px-4 py-2 border-b text-gray-600">
+              {children}
+            </td>
+          ),
+          tr: ({ children }) => (
+            <tr className="hover:bg-gray-50">
+              {children}
+            </tr>
+          ),
+          a: ({ href, children }) => (
+            <a
+              href={href}
+              className="text-blue-500 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {children}
+            </a>
+          ),
+        }}
+      >
+        {item.description}
+      </ReactMarkdown>
+
       </div>
       )}
 
@@ -61,7 +72,7 @@ const ListComp = ({ item }) => {
       {item.pdf && item.pdf.length > 0 && (
         <div className="mt-4">
           {item.pdf.map((pdf) => (
-            <PDF title = {`${pdf.name}`} url = {`${backend_url}${pdf.url}`} /> 
+            <PDF key={`${item.id}-${item.pdf.name}`} title = {`${pdf.name}`} url = {`${backend_url}${pdf.url}`} /> 
           ))}
         </div>
       )}
