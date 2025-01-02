@@ -34,7 +34,7 @@ const Hero = ({ props }) => {
         </p>
         <div
           ref={containerRef}
-          className="bg-[#FFFBF2] pr-8 sm:px-0 text-left sm:min-w-[500px] rounded-2xl sm:rounded-b-none absolute bottom-10 sm:bottom-0 sm:right-auto z-10"
+          className="bg-[#FFFBF2] px-4 sm:px-0 text-left sm:min-w-[500px] rounded-2xl sm:rounded-b-none absolute max-400:bottom-14 bottom-10 sm:bottom-0 sm:right-auto z-10"
         >
           <div className="flex flex-col sm:flex-row justify-around px-6 sm:px-12 py-4 w-[100%] text-[#812981] font-teko sm:text-left sm:gap-12">
             {/* NEWS Section */}
