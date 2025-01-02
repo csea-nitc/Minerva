@@ -21,7 +21,7 @@ const Herosupport = () => {
         }}
       />
 
-      <div className="w-full bg-accent h-[50vh] md:h-[28vh] flex flex-col md:flex-row relative z-10 bottom-[12vh] mb-[-12vh]  ">
+      <div className="w-full bg-accent h-[50vh] md:h-[28vh] flex flex-col md:flex-row relative z-10 bottom-[12vh] mb-[-12vh]">
         <div className="flex flex-col w-[100%] md:w-[66%] items-center justify-center lg:mt-10 relative bottom-4 lg:bottom-8 h-[100%] ">
           <div className="text-white text-6xl text-bold font-Teko mb-1">
             Our Programmes
@@ -40,7 +40,7 @@ const Herosupport = () => {
           </div>
         </div>
         <div className="flex flex-col relative bottom-14 md:bottom-0 md:top-2 2xl:mx-10 lg:left-24 font-teko h-[100%] items-center justify-center text-center ">
-          <div className="border-l-2">
+          <div className="md:border-l-2">
             {" "}
             <div className="text-white text-3xl text-bold font-Teko m-2 mb-4">
               LINKS

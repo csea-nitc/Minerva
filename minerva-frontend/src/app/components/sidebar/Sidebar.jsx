@@ -79,7 +79,7 @@ const Sidebar = () => {
     <div>
       <button
         onClick={toggleSidebar}
-        className={`fixed top-20 right-0 bg-white text-white transition-transform transform p-4 z-50 rounded-tl-xl border-r-0 rounded-bl-xl border-[#800080] border-2 duration-300 ${
+        className={`fixed top-32 right-0 bg-white text-white transition-transform transform p-4 z-40 rounded-tl-xl border-r-0 rounded-bl-xl border-[#800080] border-2 duration-300 ${
           !isOpen
             ? "translate-x-0 block sm:block"
             : "translate-x-[-20rem] lg:translate-x-[-23.5rem] hidden sm:block"

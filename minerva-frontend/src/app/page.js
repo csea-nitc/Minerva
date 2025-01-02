@@ -18,7 +18,7 @@ export default function Home() {
        <div className="overflow-hidden">
             <div>
                 <Sidebar />
-                <main className="m-0 p-0 bg-white">
+                <main className="m-0 p-0 bg-white overflow-hidden">
                     {/* <h1 className="text-black">Test</h1> */}
                     <Profile />
                     <Vision />
