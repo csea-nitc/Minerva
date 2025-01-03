@@ -4,7 +4,7 @@ import React from "react";
 const DownloadButton = ({ text, href, isExternal }) => {
   return (
     <button
-      className="flex flex-row items-center justify-between border-4 text-white font-Teko font-bold tracking-wide text-2xl p-3 sm:text-4xl rounded-2xl border-white"
+      className="flex flex-row items-center justify-between border-2 text-white font-Teko font-bold tracking-[0.08em] text-2xl p-3 sm:text-2xl rounded-2xl border-white"
       onClick={() => {
         if (isExternal) {
           window.open(href, "_blank");
