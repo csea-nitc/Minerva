@@ -7,52 +7,48 @@ import { ResponsiveBar } from '@nivo/bar';
 import React, { useEffect, useState } from "react";
 import Loading from "../components/loading/loading";
 
-//placeholder data for graph 
-const data = [
-  {
-      "year": "2020",
-      "placed": 120,
-      "applied": 150
-  },
-  {
-      "year": "2021",
-      "placed": 100,
-      "applied": 130
-  },
-  {
-      "year": "2022",
-      "placed": 140,
-      "applied": 180
-  }
-];
-
 const token = process.env.NEXT_PUBLIC_TOKEN;
 const backend_url = process.env.NEXT_PUBLIC_API_URL;
 
 export default function Placements() {
   const [placements , setPlacements] = useState([]);
+  const [stats , setStats] = useState([]);
 
   useEffect(() => {
-      const fetchData = async () => {
-          try {
-              const placementD = await fetch(
-                  `${backend_url}/api/placements?populate=*`,
-                  {
-                      headers: {
-                          Authorization: `Bearer ${token}`,
-                      },
-                  }
-              );
+    const fetchData = async () => {
+      try {
 
-              const placementData = await placementD.json();
-              console.log( placementData ) ; 
-              setPlacements(placementData.data || []);
-          } catch (err) {
-              console.error("Fetch error:", err);
-          }
-      };
+        // Fetching both endpoints
+        const [placementD, statsD] = await Promise.all([
+          fetch(`${backend_url}/api/placements?populate=*`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }),
+          fetch(`${backend_url}/api/placement-stats`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }),
+        ]);
+  
+        const placementData = await placementD.json();
+        const statsData = await statsD.json();
+        
+        const graphData = statsData.data.map((item) => ({
+          year: item.year,
+          placed: item.percentage
+        }));
+  
+        setStats( graphData ) ; 
+        setPlacements( placementData.data || [] );
 
-      fetchData();
+      } catch (err) {
+        console.error("Fetch error:", err);
+      }
+    };
+  
+    fetchData();
   }, []);
 
   return (
@@ -68,10 +64,10 @@ export default function Placements() {
           <p className="text-center font-teko text-[3vw]">
               Btech - Computer Science and Engineering
           </p>
-          <div className = "flex items-center justify-center gap-4 p-4 rounded-lg" >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className = "flex items-center justify-center gap-10 p-4 rounded-lg" >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
               <div>
-                <Graph data = {data} />
+                <Graph data = {stats} />
               </div>
               <div className="p-2 rounded-xl bg-[#C891C8] flex flex-col items-center">
                 <p className="font-teko">Year</p>
