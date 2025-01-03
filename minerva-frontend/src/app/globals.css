@@ -119,7 +119,3 @@ body {
     text-stroke: 2px black;
   }
 }
-
-::-webkit-scrollbar{
-  width: 0px;
-}

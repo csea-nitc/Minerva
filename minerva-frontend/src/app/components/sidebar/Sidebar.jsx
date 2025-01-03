@@ -66,29 +66,10 @@ const Sidebar = () => {
         handleResize(); // Initial check
         window.addEventListener("resize", handleResize);
 
-  return (
-    <div>
-      <button
-        onClick={toggleSidebar}
-        className={`fixed top-32 right-0 bg-white text-white transition-transform transform p-4 z-40 rounded-tl-xl border-r-0 rounded-bl-xl border-[#800080] border-2 duration-300 ${
-          !isOpen
-            ? "translate-x-0 block sm:block"
-            : "translate-x-[-20rem] lg:translate-x-[-23.5rem] hidden sm:block"
-        }`}
-      >
-        <div className="transition-transform duration-300 ease-in-out ">
-          <Image
-            src={
-              isOpen
-                ? "/images/sidebar-icon-closed.svg"
-                : "/images/sidebar-icon.svg"
-            }
-            alt="Sidebar Logo"
-            width={40}
-            height={40}
-          />
-        </div>
-      </button>
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
     return (
         <div>
