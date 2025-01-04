@@ -1,8 +1,26 @@
-import React from "react";
+"use client";
+import React, { useState,useEffect, useRef } from "react";
 import Link from "next/link";
 import DownloadButton from "../downloadbutton/DownloadButton";
+import { gsap } from "gsap";
 
 const Herosupport = ({ props }) => {
+
+      const [isLoaded, setIsLoaded] = useState(false);
+    
+      const containerRef = useRef(null); 
+      
+      useEffect(() => {
+    
+
+        gsap.from(containerRef.current, {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          ease: "power3.out",
+         
+        });
+      }, []);// Create a ref for the navbar
     return (
         <div className="w-[100%] mt-[55vh] md:mt-[76.56vh] ">
             {/* <div className="w-full bg-accent h-[1vh] bg-opacity-35 relative z-10 bottom-[12vh]" />
@@ -13,12 +31,12 @@ const Herosupport = ({ props }) => {
       <div className="w-full bg-accent h-[1vh] bg-opacity-85 relative z-10 bottom-[12vh]" />
       <div className="w-full bg-accent h-[1vh] bg-opacity-90 relative z-10 bottom-[12vh]" /> */}
             {/* Gradient background */}
-            <div className="relative container-fluid w-[100%] h-[100%] flex flex-col text-center justify-center items-center bg-cover bg-center pt-5">
-                <div className="bg-[#FFFBF2] min-[400px]:w-[40%] w-[45%] md:w-[60%] rounded-lg relative mb-0 mt-auto z-20 translate-y-4">
-                    <div className="flex flex-col md:flex-row justify-around p-5 w-[100%] text-[#812981] font-teko md:text-left">
+            <div className="relative container-fluid w-[100%] h-[100%] flex flex-col text-center justify-center items-center bg-cover bg-center pt-5 ">
+                <div   ref={containerRef} className="bg-[#FFFBF2] min-[400px]:w-[40%] w-[45%] md:w-[60%] rounded-lg relative bottom-12 mb-5 mt-auto z-20 translate-y-4">
+                    <div className="flex flex-col md:flex-row  justify-around p-5 w-[100%] text-[#812981] font-teko md:text-left">
                         {/* NEWS Section */}
                         <div className="flex flex-col md:w-[33%] border-b md:border-b-0 md:border-r-4 border-[#DEBDDD] md:mr-3 mt-3 pb-3 md:pb-0 md:pr-3">
-                            <a className="text-xl md:text-3xl font-bold">
+                            <a className="text-xl md:text-3xl font-bold tracking-widest">
                                 NEWS
                             </a>
                             {props.news.map((item, index) => (
@@ -32,7 +50,7 @@ const Herosupport = ({ props }) => {
 
                         {/* UPDATES Section */}
                         <div className="flex flex-col md:w-[33%] border-b md:border-b-0 md:border-r-4 border-[#DEBDDD] md:mr-3 mt-3 pb-3 md:pb-0 md:pr-3">
-                            <a className="text-xl md:text-3xl font-bold">
+                            <a className="text-xl md:text-3xl font-bold tracking-widest">
                                 UPDATES
                             </a>
                             {props.updates.map((item, index) => (
@@ -46,7 +64,7 @@ const Herosupport = ({ props }) => {
 
                         {/* EVENTS Section */}
                         <div className="flex flex-col md:w-[33%] md:mr-3 mt-3 pb-3 md:pb-0 md:pr-3">
-                            <a className="text-xl md:text-3xl font-bold">
+                            <a className="text-xl md:text-3xl font-bold tracking-widest">
                                 EVENTS
                             </a>
                             {props.events.map((item, index) => (
@@ -61,7 +79,7 @@ const Herosupport = ({ props }) => {
                 </div>
             </div>
             <div
-                className="w-full h-[12vh] relative z-10 bottom-[7.5vh] "
+                className="w-full h-[12vh] relative z-10 bottom-[6.5vh] "
                 style={{
                     background:
                         "linear-gradient(to top, #800080 0%, rgba(172, 15, 202, 0) 100%)",
