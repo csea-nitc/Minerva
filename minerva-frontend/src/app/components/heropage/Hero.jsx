@@ -21,10 +21,9 @@ const Hero = ({ props }) => {
           <p className="text-white font-saira text-[1.6vw] font-extrabold absolute right-8 -bottom-2 p-auto">
             NATIONAL INSTITUTE OF TECHNOLOGY, CALICUT
           </p>
+
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Hero;

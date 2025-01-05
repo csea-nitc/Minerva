@@ -105,7 +105,6 @@ const Herosupport = ({ props }) => {
                 </div>
               </div>
             </div>
-          </div>
         </div>
         <div
           className={`hidden md:flex border-l-[10px] border-[#800080] w-full h-[10vh] absolute z-10 ${styles.bottomSquiggly} translate-y-[14vh] overflow-hidden`}
@@ -113,6 +112,7 @@ const Herosupport = ({ props }) => {
       </div>
     </div>
   );
+
 };
 
 export default Herosupport;
