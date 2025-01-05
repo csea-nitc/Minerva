@@ -24,7 +24,7 @@ const Herosupport = ({ props }) => {
       <div className="relative container-fluid w-[100%] h-[100%] flex flex-col text-center justify-center items-center bg-cover bg-center pt-5">
         <div
           ref={containerRef}
-          className="bg-[#FFFBF2] min-[400px]:w-[40%] w-[45%] md:w-[60%] rounded-lg relative bottom-12 mb-5 mt-auto z-20 translate-y-4"
+          className="bg-[#FFFBF2] min-[400px]:w-[40%] w-[45%] md:w-[60%] rounded-lg relative bottom-0 mb-5 mt-auto z-20 translate-y-4"
         >
           {/* Content can be added here */}
         </div>
@@ -72,7 +72,7 @@ const Herosupport = ({ props }) => {
         </div>
 
         <div
-          className={`hidden md:flex border-l-[10px] border-[#800080] w-full h-[10vh] absolute z-10 ${styles.bottomSquiggly} translate-y-[12vh] overflow-hidden`}
+          className={`hidden md:flex border-l-[10px] border-[#800080] w-full h-[10vh] absolute z-10 ${styles.bottomSquiggly} relative  overflow-hidden`}
         />
       </div>
     </div>
