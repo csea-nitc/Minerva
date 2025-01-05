@@ -13,7 +13,7 @@ export default function FacultyDetails({
     const [cols, setCols] = useState(1);
     const containerRef = useRef(null);
 
-    const { facultyData } = data;
+    const { facultyData }  = data;
 
     useEffect(() => {
         const updateCols = () => {
