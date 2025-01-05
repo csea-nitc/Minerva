@@ -60,15 +60,19 @@ const Herosupport = ({ props }) => {
                 LINKS
               </div>
               <div className="flex flex-row md:flex-col">
-                <div className="text-white text-3xl px-5 py-2">Placeholder1</div>
-                <div className="text-white text-3xl px-5 py-2">Placeholder2</div>
+                <div className="text-white text-3xl px-5 py-2">
+                  Placeholder1
+                </div>
+                <div className="text-white text-3xl px-5 py-2">
+                  Placeholder2
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         <div
-          className={`hidden md:flex border-l-[10px] border-[#800080] w-full h-[10vh] absolute z-10 ${styles.bottomSquiggly} translate-y-[14vh] overflow-hidden`}
+          className={`hidden md:flex border-l-[10px] border-[#800080] w-full h-[10vh] absolute z-10 ${styles.bottomSquiggly} translate-y-[12vh] overflow-hidden`}
         />
       </div>
     </div>
