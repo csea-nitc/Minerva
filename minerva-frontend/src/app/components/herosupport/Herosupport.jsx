@@ -19,7 +19,7 @@ const Herosupport = ({ props }) => {
     });
   }, []); // Create a ref for the navbar
   return (
-    <div className="w-[100%] mt-[55vh] md:mt-[85vh] ">
+    <div className="w-[100%] mt-[-15vh] ">
       <div className="relative container-fluid w-[100%] h-[100%] flex flex-col text-center justify-center items-center bg-cover bg-center pt-5 ">
         <div
           ref={containerRef}
@@ -74,10 +74,10 @@ const Herosupport = ({ props }) => {
       <div className="w-full bg-accent flex flex-col">
         <div className="w-full bg-accent flex flex-col md:flex-row relative z-10 bottom-[12vh] mb-[-12vh] mt-10  ">
           <div className="flex flex-col w-[100%] md:w-[66%] items-center justify-center lg:mt-10 relative   h-[100%] ">
-            <div className="text-white text-6xl text-bold font-Teko ">
+            <div className="text-white text-6xl text-bold font-Teko">
               Our Programmes
             </div>
-            <div className="h-[30%] md:h-[22%] p-10 mt-[10px] flex flex-col md:flex-row justify-center items-center gap-4">
+            <div className="h-[30%] md:h-[22%] p-10 mt-[10px] -translate-y-7 flex flex-col md:flex-row justify-center items-center gap-4">
               <DownloadButton
                 text="UG BROCHURE"
                 href="https://example.com"
