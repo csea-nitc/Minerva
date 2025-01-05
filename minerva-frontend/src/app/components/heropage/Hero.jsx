@@ -10,20 +10,21 @@ const Hero = ({ props }) => {
       >
         <div className="absolute w-[70%] flex flex-col justify-center items-center -translate-y-5">
           {/* DEPARTMENT OF aligned to the left */}
-          <p className="text-white font-saira text-[1.6vw] font-extrabold absolute left-10 -top-2 p-auto">
+          <p className="text-white font-saira text-[1.6vw] font-extrabold absolute left-10 -top-2">
             DEPARTMENT OF
           </p>
           {/* COMPUTER SCIENCE AND ENGINEERING centered */}
-          <p className="text-white font-saira text-[4vw] font-extrabold p-auto text-center">
+          <p className="text-white font-saira text-[4vw] font-extrabold text-center">
             COMPUTER SCIENCE AND ENGINEERING
           </p>
           {/* NATIONAL INSTITUTE OF TECHNOLOGY, CALICUT aligned to the right */}
-          <p className="text-white font-saira text-[1.6vw] font-extrabold absolute right-8 -bottom-2 p-auto">
+          <p className="text-white font-saira text-[1.6vw] font-extrabold absolute right-8 -bottom-2">
             NATIONAL INSTITUTE OF TECHNOLOGY, CALICUT
           </p>
-
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Hero;
