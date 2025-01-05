@@ -46,7 +46,7 @@ export default function Home() {
                 mobileFont={"20px"}
                 contentdiv={".content-div"}
             />
-            <div className="py-10 w-[100vw] mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
+            <div className="py-10 w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
                 <div className="sm:w-[65%] w-[85%] mx-auto">
                     {news && news.length > 0 ? (
                         <>
@@ -57,7 +57,7 @@ export default function Home() {
                                 <div className="text-center mt-8">
                                     <button
                                         onClick={handleShowMore}
-                                        className="bg-blue-500 hover:bg-blue-600 text-white font-saira py-2 px-6 rounded-lg transition-colors duration-200"
+                                        className="bg-accent hover:bg-foreground text-white font-saira py-2 px-6 rounded-lg transition-colors duration-200"
                                     >
                                         Show More
                                     </button>

@@ -127,8 +127,9 @@ export default function Home() {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
-        const result = await response.json();
-        console.log(result);
+                const result = await response.json();
+                console.log("Faculty data")
+                console.log(result);
 
         if (result && result.data && Array.isArray(result.data)) {
           setFacultyData(result.data);
