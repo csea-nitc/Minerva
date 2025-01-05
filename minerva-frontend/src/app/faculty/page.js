@@ -128,6 +128,7 @@ export default function Home() {
                 }
 
                 const result = await response.json();
+                console.log("Faculty data")
                 console.log(result);
 
                 if (result && result.data && Array.isArray(result.data)) {
