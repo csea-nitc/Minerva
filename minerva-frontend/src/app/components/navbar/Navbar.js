@@ -221,7 +221,7 @@ const Navbar = () => {
           }`}
         >
           <div className="relative z-10 dropdown backdrop-blur-[5px] -mt-[140px] pt-[120px] bg-gradient-to-b from-black/50 to-black/50">
-            <div className="flex font-teko flex-col pt-6 p-9 uppercase text-[30px] text-white">
+            <div className="flex font-teko flex-col pt-6 p-9 text-[30px] text-white">
               <Link href="/" className="" onClick={closeMenu}>
                 Home
               </Link>
@@ -261,7 +261,7 @@ const Navbar = () => {
                 className="bg-white w-[87px] px-4 rounded-lg"
                 style={{ color: "#800080" }}
               >
-                <Link href="/login" className="login" onClick={closeMenu}>
+                <Link href="/login" className="login uppercase" onClick={closeMenu}>
                   Login
                 </Link>
               </div>
