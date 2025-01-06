@@ -7,6 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        fadeIn: "fadeIn 0.8s ease-out",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: 0, transform: "translateY(-20px)" },
+          "100%": { opacity: 1, transform: "translateY(0)" },
+        },
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
@@ -38,6 +47,7 @@ module.exports = {
         "max-1060": { max: "1060px" },
         "max-800": { max: "800px" },
         "max-1240": { max: "1240px" },
+        "max-400": { max: "400px" },
       },
     },
   },

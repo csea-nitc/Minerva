@@ -1,5 +1,7 @@
-import React from "react";
+"use client";
+import React, { useEffect, useRef } from "react";
 import Link from "next/link";
+import { gsap } from "gsap";
 
 const Hero = ({ props }) => {
   return (
