@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactMarkdown from 'react-markdown';
-import App from '../image-carousel/swiper';
+import React from "react";
+import ReactMarkdown from "react-markdown";
+import App from "../image-carousel/swiper";
 import remarkGfm from "remark-gfm";
 import PDF from "../pdf/PDF";
 
@@ -17,13 +17,13 @@ const ListComp = ({ item }) => {
   return (
     <div className="mb-8 p-6 bg-background text-foreground rounded-lg shadow-md hover:shadow-lg transition-shadow text-center overflow-hidden break-words">
       <div className="mb-2 flex items-center justify-between">
-        <h2 className="text-xl font-mont font-semibold text-center w-full overflow-hidden text-ellipsis whitespace-nowrap">
+        <h2 className="text-xl font-jakarta font-semibold text-center w-full overflow-hidden text-ellipsis whitespace-nowrap">
           {item.Title}
         </h2>
       </div>
 
       {item.description && (
-        <div className="prose prose-sm max-w-none mt-4 font-mont text-foreground text-center break-words">
+        <div className="prose prose-sm max-w-none mt-4 font-jakarta text-foreground text-justify  break-words">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{
@@ -38,14 +38,10 @@ const ListComp = ({ item }) => {
                 </th>
               ),
               td: ({ children }) => (
-                <td className="px-4 py-2 border-b text-gray-600">
-                  {children}
-                </td>
+                <td className="px-4 py-2 border-b text-gray-600">{children}</td>
               ),
               tr: ({ children }) => (
-                <tr className="hover:bg-gray-50">
-                  {children}
-                </tr>
+                <tr className="hover:bg-gray-50">{children}</tr>
               ),
               a: ({ href, children }) => (
                 <a
@@ -73,7 +69,11 @@ const ListComp = ({ item }) => {
       {item.pdf && item.pdf.length > 0 && (
         <div className="mt-4">
           {item.pdf.map((pdf) => (
-            <PDF key={`${item.id}-${item.pdf.name}`} title={`${pdf.name}`} url={`${backend_url}${pdf.url}`} />
+            <PDF
+              key={`${item.id}-${item.pdf.name}`}
+              title={`${pdf.name}`}
+              url={`${backend_url}${pdf.url}`}
+            />
           ))}
         </div>
       )}

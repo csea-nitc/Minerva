@@ -11,7 +11,7 @@ export default function ContactUsPage() {
       />
       <div className="py-10 w-[100vw] mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
         <div className="sm:w-[65%] w-[85%] mx-auto">
-          <div className="font-mont pt-6 pb-6">
+          <div className="font-jakarta pt-6 pb-6">
             <h2 className="md:text-2xl font-bold">Office Address:</h2>
             {/* <p>
               <strong>Place Holder &darr;&darr;&darr;</strong>

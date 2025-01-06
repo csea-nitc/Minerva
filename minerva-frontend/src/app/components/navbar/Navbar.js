@@ -39,8 +39,8 @@ const Navbar = () => {
   const dropdownAcademics = [
     { href: "/programmes", label: "Programmes" },
     { href: "/research", label: "Research" },
-    { href: "/laboratory", label: "Laboratory" },
-    { href: "/academic_integrity", label: "Academic Integrity" },
+    { href: "/laboratories", label: "Laboratory" },
+    { href: "/academic-integrity", label: "Academic Integrity" },
   ];
 
   const dropdownPlacements = [
@@ -86,10 +86,18 @@ const Navbar = () => {
 
         <div className="flex-col gap-4 max-1060:gap-2 uppercase flex max-800:hidden links">
           <div className="flex justify-end gap-6 h-10 section1 text-white mt-2">
-            <Link href="/" className="text-[26px] px-3 max-1060:text-[22px] max-920:text-[18px]" onClick={closeMenu}>
+            <Link
+              href="/"
+              className="text-[26px] px-3 max-1060:text-[22px] max-920:text-[18px]"
+              onClick={closeMenu}
+            >
               Home
             </Link>
-            <Link href="/news" className="text-[26px] px-3 max-1060:text-[22px] max-920:text-[18px]" onClick={closeMenu}>
+            <Link
+              href="/news"
+              className="text-[26px] px-3 max-1060:text-[22px] max-920:text-[18px]"
+              onClick={closeMenu}
+            >
               News
             </Link>
             <Link
@@ -107,7 +115,11 @@ const Navbar = () => {
               Contact Us
             </Link>
             <div className="login bg-white text-[26px] h-fit pt-1 flex items-center px-4 rounded-md max-1060:text-[22px] max-920:text-[18px]">
-              <Link href="https://minerva.arunnats.com/admin" style={{ color: "#800080" }} onClick={closeMenu}>
+              <Link
+                href="https://minerva.arunnats.com/admin"
+                style={{ color: "#800080" }}
+                onClick={closeMenu}
+              >
                 Login
               </Link>
             </div>
@@ -115,37 +127,62 @@ const Navbar = () => {
 
           <div className="flex gap-1 uppercase section2 text-white">
             <div className="relative" onClick={() => toggleDropdown(0)}>
-              <Link href="#" className="text-[26px] px-5 max-1060:text-[22px] max-920:text-[18px]">
+              <Link
+                href="#"
+                className="text-[26px] px-5 max-1060:text-[22px] max-920:text-[18px]"
+              >
                 Academics
               </Link>
-              <Dropdown tabs={dropdownAcademics} isOpen={activeDropdown === 0} />
+              <Dropdown
+                tabs={dropdownAcademics}
+                isOpen={activeDropdown === 0}
+              />
             </div>
             <div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
 
             <div className="relative" onClick={() => toggleDropdown(1)}>
-              <Link href="#" className="text-[26px] px-5 max-1060:text-[22px] max-920:text-[18px]">
+              <Link
+                href="#"
+                className="text-[26px] px-5 max-1060:text-[22px] max-920:text-[18px]"
+              >
                 Placement and Internships
               </Link>
-              <Dropdown tabs={dropdownPlacements} isOpen={activeDropdown === 1} />
+              <Dropdown
+                tabs={dropdownPlacements}
+                isOpen={activeDropdown === 1}
+              />
             </div>
             <div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
 
             <div className="relative" onClick={() => toggleDropdown(2)}>
-              <Link href="#" className="text-[26px] px-5 max-1060:text-[22px] max-920:text-[18px]">
+              <Link
+                href="#"
+                className="text-[26px] px-5 max-1060:text-[22px] max-920:text-[18px]"
+              >
                 Activities
               </Link>
-              <Dropdown tabs={dropdownActivities} isOpen={activeDropdown === 2} />
+              <Dropdown
+                tabs={dropdownActivities}
+                isOpen={activeDropdown === 2}
+              />
             </div>
             <div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
 
             <div className="relative" onClick={() => toggleDropdown(3)}>
-              <Link href="#" className="text-[26px] px-5 max-1060:text-[22px] max-920:text-[18px]">
+              <Link
+                href="#"
+                className="text-[26px] px-5 max-1060:text-[22px] max-920:text-[18px]"
+              >
                 People
               </Link>
               <Dropdown tabs={dropdownPeople} isOpen={activeDropdown === 3} />
             </div>
             <div className="h-[30px] max-1060:h-[24px] px-[1px] bg-white mt-1"></div>
-            <Link href="/awards" className="text-[26px] pl-5 max-1060:text-[22px] max-920:text-[18px]" onClick={closeMenu}>
+            <Link
+              href="/awards"
+              className="text-[26px] pl-5 max-1060:text-[22px] max-920:text-[18px]"
+              onClick={closeMenu}
+            >
               Awards
             </Link>
           </div>
@@ -172,15 +209,38 @@ const Navbar = () => {
               <Link href="/contact" onClick={closeMenu}>
                 Contact Us
               </Link>
-              <DropdownMob label="People" items={dropdownPeople} closeMenu={closeMenu} />
-              <DropdownMob label="Activities" items={dropdownActivities} closeMenu={closeMenu} />
-              <DropdownMob label="Placements and Internships" items={dropdownPlacements} closeMenu={closeMenu} />
-              <DropdownMob label="Academics" items={dropdownAcademics} closeMenu={closeMenu} />
+              <DropdownMob
+                label="People"
+                items={dropdownPeople}
+                closeMenu={closeMenu}
+              />
+              <DropdownMob
+                label="Activities"
+                items={dropdownActivities}
+                closeMenu={closeMenu}
+              />
+              <DropdownMob
+                label="Placements and Internships"
+                items={dropdownPlacements}
+                closeMenu={closeMenu}
+              />
+              <DropdownMob
+                label="Academics"
+                items={dropdownAcademics}
+                closeMenu={closeMenu}
+              />
               <Link href="/awards" onClick={closeMenu}>
                 Awards
               </Link>
-              <div className="bg-white w-[87px] px-4 rounded-lg" style={{ color: "#800080" }}>
-                <Link href="/login" className="login uppercase" onClick={closeMenu}>
+              <div
+                className="bg-white w-[87px] px-4 rounded-lg"
+                style={{ color: "#800080" }}
+              >
+                <Link
+                  href="/login"
+                  className="login uppercase"
+                  onClick={closeMenu}
+                >
                   Login
                 </Link>
               </div>
