@@ -26,6 +26,7 @@ const Herosupport = ({ props }) => {
                     className={`w-full h-[20vh] relative z-10 bottom-[6.5vh] ${styles.topSquiggly}`}
                 />
 
+
                 <div className="w-full bg-accent flex flex-col">
                     <div className="w-full bg-accent justify-center flex flex-col md:flex-row relative z-10 bottom-[12vh] mb-[-12vh] mt-10">
                         <div className="flex flex-col  items-center justify-center lg:mt-10 relative h-[100%] ">
