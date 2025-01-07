@@ -1,7 +1,7 @@
 export default function Vision() {
   return (
     <div className="relative overflow-hidden overflow-y-hidden ">
-      <div className="bg-[#800080] h-[101%] w-[10px] absolute "></div>
+      <div className="bg-[rgb(128,0,128)] h-[101%] w-[10px] absolute "></div>
       <div className="lg:flex w-[100%] justify-center items-center pt-[3rem]">
         <div className="flex justify-center items-center lg:w-[60%] w-[100%] lg:ml-[4rem]">
           <div className="text-center font-saira w-[100%] text-[#800080] lg:text-[11.5rem] xl-lg:text-[12rem] md:text-[10rem] sm:text-[8rem] text-[5rem]  md:w-[52rem] sm:h-[10.75rem] flex justify-center items-center right-[-28rem] font-bold">
