@@ -13,7 +13,7 @@ export default function Footer() {
                   Department of Computer <br />
                   Science and Engineering
                 </p>
-                <span className="text-lg font-mont">
+                <span className="text-lg font-jakarta">
                   National Intitute of Technology Calicut
                 </span>
               </div>

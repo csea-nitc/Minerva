@@ -12,7 +12,7 @@ export default function AboutTheSite() {
         />
         <div className="py-10 w-[100vw] mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
           <div className="sm:w-[65%] w-[85%] mx-auto">
-            <div className="font-mont pt-6 pb-6 md:text-lg">
+            <div className="font-jakarta pt-6 pb-6 md:text-lg">
               <p>
                 The aim of this website is to publish information about the
                 activities and programs of the Department of Computer Science
