@@ -15,9 +15,12 @@ const ListComp = ({ item }) => {
     : [];
 
   return (
-    <div className="mb-8 p-6 bg-background text-foreground rounded-lg shadow-md hover:shadow-lg transition-shadow text-center overflow-hidden break-words">
+    <div className="mb-8 p-6 bg-background text-foreground rounded-lg border-4 border-accent   bg-[#d2b2d1] 
+  
+    bg-opacity-10 
+    hover:bg-opacity-50  transition-shadow text-center overflow-hidden break-words">
       <div className="mb-2 flex items-center justify-between">
-        <h2 className="text-xl font-jakarta font-semibold text-center w-full overflow-hidden text-ellipsis whitespace-nowrap">
+        <h2 className="text-xl sm:text-2xl font-jakarta font-semibold text-center w-full overflow-hidden">
           {item.Title}
         </h2>
       </div>
@@ -61,8 +64,8 @@ const ListComp = ({ item }) => {
       )}
 
       {item.image && item.image.length > 0 && (
-        <div className="mt-4">
-          <App images={swiperImages} flag={true} view={1} width="w-full" />
+        <div className="mt-8">
+          <App images={swiperImages} flag={false} view={1} width="w-full" />
         </div>
       )}
 

@@ -32,8 +32,9 @@ module.exports = {
         jakarta: ["Jakarta", "sans-serif"],
       },
       screens: {
-        xs: "480px", // Extra small devices
+        // Extra small devices
         sm: "640px", // Small devices
+        xs: "480px",
         "sm-md": "704px", // Middle of small and medium
         md: "768px", // Medium devices
         "md-lg": "896px", // Middle of medium and large
