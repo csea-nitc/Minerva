@@ -62,6 +62,7 @@ export default function FacultyDetails({
           <React.Fragment key={index}>
             {/* Image */}
             <div
+
               className={`cursor-pointer flex justify-center mt-[2rem] items-center rounded-lg overflow-hidden   transform hover:scale-105 transition-all duration-300 col-start-${
                 (index % cols) + 1
               } ${

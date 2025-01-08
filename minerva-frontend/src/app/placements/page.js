@@ -62,10 +62,14 @@ export default function Placements() {
           <p className="text-center font-teko text-[3vw]">
             Btech - Computer Science and Engineering
           </p>
+
           <div className="flex items-center justify-center gap-10 p-4 rounded-lg">
             <div className="flex justify-center">
               <div>
                 <Graph data={stats} />
+              </div>
+              <div>
+                <Graph data = {stats} />
               </div>
             </div>
           </div>

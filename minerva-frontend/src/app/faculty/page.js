@@ -111,17 +111,17 @@ export default function Home() {
   const backend_url = process.env.NEXT_PUBLIC_API_URL;
   const token = process.env.NEXT_PUBLIC_TOKEN;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `${backend_url}/api/faculty-pages?populate=photograph`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(
+                    `${backend_url}/api/faculty-pages?populate=photograph&pagination[pageSize]=100`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
 
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
