@@ -68,9 +68,22 @@ export default function Programmes() {
                             </div>
                         ))}
                     </div>
+                    <div
+                        className="text-[3em] sm:text-[5em] font-extrabold text sm:"
+                        style={{ color: "#800080" }}
+                    >
+                        {tabData[selectedTab]}
+                    </div>
+                    <div
+                        className="h-[7px]  w-full mt-1"
+                        style={{ backgroundColor: "#800080" }}
+                    ></div>
                     <div className="sm:w-[65%] w-[100%] mt-12 mx-auto">
                     {adhoc && adhoc.length > 0 ? (
-                        <ListComp key={selectedTab} item={adhoc[selectedTab]} />
+                        <ListComp
+                        key={selectedTab}
+                        item={{ ...adhoc[selectedTab], Title: "" }}
+                      />
                     ) : (
                         <Loading />
                     )}
