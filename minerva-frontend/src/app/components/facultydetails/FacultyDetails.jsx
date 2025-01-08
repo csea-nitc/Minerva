@@ -135,9 +135,9 @@ export default function FacultyDetails({
                             {facultyData[activeIndex].office_location}
                           </li>
                         )}
-                        {facultyData[activeIndex].office_no && (
+                        {facultyData[activeIndex].contact_no && (
                           <li className="m-4">
-                            Office Contact: {facultyData[activeIndex].office_no}
+                            Office Contact: {facultyData[activeIndex].contact_no}
                           </li>
                         )}
                         {facultyData[activeIndex].education && (
