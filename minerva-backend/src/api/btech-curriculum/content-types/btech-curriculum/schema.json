@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "btech_curricula",
+  "info": {
+    "singularName": "btech-curriculum",
+    "pluralName": "btech-curricula",
+    "displayName": "Btech-curriculum",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Doc": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

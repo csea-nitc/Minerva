@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mtechaida_syllabi",
+  "info": {
+    "singularName": "mtechaida-syllabus",
+    "pluralName": "mtechaida-syllabi",
+    "displayName": "Mtechaida-syllabus"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Doc": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

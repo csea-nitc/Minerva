@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mtechis_syllabi",
+  "info": {
+    "singularName": "mtechis-syllabus",
+    "pluralName": "mtechis-syllabi",
+    "displayName": "Mtechis-syllabus"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Doc": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

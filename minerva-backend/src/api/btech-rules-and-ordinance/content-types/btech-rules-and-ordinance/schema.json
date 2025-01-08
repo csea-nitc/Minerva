@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "btech_rules_and_ordinances",
+  "info": {
+    "singularName": "btech-rules-and-ordinance",
+    "pluralName": "btech-rules-and-ordinances",
+    "displayName": "Btech-rules-and-ordinance"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Doc": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

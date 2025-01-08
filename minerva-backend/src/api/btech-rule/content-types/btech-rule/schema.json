@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "btech_rules",
+  "info": {
+    "singularName": "btech-rule",
+    "pluralName": "btech-rules",
+    "displayName": "Btech-rule"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Doc": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

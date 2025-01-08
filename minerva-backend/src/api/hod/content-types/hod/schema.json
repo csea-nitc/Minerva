@@ -1,0 +1,54 @@
+{
+  "kind": "singleType",
+  "collectionName": "hods",
+  "info": {
+    "singularName": "hod",
+    "pluralName": "hods",
+    "displayName": "hod",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "designation": {
+      "type": "string"
+    },
+    "office_location": {
+      "type": "string"
+    },
+    "contact_no": {
+      "type": "string"
+    },
+    "contact_email": {
+      "type": "string"
+    },
+    "education": {
+      "type": "text"
+    },
+    "associated_frgs": {
+      "type": "text"
+    },
+    "external_links": {
+      "type": "string"
+    },
+    "specialisation": {
+      "type": "text"
+    },
+    "photograph": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

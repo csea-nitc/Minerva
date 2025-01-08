@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "faculty_pages",
+  "info": {
+    "singularName": "faculty-page",
+    "pluralName": "faculty-pages",
+    "displayName": "faculty-page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "designation": {
+      "type": "string"
+    },
+    "education": {
+      "type": "text"
+    },
+    "specialisation": {
+      "type": "text"
+    },
+    "photograph": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "additional_info": {
+      "type": "text"
+    },
+    "contact_email": {
+      "type": "email"
+    },
+    "associated_frgs": {
+      "type": "text"
+    },
+    "office_location_contact": {
+      "type": "string"
+    },
+    "external_links": {
+      "type": "string"
+    },
+    "contact_no": {
+      "type": "string"
+    },
+    "institute_page": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mtech_syllabi",
+  "info": {
+    "singularName": "mtech-syllabus",
+    "pluralName": "mtech-syllabi",
+    "displayName": "Mtech-syllabus"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Doc": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

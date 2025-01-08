@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "adhocs",
+  "info": {
+    "singularName": "adhoc",
+    "pluralName": "adhocs",
+    "displayName": "Adhoc"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}
