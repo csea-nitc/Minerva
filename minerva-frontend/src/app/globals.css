@@ -120,6 +120,16 @@ body {
   }
 }
 
-::-webkit-scrollbar{
-  width: 0px;
+::-webkit-scrollbar {
+  width: 0.57vw;
+}
+
+::-webkit-scrollbar-track {
+  background: #C891C8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #800080;
+  border: .15em solid #C891C8;
+  border-radius: 100vw;
 }
