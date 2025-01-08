@@ -51,8 +51,7 @@ const Navbar = () => {
   const dropdownPeople = [
     { href: "/faculty", label: "Faculty" },
     { href: "/staff", label: "Staff" },
-    { href: "/adhoc_faculty", label: "Adhoc Faculty" },
-    { href: "/adhoc_staff", label: "Adhoc Staff" },
+    { href: "/adhoc", label: "Adhoc Faculty" },
     { href: "/students", label: "Students" },
     { href: "/alumni", label: "Alumni" },
   ];
