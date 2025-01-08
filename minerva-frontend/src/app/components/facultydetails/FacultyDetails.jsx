@@ -56,7 +56,7 @@ export default function FacultyDetails({
             ref={containerRef}
         >
             <div
-                className={`grid grid-cols-2 md:grid-cols-4 lg-xl:grid-cols-6 lg-xl:gap-4 gap-2 w-full`}
+                className={`grid grid-cols-2 md:grid-cols-4 lg-xl:grid-cols-5 lg-xl:gap-4 gap-2 w-full`}
             >
                 {facultyData.map((faculty, index) => (
                     <React.Fragment key={index}>
@@ -150,13 +150,13 @@ export default function FacultyDetails({
                                                     </li>
                                                 )}
                                                 {facultyData[activeIndex]
-                                                    .office_no && (
+                                                    .contact_no && (
                                                     <li className="m-4">
                                                         Office Contact:{" "}
                                                         {
                                                             facultyData[
                                                                 activeIndex
-                                                            ].office_no
+                                                            ].contact_no
                                                         }
                                                     </li>
                                                 )}

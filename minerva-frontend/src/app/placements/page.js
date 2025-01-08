@@ -65,10 +65,7 @@ export default function Placements() {
               Btech - Computer Science and Engineering
           </p>
           <div className = "flex items-center justify-center gap-10 p-4 rounded-lg" >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
-              <div>
-                <Graph data = {stats} />
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-1 gap-y-10">
               <div className="p-2 rounded-xl bg-[#C891C8] flex flex-col items-center">
                 <p className="font-teko">Year</p>
                 <div className="flex-growf aspect-square">vcwsed</div>
@@ -87,6 +84,9 @@ export default function Placements() {
                     </p>
                   </div>
                 </div>
+              </div>
+              <div>
+                <Graph data = {stats} />
               </div>
             </div>
           </div>
