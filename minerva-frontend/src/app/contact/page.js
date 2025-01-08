@@ -11,15 +11,15 @@ export default function ContactUsPage() {
       />
       <div className="py-10 w-[100vw] mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
         <div className="sm:w-[65%] w-[85%] mx-auto">
-          <div className="font-mont pt-6 pb-6">
+          <div className="font-jakarta pt-6 pb-6">
             <h2 className="md:text-2xl font-bold">Office Address:</h2>
-            <p>
+            {/* <p>
               <strong>Place Holder &darr;&darr;&darr;</strong>
-            </p>
+            </p> */}
             <img src="/csea-temp-footer.png" alt="" />
-            <p>
+            {/* <p>
               <strong>Place Holder &uarr;&uarr;&uarr;</strong>
-            </p>
+            </p> */}
             <p className="md:text-lg pt-6">
               Department of Computer Science and Engineering National Institute
               of Technology Calicut NIT Campus PO, Calicut, Kerala - 673 601,

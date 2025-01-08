@@ -17,7 +17,7 @@ export default function ImageHero({
     return (
         <>
             {/* Fixed Hero Section */}
-            <div className={`fixed top-0 w-full ${heightClasses} z-0`}>
+            <div className={`fixed top-0 w-[100vw] ${heightClasses} z-0`}>
                 <img
                     src="landing.png"
                     className="absolute w-full h-full object-cover -z-20"

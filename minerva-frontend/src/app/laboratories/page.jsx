@@ -40,9 +40,9 @@ const page = () => {
   return (
     <>
       <ImgCard
-        title={"Labs"}
-        font={"80px"}
-        mobileFont={"20px"}
+        title={"Laboratories"}
+        font={"70px"}
+        mobileFont={"50px"}
         contentdiv={".content-div"}
       />
       <div className="py-10 w-[100vw] mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
@@ -64,7 +64,6 @@ const page = () => {
           ))}
         </div>
       </div>
-
     </>
   );
 };
