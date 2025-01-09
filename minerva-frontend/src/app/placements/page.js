@@ -10,10 +10,13 @@ import Loading from "../components/loading/loading";
 const token = process.env.NEXT_PUBLIC_TOKEN;
 const backend_url = process.env.NEXT_PUBLIC_API_URL;
 
+const tabData = [ "B.Tech" , "M.Tech-CSE" , "M.Tech-CSE (IS)" , "MCA" ] ;
+
 export default function Placements() {
 
   const [placements, setPlacements] = useState([]);
   const [stats, setStats] = useState([]);
+  const [selectedTab, setSelectedTab] = useState( 0 );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,26 +62,66 @@ export default function Placements() {
           mobileFont={"50px"}
           contentdiv={".content-div"}
         />
-        <div className="py-10 w-[100vw] mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
-          <p className="text-center font-teko text-[3vw]">
-            Btech - Computer Science and Engineering
-          </p>
 
-          <div className="flex items-center justify-center gap-10 p-4 rounded-lg">
-            <div className="flex justify-center">
-              <div>
-                <Graph data = {stats} />
-              </div>
+        <div className="w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
+                <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
+                <div className="sm:w-[65%] w-[85%] mx-auto py-10">
+                {/* Tab Navigation */}
+                <div className="flex flex-row w-full pr-4 sm:w-[80vw]  ">
+                    {tabData.map((tab, index) => (
+                        <div key={tab} className="flex items-center">
+                            <button
+                                onClick={() => setSelectedTab( index )}
+                                className={`px-4 max-800:px-2 py-2 font-bold text-[1.5em] max-920:text-[1.3em] rounded-lg transition-colors duration-200 ${
+                                    selectedTab === index
+                                        ? "bg-[#800080] text-white"
+                                        : "hover:bg-[#800080] hover:text-white"
+                                }`}
+                            >
+                                {tab}
+                            </button>
+                            {index < Object.keys(tabData).length - 1 && (
+                                <div className="mx-3 w-[4px] h-[3em] bg-[#800080] opacity-40 rounded-full"></div>
+                            )}
+                        </div>
+                    ))}
+                </div>
+
+                <div
+                    className="text-[3em] sm:text-[5em] font-extrabold text sm:"
+                    style={{ color: "#800080" }}
+                >
+                    {tabData[selectedTab]}
+                </div>
+                <div
+                    className="h-[7px]  w-full mt-1"
+                    style={{ backgroundColor: "#800080" }}
+                ></div>
+
+                {/* Graph comp rendered only for B.Tech stats */}
+                {selectedTab === 0 && (
+                  <div className="flex items-center justify-center gap-10 p-4 rounded-lg">
+                    <div className="flex justify-center">
+                      <div>
+                        <Graph data={stats} />
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* MarkdowTable */}
+                <div className="sm:w-[65%] w-[85%] mx-auto">
+                  {placements && placements.length > 0 ? (
+                    <ListComp key={selectedTab}
+                    item= { {...placements[selectedTab], Title: ""} } />
+                  ) : (
+                    <Loading />
+                  )}
+                </div>
+                
             </div>
-          </div>
-          <div className="sm:w-[65%] w-[85%] mx-auto">
-            {placements && placements.length > 0 ? (
-              placements.map((item) => <ListComp key={item.id} item={item} />)
-            ) : (
-              <Loading />
-            )}
-          </div>
         </div>
+
       </div>
     </>
   );
