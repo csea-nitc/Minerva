@@ -98,40 +98,16 @@ export default function Home() {
         <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
 
         <div className="w-[85%] mx-auto">
-          <div className=" relative md:h-[25rem] md:flex m-0 p-0 overflow-hidden flex overflow-y-hidden overflow-x-hidden">
-            <div className="flex flex-col md:flex-row w-[100%] ">
-              <div className="flex justify-center items-center">
-                <div className="md:transform md:rotate-90 font-saira text-justify text-[#800080] lg:text-[4.3rem] xl-lg:text-[12rem] md:text-[10rem] sm:text-[4rem] text-[4rem] md:absolute  md:w-[52rem] sm:h-[10.75rem] flex justify-center items-center md:top-[30%] lg:right-[-17rem] md:right-[-20.5rem] right-[-28rem] font-bold ">
-                  PROFILE
-                </div>
-              </div>
-              <div className="flex justify-center items-center">
-                <div className="sm:h-[50%] h-[50%] font-mont font-bold text-black xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] xl:w-[75%] lg:w-[65%] md:w-[68%] sm:w-[80%] w-[85%]  flex flex-col md:justify-center justify-start text-justify  md:mr-[5rem] lg:mr-[9rem] lg-xl:mr-[10rem] xl:mr-[15rem]  ">
-                  <p className="mb-3 md:block hidden">
-                    The Department of Computer Science and Engineering, NIT
-                    Calicut offers undergraduate and postgraduate programs in
-                    computer science and engineering and doctoral degree
-                    program.
-                  </p>
-                  <p className="md:block hidden">
-                    The fast changing scenario in Information Technology
-                    necessitates the department to actively extend its research
-                    and development activities. The{" "}
-                    <span className="text-[#800080]">
-                      current research interests of the department
-                    </span>{" "}
-                    include major areas of research in computer science.
-                  </p>
-                </div>
-              </div>
-              <div className="text-black font-mont w-[89%] font-bold text-justify md:mr-[2rem] lg:mr-[0rem] flex flex-col justify-center items-center xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] md:ml-[3rem] sm:ml-[3rem] ml-[1.6rem] md:hidden">
-                <p className="w-[90%] pb-10">
-                  Department of Computer Science and Engineering offers
-                  undergraduate and postgraduate programs in computer science
-                  and engineering and doctoral degree program.
+          <div className="relative md:min-h-[20rem]  flex m-0 p-0  flex-col">
+            <div className="flex w-[100%] mt-[5rem]">
+              <div className=" h-auto font-mont text-justify font-bold text-black xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] w-[90%] flex flex-col justify- mx-auto">
+                <p className="mb-3">
+                  The Department of Computer Science and Engineering, NIT
+                  Calicut offers undergraduate and postgraduate programs in
+                  computer science and engineering and doctoral degree program.
                 </p>
-                <p className="w-[90%] pb-10">
-                  The fast changing scenario in Information Technology
+                <p>
+                  The fast-changing scenario in Information Technology
                   necessitates the department to actively extend its research
                   and development activities. The{" "}
                   <span className="text-[#800080]">
@@ -140,31 +116,39 @@ export default function Home() {
                   include major areas of research in computer science.
                 </p>
               </div>
+              <div className="w-[10%] flex justify-end items-center">
+                <div className="absolute -right-24 md:transform md:rotate-90 font-saira text-[#800080] lg:text-[4.2rem] xl-lg:text-[6rem] md:text-[5rem] sm:text-[4rem] text-[4rem] font-bold ml-auto">
+                  PROFILE
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className=" relative md:h-[25rem] md:flex m-0 p-0 overflow-hidden flex flex-col overflow-y-hidden overflow-x-hidden w-[85%] mx-auto">
-            <div className="flex ">
-              <div className=" w-[30%] font-saira text-[#800080] lg:text-[8rem] xl-lg:text-[12rem] md:text-[10rem] sm:text-[8rem] text-[5rem]  sm:h-[10.75rem]  justify-center items-center font-bold">
+          <div className="relative md:h-[25rem] md:flex m-0 p-0 overflow-hidden flex flex-col overflow-y-hidden overflow-x-hidden">
+            <div className="flex w-[100%]">
+              <div className="w-[30%] font-saira text-[#800080] lg:text-[9rem] xl-lg:text-[12rem] md:text-[10rem] sm:text-[8rem] text-[5rem] sm:h-[10.75rem] flex  items-center font-bold">
                 VISION
               </div>
-              <div className="w-[70%]">
-                <p className="w-[90%]  text-black font-mont font-bold text-right justify-center align-middle xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] my-auto">
+              <div className="w-[70%] flex justify-center items-center">
+                <p className="w-[90%] text-black font-mont font-bold text-right xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] ml-auto">
                   To be a Centre of Excellence in the Discipline of Computing.
                 </p>
               </div>
             </div>
             <div className="border-t-4 border-[#800080] translate-y-2"></div>
-            <div className="flex ">
-              <div className="w-[72%]">
-                <p className="w-[90%]  text-black font-mont font-bold text-justify justify-center align-middle xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] my-auto">
+            <div className="flex h-full items-center">
+              <div className="w-[72%] flex items-center justify-between">
+                <p className="w-[90%] text-black font-mont font-bold text-justify xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem]">
                   To develop human resource with sound knowledge- theory and
                   practical - in the discipline of computing and the ability to
                   apply the knowledge to the benefit of the society at large.
                 </p>
               </div>
-              <div className=" w-[28%] font-saira text-[#800080] lg:text-[8rem] xl-lg:text-[12rem] md:text-[10rem] sm:text-[8rem] text-[5rem] sm:h-[10.75rem]   items-center font-bold  lg:mr-[10rem] xl:mr-[10rem]">
-                MISSION
+              <div className=" items-center ml-auto">
+                <p className="-translate-y-5 font-bold justify-end font-saira text-[#800080] lg:text-[9rem] xl-lg:text-[12rem] md:text-[10rem] sm:text-[8rem] text-[5rem] sm:h-[10.75rem] ">
+                  {" "}
+                  MISSION
+                </p>
               </div>
             </div>
           </div>
@@ -175,7 +159,7 @@ export default function Home() {
                 HISTORY
               </div>
             </div>
-            <div className="text-black font-mont w-[89%] font-bold text-justify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] md:ml-[3rem] sm:ml-[3rem] ml-[1.6rem]">
+            <div className="text-black font-jakarta w-[89%] font-bold text-justify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] md:ml-[3rem] sm:ml-[3rem] ml-[1.6rem]">
               <p className="w-[90%]">
                 From its inception about a century ago, computing has become the
                 defining technology of our age. The study of computing is the
