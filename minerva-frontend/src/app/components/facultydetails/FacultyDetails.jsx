@@ -52,7 +52,7 @@ export default function FacultyDetails({
 
   return (
     <div
-      className={`font-mont mx-auto p-4 flex justify-center items-center mb-[4rem] w-[90%] ${className}`}
+      className={`font-jakarta mx-auto p-4 flex justify-center items-center mb-[4rem] w-[90%] ${className}`}
       ref={containerRef}
     >
       <div
@@ -62,6 +62,7 @@ export default function FacultyDetails({
           <React.Fragment key={index}>
             {/* Image */}
             <div
+
               className={`cursor-pointer flex justify-center mt-[2rem] items-center rounded-lg overflow-hidden   transform hover:scale-105 transition-all duration-300 col-start-${
                 (index % cols) + 1
               } ${
@@ -134,9 +135,9 @@ export default function FacultyDetails({
                             {facultyData[activeIndex].office_location}
                           </li>
                         )}
-                        {facultyData[activeIndex].office_no && (
+                        {facultyData[activeIndex].contact_no && (
                           <li className="m-4">
-                            Office Contact: {facultyData[activeIndex].office_no}
+                            Office Contact: {facultyData[activeIndex].contact_no}
                           </li>
                         )}
                         {facultyData[activeIndex].education && (

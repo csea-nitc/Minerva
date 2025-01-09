@@ -11,9 +11,10 @@ export default function CSEAPage() {
                 contentdiv={".content-div"}
                 increasedHeight={1}
             />
-            <div className="py-10 w-[100vw] mt-[50vh] sm:mt-[60vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
-                <div className="sm:w-[65%] w-[85%] mx-auto">
-                    <p className="md:text-lg pt-6 font-mont">
+            <div className="w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
+                <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
+                <div className="sm:w-[65%] w-[85%] mx-auto py-10">
+                    <p className="md:text-lg pt-6 font-jakarta">
                         The Computer Science and Engineering Association (CSEA)
                         is an integral part of the Computer Science and
                         Engineering Department. Over the years, CSEA has

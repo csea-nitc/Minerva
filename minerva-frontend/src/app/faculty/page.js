@@ -111,17 +111,17 @@ export default function Home() {
   const backend_url = process.env.NEXT_PUBLIC_API_URL;
   const token = process.env.NEXT_PUBLIC_TOKEN;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `${backend_url}/api/faculty-pages?populate=photograph`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(
+                    `${backend_url}/api/faculty-pages?populate=photograph&pagination[pageSize]=100`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
 
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -227,7 +227,7 @@ export default function Home() {
           >
             <div className="hod-info flex justify-center items-center">
               <div
-                className={`cursor-pointer flex justify-center items-center rounded-lg overflow-hidden shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 font-mont`}
+                className={`cursor-pointer flex justify-center items-center rounded-lg overflow-hidden shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 font-jakarta`}
                 onClick={handleImageClick}
               >
                 <img
@@ -264,7 +264,7 @@ export default function Home() {
           </div>
           {isHodInfoVisible && (
             <div
-              className={`flex flex-wrap bg-gray-100 mt-4 w-[90%] rounded-lg m-auto font-mont ${
+              className={`flex flex-wrap bg-gray-100 mt-4 w-[90%] rounded-lg m-auto font-jakarta ${
                 activeIndex !== null ? "blur-[2px]" : ""
               } `}
               ref={(el) => (hodDetailsRefs.current[1] = el)}

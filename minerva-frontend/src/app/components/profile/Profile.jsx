@@ -9,7 +9,7 @@ export default function Profile() {
             </div>
           </div>
           <div className="flex justify-center items-center">
-            <div className="sm:h-[100%] h-[50%] font-mont font-bold text-black xl:text-[1.7rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] xl:w-[60%] lg:w-[65%] md:w-[68%] sm:w-[80%] w-[85%]  flex flex-col md:justify-center justify-start text-justify sm:gap-[5rem] gap-[1rem] md:mr-[5rem] lg:mr-[9rem] lg-xl:mr-[10rem] xl:mr-[15rem]  ">
+            <div className="sm:h-[100%] h-[50%] font-jakarta font-bold text-black xl:text-[1.7rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] xl:w-[60%] lg:w-[65%] md:w-[68%] sm:w-[80%] w-[85%]  flex flex-col md:justify-center justify-start text-justify sm:gap-[5rem] gap-[1rem] md:mr-[5rem] lg:mr-[9rem] lg-xl:mr-[10rem] xl:mr-[15rem]  ">
               <p className="mb-8 md:block hidden">
                 Department of Computer Science and Engineering offers
                 undergraduate and postgraduate programs in computer science and
@@ -26,7 +26,7 @@ export default function Profile() {
               </p>
             </div>
           </div>
-          <div className="text-black font-mont w-[89%] font-bold text-justify md:mr-[2rem] lg:mr-[0rem] flex flex-col justify-center items-center xl:text-[1.7rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] md:ml-[3rem] sm:ml-[3rem] ml-[1.6rem] md:hidden">
+          <div className="text-black font-jakarta w-[89%] font-bold text-justify md:mr-[2rem] lg:mr-[0rem] flex flex-col justify-center items-center xl:text-[1.7rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] md:ml-[3rem] sm:ml-[3rem] ml-[1.6rem] md:hidden">
             <p className="w-[90%] pb-10">
               Department of Computer Science and Engineering offers
               undergraduate and postgraduate programs in computer science and

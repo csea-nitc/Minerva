@@ -9,13 +9,13 @@ export default function Vision() {
           </div>
         </div>
 
-        <div className="text-black font-mont w-[80%] font-bold text-right hidden xl:text-[1.7rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] lg:block">
+        <div className="text-black font-jakarta w-[80%] font-bold text-right hidden xl:text-[1.7rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] lg:block">
           <p className="w-[67%]">
             To be a Centre of Excellence in the Discipline of Computing.
           </p>
         </div>
       </div>
-      <div className="text-black font-mont w-[89%] font-bold text-justify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.7rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] md:ml-[3rem] sm:ml-[3rem] ml-[1.6rem] mt-10 mb-10 lg:hidden">
+      <div className="text-black font-jakarta w-[89%] font-bold text-justify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.7rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] md:ml-[3rem] sm:ml-[3rem] ml-[1.6rem] mt-10 mb-10 lg:hidden">
         <p className="w-[89%]">
           To be a Centre of Excellence in the Discipline of Computing.
         </p>

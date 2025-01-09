@@ -22,7 +22,7 @@ export default function InfoSection({
 
             <DropdownButtons dropdownContent={downloadables} />
 
-            <div className=" font-mont text-[1.2em] leading-[35px] max-800:leading-7">
+            <div className=" font-jakarta text-[1.2em] leading-[35px] max-800:leading-7">
                 <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 text-justify ">
                     <div className="w-[90%] flex  order-1 sm:order-2 mx-auto sm:justify-self-end sm:mx-0">
                         <img
