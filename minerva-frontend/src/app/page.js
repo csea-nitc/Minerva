@@ -98,9 +98,9 @@ export default function Home() {
         <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
 
         <div className="w-[85%] mx-auto">
-          <div className="relative md:min-h-[20rem]  flex m-0 p-0  flex-col">
-            <div className="flex w-[100%] mt-[5rem]">
-              <div className=" h-auto font-mont text-justify font-bold text-black xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] w-[90%] flex flex-col justify- mx-auto">
+          <div className="relative md:min-h-[24rem]  flex m-0 p-0  flex-col">
+            <div className="flex w-[100%] mt-[7rem]">
+              <div className=" h-auto font-jakarta text-justify font-bold text-black xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] w-[90%] flex flex-col justify- mx-auto">
                 <p className="mb-3">
                   The Department of Computer Science and Engineering, NIT
                   Calicut offers undergraduate and postgraduate programs in
@@ -117,7 +117,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="w-[10%] flex justify-end items-center">
-                <div className="absolute -right-24 md:transform md:rotate-90 font-saira text-[#800080] lg:text-[4.2rem] xl-lg:text-[6rem] md:text-[5rem] sm:text-[4rem] text-[4rem] font-bold ml-auto">
+                <div className="absolute -right-32  md:transform md:rotate-90 font-saira text-[#800080] lg:text-[5.4rem] xl-lg:text-[6rem] md:text-[5rem] sm:text-[4rem] text-[4rem] font-bold ml-auto">
                   PROFILE
                 </div>
               </div>
@@ -130,7 +130,7 @@ export default function Home() {
                 VISION
               </div>
               <div className="w-[70%] flex justify-center items-center">
-                <p className="w-[90%] text-black font-mont font-bold text-right xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] ml-auto">
+                <p className="w-[90%] text-black font-jakarta font-bold text-right xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] ml-auto">
                   To be a Centre of Excellence in the Discipline of Computing.
                 </p>
               </div>
@@ -138,7 +138,7 @@ export default function Home() {
             <div className="border-t-4 border-[#800080] translate-y-2"></div>
             <div className="flex h-full items-center">
               <div className="w-[72%] flex items-center justify-between">
-                <p className="w-[90%] text-black font-mont font-bold text-justify xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem]">
+                <p className="w-[90%] text-black font-jakarta font-bold text-justify xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem]">
                   To develop human resource with sound knowledge- theory and
                   practical - in the discipline of computing and the ability to
                   apply the knowledge to the benefit of the society at large.
@@ -153,14 +153,14 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex relative flex-col pb-6">
-            <div className="flex items-center justify-center">
-              <div className="text-center text-[#800080] font-saira lg:text-[11.5rem] xl-lg:text-[12rem] md:text-[10rem] sm:text-[8rem] text-[5rem] md:w-[45rem] sm:h-[10.75rem] flex justify-center items-center font-bold flex-grow lg:flex-grow-0 md:mb-[4rem]">
+          <div className="flex relative flex-col ">
+            <div className="flex items-center ">
+              <div className="text-justify text-[#800080] font-saira lg:text-[9rem] xl-lg:text-[12rem] md:text-[10rem] sm:text-[8rem] text-[5rem] sm:h-[10.75rem] flex justify-center items-center font-bold  ">
                 HISTORY
               </div>
             </div>
-            <div className="text-black font-jakarta w-[89%] font-bold text-justify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] md:ml-[3rem] sm:ml-[3rem] ml-[1.6rem]">
-              <p className="w-[90%]">
+            <div className=" font-jakarta font-bold text-justify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem]">
+              <p className="">
                 From its inception about a century ago, computing has become the
                 defining technology of our age. The study of computing is the
                 study of the process of abstraction and its power, the practice
@@ -191,7 +191,7 @@ export default function Home() {
               />
             </div>
 
-            <div className="text-black font-mont w-[89%] font-bold text-justify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] md:ml-[3rem] sm:ml-[3rem] ml-[1.6rem]">
+            <div className="text-black font-jakarta w-[89%] font-bold text-justify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] md:ml-[3rem] sm:ml-[3rem] ml-[1.6rem]">
               <Image
                 src="/images/history-img.png"
                 alt="History Image"
@@ -200,8 +200,8 @@ export default function Home() {
                 className="history-image rounded-md md:hidden w-[90%] z-10 mb-12"
               />
             </div>
-            <div className="text-black font-mont w-[89%] font-bold text-justify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] md:ml-[3rem] sm:ml-[3rem] ml-[1.6rem]">
-              <p className="w-[90%] pb-10">
+            <div className="text-black font-jakarta font-bold text-justify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] ">
+              <p className="pb-10">
                 Undergraduate programme in Computer Science and Engineering
                 started in the year 1985 in the then Electrical Engineering
                 Department. The Department of Computer Science and Engineering
@@ -213,16 +213,16 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="bg-[#800080] font-mont text-white lg:h-[25rem] overflow-hidden relative sm-md:rounded-tr-[250px] sm-md:p-[2rem]">
-          <div className="w-[80%] mx-auto">
-            <div className="relative text-white font-mont w-[89%] font-bold text-justify md:mr-[2rem] lg:mr-[0rem]  xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] md:ml-[3rem] sm:ml-[3rem] ml-[1.6rem]">
+        <div className="bg-[#800080] font-jakarta text-white lg:h-[18rem] overflow-hidden relative sm-md:rounded-tr-[250px] sm-md:p-[2rem]">
+          <div className="w-[88.5%] mx-auto">
+            <div className="relative text-white font-jakarta  text-justify  md:mr-[2rem] lg:mr-[0rem] xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] ">
               <img
                 src="/images/csea.png"
                 alt="csea img"
                 className="circular-img hidden sm-md:block lg:w-[20rem] sm-md:w-[16rem] sm:w-[14rem] "
               />
 
-              <p className="text-justify xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] mb-[2rem] hidden sm-md:block">
+              <p className="text-justify xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] mb-[2rem] hidden sm-md:block my-auto">
                 The three-year MCA programme started in 1988. The two-year
                 M.Tech. programme in Computer Science and Engineering started in
                 1998. The two-year M.Tech. programme in Computer Science and
@@ -232,8 +232,8 @@ export default function Home() {
                 PhD programme started in 2002.
               </p>
             </div>
-            <div className="text-white font-mont w-[89%] font-bold text-justify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] md:ml-[3rem] sm:ml-[3rem] ml-[1.6rem] sm-md:hidden pt-[5rem]">
-              <p className="w-[90%]">
+            {/* <div className="text-white font-jakarta font-bold text-justify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.6rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] sm-md:hidden pt-[5rem] my-auto">
+              <p className="">
                 The three-year MCA programme started in 1988. The two-year
                 M.Tech. programme in Computer Science and Engineering started in
                 1998. The two-year M.Tech. programme in Computer Science and
@@ -249,7 +249,7 @@ export default function Home() {
                 alt="csea img"
                 className=" block sm-md:hidden lg:w-[20rem] w-[14rem] pb-[5rem]"
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
