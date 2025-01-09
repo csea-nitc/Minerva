@@ -29,7 +29,7 @@ export default function FeedBack() {
         }, 5000);
     };
     return (
-        <div className="font-mont pt-6 pb-6">
+        <div className="font-jakarta pt-6 pb-6">
             <p>
                 You are welcome to provide feedback on this website. Please
                 consider reading{" "}

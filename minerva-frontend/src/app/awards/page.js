@@ -37,7 +37,7 @@ export default function Home() {
     }, []);
 
     const handleShowMore = () => {
-        setDisplayCount(prevCount => prevCount + itemsPerPage);
+        setDisplayCount((prevCount) => prevCount + itemsPerPage);
     };
 
     return (
@@ -48,8 +48,9 @@ export default function Home() {
                 mobileFont={"20px"}
                 contentdiv={".content-div"}
             />
-            <div className="py-10 w-[100vw] mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
-                <div className="sm:w-[65%] w-[85%] mx-auto">
+            <div className="w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
+                <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
+                <div className="sm:w-[65%] w-[85%] mx-auto py-10">
                     {awards && awards.length > 0 ? (
                         <>
                             {awards.slice(0, displayCount).map((item) => (
@@ -67,7 +68,7 @@ export default function Home() {
                             )}
                         </>
                     ) : (
-                        <Loading/>
+                        <Loading />
                     )}
                 </div>
             </div>

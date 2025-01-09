@@ -9,7 +9,7 @@ export default function Mission() {
         </div>
       </div>
 
-      <div className="text-black font-mont w-[89%] font-bold text-justify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.7rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] md:ml-[3rem] sm:ml-[3rem] ml-[1.6rem] mt-10 mb-10">
+      <div className="text-black font-jakarta w-[89%] font-bold text-justify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.7rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1.1rem] md:ml-[3rem] sm:ml-[3rem] ml-[1.6rem] mt-10 mb-10">
         <p className="w-[90%]">
           To develop human resource with sound knowledge- theory and practical -
           in the discipline of computing and the ability to apply the knowledge

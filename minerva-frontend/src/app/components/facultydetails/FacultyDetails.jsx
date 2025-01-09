@@ -52,7 +52,7 @@ export default function FacultyDetails({
 
   return (
     <div
-      className={`font-mont mx-auto p-4 flex justify-center items-center mb-[4rem] w-[90%] ${className}`}
+      className={`font-jakarta mx-auto p-4 flex justify-center items-center mb-[4rem] w-[90%] ${className}`}
       ref={containerRef}
     >
       <div

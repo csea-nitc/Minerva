@@ -11,6 +11,7 @@ const token = process.env.NEXT_PUBLIC_TOKEN;
 const backend_url = process.env.NEXT_PUBLIC_API_URL;
 
 export default function Placements() {
+
   const [placements, setPlacements] = useState([]);
   const [stats, setStats] = useState([]);
 

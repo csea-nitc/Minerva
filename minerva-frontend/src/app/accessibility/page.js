@@ -10,7 +10,7 @@ export default function accessibility() {
             />
             <div className="py-10 w-[100vw] mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
                 <div className="sm:w-[65%] w-[85%] mx-auto">
-                    <div className="font-mont pt-6 pb-6">
+                    <div className="font-jakarta pt-6 pb-6">
                         <p className="md:text-lg">
                             We are trying to ensure that the CSED Website is
                             accessible to all users irrespective of device in

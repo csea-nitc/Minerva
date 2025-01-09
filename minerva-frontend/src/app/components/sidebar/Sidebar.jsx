@@ -1,7 +1,11 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Loading from "../loading/loading";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const token = process.env.NEXT_PUBLIC_TOKEN;
 const backend_url = process.env.NEXT_PUBLIC_API_URL;
@@ -10,9 +14,11 @@ const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const [link, setLinks] = useState([]);
-    const [showButton, setShowButton] = useState(false);
+    const buttonRef = useRef(null);
+    const sidebarRef = useRef(null);
 
     useEffect(() => {
+        // Fetch data for links
         const fetchData = async () => {
             try {
                 const linksD = await fetch(
@@ -25,7 +31,6 @@ const Sidebar = () => {
                 );
 
                 const linksData = await linksD.json();
-                console.log(linksData);
                 setLinks(linksData.data ? [...linksData.data].reverse() : []);
             } catch (err) {
                 console.error("Fetch error:", err);
@@ -36,31 +41,29 @@ const Sidebar = () => {
     }, []);
 
     useEffect(() => {
-        const handleScroll = () => {
-            const viewportHeight = window.innerHeight;
-            const scrollTop = window.scrollY;
-            const scrollPercentage = (scrollTop / viewportHeight) * 100;
+        // GSAP animation for the button
+        gsap.fromTo(
+            buttonRef.current,
+            { x: "100%" }, // Start off-screen
+            {
+                x: "0%", // Move into view
+                scrollTrigger: {
+                    trigger: document.body,
+                    start: "top 30% ",
+                    end: "top 10%",
+                    scrub: true,
+                },
+            }
+        );
 
-            setShowButton(scrollPercentage > 25);
-        };
-
-        window.addEventListener("scroll", handleScroll);
         return () => {
-            window.removeEventListener("scroll", handleScroll);
+            ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         };
-    }, [isOpen]);
-
-    const toggleSidebar = () => {
-        setIsOpen(!isOpen);
-    };
+    }, []);
 
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth <= 640) {
-                setIsMobile(true);
-            } else {
-                setIsMobile(false);
-            }
+            setIsMobile(window.innerWidth <= 640);
         };
 
         handleResize(); // Initial check
@@ -71,33 +74,67 @@ const Sidebar = () => {
         };
     }, []);
 
+    useEffect(() => {
+        const button = buttonRef.current;
+        const sidebar = sidebarRef.current;
+
+        if (!isOpen) {
+            // Enable ScrollTrigger animation when sidebar is closed
+            gsap.fromTo(
+                button,
+                { x: "100%" }, // Start off-screen
+                {
+                    x: "0%", // Move into view
+                    scrollTrigger: {
+                        trigger: document.body,
+                        start: "top 30%",
+                        end: "top 10%",
+                        scrub: true,
+                    },
+                }
+            );
+        } else {
+            ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+            if (!isMobile) {
+                gsap.set(button, { x: "-23.5rem" });
+            } else {
+                gsap.set(button, { x: "-100vw" });
+            }
+        }
+
+        return () => {
+            // Clean up all ScrollTrigger instances on component unmount or state change
+            ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        };
+    }, [isOpen]);
+
+    const toggleSidebar = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
         <div>
-            {(showButton || isOpen) && (
-                <button
-                    onClick={toggleSidebar}
-                    className={`fixed top-[7rem] right-0 bg-white text-white transition-transform transform p-4 z-50 rounded-tl-xl border-r-0 rounded-bl-xl border-[#800080] border-2 duration-300 ease-in-out ${
-                        !isOpen
-                            ? "translate-x-0 block sm:block"
-                            : "translate-x-[-20rem] lg:translate-x-[-23.5rem] hidden sm:block"
-                    }`}
-                >
-                    <div className="transition-transform duration-300 ease-in-out">
-                        <Image
-                            src={
-                                isOpen
-                                    ? "/images/sidebar-icon-closed.svg"
-                                    : "/images/sidebar-icon.svg"
-                            }
-                            alt="Sidebar Logo"
-                            width={40}
-                            height={40}
-                        />
-                    </div>
-                </button>
-            )}
+            <button
+                ref={buttonRef}
+                onClick={toggleSidebar}
+                className={`fixed top-[7rem] right-0 transition-transform duration-300 ease-in-out  bg-white text-white p-4 z-50 rounded-tl-xl border-r-0 rounded-bl-xl border-[#800080] border-2`}
+            >
+                <div className="transition-transform duration-300 ease-in-out">
+                    <Image
+                        src={
+                            isOpen
+                                ? "/images/sidebar-icon-closed.svg"
+                                : "/images/sidebar-icon.svg"
+                        }
+                        alt="Sidebar Logo"
+                        width={40}
+                        height={40}
+                    />
+                </div>
+            </button>
 
             <div
+                ref={sidebarRef}
                 className={`fixed top-0 right-0 w-[100vw] sm:w-[20rem] lg:w-[23.5rem] h-full bg-white overflow-y-auto overflow-x-hidden text-white transition-transform duration-300 ease-in-out ${
                     isOpen ? "translate-x-0" : "translate-x-full"
                 } z-40 flex flex-col items-center justify-start`}
@@ -109,7 +146,7 @@ const Sidebar = () => {
                             isOpen ? "block" : "hidden"
                         }`}
                     >
-                        <div className="transition-transform duration-300 ease-in-out ">
+                        <div className="transition-transform duration-300 ease-in-out">
                             <Image
                                 src="/images/sidebar-icon-closed-filled.svg"
                                 alt="Sidebar Logo"

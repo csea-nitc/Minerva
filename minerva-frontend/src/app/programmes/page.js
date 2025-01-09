@@ -96,11 +96,9 @@ export default function Programmes() {
                 mobileFont={"50px"}
                 contentdiv={".content-div"}
             />
-            <div className="min-h-screen font-saira text-[18px] max-800:text-[13px] max-1060:text-[15px] py-10 w-[100vw] mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
-                <div
-                    className="content-div  max-w-[1240px] mx-auto relative  pl-5 mt-[6vh]"
-                    // style={{ borderColor: "#800080", borderLeftWidth: "14px" }}
-                >
+            <div className="w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
+                <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
+                <div className="sm:w-[65%] w-[85%] mx-auto py-10">
                     {/* Tab Navigation */}
                     <div className="flex flex-row w-full pr-4 sm:w-[80vw]  ">
                         {Object.keys(tabData).map((tab, index) => (
