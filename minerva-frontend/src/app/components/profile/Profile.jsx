@@ -2,7 +2,6 @@ export default function Profile() {
   return (
     <>
       <div className=" relative md:h-[50rem] md:flex m-0 p-0 overflow-hidden flex overflow-y-hidden overflow-x-hidden">
-        <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
         <div className="flex flex-col md:flex-row h-[100%] w-[100%] ">
           <div className="flex justify-center items-center">
             <div className="text-center md:transform md:rotate-90 font-saira  text-[#800080] lg:text-[11.5rem] xl-lg:text-[12rem] md:text-[10rem] sm:text-[8rem] text-[5rem] md:absolute  md:w-[52rem] sm:h-[10.75rem] flex justify-center items-center md:top-[43%] lg:right-[-17rem] md:right-[-20.5rem] right-[-28rem] font-bold ">
