@@ -19,12 +19,14 @@ const Herosupport = ({ props }) => {
         });
     }, []);
 
-    return (
-        <div className="relative mt-[90vh] z-10">
-            <div className="w-[100%] mt-[15vh]">
-                <div
-                    className={`w-full h-[20vh] relative z-10 bottom-[6vh] ${styles.topSquiggly}`}
-                />
+
+  return (
+    <div className="relative mt-[90vh] z-10">
+      <div className="w-[100%] mt-[15vh]">
+        <div
+          className={`w-full h-[20vh] relative z-10 bottom-[6.5vh] translate-y-3 ${styles.topSquiggly}`}
+        />
+
 
                 <div className="w-full bg-accent flex flex-col items-center justify-center">
                     <div className="w-[100%] bg-accent justify-center flex flex-col md:flex-row relative z-10 bottom-[12vh] mb-[-18vh] mt-10">
