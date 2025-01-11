@@ -232,7 +232,7 @@ export default function Home() {
               >
                 <img
                   src={`${backend_url}/${hod?.photograph?.[0]?.url}`}
-                  alt={hod.name}
+                  alt={hod?.name}
                   className="lg-xl:h-[18rem]  lg-xl:w-[14.4rem] md-lg:h-[16rem] md-lg:w-[12.8rem] md:h-[13rem] md:w-[10.6rem] h-[250px] w-[200px] object-cover border-[10px] border-[#800080] object-top rounded-[10px] lg-xl:text-[0.9rem] text-[0.75rem] text-center"
                 />
                 <div className="absolute  text-white bg-[#800080] left-2 bottom-2 font-bold rounded-[3px] p-1">
