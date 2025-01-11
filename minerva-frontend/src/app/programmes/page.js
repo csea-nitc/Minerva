@@ -2,14 +2,20 @@
 import tabData from "./data";
 import { useState, useEffect } from "react";
 import ImageHero from "../components/imagehero/Imagehero";
-
 import InfoSection from "../components/programmesutil/infosection";
+import TabNav from "../components/tabnav/TabNav";
 
 const token = process.env.NEXT_PUBLIC_TOKEN;
 const backendUrl = process.env.NEXT_PUBLIC_API_URL;
 
+const TabData = [ "B. Tech" , "M. Tech-CSE" , "M. Tech-CSE (IS)" , "M. Tech-CSE (AIDA)" , "PhD" ]  ; 
+
 export default function Programmes() {
-    const [selectedTab, setSelectedTab] = useState(tabData["B. Tech"]);
+    const [selectedTab, setSelectedTab] = useState( 0 );
+
+    const tabKey = Object.entries(tabData).find(
+        ([key, value]) => key === TabData[selectedTab]
+      )?.[0];
 
     useEffect(() => {
         const fetchData = async () => {
@@ -100,35 +106,15 @@ export default function Programmes() {
                 <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
                 <div className="sm:w-[65%] w-[85%] mx-auto py-10">
                     {/* Tab Navigation */}
-                    <div className="flex flex-row w-full pr-4 sm:w-[80vw]  ">
-                        {Object.keys(tabData).map((tab, index) => (
-                            <div key={tab} className="flex items-center">
-                                <button
-                                    onClick={() => setSelectedTab(tabData[tab])}
-                                    className={`px-4 max-800:px-2 py-2 font-bold text-[1.5em] max-920:text-[1.3em] rounded-lg transition-colors duration-200 ${
-                                        selectedTab === tabData[tab]
-                                            ? "bg-[#800080] text-white"
-                                            : "hover:bg-[#800080] hover:text-white"
-                                    }`}
-                                >
-                                    {tab}
-                                </button>
-                                {index < Object.keys(tabData).length - 1 && (
-                                    <div className="mx-3 w-[4px] h-[3em] bg-[#800080] opacity-40 rounded-full"></div>
-                                )}
-                            </div>
-                        ))}
-                    </div>
+                    <TabNav onTabChange={setSelectedTab} tabData= {TabData} />
 
                     <InfoSection
-                        title={Object.keys(tabData).find(
-                            (key) => tabData[key] === selectedTab
-                        )}
-                        para1={selectedTab.para1}
-                        para2={selectedTab.para2}
-                        downloadables={selectedTab.dropdownContent}
-                        img1={selectedTab.img1link}
-                        img2={selectedTab.img2link}
+                        title={ tabKey }
+                        para1={tabData[tabKey].para1}
+                        para2={tabData[tabKey].para2}
+                        downloadables={tabData[tabKey].dropdownContent}
+                        img1={tabData[tabKey].img1link}
+                        img2={tabData[tabKey].img2link}
                     />
                 </div>
             </div>

@@ -60,9 +60,9 @@
           </SwiperSlide>
         ))}
         </Swiper>
-        { <div className={ (!flag?"hidden ":'') + 'mt-6 w-full flex justify-center items-center'}>
+        {/* { <div className={ (!flag?"hidden ":'') + 'mt-6 w-full flex justify-center items-center'}>
             <button className='border-4 text-accent font-Teko font-bold tracking-wide text-2xl p-3 sm:text-4xl rounded-2xl border-accent'>{images[activeIndex]["tag"] + "🔗"}</button>
-        </div> }
+        </div> } */}
       </div>
       </>
     );

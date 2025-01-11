@@ -2,6 +2,7 @@
 import tabData from "./data";
 import { use, useState, useEffect } from "react";
 import ImageHero from "../components/imagehero/Imagehero";
+import TabNav from "../components/tabnav/TabNav";
 
 export default function Programmes() {
     const [selectedTab, setSelectedTab] = useState(

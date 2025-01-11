@@ -43,7 +43,7 @@ const tabData = {
       img1link: "/image.png",
       img2link: "/image.png",
     },
-    PhD: {
+    "PhD": {
       para1: `The PhD program offers opportunities for advanced research in various fields of computer science. The M. Tech-CSE (IS) program focuses on Information Security. It equips students with the skills The M. Tech-CSE (IS) program focuses on Information Security. It equips students with the skills The M. Tech-CSE (IS) program focuses on Information Security. It equips students with the skills It is intended for those aiming to contribute to academia or high-level R&D.`,
       para2: `Research areas include Artificial Intelligence, Software Engineering, and Computational Theory.The M. Tech-CSE (IS) program focuses on Information Security. It equips students with the skills The M. Tech-CSE (IS) program focuses on Information Security. It equips students with the skills The M. Tech-CSE (IS) program focuses on Information Security. It equips students with the skills  The program is highly customizable to meet individual research goals.`,
       dropdownContent: {
