@@ -6,6 +6,7 @@ import ListComp from "../components/newscomp/ListComp";
 import { ResponsiveBar } from "@nivo/bar";
 import React, { useEffect, useState } from "react";
 import Loading from "../components/loading/loading";
+import TabNav from "../components/tabnav/TabNav";
 
 const token = process.env.NEXT_PUBLIC_TOKEN;
 const backend_url = process.env.NEXT_PUBLIC_API_URL;
@@ -67,25 +68,7 @@ export default function Placements() {
                 <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
                 <div className="sm:w-[65%] w-[85%] mx-auto py-10">
                 {/* Tab Navigation */}
-                <div className="flex flex-row w-full pr-4 sm:w-[80vw]  ">
-                    {tabData.map((tab, index) => (
-                        <div key={tab} className="flex items-center">
-                            <button
-                                onClick={() => setSelectedTab( index )}
-                                className={`px-4 max-800:px-2 py-2 font-bold text-[1.5em] max-920:text-[1.3em] rounded-lg transition-colors duration-200 ${
-                                    selectedTab === index
-                                        ? "bg-[#800080] text-white"
-                                        : "hover:bg-[#800080] hover:text-white"
-                                }`}
-                            >
-                                {tab}
-                            </button>
-                            {index < Object.keys(tabData).length - 1 && (
-                                <div className="mx-3 w-[4px] h-[3em] bg-[#800080] opacity-40 rounded-full"></div>
-                            )}
-                        </div>
-                    ))}
-                </div>
+                <TabNav onTabChange={setSelectedTab} tabData= {tabData} />
 
                 <div
                     className="text-[3em] sm:text-[5em] font-extrabold text sm:"
@@ -110,7 +93,7 @@ export default function Placements() {
                 )}
 
                 {/* MarkdowTable */}
-                <div className="sm:w-[65%] w-[85%] mx-auto">
+                <div>
                   {placements && placements.length > 0 ? (
                     <ListComp key={selectedTab}
                     item= { {...placements[selectedTab], Title: ""} } />
@@ -121,7 +104,6 @@ export default function Placements() {
                 
             </div>
         </div>
-
       </div>
     </>
   );

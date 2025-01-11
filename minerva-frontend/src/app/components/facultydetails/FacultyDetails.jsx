@@ -52,7 +52,7 @@ export default function FacultyDetails({
 
   return (
     <div
-      className={`font-jakarta mx-auto p-4 flex justify-center items-center mb-[4rem] w-[90%] ${className}`}
+      className={`font-jakarta mx-auto p-4 flex justify-center items-center w-[90%] ${className}`}
       ref={containerRef}
     >
       <div
@@ -168,6 +168,22 @@ export default function FacultyDetails({
                           <li className="m-4">
                             Additional Info:{" "}
                             {facultyData[activeIndex].additional_info}
+                          </li>
+                        )}
+
+                        {/* Adding additional feilds for PhD scholors */}
+                        
+                        {facultyData[activeIndex].year_of_admission && (
+                          <li className="m-4">
+                            Year of Admission:{" "}
+                            {facultyData[activeIndex].year_of_admission}
+                          </li>
+                        )}
+
+                        {facultyData[activeIndex].areas_of_interest && (
+                          <li className="m-4">
+                            Areas of Interest:{" "}
+                            {facultyData[activeIndex].areas_of_interest}
                           </li>
                         )}
                       </ul>

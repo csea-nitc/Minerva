@@ -64,20 +64,21 @@ export default function Home() {
     }, []);
 
     return (
-        <>
+        <div>
             <ImageHero
                 title={"Staff"}
                 font={"80px"}
                 mobileFont={"20px"}
                 contentdiv={".content-div"}
             />
-            <div className="py-10 w-[100vw] mt-[40vh] sm:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
+            <div className="w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
+                <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
                 <FacultyDetails
                     data={{ facultyData: staffData }}
                     activeIndex={activeIndex}
                     setActiveIndex={setActiveIndex}
                 />
             </div>
-        </>
+        </div>
     );
 }
