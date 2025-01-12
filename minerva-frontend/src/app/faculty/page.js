@@ -128,7 +128,7 @@ export default function Home() {
             <div className="py-10 w-[100vw] mt-[40vh] sm:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
                 <div className={`p-8 `}>
                     <div
-                        className={`flex flex-col-reverse md:flex-row justify-around ${
+                        className={`flex flex-col-reverse md-lg:flex-row justify-around ${
                             activeIndex !== null ? "blur-[2px]" : ""
                         } `}
                         ref={(el) => (hodDetailsRefs.current[0] = el)}
@@ -142,11 +142,17 @@ export default function Home() {
                                     <img
                                         src={hod.image}
                                         alt=""
-                                        className="lg:w-[300px] lg:h-[360px] w-[250px] h-[300px] object-cover group-hover:scale-[1.04] duration-300"
+                                        className="lg:w-[280px] lg:h-[360px] w-[250px] h-[300px] object-cover group-hover:scale-[1.04] duration-300"
                                     />
                                 </div>
                                 <div className="absolute bottom-0 w-full">
-                                    <div className="px-4 py-2 m-2 bg-white/90 rounded-md flex flex-col items-center">
+                                    <div
+                                        className={`px-4 py-2 m-2 ${
+                                            activeIndex === null
+                                                ? "bg-[#800080]/80 text-white"
+                                                : "bg-white/90 text-black"
+                                        } transition-all duration-200 rounded-md flex flex-col items-center`}
+                                    >
                                         <p className="font-semibold font-jakarta text-lg">
                                             {hod.name}
                                         </p>
@@ -269,6 +275,7 @@ export default function Home() {
                     data={{ facultyData }}
                     className={`${isHodInfoVisible ? "blur-[2px]" : ""}`}
                     activeIndex={activeIndex}
+                    isHodInfoVisible={isHodInfoVisible}
                     setActiveIndex={setActiveIndex}
                 />
                 <div
