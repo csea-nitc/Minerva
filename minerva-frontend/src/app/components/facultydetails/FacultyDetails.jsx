@@ -52,13 +52,13 @@ export default function FacultyDetails({
 
   return (
     <div
-      className={`font-jakarta mx-auto p-4 flex justify-center items-center w-[90%] ${className}`}
+      className={`font-jakarta mx-auto p-4 flex justify-center items-center ${className}`}
       ref={containerRef}
     >
       <div
-        className={`grid grid-cols-2 md:grid-cols-4 lg-xl:grid-cols-6 lg-xl:gap-4 gap-2 w-full`}
+        className={`grid grid-cols-1 md:grid-cols-4 lg-xl:grid-cols-4 lg-xl:gap-4 gap-2 w-full`}
       >
-        {facultyData.map((faculty, index) => (
+        {facultyData && facultyData.map((faculty, index) => (
           <React.Fragment key={index}>
             {/* Image */}
             <div

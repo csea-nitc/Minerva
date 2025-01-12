@@ -48,18 +48,6 @@ export default function Adhoc() {
           {/* Tab Navigation */}
           <TabNav onTabChange={setSelectedTab} tabData= {tabData} />
 
-          <div
-          className="text-[3em] sm:text-[5em] font-extrabold text sm:"
-          style={{ color: "#800080" }}
-          >
-          {tabData[selectedTab]}
-          </div>
-
-          <div
-              className="h-[7px]  w-full mt-1"
-              style={{ backgroundColor: "#800080" }}
-          ></div>
-
           <div >
             {adhoc && adhoc.length > 0 ? (
               <ListComp

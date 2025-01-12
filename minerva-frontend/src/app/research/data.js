@@ -1,5 +1,6 @@
-const tabData = {
-    "Areas Of Research": {
+const tabData = [
+    // content for "Areas Of Research"
+    {
       titlesAndAreas : [
         { 
           title: "Algorithms and Complexity", 
@@ -51,7 +52,8 @@ const tabData = {
         }
       ],
     },
-    "Research Groups": {
+    // content for "Research Groups"
+    {
       groups: [
         "Algorithms and Formal Methods",
         "Bioinformatics, Artificial Intelligence and Data Analytics",
@@ -65,11 +67,13 @@ const tabData = {
         "Advanced Software Engineering Research",
       ],
     },
-    "Completed PhDs": {
+
+    // content for "Completed PhDs"
+    {
       para1: `The M. Tech-CSE (IS) program focuses on Information Security. It equips students with the skills The M. Tech-CSE (IS) program focuses on Information Security. It equips students with the skills The M. Tech-CSE (IS) program focuses on Information Security. It equips students with the skills to address challenges in cybersecurity and cryptography.`,
       para2: `Subjects include Network Security, Ethical Hacking, and Cyber Forensics. The M. Tech-CSE (IS) program focuses on Information Security. It equips students with the skills The M. Tech-CSE (IS) program focuses on Information Security. It equips students with the skills The M. Tech-CSE (IS) program focuses on Information Security. It equips students with the skills Students are trained to secure digital infrastructure and systems.`,
     },
     
-  };
+];
   
   export default tabData;
