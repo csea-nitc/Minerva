@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "students_ph_ds",
+  "info": {
+    "singularName": "students-ph-d",
+    "pluralName": "students-ph-ds",
+    "displayName": "Students-PhD",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "contact_no": {
+      "type": "string"
+    },
+    "year_of_admission": {
+      "type": "string"
+    },
+    "areas_of_interest": {
+      "type": "string"
+    },
+    "external_links": {
+      "type": "string"
+    },
+    "photograph": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "roll_number": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "students_m_tes",
+  "info": {
+    "singularName": "students-m-te",
+    "pluralName": "students-m-tes",
+    "displayName": "Students-M.tech(IS)"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "students_m_tech_aidas",
+  "info": {
+    "singularName": "students-m-tech-aida",
+    "pluralName": "students-m-tech-aidas",
+    "displayName": "Students-M.tech(AIDA)"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

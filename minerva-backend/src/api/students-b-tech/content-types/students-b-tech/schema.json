@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "students_b_teches",
+  "info": {
+    "singularName": "students-b-tech",
+    "pluralName": "students-b-teches",
+    "displayName": "Students-B.tech"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

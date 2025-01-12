@@ -1005,6 +1005,162 @@ export interface ApiStaffStaff extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiStudentsBTechStudentsBTech
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'students_b_teches';
+  info: {
+    displayName: 'Students-B.tech';
+    pluralName: 'students-b-teches';
+    singularName: 'students-b-tech';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::students-b-tech.students-b-tech'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiStudentsMTeStudentsMTe extends Struct.CollectionTypeSchema {
+  collectionName: 'students_m_tes';
+  info: {
+    displayName: 'Students-M.tech(IS)';
+    pluralName: 'students-m-tes';
+    singularName: 'students-m-te';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::students-m-te.students-m-te'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiStudentsMTechAidaStudentsMTechAida
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'students_m_tech_aidas';
+  info: {
+    displayName: 'Students-M.tech(AIDA)';
+    pluralName: 'students-m-tech-aidas';
+    singularName: 'students-m-tech-aida';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::students-m-tech-aida.students-m-tech-aida'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiStudentsMTechStudentsMTech
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'students_m_teches';
+  info: {
+    displayName: 'Students-M.tech';
+    pluralName: 'students-m-teches';
+    singularName: 'students-m-tech';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::students-m-tech.students-m-tech'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiStudentsPhDStudentsPhD extends Struct.CollectionTypeSchema {
+  collectionName: 'students_ph_ds';
+  info: {
+    description: '';
+    displayName: 'Students-PhD';
+    pluralName: 'students-ph-ds';
+    singularName: 'students-ph-d';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    areas_of_interest: Schema.Attribute.String;
+    contact_no: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    external_links: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::students-ph-d.students-ph-d'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    photograph: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    roll_number: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    year_of_admission: Schema.Attribute.String;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1534,6 +1690,11 @@ declare module '@strapi/strapi' {
       'api::placement.placement': ApiPlacementPlacement;
       'api::quick-link.quick-link': ApiQuickLinkQuickLink;
       'api::staff.staff': ApiStaffStaff;
+      'api::students-b-tech.students-b-tech': ApiStudentsBTechStudentsBTech;
+      'api::students-m-te.students-m-te': ApiStudentsMTeStudentsMTe;
+      'api::students-m-tech-aida.students-m-tech-aida': ApiStudentsMTechAidaStudentsMTechAida;
+      'api::students-m-tech.students-m-tech': ApiStudentsMTechStudentsMTech;
+      'api::students-ph-d.students-ph-d': ApiStudentsPhDStudentsPhD;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
