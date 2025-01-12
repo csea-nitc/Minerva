@@ -71,7 +71,7 @@ export default function FacultyDetails({
                         >
                             <div>
                                 <img
-                                    src={faculty.image}
+                                    src={`${backend_url}/${faculty?.photograph?.url}`}
                                     alt=""
                                     className="lg:w-[300px] lg:h-[360px] w-[250px] h-[300px] object-cover group-hover:scale-[1.04] duration-300"
                                 />

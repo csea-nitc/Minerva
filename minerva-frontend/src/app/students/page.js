@@ -85,7 +85,7 @@ export default function Students() {
 
               <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
 
-              <div className="sm:w-[65%] w-[85%] mx-auto py-10">
+              <div className="sm:w-[85%] w-[85%] mx-auto py-10">
                 {/* Tab Navigation */}
                 <TabNav onTabChange={setCurrentTab} tabData= {tabData} />
       
