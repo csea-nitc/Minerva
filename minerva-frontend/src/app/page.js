@@ -192,7 +192,7 @@ export default function Home() {
                             </p>
                         </div>
 
-                        <div className="relative flex justify-end font-saira md:mt-[15rem] mt-[8rem] lg:mt-[5rem] mb-[5rem] md:ml-[5rem] md:mr-[13rem] w-[90%] ml-[2.5rem] sm:ml-[3.5rem] pr-[0.7rem] md-lg:pr-[0.9rem]">
+                        <div className="relative flex justify-end font-saira md:mt-[15rem] sm:mt-[8rem] mt-[5rem] lg:mt-[5rem] mb-[5rem] md:ml-[5rem] md:mr-[13rem] w-[90%] ml-[2.5rem] sm:ml-[3.5rem] pr-[0.7rem] md-lg:pr-[0.9rem]">
                             {/** Slide Left (for lg+) **/}
                             <div className="lg:static absolute history-text text-[#800080] font-bold 2xl:text-[12rem] lg:text-[8rem] text-[7rem]  right-[60%] lg:flex hidden justify-center items-center">
                                 1985
@@ -205,6 +205,7 @@ export default function Home() {
                             <div className="text-center lg:static absolute history-text-md text-[#800080] font-bold 2xl:mt-[5rem] 2xl:text-[12rem] md:text-[8.5rem] sm:text-[8rem] text-[4rem]  lg:right-[60%] right-[1rem] sm:right-0 md:right-8 hidden md:flex lg:hidden justify-center items-center lg:mt-[2rem] w-[100%] md:top-[-15rem] sm:top-[-10rem] top-[-7rem] pl-[8rem]">
                                 1985
                             </div>
+                            {/* On desktop */}
                             <Image
                                 src="/images/history-img.png"
                                 alt="History Image"
@@ -213,14 +214,14 @@ export default function Home() {
                                 className="history-image rounded-md lg:w-[50%] md:w-[70%] w-[90%] mr-[2rem] md:mr-[4.5rem] lg:mr-[6rem] xl:mr-[8rem] z-10 hidden md:block"
                             />
                         </div>
-
+                        {/* On mobile */}
                         <div className="text-black font-jakarta w-[89%] font-bold text-justify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.6rem] md:text-[1.4rem] sm:text-[1.3rem] text-[1.1rem] md:ml-[3rem] sm:ml-[3rem] ml-[1.6rem]">
                             <Image
                                 src="/images/history-img.png"
                                 alt="History Image"
                                 width={500}
                                 height={300}
-                                className="history-image rounded-md md:hidden w-[90%] z-10 mb-12"
+                                className="history-image rounded-md md:hidden w-[90%] z-10 mb-5"
                             />
                         </div>
                         <div className="text-black font-jakarta font-bold text-justify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.6rem] md-lg:text-[1.4rem] sm:text-[1.3rem] text-[1.1rem] ">
@@ -261,7 +262,7 @@ export default function Home() {
                             </p>
                         </div>
                         {/* For Mobile */}
-                        <div className="text-white font-jakarta w-[100%] text-jusify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.6rem] md:text-[1.4rem] sm:text-[1.3rem] text-[1.1rem] sm-md:hidden pt-[5rem] my-auto">
+                        <div className="text-white font-jakarta w-[100%] text-jusify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.6rem] md:text-[1.4rem] sm:text-[1.3rem] text-[1.1rem] sm-md:hidden pt-[1.5rem] ">
                             <p className="text-justify">
                                 The three-year MCA programme started in 1988.
                                 The two-year M.Tech. programme in Computer
