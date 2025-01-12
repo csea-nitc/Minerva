@@ -9,17 +9,7 @@ export default function InfoSection({
 }) {
     return (
         <div className="flex flex-col max-1240:pr-[2vw] mb-[10vh] ">
-            <div
-                className="text-[3em] sm:text-[5em] font-extrabold text sm:"
-                style={{ color: "#800080" }}
-            >
-                {title}
-            </div>
-            <div
-                className="h-[7px]  w-full mt-1"
-                style={{ backgroundColor: "#800080" }}
-            ></div>
-
+    
             <DropdownButtons dropdownContent={downloadables} />
 
             <div className=" font-jakarta text-[1.2em] leading-[35px] max-800:leading-7">

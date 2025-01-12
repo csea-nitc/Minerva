@@ -70,17 +70,6 @@ export default function Placements() {
                 {/* Tab Navigation */}
                 <TabNav onTabChange={setSelectedTab} tabData= {tabData} />
 
-                <div
-                    className="text-[3em] sm:text-[5em] font-extrabold text sm:"
-                    style={{ color: "#800080" }}
-                >
-                    {tabData[selectedTab]}
-                </div>
-                <div
-                    className="h-[7px]  w-full mt-1"
-                    style={{ backgroundColor: "#800080" }}
-                ></div>
-
                 {/* Graph comp rendered only for B.Tech stats */}
                 {selectedTab === 0 && (
                   <div className="flex items-center justify-center gap-10 p-4 rounded-lg">

@@ -89,27 +89,20 @@ export default function Students() {
                 {/* Tab Navigation */}
                 <TabNav onTabChange={setCurrentTab} tabData= {tabData} />
       
-                <div
-                    className="text-[3em] sm:text-[5em] font-extrabold text sm:"
-                    style={{ color: "#800080" }}
-                >
-                    {tabData[currentTab]}
-                </div>
-                <div
-                    className="h-[7px]  w-full mt-1"
-                    style={{ backgroundColor: "#800080" }}
-                ></div>
-      
                 {/* render faculty component for phD*/}
                 {currentTab === 4 ? (
                   studentData && studentData[currentTab] && (
-                    <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-6 mt-10">
-                        {  studentData[currentTab].map( ( student ) => (
-                          <FacultyCard  key = {student.id} faculty={student} />
-                        ))}
-                    </div>
+                    <FacultyDetails
+                        data={ {
+                          facultyData: studentData?.[currentTab] || [], // Ensure facultyData is always an array
+                        } }
+                        className={ ""}
+                        activeIndex={activeIndex}
+                        setActiveIndex={setActiveIndex}
+                    />
                   )
                 ) : (
+
                   <div   className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mx-auto p-4 sm:p-8 md:p-12 lg:px-0 lg:py-10" >
                     {studentData &&
                       studentData[currentTab] &&
