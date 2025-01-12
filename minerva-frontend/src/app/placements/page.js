@@ -72,17 +72,13 @@ export default function Placements() {
 
                 {/* Graph comp rendered only for B.Tech stats */}
                 {selectedTab === 0 && (
-                  <div className="flex items-center justify-center gap-10 p-4 rounded-lg">
-                    <div className="flex justify-center">
-                      <div>
-                        <Graph data={stats} />
-                      </div>
-                    </div>
+                  <div className="flex items-center justify-center  p-4">
+                      <Graph data={stats} />
                   </div>
                 )}
 
                 {/* MarkdowTable */}
-                <div>
+                <div className="flex items-center justify-center py-5 m-auto">
                   {placements && placements.length > 0 ? (
                     <ListComp key={selectedTab}
                     item= { {...placements[selectedTab], Title: ""} } />
