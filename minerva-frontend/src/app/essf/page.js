@@ -11,10 +11,13 @@ export default function ESSFPage() {
                 contentdiv={".content-div"}
                 increasedHeight={1}
             />
-            <div className="py-10 w-[100vw] mt-[50vh] sm:mt-[60vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
-                <div className="sm:w-[65%] w-[85%] mx-auto">
-                    <div className="font-mont pt-6 pb-6 ">
-                        <h2 className="md:text-2xl font-bold">What is ESSF?</h2>
+            <div className="w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
+                <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
+                <div className="sm:w-[65%] w-[85%] mx-auto py-10">
+                    <div className="font-jakarta pt-6 pb-6 ">
+                        <h2 className="md:text-2xl font-bold text-[#800080]">
+                            What is ESSF?
+                        </h2>
                         <p className="md:text-lg pt-2">
                             ESSF(Emergency Student Support Fund) aims to support
                             (without much formalities or paperwork) the monetary
@@ -30,7 +33,7 @@ export default function ESSFPage() {
                             students themseleves. More details about ESSF may
                             also be obtained from the Representatives.
                         </p>
-                        <h2 className="md:text-2xl pt-6 font-bold">
+                        <h2 className="md:text-2xl pt-6 font-bold text-[#800080]">
                             How to apply for ESSF?
                         </h2>
                         <div className="md:text-lg pt-2">
@@ -65,7 +68,7 @@ export default function ESSFPage() {
                             consulting with the applicant's Faculty Advisor and
                             / or the HOD.
                         </p>
-                        <h2 className="md:text-2xl pt-6 font-bold">
+                        <h2 className="md:text-2xl pt-6 font-bold text-[#800080]">
                             How to contribute/repay?
                         </h2>
                         <p className="md:text-lg pt-2">
