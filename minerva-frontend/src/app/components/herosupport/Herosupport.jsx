@@ -19,6 +19,33 @@ const Herosupport = ({ props }) => {
         });
     }, []);
 
+    // fetching latest announcements 
+    const [data, setData] = useState([]);
+    const token = process.env.NEXT_PUBLIC_TOKEN;
+    const backend_url = process.env.NEXT_PUBLIC_API_URL;
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data = await fetch(
+                    `${backend_url}/api/announcements?sort[0]=createdAt:desc&pagination[pageSize]=3`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
+
+                const Data = await data.json();
+                console.log( Data.data ); 
+                setData( Data.data ? Data.data : [] );
+            } catch (err) {
+                console.error("Fetch error:", err);
+            }
+        };
+
+        fetchData();
+    }, []);
 
   return (
     <div className="relative mt-[90vh] z-10">
@@ -56,15 +83,31 @@ const Herosupport = ({ props }) => {
                                     Links
                                 </div>
                                 <div className="flex flex-col">
-                                    <div className="text-white text-left text-2xl lg:text-3xl pl-5 pr-3 py-1 text-wrap break-words lg:w-[600px] sm:w-[300px] w-[250px]">
-                                        DCC Minutes
-                                    </div>
-                                    <div className="text-white text-left text-2xl lg:text-3xl pl-5 pr-3 py-1 text-wrap break-words lg:w-[600px] sm:w-[300px] w-[250px]">
-                                        PlaceholPlaceholPlaceholPlaceholPlaceholPlaceholPlaceholPlaceholPlaceholPlaceholPlaceholPlacehol
-                                    </div>
-                                    <div className="text-white text-left text-2xl lg:text-3xl pl-5 pr-3 py-1 text-wrap break-words lg:w-[600px] sm:w-[300px] w-[250px]">
-                                        PlaceholPlaceholPlaceholPlaceholPlaceholPlaceholPlaceholPlaceholPlaceholPlaceholPlaceholPlacehol
-                                    </div>
+                                {data.map((item) => (
+                                    <a
+                                    key={item.id}
+                                    href={ `/announcements/${item.documentId}` }
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-white text-left text-2xl lg:text-3xl pl-5 pr-3 py-1 text-wrap break-words lg:w-[600px] sm:w-[300px] w-[250px] flex items-center underline hover:underline-offset-4 hover:text-blue-300"
+                                    >
+                                    {item.Title}
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        strokeWidth={1.5}
+                                        stroke="currentColor"
+                                        className="w-5 h-5 ml-2"
+                                    >
+                                        <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M13.5 10.5L21 3m0 0h-6.75M21 3v6.75M21 12v6.75A2.25 2.25 0 0118.75 21h-13.5A2.25 2.25 0 013 18.75v-13.5A2.25 2.25 0 015.25 3H12"
+                                        />
+                                    </svg>
+                                    </a>
+                                ))}
                                 </div>
                             </div>
                         </div>

@@ -22,7 +22,7 @@ const Sidebar = () => {
     const fetchData = async () => {
       try {
         const linksD = await fetch(
-          `${backend_url}/api/quick-links?populate=*`,
+          `${backend_url}/api/quick-links?sort[0]=createdAt:desc`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -31,7 +31,7 @@ const Sidebar = () => {
         );
 
         const linksData = await linksD.json();
-        setLinks(linksData.data ? [...linksData.data].reverse() : []);
+        setLinks(linksData.data ? linksData.data : []);
       } catch (err) {
         console.error("Fetch error:", err);
       }
@@ -175,7 +175,7 @@ const Sidebar = () => {
                   key={item.id}
                   className="m-4 text-black border-white border-2 text-center rounded-s"
                 >
-                  <a href={`/node/${item.Title}`}>{item.Title}</a>
+                  <a href={`/node/${item.documentId}`}>{item.Title}</a>
                 </li>
               ))
             ) : (

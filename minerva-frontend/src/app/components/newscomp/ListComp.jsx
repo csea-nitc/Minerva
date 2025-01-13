@@ -70,7 +70,7 @@ const ListComp = ({ item }) => {
         <div className="mt-4">
           {item.pdf.map((pdf) => (
             <PDF
-              key={`${item.id}-${item.pdf.name}`}
+              key={`${item.documentId}`}
               title={`${pdf.name}`}
               url={`${backend_url}${pdf.url}`}
             />
