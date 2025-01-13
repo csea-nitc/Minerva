@@ -8,20 +8,22 @@ import Loading from "../../components/loading/loading";
 const token = process.env.NEXT_PUBLIC_TOKEN;
 const backend_url = process.env.NEXT_PUBLIC_API_URL;
 
-export default function Home( { params : promiseParams } ) {
+export default function post( { params : promiseParams } ) {
     const params = React.use(promiseParams); 
-    const { slug } = params; 
-    const Slug = decodeURIComponent( slug );
+    const { id } = params; 
+    const Id = decodeURIComponent( id );
 
-    console.log( slug ) 
+    console.log( Id ) ; 
 
     const [data, setData] = useState([]);
+    const token = process.env.NEXT_PUBLIC_TOKEN;
+    const backend_url = process.env.NEXT_PUBLIC_API_URL;
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const data = await fetch(
-                    `${backend_url}/api/quick-links/${Slug}?populate=*`,
+                    `${backend_url}/api/announcements/${Id}?populate=*`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,
@@ -51,7 +53,7 @@ export default function Home( { params : promiseParams } ) {
             <div className="py-10 w-[100vw] mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
                 <div className="sm:w-[65%] w-[85%] mx-auto">
                     {data ? (
-                        <ListComp item={data} />
+                        <ListComp key = {data.id} item={data} />
                     ) : (
                         <Loading />
                     )}
