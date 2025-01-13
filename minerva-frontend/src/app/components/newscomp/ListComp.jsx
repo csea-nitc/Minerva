@@ -67,7 +67,7 @@ const ListComp = ({ item }) => {
       )}
 
       {item.pdf && item.pdf.length > 0 && (
-        <div className="mt-4">
+        <div className="grid gap-5 mt-4">
           {item.pdf.map((pdf) => (
             <PDF
               key={`${item.documentId}`}
