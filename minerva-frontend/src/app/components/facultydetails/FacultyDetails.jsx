@@ -7,6 +7,7 @@ export default function FacultyDetails({
     className,
     activeIndex,
     setActiveIndex,
+    isHodInfoVisible,
 }) {
     const backend_url = process.env.NEXT_PUBLIC_API_URL;
     // const [activeIndex, setActiveIndex] = useState(null);
@@ -18,7 +19,8 @@ export default function FacultyDetails({
     useEffect(() => {
         const updateCols = () => {
             const width = window.innerWidth;
-            if (width >= 1152) setCols(5); // lg-xl:grid-cols-5
+            if (width >= 1536) setCols(5); // 2xl:grid-cols-5
+            else if (width >= 1152) setCols(4); // lg-xl:grid-cols-4
             else if (width >= 768) setCols(3); // md:grid-cols-3
             else setCols(1); // grid-cols-1
         };
@@ -56,7 +58,9 @@ export default function FacultyDetails({
             ref={containerRef}
         >
             <div
-                className={`grid grid-cols-1 md:grid-cols-3 lg-xl:grid-cols-5 lg-xl:gap-4 gap-2 w-full`}
+                className={`grid gap-2 w-full grid-cols-1 md:grid-cols-3 ${
+                    cols === 4 && "lg-xl:grid-cols-4"
+                } 2xl:grid-cols-5`}
             >
                 {facultyData.map((faculty, index) => (
                     <React.Fragment key={index}>
@@ -72,12 +76,23 @@ export default function FacultyDetails({
                             <div>
                                 <img
                                     src={`${backend_url}/${faculty?.photograph?.url}`}
+                                    // src={faculty.image}
                                     alt=""
                                     className="lg:w-[300px] lg:h-[360px] w-[250px] h-[300px] object-cover group-hover:scale-[1.04] duration-300"
                                 />
                             </div>
                             <div className="absolute bottom-0 w-full">
-                                <div className="px-4 py-2 m-2 bg-white/90 rounded-md flex flex-col items-center">
+                                <div
+                                    className={`px-4 py-2 m-2 ${
+                                        isHodInfoVisible
+                                            ? "bg-white/90 text-black"
+                                            : activeIndex === null
+                                            ? "bg-[#800080]/80 text-white"
+                                            : activeIndex === index
+                                            ? "bg-[#800080]/80 text-white"
+                                            : "bg-white/90 text-black"
+                                    } transition-all duration-200 rounded-md flex flex-col items-center`}
+                                >
                                     <p className="font-semibold font-jakarta text-lg">
                                         {faculty.name}
                                     </p>
