@@ -16,6 +16,7 @@ export default function Home() {
   const hodDetailsRefs = useRef([]);
   const [facultyData, setFacultyData] = useState([]);
   const [hod, setHod] = useState([]);
+  const [filteredFacultyData, setFilteredFacultyData] = useState([]);
 
   const backend_url = process.env.NEXT_PUBLIC_API_URL;
   const token = process.env.NEXT_PUBLIC_TOKEN;
@@ -107,8 +108,8 @@ export default function Home() {
         {hod && facultyData && facultyData.length > 0 ? (
           <>
             <div
-              className={`${isHodInfoVisible ? "blur-[2px]" : ""} ${
-                activeIndex !== null ? "blur-[2px]" : ""
+              className={`${isHodInfoVisible ? "blur-[0px]" : ""} ${
+                activeIndex !== null ? "blur-[0px]" : ""
               } absolute top-0 z-50 h-[100%] w-[10px] bg-[#800080]`}
             ></div>
             <div className="sm:w-[75%] w-[85%] mx-auto py-4 md:py-16">

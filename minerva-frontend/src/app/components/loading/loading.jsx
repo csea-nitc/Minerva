@@ -2,7 +2,7 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <div className="flex items-center justify-center gap-3 w-full py-8 h-[30vh]">
+    <div className="flex items-center justify-center gap-3 w-full py-8 h-[40vh]">
       <span className="text-5xl font-jakarta font-medium text-accent">
         Loading
       </span>

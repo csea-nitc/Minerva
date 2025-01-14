@@ -12,7 +12,7 @@ const SearchBar = ({ onSearch, blankOne, blankTwo }) => {
         type="text"
         placeholder={`Search ${blankOne} by ${blankTwo}...`}
         onChange={(e) => onSearch(e.target.value)}
-        className="w-[50%] px-4 py-2 border-b-2 border-accent focus:outline-none"
+        className="w-[80%] md:w-[50%] px-4 py-2 border-b-2 border-accent focus:outline-none"
       />
     </div>
   );

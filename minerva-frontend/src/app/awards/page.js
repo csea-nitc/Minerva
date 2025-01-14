@@ -25,7 +25,7 @@ export default function Home() {
         });
 
         const awardsData = await awardsD.json();
-        console.log(awardsData);
+        // console.log(awardsData);
         //setAwards(awardsData.data ? [...awardsData.data].reverse() : []);
         setAwards(awardsData.data || []);
         setFilteredAwards(awardsData.data || []);
