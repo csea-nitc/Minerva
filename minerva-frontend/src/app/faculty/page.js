@@ -1,9 +1,6 @@
 "use client";
 import { useState, useEffect, useRef, use } from "react";
-import gsap from "gsap";
 import FacultyDetails from "../components/facultydetails/FacultyDetails";
-import axios from "axios";
-import https from "https";
 import Link from "next/link";
 import ImageHero from "../components/imagehero/Imagehero";
 import Loading from "../components/loading/loading";
