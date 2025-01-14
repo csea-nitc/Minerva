@@ -6,7 +6,7 @@ export default function Footer() {
       <footer className="px-[3%] py-[1%] bg-[#800080] font-verdana text-white z-10 relative">
         <div className="pb-2 flex flex-col md:flex-row justify-around items-center gap-6 border-b border-b-white ">
           <div>
-            <div className="px-2 md:px-4 flex items-center gap-6 -translate-x-8 translate-y-4">
+            <div className="px-2 md:px-4 flex items-center gap-6 translate-x-2 md:-translate-x-8 md:translate-y-4">
               <img className="h-[96px] w-[81px]" src="/nitc-logo.png" alt="" />
               <div className="flex flex-col gap-2">
                 <p className="font-bold text-[4vw] md:text-[2vw] lg:text-[1.5vw] xl:text-[1.1vw]">

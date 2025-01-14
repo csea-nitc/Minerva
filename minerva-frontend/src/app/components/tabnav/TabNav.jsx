@@ -10,11 +10,10 @@ export default function TabNav({ onTabChange, tabData }) {
   };
 
   return (
-    <div>
+    <div className="mb-4">
       {/* Tab Navigation for larger screens */}
       <div className="hidden sm:flex flex-row w-full pr-4 max-w-5xl font-jakarta">
         {tabData.map((tab, index) => (
-
           <div key={tab} className="flex items-center">
             <button
               onClick={() => handleTabChange(index)}
@@ -31,11 +30,11 @@ export default function TabNav({ onTabChange, tabData }) {
               <div className="mx-3 w-[4px] h-[3em] bg-[#800080] opacity-40 rounded-full"></div>
             )}
           </div>
-
         ))}
       </div>
 
       {/* Dropdown for smaller screens */}
+
       <div className="sm:hidden flex flex-col items-center w-full font-jakarta">
 
           <div className="relative w-full px-4">
@@ -82,8 +81,25 @@ export default function TabNav({ onTabChange, tabData }) {
               </ul>
             )}
 
-          </div>
+          {isOpen && (
+            <ul className="absolute z-10 w-full mt-2 bg-[#800080]">
+              {tabData.map((tab, index) => (
+                <li
+                  key={tab}
+                  onClick={() => {
+                    handleTabChange(index);
+                    setIsOpen(false);
+                  }}
+                  className="px-4 py-2 text-white hover:bg-white hover:text-[#800080] cursor-pointer transition-colors duration-100"
+                >
+                  {tab}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
+
 
   
         <div className="hidden md:block lg:block pr-4">
@@ -101,6 +117,12 @@ export default function TabNav({ onTabChange, tabData }) {
           ></div>
 
         </div>
+
+        <div
+          className="h-[7px]  w-full mt-1"
+          style={{ backgroundColor: "#800080" }}
+        ></div>
+      </div>
     </div>
   );
 }

@@ -15,7 +15,7 @@ const ListComp = ({ item }) => {
     : [];
 
   return (
-    <div className="overflow-x-scroll mb-8 p-6 bg-background text-foreground rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
+    <div className="overflow-x-scroll mb-8 p-6 bg-background text-foreground rounded-lg  text-center">
       <div className="mb-2 flex items-center justify-between">
         <h2 className="text-xl font-jakarta font-semibold text-center w-full ">
           {item.Title}
@@ -23,7 +23,7 @@ const ListComp = ({ item }) => {
       </div>
 
       {item.description && (
-        <div className="prose prose-sm max-w-none mt-4 font-jakarta text-foreground text-justify  break-words">
+        <div className="prose prose-sm max-w-none mt-4 font-jakarta text-foreground text-justify break-words">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{
@@ -33,7 +33,7 @@ const ListComp = ({ item }) => {
                 </table>
               ),
               th: ({ children }) => (
-                <th className="px-4 py-2 text-left border-b font-bold text-gray-700 bg-gray-100">
+                <th className="px-4 py-2 text-left border-b font-bold text-gray-700 bg-[#c990c8]">
                   {children}
                 </th>
               ),
@@ -46,7 +46,7 @@ const ListComp = ({ item }) => {
               a: ({ href, children }) => (
                 <a
                   href={href}
-                  className="text-blue-500 hover:underline"
+                  className="text-[#800080] hover:underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
