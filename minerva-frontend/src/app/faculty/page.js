@@ -191,15 +191,15 @@ export default function Home() {
                             } `}
                             ref={(el) => (hodDetailsRefs.current[1] = el)}
                         >
-                            <div className="fac-det-name bg-[#800080] flex flex-col rounded-lg md-lg:rounded-tr-none md-lg:rounded-br-none rounded-bl-none rounded-br-none md-lg:rounded-bl-lg justify-evenly items-center text-center md-lg:w-[28.5%] w-full">
-                                <h1 className="text-white lg-xl:text-[2.5rem] md:text-[1.5rem] text-[1.2rem] font-bold px-1">
+                            <div className="fac-det-name bg-[#800080] flex flex-col rounded-lg md-lg:rounded-tr-none md-lg:rounded-br-none rounded-bl-none rounded-br-none md-lg:rounded-bl-lg justify-evenly items-center text-center md-lg:min-w-[30.5%] md-lg:max-w-[43.5%] w-full">
+                                <h1 className="text-white lg-xl:text-[2.5rem] md:text-[1.5rem] text-[1.2rem] font-bold text-wrap break-words px-1">
                                     {hod.name}
                                 </h1>
-                                <h2 className="text-white lg-xl:text-[1.5rem] md:text-[1.2rem] text-[1rem]">
+                                <h2 className="text-white lg-xl:text-[1.5rem] text-wrap break-words md:text-[1.2rem] text-[1rem]">
                                     {hod.designation}
                                 </h2>
                             </div>
-                            <div className="fac-det-details bg-[#d9d9d9] text-black md-lg:w-[71.5%] rounded-lg rounded-tr-none rounded-tl-none md-lg:rounded-tr-lg md-lg:rounded-bl-none min-h-10 w-full font-bold">
+                            <div className="fac-det-details bg-[#d9d9d9] text-black flex-grow rounded-lg rounded-tr-none rounded-tl-none md-lg:rounded-tr-lg md-lg:rounded-bl-none min-h-10 font-bold">
                                 <ul className="text-[0.5rem] md:text-[0.7rem] lg:text-[0.9rem] p-0">
                                     {hod.contact_email && (
                                         <li className="m-4">
