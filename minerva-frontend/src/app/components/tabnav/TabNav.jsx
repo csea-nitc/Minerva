@@ -12,14 +12,14 @@ export default function TabNav({ onTabChange, tabData }) {
   return (
     <div>
       {/* Tab Navigation for larger screens */}
-      <div className="hidden sm:flex flex-row w-full pr-4 sm:w-[80vw]">
+      <div className="hidden sm:flex flex-row w-full pr-4 max-w-5xl font-jakarta">
         {tabData.map((tab, index) => (
 
           <div key={tab} className="flex items-center">
             <button
               onClick={() => handleTabChange(index)}
               aria-selected={selectedTab === index}
-              className={`px-4 sm:px-2 py-2 font-bold text-[1.5em] sm:text-[1.5em] rounded-lg transition-colors duration-200 ${
+              className={`px-4 sm:px-2 py-2 font-bold text-[1.2em] md:text-[1.5em] rounded-lg transition-colors duration-200 ${
                 selectedTab === index
                   ? "bg-[#800080] text-white"
                   : "hover:bg-[#800080] hover:text-white"
@@ -36,9 +36,9 @@ export default function TabNav({ onTabChange, tabData }) {
       </div>
 
       {/* Dropdown for smaller screens */}
-      <div className="sm:hidden flex flex-col items-center w-full">
+      <div className="sm:hidden flex flex-col items-center w-full font-jakarta">
 
-          <div className="relative w-full max-w-xs">
+          <div className="relative w-full px-4">
 
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -66,7 +66,7 @@ export default function TabNav({ onTabChange, tabData }) {
             </button>
 
             {isOpen && (
-              <ul className="absolute z-10 w-full mt-2 bg-[#800080]">
+              <ul className=" z-10 w-full mt-2 bg-[#800080]">
                 {tabData.map((tab, index) => (
                   <li
                     key={tab}
@@ -86,7 +86,7 @@ export default function TabNav({ onTabChange, tabData }) {
       </div>
 
   
-        <div className="hidden md:block lg:block">
+        <div className="hidden md:block lg:block pr-4">
 
           <div
             className="text-[3em] sm:text-[5em] font-extrabold text sm:"
@@ -96,7 +96,7 @@ export default function TabNav({ onTabChange, tabData }) {
           </div>
 
           <div
-              className="h-[7px]  w-full mt-1"
+              className="h-[7px]   w-full mt-1"
               style={{ backgroundColor: "#800080" }}
           ></div>
 
