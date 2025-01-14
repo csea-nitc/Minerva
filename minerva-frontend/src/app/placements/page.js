@@ -11,13 +11,12 @@ import TabNav from "../components/tabnav/TabNav";
 const token = process.env.NEXT_PUBLIC_TOKEN;
 const backend_url = process.env.NEXT_PUBLIC_API_URL;
 
-const tabData = [ "B.Tech" , "M.Tech-CSE" , "M.Tech-CSE (IS)" , "MCA" ] ;
+const tabData = ["B.Tech", "M.Tech-CSE", "M.Tech-CSE (IS)", "MCA"];
 
 export default function Placements() {
-
   const [placements, setPlacements] = useState([]);
   const [stats, setStats] = useState([]);
-  const [selectedTab, setSelectedTab] = useState( 0 );
+  const [selectedTab, setSelectedTab] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,29 +64,30 @@ export default function Placements() {
         />
 
         <div className="w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
-                <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
-                <div className="sm:w-[65%] w-[85%] mx-auto py-10">
-                {/* Tab Navigation */}
-                <TabNav onTabChange={setSelectedTab} tabData= {tabData} />
+          <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
+          <div className="sm:w-[65%] w-[85%] mx-auto py-10">
+            {/* Tab Navigation */}
+            <TabNav onTabChange={setSelectedTab} tabData={tabData} />
 
-                {/* Graph comp rendered only for B.Tech stats */}
-                {selectedTab === 0 && (
-                  <div className="flex items-center justify-center  p-4">
-                      <Graph data={stats} />
-                  </div>
-                )}
+            {/* Graph comp rendered only for B.Tech stats */}
+            {selectedTab === 0 && (
+              <div className="flex items-center justify-center  p-4">
+                <Graph data={stats} />
+              </div>
+            )}
 
-                {/* MarkdowTable */}
-                <div className="flex items-center justify-center py-5 m-auto">
-                  {placements && placements.length > 0 ? (
-                    <ListComp key={selectedTab}
-                    item= { {...placements[selectedTab], Title: ""} } />
-                  ) : (
-                    <Loading />
-                  )}
-                </div>
-                
+            {/* MarkdowTable */}
+            <div className="flex items-center justify-center py-5 m-auto">
+              {placements && placements.length > 0 ? (
+                <ListComp
+                  key={selectedTab}
+                  item={{ ...placements[selectedTab], Title: "" }}
+                />
+              ) : (
+                <Loading />
+              )}
             </div>
+          </div>
         </div>
       </div>
     </>
