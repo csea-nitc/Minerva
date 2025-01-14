@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import ListComp from "../components/newscomp/ListComp";
 import ImageHero from "../components/imagehero/Imagehero";
 import Loading from "../components/loading/loading";
-import SearchBar from "../components/searchbar/SearchBar";
-import Fuse from "fuse.js";
 
 const token = process.env.NEXT_PUBLIC_TOKEN;
 const backend_url = process.env.NEXT_PUBLIC_API_URL;
