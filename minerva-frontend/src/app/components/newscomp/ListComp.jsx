@@ -61,16 +61,16 @@ const ListComp = ({ item }) => {
       )}
 
       {item.image && item.image.length > 0 && (
-        <div className="mt-4">
-          <App images={swiperImages} flag={true} view={1} width="w-full" />
+        <div className="mt-8">
+          <App images={swiperImages} flag={false} view={1} width="w-full" />
         </div>
       )}
 
       {item.pdf && item.pdf.length > 0 && (
-        <div className="mt-4">
+        <div className="grid gap-5 mt-4">
           {item.pdf.map((pdf) => (
             <PDF
-              key={`${item.id}-${item.pdf.name}`}
+              key={`${item.documentId}`}
               title={`${pdf.name}`}
               url={`${backend_url}${pdf.url}`}
             />

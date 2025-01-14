@@ -104,7 +104,7 @@ export default function Programmes() {
             />
             <div className="w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
                 <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
-                <div className="sm:w-[65%] w-[85%] mx-auto py-10">
+                <div className="max-w-6xl px-8 pr-3 mx-auto py-10">
                     {/* Tab Navigation */}
                     <TabNav onTabChange={setSelectedTab} tabData= {TabData} />
 
