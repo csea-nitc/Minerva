@@ -1,4 +1,3 @@
-
 "use client";
 // Import Swiper React components
 import React, { useRef, useState } from 'react';
@@ -69,6 +68,7 @@ export default function App({images,flag,view,width,change}) {
           <button className='border-4 text-accent font-saira tracking-wide text-2xl p-3 sm:text-4xl rounded-2xl border-accent'>{images[activeIndex]["tag"] + "🔗"}</button>
       </div> }
     </div>
+
     </>
   );
 }

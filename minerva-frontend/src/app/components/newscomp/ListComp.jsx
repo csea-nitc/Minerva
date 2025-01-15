@@ -4,7 +4,7 @@ import App from "../image-carousel/swiper";
 import remarkGfm from "remark-gfm";
 import PDF from "../pdf/PDF";
 
-const ListComp = ({ item , flag = 0 }) => {
+const ListComp = ({ item, flag = 0 }) => {
   const backend_url = process.env.NEXT_PUBLIC_API_URL;
 
   const swiperImages = item.image
@@ -65,9 +65,9 @@ const ListComp = ({ item , flag = 0 }) => {
           <App images={swiperImages} flag={false} view={1} width="w-full" />
         </div>
       )}
-      
-      
+
       {/* conditionally rendering for dcc page , different schema in backend */}
+
       { !flag ? ( 
           item.pdf && item.pdf.length > 0 && (
             <div className="grid gap-5 mt-4">
@@ -93,7 +93,6 @@ const ListComp = ({ item , flag = 0 }) => {
             </div>
           )
       }
-      
     </div>
   );
 };
