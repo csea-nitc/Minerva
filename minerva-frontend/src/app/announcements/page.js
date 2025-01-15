@@ -19,7 +19,7 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${backend_url}/api/announcements?populate=*`,
+          `${backend_url}/api/announcements?populate[pdf][populate]=*`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -27,7 +27,7 @@ export default function Home() {
           }
         );
         const data = await response.json();
-        const announcementsData = data.data ? [...data.data].reverse() : [];
+        const announcementsData = data.data ? data.data : [];
         setAnnouncements(announcementsData);
         setFilteredAnnouncements(announcementsData);
       } catch (err) {
