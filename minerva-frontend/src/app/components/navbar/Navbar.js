@@ -58,12 +58,22 @@ const Navbar = () => {
 
   return (
     <div className="absolute w-[100vw] top-0 z-20">
+       <div
+          className="hamburger z-20 absolute right-8 top-[70px] hidden max-800:flex gap-[6px] flex-col"
+          onClick={toggleMenu}
+        >
+          <div className="h-1 w-8 rounded-md bg-white"></div>
+          <div className="h-1 w-8 rounded-md bg-white"></div>
+          <div className="h-1 w-8 rounded-md bg-white"></div>
+        </div>
+
+
       <div style={{ backgroundColor: "#800080" }} className="h-1"></div>
       <div
         ref={navbarRef}
         className="navbar flex bg-gradient-to-b from-black/90 to-transparent font-teko pr-12 pl-6 items-start justify-between h-[180px] pt-5 transition-all duration-10 ease-linear max-920:h-[140px] max-800:items-center"
       >
-        <div className="relative z-20 flex gap-6 logo">
+        <div className="relative z-[200] flex gap-6 logo">
           <img
             className="h-[90px] pl-3 max-1060:h-[80px] max-800:h-[70px]"
             src="/logo.svg"
@@ -74,14 +84,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div
-          className="hamburger z-20 absolute right-8 top-18 hidden max-800:flex gap-[6px] flex-col"
-          onClick={toggleMenu}
-        >
-          <div className="h-1 w-8 rounded-md bg-white"></div>
-          <div className="h-1 w-8 rounded-md bg-white"></div>
-          <div className="h-1 w-8 rounded-md bg-white"></div>
-        </div>
+       
 
         <div className="flex-col gap-4 max-1060:gap-2 uppercase flex max-800:hidden links">
           <div className="flex justify-end gap-6 h-10 section1 text-white mt-2">
@@ -194,7 +197,9 @@ const Navbar = () => {
             menuOpen ? "opacity-100" : "max-h-0 py-0 opacity-0 hidden"
           }`}
         >
-          <div className="relative z-10 dropdown backdrop-blur-[5px] -mt-[140px] pt-[120px] bg-gradient-to-b from-black/50 to-black/50">
+          
+
+          <div className="relative z-0  dropdown backdrop-blur-[5px]  -mt-[140px] pt-[120px] bg-gradient-to-b from-black/50 to-black/50">
             <div className="flex font-teko flex-col pt-6 p-9 text-[30px] text-white">
               <Link href="/" onClick={closeMenu}>
                 Home
