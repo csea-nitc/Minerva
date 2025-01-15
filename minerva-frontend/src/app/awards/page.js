@@ -54,6 +54,10 @@ export default function Home() {
     setDisplayCount(itemsPerPage);
   };
 
+  const handleShowMore = () => {
+    setDisplayCount((prevCount) => prevCount + itemsPerPage);
+  };
+
   return (
     <>
       <ImageHero
