@@ -59,7 +59,7 @@ const page = () => {
                         <Carousel
                             flag={1}
                             images={images}
-                            width={"w-[300px] sm:w-[700px] md:w-[800px]"}
+                            width={"w-[300px] sm:w-[500px] md:w-[630px]"}
                             change = {changeLabIndex}
                         />
                     </div>
