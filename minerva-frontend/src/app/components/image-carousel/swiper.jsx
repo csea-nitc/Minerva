@@ -14,12 +14,12 @@ import './styles.css';
 // import required modules
 import { EffectCoverflow, Navigation, Autoplay} from 'swiper/modules';
 
-export default function App({images,flag,view,width,change}) {
+export default function App({images,flag,view,width}) {
   const [activeIndex, setActiveIndex] = useState(0);
   const handleChange = (swiper) => {
     setActiveIndex(swiper.activeIndex);
-    change(swiper.activeIndex);
-} 
+  } 
+  
   return (
     <>
     <div className='w-[100%]'>
@@ -64,9 +64,9 @@ export default function App({images,flag,view,width,change}) {
         </SwiperSlide>
       ))}
       </Swiper>
-      { images && images[activeIndex] && <div className={ (!flag?"hidden ":'') + 'mt-6 w-full flex justify-center items-center'}>
+      {/* { images && images[activeIndex] && <div className={ (!flag?"hidden ":'') + 'mt-6 w-full flex justify-center items-center'}>
           <button className='border-4 text-accent font-saira tracking-wide text-2xl p-3 sm:text-4xl rounded-2xl border-accent'>{images[activeIndex]["tag"] + "🔗"}</button>
-      </div> }
+      </div> } */}
     </div>
 
     </>
