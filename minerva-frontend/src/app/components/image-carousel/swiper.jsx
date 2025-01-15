@@ -13,21 +13,25 @@
 
   // import required modules
   import { EffectCoverflow, Navigation, Autoplay} from 'swiper/modules';
-
-  export default function App({images,flag,view,width}) {
+  
+  export default function App({images,flag,view,width,change}) {
     const [activeIndex, setActiveIndex] = useState(0);
+    const handleChange = (swiper) => {
+      setActiveIndex(swiper.activeIndex);
+      change(swiper.activeIndex);
+  } 
     return (
       <>
       <div className='w-[100%]'>
         <Swiper
           modules={[EffectCoverflow, Navigation, Autoplay]}
-          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+          onSlideChange={(swiper) => handleChange(swiper)}
           navigation = {true}
           effect={'coverflow'}
           centeredSlides={true}
           slidesPerView={view} 
           spaceBetween={20} 
-          initialSlide={2}
+          initialSlide={1}
           coverflowEffect={{
             rotate: 0,
             stretch: 0,
@@ -60,9 +64,9 @@
           </SwiperSlide>
         ))}
         </Swiper>
-        {/* { <div className={ (!flag?"hidden ":'') + 'mt-6 w-full flex justify-center items-center'}>
-            <button className='border-4 text-accent font-Teko font-bold tracking-wide text-2xl p-3 sm:text-4xl rounded-2xl border-accent'>{images[activeIndex]["tag"] + "🔗"}</button>
-        </div> } */}
+        { <div className={ (!flag?"hidden ":'') + 'mt-6 w-full flex justify-center items-center'}>
+            <button className='border-4 text-accent font-saira tracking-wide text-2xl p-3 sm:text-4xl rounded-2xl border-accent'>{images[activeIndex]["tag"] + "🔗"}</button>
+        </div> }
       </div>
       </>
     );
