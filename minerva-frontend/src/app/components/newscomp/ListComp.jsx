@@ -67,30 +67,32 @@ const ListComp = ({ item, flag = 0 }) => {
       )}
 
       {/* conditionally rendering for dcc page , different schema in backend */}
-      {!flag ? (
-        item.pdf &&
-        item.pdf.length > 0 && (
-          <div className="grid gap-5 mt-4">
-            {item.pdf.map((pdf) => (
-              <PDF
-                key={`${pdf.pdf?.Id}-${pdf.pdf?.documentId}`}
-                title={`${pdf.Name}`}
-                url={`${backend_url}${pdf.pdf?.url}`}
-              />
-            ))}
-          </div>
-        )
-      ) : (
-        <div className="grid gap-5 mt-4">
-          {item.pdf.map((pdf) => (
-            <PDF
-              key={`${pdf.Id}-${pdf.documentId}`}
-              title={`${pdf.name}`}
-              url={`${backend_url}${pdf.url}`}
-            />
-          ))}
-        </div>
-      )}
+
+      { !flag ? ( 
+          item.pdf && item.pdf.length > 0 && (
+            <div className="grid gap-5 mt-4">
+              {item.pdf.map((pdf) => (
+                <PDF
+                  key={`${pdf.pdf?.Id}-${pdf.pdf?.documentId}`}
+                  title={`${pdf.Name}`}
+                  url={`${backend_url}${pdf.pdf?.url}`}
+                />
+              ))}
+            </div>
+            ) 
+          ): 
+          (
+            <div className="grid gap-5 mt-4">
+              {item.pdf.map((pdf) => (
+                <PDF
+                  key={`${pdf.Id}-${pdf.documentId}`}
+                  title={`${pdf.name}`}
+                  url={`${backend_url}${pdf.url}`}
+                />
+              ))}
+            </div>
+          )
+      }
     </div>
   );
 };
