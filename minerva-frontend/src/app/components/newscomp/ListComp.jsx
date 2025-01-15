@@ -4,7 +4,7 @@ import App from "../image-carousel/swiper";
 import remarkGfm from "remark-gfm";
 import PDF from "../pdf/PDF";
 
-const ListComp = ({ item }) => {
+const ListComp = ({ item , flag = 0 }) => {
   const backend_url = process.env.NEXT_PUBLIC_API_URL;
 
   const swiperImages = item.image
@@ -65,18 +65,35 @@ const ListComp = ({ item }) => {
           <App images={swiperImages} flag={false} view={1} width="w-full" />
         </div>
       )}
-
-      {item.pdf && item.pdf.length > 0 && (
-        <div className="grid gap-5 mt-4">
-          {item.pdf.map((pdf) => (
-            <PDF
-              key={`${item.Id}-${item.documentId}`}
-              title={`${pdf.name}`}
-              url={`${backend_url}${pdf.url}`}
-            />
-          ))}
-        </div>
-      )}
+      
+      
+      {/* conditionally rendering for dcc page , different schema in backend */}
+      { !flag ? ( 
+          item.pdf && item.pdf.length > 0 && (
+            <div className="grid gap-5 mt-4">
+              {item.pdf.map((pdf) => (
+                <PDF
+                  key={`${pdf.pdf.Id}-${pdf.pdf.documentId}`}
+                  title={`${pdf.Name}`}
+                  url={`${backend_url}${pdf.pdf.url}`}
+                />
+              ))}
+            </div>
+            ) 
+          ): 
+          (
+            <div className="grid gap-5 mt-4">
+              {item.pdf.map((pdf) => (
+                <PDF
+                  key={`${pdf.Id}-${pdf.documentId}`}
+                  title={`${pdf.name}`}
+                  url={`${backend_url}${pdf.url}`}
+                />
+              ))}
+            </div>
+          )
+      }
+      
     </div>
   );
 };
