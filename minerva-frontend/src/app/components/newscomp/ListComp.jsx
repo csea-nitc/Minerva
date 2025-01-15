@@ -70,9 +70,9 @@ const ListComp = ({ item }) => {
         <div className="grid gap-5 mt-4">
           {item.pdf.map((pdf) => (
             <PDF
-              key={`${item.Id}-${item.documentId}`}
-              title={`${pdf.name}`}
-              url={`${backend_url}${pdf.url}`}
+              key={`${pdf.pdf.Id}-${pdf.pdf.documentId}`}
+              title={`${pdf.Name}`}
+              url={`${backend_url}${pdf.pdf.url}`}
             />
           ))}
         </div>

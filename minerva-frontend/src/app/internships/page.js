@@ -10,17 +10,22 @@ import TabNav from "../components/tabnav/TabNav";
 const token = process.env.NEXT_PUBLIC_TOKEN;
 const backend_url = process.env.NEXT_PUBLIC_API_URL;
 
-const tabData = ["B.Tech", "M.Tech-CSE", "M.Tech-CSE (IS)", "MCA"];
+const tabData = ["B.Tech", "M.Tech-CSE", "M.Tech-CSE(IS)", "M.Tech-CSE(AIDA)"];
 
 export default function Internships() {
   const [internships, setInternships] = useState([]);
-  const [displayCount, setDisplayCount] = useState(1);
+
   const [selectedTab, setSelectedTab] = useState(0);
 
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedYear, setSelectedYear] = useState(null);
 
-  const itemsPerPage = 1;
+  let name ; 
+  
+  if( selectedTab === 0 ) name = "b-teches"; 
+  if ( selectedTab === 1 ) name = "m-teches"; 
+  if ( selectedTab === 2 ) name = "m-tech-is";
+  if ( selectedTab === 3 ) name = "m-tech-aidas";
 
   const handleYearClick = (year) => {
     setSelectedYear(year);
@@ -36,15 +41,16 @@ export default function Internships() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const internshipsD = await fetch(`${backend_url}/api/internships`, {
+        const internshipsD = await fetch(`${backend_url}/api/internships-${name}?populate[pdf][populate]=*&sort=createdAt:asc`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
 
         const InternshipsData = await internshipsD.json();
+        console.log( InternshipsData )
         setInternships(
-          InternshipsData.data ? [...InternshipsData.data].reverse() : []
+          InternshipsData.data ? InternshipsData.data : []
         );
       } catch (err) {
         console.error("Fetch error:", err);
@@ -52,11 +58,7 @@ export default function Internships() {
     };
 
     fetchData();
-  }, []);
-
-  const handleShowMore = () => {
-    setDisplayCount((prevCount) => prevCount + itemsPerPage);
-  };
+  }, [selectedTab] );
 
   return (
     <>
