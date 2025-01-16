@@ -64,6 +64,7 @@ export default function Home() {
 
         const result = await response.json();
         setHod(result.data);
+        console.log(result.data);
       } catch (error) {
         console.error("Error fetching hod data:", error);
       }
@@ -124,7 +125,7 @@ export default function Home() {
                     >
                       <div>
                         <img
-                          src={hod.image}
+                          src={`${process.env.NEXT_PUBLIC_API_URL}${hod.photograph[0].url}`}
                           alt=""
                           className="lg:w-[280px] lg:h-[360px] w-[250px] h-[300px] object-cover group-hover:scale-[1.04] duration-300"
                         />

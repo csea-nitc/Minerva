@@ -69,7 +69,7 @@ const ListComp = ({ item, flag = 0 }) => {
       {/* conditionally rendering for dcc page , different schema in backend */}
 
       { !flag ? ( 
-          item.pdf && item.pdf.length > 0 && (
+          item.pdf && item.pdf?.length > 0 && (
             <div className="grid gap-5 mt-4">
               {item.pdf.map((pdf) => (
                 <PDF
