@@ -2,83 +2,81 @@
 import { useState, useEffect, useRef, use } from "react";
 import FacultyDetails from "../components/facultydetails/FacultyDetails";
 import ImageHero from "../components/imagehero/Imagehero";
+import Loading from "../components/loading/loading";
 
 export default function Home() {
-    const [activeIndex, setActiveIndex] = useState(null);
-    const [strokeSize, setStrokeSize] = useState("4px");
-    const [staffData, setStaffData] = useState([]);
-   
-    const backend_url = process.env.NEXT_PUBLIC_API_URL;
-    const token = process.env.NEXT_PUBLIC_TOKEN;
+  const [activeIndex, setActiveIndex] = useState(null);
+  const [staffData, setStaffData] = useState([]);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(
-                    `${backend_url}/api/staffs?populate=photograph`,
-                    {
-                        headers: {
-                            Authorization: `Bearer ${token}`,
-                        },
-                    }
-                );
+  const backend_url = process.env.NEXT_PUBLIC_API_URL;
+  const token = process.env.NEXT_PUBLIC_TOKEN;
 
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `${backend_url}/api/staffs?populate=photograph`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
-                const result = await response.json();
-                console.log(result);
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
 
-                if (result && result.data && Array.isArray(result.data)) {
-                    setStaffData(result.data);
-                } else {
-                    console.error("Data structure is unexpected:", result);
-                }
-            } catch (err) {
-                console.error("Fetch error:", err);
-            }
-        };
+        const result = await response.json();
+        console.log(result);
 
-        fetchData();
-    }, []);
+        if (result && result.data && Array.isArray(result.data)) {
+          console.log(result.data);
+          setStaffData(result.data);
+        } else {
+          console.error("Data structure is unexpected:", result);
+        }
+      } catch (err) {
+        console.error("Fetch error:", err);
+      }
+    };
 
-    useEffect(() => {
-        const updateStrokeSize = () => {
-            if (window.innerWidth >= 1024) {
-                setStrokeSize("4px");
-            } else if (window.innerWidth >= 768) {
-                setStrokeSize("3px");
-            } else {
-                setStrokeSize("2px");
-            }
-        };
+    fetchData();
+  }, []);
 
-        updateStrokeSize();
-
-        window.addEventListener("resize", updateStrokeSize);
-
-        return () => {
-            window.removeEventListener("resize", updateStrokeSize);
-        };
-    }, []);
-
-    return (
-        <div>
-            <ImageHero
-                title={"Staff"}
-                font={"80px"}
-                mobileFont={"20px"}
-                contentdiv={".content-div"}
+  return (
+    <div>
+      <ImageHero
+        title={"Staff"}
+        font={"80px"}
+        mobileFont={"20px"}
+        contentdiv={".content-div"}
+        imgpath={"/ssl.jpg"}
+      />
+      <div className="w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
+        <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
+        <div className="sm:w-[75%] w-[85%] mx-auto py-4 md:py-16">
+          <h2 className="  font-saira font-extrabold ">
+            <span
+              style={{
+                color: "#800080",
+                fontSize: `clamp(15px, 10vw, 90px)`,
+              }}
+            >
+              STAFF
+            </span>
+          </h2>
+          {staffData && staffData.length > 0 ? (
+            <FacultyDetails
+              data={{ facultyData: staffData }}
+              activeIndex={activeIndex}
+              setActiveIndex={setActiveIndex}
             />
-            <div className="w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
-                <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
-                <FacultyDetails
-                    data={{ facultyData: staffData }}
-                    activeIndex={activeIndex}
-                    setActiveIndex={setActiveIndex}
-                />
-            </div>
+          ) : (
+            <Loading />
+          )}
         </div>
-    );
+      </div>
+    </div>
+  );
 }

@@ -11,11 +11,18 @@ export default function Modal({ open, onClose, children }) {
     }
   }, [open]);
 
+  const handleBackdropClick = (e) => {
+    if (e.target === dialog.current) {
+      onClose();
+    }
+  };
+
   return (
     <dialog
       ref={dialog}
-      className="bg-white rounded-lg shadow-lg w-[70%] max-w-lg"
+      className="bg-white rounded-lg shadow-lg w-[50%] "
       onClose={onClose}
+      onClick={handleBackdropClick}
     >
       <div className="flex flex-col items-center text-center">
         <button

@@ -1,16 +1,29 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import ImageHero from "../components/imagehero/Imagehero";
-import PDF from "../components/pdf/PDF";
 import Loading from "../components/loading/loading";
+import Modal from "../components/modal/Modal";
+import YearCard from "../components/cards/YearCard";
+import ListComp from "../components/newscomp/ListComp";
 
 const token = process.env.NEXT_PUBLIC_TOKEN;
 const backend_url = process.env.NEXT_PUBLIC_API_URL;
 
 export default function Home() {
   const [dcc, setDcc] = useState([]);
-  const [displayCount, setDisplayCount] = useState(6);
-  const itemsPerPage = 10;
+  const [isLoading, setIsLoading] = useState(true);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [selectedYear, setSelectedYear] = useState(null);
+
+  const handleYearClick = (year) => {
+    setSelectedYear(year);
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    setSelectedYear(null);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,61 +38,65 @@ export default function Home() {
         setDcc(data.data || []);
       } catch (err) {
         console.error("Fetch error:", err);
+      } finally {
+        setIsLoading(false); 
       }
     };
 
     fetchData();
   }, []);
 
-  const allPdfs = dcc.reduce((acc, item) => {
-    return acc.concat(item.pdf || []);
-  }, []);
-
-  const handleShowMore = () => {
-    setDisplayCount(prevCount => prevCount + itemsPerPage);
-  };
 
   return (
-    <>
+    <div>
       <ImageHero
-        title={"DCC"}
-        font={"80px"}
-        mobileFont={"20px"}
+        title="dcc"
+        font={"60px"}
+        mobileFont={"50px"}
         contentdiv={".content-div"}
       />
-      <div className="py-10 w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
-        <div className="w-[90%] sm:w-[80%] lg:w-[65%] mx-auto">
-          <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
-            {allPdfs.slice(0, displayCount).map((pdf) => (
-              <div key={pdf.id} className="w-full">
-                <PDF
-                  title={pdf.name}
-                  url={`${backend_url}${pdf.url}`}
+
+
+      <div className="w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
+        <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
+        <div className="sm:w-[65%] w-[85%] mx-auto py-10">
+
+          {/* Title */}
+          <div className="hidden md:block lg:block pr-4">
+            <div
+              className="text-[3em] sm:text-[5em] font-extrabold text sm:"
+              style={{ color: "#800080" }}
+            >
+              Minutes
+            </div>
+            <div
+              className="h-[7px]   w-full mt-1"
+              style={{ backgroundColor: "#800080" }}
+            ></div>
+          </div>
+
+          {  isLoading &&  <Loading /> }
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mt-10 mx-auto ">
+            {dcc.map((stat) => (
+              <div key={stat.id}>
+                <YearCard
+                  year={stat.Title}
+                  onClick={() => handleYearClick(stat.Title)}
                 />
+
+                {/* Render Modal */}
+                <Modal
+                  open={isModalOpen && selectedYear === stat.Title}
+                  onClose={handleCloseModal}
+                >
+                  <ListComp key={selectedYear} item={stat} flag={1} />
+                </Modal>
               </div>
             ))}
           </div>
-          
-          {allPdfs.length > displayCount && (
-            <div className="text-center mt-8">
-              <button
-                onClick={handleShowMore}
-                className="bg-accent hover:bg-foreground text-white font-saira 
-                  py-2 px-6 rounded-lg transition-all duration-200 
-                  hover:scale-105 active:scale-95"
-              >
-                Show More
-              </button>
-            </div>
-          )}
-          
-          {allPdfs.length === 0 && (
-            <div className="flex justify-center">
-              <Loading />
-            </div>
-          )}
         </div>
       </div>
-    </>
+    </div>
   );
 }
