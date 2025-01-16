@@ -18,7 +18,7 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const newsD = await fetch(`${backend_url}/api/news?populate=*`, {
+        const newsD = await fetch(`${backend_url}/api/news?populate[pdf][populate]=*`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -63,6 +63,7 @@ export default function Home() {
         font={"80px"}
         mobileFont={"20px"}
         contentdiv={".content-div"}
+        imgpath={"/dept.jpg"}
       />
       <div className="w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
         <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>

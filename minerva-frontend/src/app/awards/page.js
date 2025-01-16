@@ -18,7 +18,7 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const awardsD = await fetch(`${backend_url}/api/awards?populate=*`, {
+        const awardsD = await fetch(`${backend_url}/api/awards?populate[pdf][populate]=*`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -52,6 +52,10 @@ export default function Home() {
     const results = fuse.search(searchTerm);
     setFilteredAwards(results.map((result) => result.item));
     setDisplayCount(itemsPerPage);
+  };
+
+  const handleShowMore = () => {
+    setDisplayCount((prevCount) => prevCount + itemsPerPage);
   };
 
   return (

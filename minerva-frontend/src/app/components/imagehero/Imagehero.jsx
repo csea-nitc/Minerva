@@ -5,6 +5,7 @@ export default function ImageHero({
   font,
   mobileFont,
   increasedHeight = 0,
+  imgpath = "/landing.png",
 }) {
   const heightClasses =
     increasedHeight == 1
@@ -15,7 +16,7 @@ export default function ImageHero({
       {/* Fixed Hero Section */}
       <div className={`fixed top-0 w-[100vw] ${heightClasses} z-0`}>
         <img
-          src="/landing.png"
+          src={imgpath}
           className="absolute w-full h-full object-cover -z-20"
           alt="Background"
         />
