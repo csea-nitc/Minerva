@@ -12,7 +12,7 @@ const backend_url = process.env.NEXT_PUBLIC_API_URL;
 export default function Home() {
   const [news, setNews] = useState([]);
   const [filteredNews, setFilteredNews] = useState([]);
-  const [displayCount, setDisplayCount] = useState(5);
+  const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function Home() {
   const handleSearch = (searchTerm) => {
     if (!searchTerm) {
       setFilteredNews(news);
-      setDisplayCount(itemsPerPage);
+      setCurrentPage(1);
       return;
     }
 
@@ -49,11 +49,41 @@ export default function Home() {
 
     const results = fuse.search(searchTerm);
     setFilteredNews(results.map((result) => result.item));
-    setDisplayCount(itemsPerPage);
+    setCurrentPage(1);
   };
 
-  const handleShowMore = () => {
-    setDisplayCount((prevCount) => prevCount + itemsPerPage);
+  // Calculate pagination values
+  const totalPages = Math.ceil(filteredNews.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentNews = filteredNews.slice(startIndex, endIndex);
+
+  // Generate page numbers array
+  const getPageNumbers = () => {
+    const pageNumbers = [];
+    const maxVisiblePages = 5;
+    
+    if (totalPages <= maxVisiblePages) {
+      for (let i = 1; i <= totalPages; i++) {
+        pageNumbers.push(i);
+      }
+    } else {
+      if (currentPage <= 3) {
+        for (let i = 1; i <= maxVisiblePages; i++) {
+          pageNumbers.push(i);
+        }
+      } else if (currentPage >= totalPages - 2) {
+        for (let i = totalPages - 4; i <= totalPages; i++) {
+          pageNumbers.push(i);
+        }
+      } else {
+        for (let i = currentPage - 2; i <= currentPage + 2; i++) {
+          pageNumbers.push(i);
+        }
+      }
+    }
+    
+    return pageNumbers;
   };
 
   return (
@@ -68,21 +98,45 @@ export default function Home() {
       <div className="w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
         <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
         <div className="sm:w-[65%] w-[85%] mx-auto py-10">
-          <SearchBar onSearch={handleSearch} blankOne="news" blankTwo="title" />{" "}
+          <SearchBar onSearch={handleSearch} blankOne="news" blankTwo="title" />
           {news && news.length > 0 ? (
             <>
               {filteredNews.length > 0 ? (
                 <>
-                  {filteredNews.slice(0, displayCount).map((item) => (
+                  {currentNews.map((item) => (
                     <ListComp key={item.id || item.documentId} item={item} />
                   ))}
-                  {filteredNews.length > displayCount && (
-                    <div className="text-center mt-8">
+                  
+                  {/* Pagination Controls */}
+                  {totalPages > 1 && (
+                    <div className="flex justify-center items-center gap-2 mt-8">
                       <button
-                        onClick={handleShowMore}
-                        className="bg-accent hover:bg-foreground text-white font-saira py-2 px-6 rounded-lg transition-colors duration-200"
+                        onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                        disabled={currentPage === 1}
+                        className="px-4 py-2 rounded-lg bg-accent hover:bg-accent text-white font-poppins disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
                       >
-                        Show More
+                        Previous
+                      </button>
+                      
+                      {getPageNumbers().map(pageNum => (
+                        <button
+                          key={pageNum}
+                          onClick={() => setCurrentPage(pageNum)}
+                          className={`px-4 py-2 rounded-lg font-poppins transition-colors duration-200 
+                            ${currentPage === pageNum 
+                              ? 'bg-accent text-white' 
+                              : 'bg-gray-200 hover:bg-accent hover:text-white'}`}
+                        >
+                          {pageNum}
+                        </button>
+                      ))}
+                      
+                      <button
+                        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                        disabled={currentPage === totalPages}
+                        className="px-4 py-2 rounded-lg bg-accent hover:bg-accent text-white font-poppins disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
+                      >
+                        Next
                       </button>
                     </div>
                   )}
