@@ -13,8 +13,6 @@ export default function post({ params: promiseParams }) {
   const { id } = params;
   const Id = decodeURIComponent(id);
 
-  console.log(Id);
-
   const [data, setData] = useState(null);
 
   useEffect(() => {

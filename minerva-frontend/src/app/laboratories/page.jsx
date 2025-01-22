@@ -14,7 +14,7 @@ const page = () => {
     const fetchData = async () => {
         try {
         const data = await fetch(
-            `${backend_url}/api/labs?populate=*`,
+            `${backend_url}api/labs?populate=*`,
             {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -52,10 +52,11 @@ const page = () => {
                         { data && data.map( ( item ) => ( 
                             <Card
                             key = {item.id}
-                            title={item.name || "Loading..."}
-                            faculty={item.faculty || "Loading..."}
-                            staff={item.staff || "Loading..."}
-                            location={item.location || "Loading..."}
+                            title={item.name || "-"}
+                            id = { item.documentId || "-"}
+                            faculty={item.faculty || "-"}
+                            staff={item.staff || "-"}
+                            location={item.location || "-"}
                             />
                         ))
                         }
