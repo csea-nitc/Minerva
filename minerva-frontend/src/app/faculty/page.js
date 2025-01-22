@@ -125,7 +125,7 @@ export default function Home() {
                     >
                       <div>
                         <img
-                          src={`${process.env.NEXT_PUBLIC_API_URL}${hod.photograph[0].url}`}
+                          src={`${process.env.NEXT_PUBLIC_API_URL}${hod?.photograph[0]?.url}`}
                           alt=""
                           className="lg:w-[280px] lg:h-[360px] w-[250px] h-[300px] object-cover group-hover:scale-[1.04] duration-300"
                         />
