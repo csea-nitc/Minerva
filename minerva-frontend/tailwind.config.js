@@ -35,6 +35,7 @@ module.exports = {
         // Extra small devices
         sm: "640px", // Small devices
         xs: "480px",
+        xs2: { max: "480px" },
         "sm-md": "704px", // Middle of small and medium
         md: "768px", // Medium devices
         "md-lg": "896px", // Middle of medium and large
