@@ -59,7 +59,7 @@ const renderContent = (content) => {
         );
       case 'list':
         return (
-          <div key={index} className="pb-2 px-4 mb-2">
+          <div key={index} className="pb-2 px-10">
             <ul className="list-disc ml-8 font-jakarta sm:text-lg md:text-xl">
               {item.children.map((listItem, i) => (
                 <li key={i} className="my-2">
@@ -117,9 +117,10 @@ export default function post({ params: promiseParams }) {
       />
       {data ? (
         <>
-          <div className="py-10 w-[100vw] mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
+          <div className="w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white pb-10">
+            <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
             <div className="sm:w-[65%] w-[85%] mx-auto">
-            <div>{ renderContent( data.description ) }</div>
+            <div className="pt-10">{ renderContent( data.description ) }</div>
             </div>
           </div>
         </>

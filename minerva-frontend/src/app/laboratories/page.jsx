@@ -48,19 +48,18 @@ const page = () => {
             <div className="w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
                 <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
                 <div className="sm:w-[65%] w-[85%] mx-auto py-10">
-                    <div >
-                        { data && data.map( ( item ) => ( 
-                            <Card
-                            key = {item.id}
+                <div className="grid grid-cols-1 gap-y-6">
+                    {data && data.map((item) => ( 
+                        <Card
+                            key={item.id}
                             title={item.name || "-"}
-                            id = { item.documentId || "-"}
+                            id={item.documentId || "-"}
                             faculty={item.faculty || "-"}
                             staff={item.staff || "-"}
                             location={item.location || "-"}
-                            />
-                        ))
-                        }
-                    </div>
+                        />
+                    ))}
+                </div>
                 </div>
             </div>
         </>
