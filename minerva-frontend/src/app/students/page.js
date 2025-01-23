@@ -52,7 +52,7 @@ export default function Students() {
         ];
 
         const requests = endpoints.map((endpoint) =>
-          fetch(`${backend_url}/api/${endpoint}?populate=*`, {
+          fetch(`${backend_url}/api/${endpoint}?populate=*&sort[0]=createdAt:desc&pagination[pageSize]=100`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },

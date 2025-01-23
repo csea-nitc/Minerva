@@ -41,7 +41,7 @@ export default function Internships() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const internshipsD = await fetch(`${backend_url}/api/internships-${name}?populate[pdf][populate]=*&sort=createdAt:asc`, {
+        const internshipsD = await fetch(`${backend_url}/api/internships-${name}?populate[pdf][populate]=*&sort=createdAt:desc`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
