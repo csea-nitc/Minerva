@@ -119,7 +119,7 @@ export default function post({ params: promiseParams }) {
         <>
           <div className="w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white pb-10">
             <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
-            <div className="sm:w-[65%] w-[85%] mx-auto">
+            <div className="sm:w-[75%] w-[85%] mx-auto">
             <div className="pt-10">{ renderContent( data.description ) }</div>
             </div>
           </div>

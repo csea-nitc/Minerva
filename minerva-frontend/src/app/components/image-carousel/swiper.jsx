@@ -60,13 +60,15 @@ export default function App({images,flag,view,width}) {
       >
         {images && images.map((image, index) => (
         <SwiperSlide key={index}>
-          <img src={image["img"]} alt={`Slide ${index + 1}`} loading='lazy' />
+        <img 
+          src={image["img"]} 
+          alt={`Slide ${index + 1}`} 
+          loading='lazy' 
+          className="w-full h-[300px] object-contain"
+        />
         </SwiperSlide>
       ))}
       </Swiper>
-      {/* { images && images[activeIndex] && <div className={ (!flag?"hidden ":'') + 'mt-6 w-full flex justify-center items-center'}>
-          <button className='border-4 text-accent font-saira tracking-wide text-2xl p-3 sm:text-4xl rounded-2xl border-accent'>{images[activeIndex]["tag"] + "🔗"}</button>
-      </div> } */}
     </div>
 
     </>
