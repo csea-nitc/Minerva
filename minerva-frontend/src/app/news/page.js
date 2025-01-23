@@ -19,15 +19,15 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const newsD = await fetch(`${backend_url}/api/news?populate[pdf][populate]=*`, {
+        const newsD = await fetch(`${backend_url}/api/news?populate[pdf][populate]=*&populate=image&sort[0]=createdAt:desc&pagination[pageSize]=500`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
 
         const newsData = await newsD.json();
-        setNews(newsData.data ? [...newsData.data].reverse() : []);
-        setFilteredNews(newsData.data ? [...newsData.data].reverse() : []);
+        setNews(newsData.data ? newsData.data : []);
+        setFilteredNews(newsData.data ? [...newsData.data] : []);
       } catch (err) {
         console.error("Fetch error:", err);
       }

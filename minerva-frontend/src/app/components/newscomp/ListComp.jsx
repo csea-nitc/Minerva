@@ -28,17 +28,17 @@ const ListComp = ({ item, flag = 0 }) => {
             remarkPlugins={[remarkGfm]}
             components={{
               table: ({ children }) => (
-                <table className="min-w-full table-auto border-collapse mt-4 mb-6">
+                <table className="min-w-full table-auto border-collapse mt-4 mb-6 text-lg">
                   {children}
                 </table>
               ),
               th: ({ children }) => (
-                <th className="px-4 py-2 text-left border-b font-bold text-gray-700 bg-[#c990c8]">
+                <th className="px-4 py-2 text-left border-b font-bold text-gray-700 bg-[#c990c8] text-lg">
                   {children}
                 </th>
               ),
               td: ({ children }) => (
-                <td className="px-4 py-2 border-b text-gray-600">{children}</td>
+                <td className="px-4 py-2 border-b text-gray-600 text-lg">{children}</td>
               ),
               tr: ({ children }) => (
                 <tr className="hover:bg-gray-50">{children}</tr>
@@ -46,12 +46,18 @@ const ListComp = ({ item, flag = 0 }) => {
               a: ({ href, children }) => (
                 <a
                   href={href}
-                  className="text-[#800080] hover:underline"
+                  className="text-[#800080] hover:underline text-lg"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   {children}
                 </a>
+              ),
+              p: ({ children }) => (
+                <p className="text-lg leading-relaxed mb-4">{children}</p>
+              ),
+              li: ({ children }) => (
+                <li className="text-lg leading-relaxed mb-2 list-disc list-inside">{children}</li>
               ),
             }}
           >
