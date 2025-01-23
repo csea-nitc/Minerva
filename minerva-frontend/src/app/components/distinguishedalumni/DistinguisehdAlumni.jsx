@@ -12,21 +12,11 @@ export default function DistinguisedAlumni({
   const markdownLink = url ? `[Profile](${url})` : "";
 
   return (
-    <div
-      className="px-4 md:px-6 py-6 
-    bg-[#DEBDDD] 
-    flex flex-row
-    transition-all duration-200
-    bg-opacity-10 
-    hover:bg-opacity-50
-    border-accent
-    border-4
-    rounded-2xl
-    font-jakarta w-[360px] sm:w-auto"
-    >
+    <div className="bg-white border max-w-4xl w-[85%] font-jakarta xs:w-[300px]   border-[#D1D1D1] rounded-xl shadow-md hover:shadow-lg transition-all duration-300 ease-in-out transform hover:scale-[1.02] p-2  mx-auto">
+    <div className="flex flex-row gap-6 xs:gap-0 xs:flex-col items-center h-full">
       <div
-        className="w-[130px] h-[130px] relative overflow-hidden flex-shrink-0"
-        style={{ borderRadius: "8px", border: "2px solid #800080" }}
+        className="relative max-400:w-[100px] w-[150px]  xs:w-full h-[150px] xs:h-[260px]  rounded-lg overflow-hidden border-2 border-[#800080]"
+        style={{ boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)" }}
       >
         <img
           src={picture}
@@ -34,24 +24,28 @@ export default function DistinguisedAlumni({
           className="w-full h-full object-cover"
         />
       </div>
-
-      <div className="flex flex-col px-4 justify-between flex-grow">
-        <p className="text-[1.2em] md:text-[1.5em] font-semibold text-gray-900">
-          {name}
-        </p>
-        <p className="text-[1em] font-medium text-gray-700">
+  
+  <div className="flex-col flex justify-between">
+      <p className="mt-4 text-lg xs:text-xl font-semibold text-gray-900 text-center f">{name}</p>
+  
+      {url && (
+        <div className="mt-3 text-center">
+          <ReactMarkdown className="text-accent text-base font-medium">
+            {markdownLink}
+          </ReactMarkdown>
+        </div>
+      )}
+  
+      <div className="mt-2 text-center ">
+        <p className="text-gray-700 text-xs font-medium">
           {program} - {year}
         </p>
-        <p className="text-[0.95em] text-gray-700">{line1}</p>
-        <p className="text-[0.95em] text-gray-700">{line2}</p>
-        {url && (
-          <div className="mt-2">
-            <ReactMarkdown className="text-accent text-[1em] font-medium">
-              {markdownLink}
-            </ReactMarkdown>
-          </div>
-        )}
+        <p className="text-gray-600 xs2:max-w-[170px] max-w-[220px] text-xs ">{line1}</p>
+        <p className="text-gray-600 max-w-[200px] text-xs mb-2">{line2}</p>
       </div>
     </div>
+    </div>
+  </div>
+  
   );
 }
