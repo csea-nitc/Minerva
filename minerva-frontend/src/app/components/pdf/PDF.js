@@ -10,11 +10,11 @@ export default function PDF({ title, url }) {
       flex justify-between items-center 
       gap-3 
       transition-all duration-200 
-      hover:bg-opacity-90"
+      hover:bg-opacity-90 mx-auto"
     >
       <p
         className="font-jakarta text-base sm:text-lg flex-1 
-        truncate pr-2"
+        break-words pr-2"
         style={{ wordSpacing: "4px" }}
       >
         {title}
