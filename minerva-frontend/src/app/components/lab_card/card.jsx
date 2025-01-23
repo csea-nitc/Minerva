@@ -5,7 +5,7 @@ const card = ({title , id ,faculty ,staff , location}) => {
   const backend_url = process.env.NEXT_PUBLIC_API_URL;
 
   return (
-    <div className='pb-2 px-4 h-[33vh] box relative mb-10  mt-10'>
+    <div className='pb-2 px-4 mb-10'>
         <p className='text-accent font-jakarta text-2xl sm:text-4xl md:text-5xl font-bold h-[40%] flex items-center gap-2'>
           <a 
             href={`/laboratories/${id}`} 
