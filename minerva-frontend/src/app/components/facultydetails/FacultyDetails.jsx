@@ -71,6 +71,7 @@ export default function FacultyDetails({
     setActiveIndex(activeIndex === index ? null : index);
   };
 
+
   return (
     <>
       <SearchBar onSearch={handleSearch} blankOne="faculty" blankTwo="name" />{" "}
@@ -97,7 +98,8 @@ export default function FacultyDetails({
                 >
                   <div>
                     <img
-                      src={`${backend_url}${faculty?.photograph?.url}`}
+                      src={
+                        faculty.photograph ? (`${backend_url}${faculty?.photograph?.url}`) : "./pfp.jpg"}
                       // src={faculty.image}
                       alt=""
                       className="lg:w-[300px] lg:h-[360px] w-[250px] h-[300px] object-cover group-hover:scale-[1.04] duration-300"

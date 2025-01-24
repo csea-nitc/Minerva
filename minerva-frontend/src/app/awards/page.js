@@ -144,6 +144,15 @@ export default function Home() {
                       {pageNum}
                     </button>
                   ))}
+
+                  <button
+                    onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                    disabled={currentPage === totalPages}
+                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg font-poppins text-sm sm:text-base transition-colors duration-200 flex items-center justify-center
+                                  bg-gray-200 text-black hover:bg-accent"
+                  >
+                    .....
+                  </button>
                   <button
                     onClick={() => handlePageChange(currentPage + 1)}
                     disabled={currentPage === totalPages}
