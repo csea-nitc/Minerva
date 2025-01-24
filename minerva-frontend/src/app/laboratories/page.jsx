@@ -14,7 +14,7 @@ const page = () => {
     const fetchData = async () => {
         try {
         const data = await fetch(
-            `${backend_url}api/labs?populate=*`,
+            `${backend_url}/api/labs?populate=*`,
             {
             headers: {
                 Authorization: `Bearer ${token}`,
