@@ -181,8 +181,12 @@ export default function FacultyDetails({
                             )}
                             {filteredFacultyData[activeIndex].education && (
                               <li className="m-4">
-                                Education:{" "}
-                                {filteredFacultyData[activeIndex].education}
+                                Education:
+                                <ul  className="px-10">
+                                  {filteredFacultyData[activeIndex].education.split(", ").map((item, index) => (
+                                    <li key={index}>{item}</li>
+                                  ))}
+                                </ul>
                               </li>
                             )}
                             {filteredFacultyData[activeIndex]
