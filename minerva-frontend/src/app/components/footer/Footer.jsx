@@ -56,7 +56,7 @@ export default function Footer() {
           </div>
           <img
             className="w-[1000px] block md:hidden"
-            src="/csea-temp-footer.png"
+            src="/footer.svg"
             alt=""
           />
         </div>
