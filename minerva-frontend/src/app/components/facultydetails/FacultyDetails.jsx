@@ -209,6 +209,26 @@ export default function FacultyDetails({
                                 }
                               </li>
                             )}
+
+                            {filteredFacultyData[activeIndex]
+                              .institute_page && (
+                              <li className="m-4">
+                                Homepage : <span> </span>
+                                <Link
+                                  href={
+                                    filteredFacultyData[activeIndex]
+                                      .institute_page
+                                  }
+                                  className="text-purple-600 underline hover:text-purple-800"
+                                >
+                                  {
+                                    filteredFacultyData[activeIndex]
+                                      .institute_page
+                                  }
+                                </Link>
+                              </li>
+                            )}
+
                             {filteredFacultyData[activeIndex]
                               .external_links && (
                               <li className="m-4">
