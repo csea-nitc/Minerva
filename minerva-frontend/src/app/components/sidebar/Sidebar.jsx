@@ -22,7 +22,7 @@ const Sidebar = () => {
     const fetchData = async () => {
       try {
         const linksD = await fetch(
-          `${backend_url}/api/quick-links?sort[0]=createdAt:desc`,
+          `${backend_url}/api/quick-links?sort[0]=createdAt:desc&populate[pdf][populate]=*&populate=image`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
