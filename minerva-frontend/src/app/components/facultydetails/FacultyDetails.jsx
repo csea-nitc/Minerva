@@ -183,7 +183,7 @@ export default function FacultyDetails({
                               <li className="m-4">
                                 Education:
                                 <ul  className="px-10">
-                                  {filteredFacultyData[activeIndex].education.split(", ").map((item, index) => (
+                                  {filteredFacultyData[activeIndex].education.split("~").map((item, index) => (
                                     <li key={index}>{item}</li>
                                   ))}
                                 </ul>
@@ -229,23 +229,22 @@ export default function FacultyDetails({
                               </li>
                             )}
 
-                            {filteredFacultyData[activeIndex]
-                              .external_links && (
-                              <li className="m-4">
+                            {filteredFacultyData[activeIndex].external_links && (
+                              <ul className="m-4">
                                 External Links: <span> </span>
-                                <Link
-                                  href={
-                                    filteredFacultyData[activeIndex]
-                                      .external_links
-                                  }
-                                  className="text-purple-600 underline hover:text-purple-800"
-                                >
-                                  {
-                                    filteredFacultyData[activeIndex]
-                                      .external_links
-                                  }
-                                </Link>
-                              </li>
+                                {filteredFacultyData[activeIndex].external_links.split(",").map((item, index) => (
+                                  <li key={index}>
+                                    <Link 
+                                      href={item} 
+                                      target="_blank" 
+                                      rel="noopener noreferrer"
+                                      className="text-purple-600 underline hover:text-purple-800"
+                                    >
+                                      {item}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
                             )}
 
                             {filteredFacultyData[activeIndex]

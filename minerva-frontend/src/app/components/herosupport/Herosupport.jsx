@@ -21,30 +21,44 @@ const Herosupport = ({ props }) => {
 
   // fetching latest announcements
   const [data, setData] = useState([]);
+
+  // fetching for phd and department brochures
+  const [dept_brochure, Setdept] = useState([]);
+  const [phd_brochure, Setphd] = useState([]);
+
   const token = process.env.NEXT_PUBLIC_TOKEN;
   const backend_url = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchAllData = async () => {
       try {
-        const data = await fetch(
-          `${backend_url}/api/announcements?sort[0]=createdAt:desc&pagination[pageSize]=3`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const [announcementsRes, deptBrochureRes, phdBrochureRes] = await Promise.all([
+          fetch(`${backend_url}/api/announcements?sort[0]=createdAt:desc&pagination[pageSize]=3`, {
+            headers: { Authorization: `Bearer ${token}` },
+          }),
+          fetch(`${backend_url}/api/deparment-brochure?populate=pdf`, {
+            headers: { Authorization: `Bearer ${token}` },
+          }),
+          fetch(`${backend_url}/api/ph-d-brochure?populate=pdf`, {
+            headers: { Authorization: `Bearer ${token}` },
+          }),
+        ]);
 
-        const Data = await data.json();
-        console.log(Data.data);
-        setData(Data.data ? Data.data : []);
+        const [announcementsData, deptBrochureData, phdBrochureData] = await Promise.all([
+          announcementsRes.json(),
+          deptBrochureRes.json(),
+          phdBrochureRes.json(),
+        ]);
+
+        setData(announcementsData.data || []);
+        Setdept(deptBrochureData.data || []);
+        Setphd(phdBrochureData.data || []);
       } catch (err) {
         console.error("Fetch error:", err);
       }
     };
 
-    fetchData();
+    fetchAllData();
   }, []);
 
   return (
@@ -64,13 +78,13 @@ const Herosupport = ({ props }) => {
                 <div className="h-[30%] md:h-[22%] mt-[35px] -translate-y-7 flex md:flex-col justify-center items-center gap-4 mb-5">
                   <DownloadButton
                     text="UG BROCHURE"
-                    href="https://example.com"
-                    isExternal={false}
+                    href={`${backend_url}${dept_brochure.pdf?.url}`}
+                    isExternal={true}
                   />
                   <DownloadButton
                     text="PG BROCHURE"
-                    href="https://example.com"
-                    isExternal={false}
+                    href= {`${backend_url}${phd_brochure.pdf?.url}`}
+                    isExternal={true}
                   />
                 </div>
               </div>
