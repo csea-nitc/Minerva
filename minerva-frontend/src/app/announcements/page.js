@@ -150,6 +150,14 @@ export default function Home() {
                       <button
                         onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                         disabled={currentPage === totalPages}
+                        className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg font-poppins text-sm sm:text-base transition-colors duration-200 flex items-center justify-center
+                                  bg-gray-200 text-black hover:bg-accent"
+                      >
+                        .....
+                      </button>
+                      <button
+                        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                        disabled={currentPage === totalPages}
                         className="px-3 sm:px-4 py-1 sm:py-2 text-sm sm:text-base rounded-lg bg-accent hover:bg-accent text-white font-poppins disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
                       >
                         Next

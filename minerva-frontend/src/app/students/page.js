@@ -6,7 +6,7 @@ import Modal from "../components/modal/Modal";
 import ListComp from "../components/newscomp/ListComp";
 import FacultyDetails from "../components/facultydetails/FacultyDetails";
 import TabNav from "../components/tabnav/TabNav";
-import FacultyCard from "../components/cards/FacultyCard";
+import Loading from "../components/loading/loading";
 
 const backend_url = process.env.NEXT_PUBLIC_API_URL;
 const token = process.env.NEXT_PUBLIC_TOKEN;
@@ -28,6 +28,8 @@ export default function Students() {
 
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedYear, setSelectedYear] = useState(null);
+
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleYearClick = (year) => {
     setSelectedYear(year);
@@ -70,6 +72,8 @@ export default function Students() {
         setStudentData(data);
       } catch (err) {
         console.error("Fetch error:", err);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -86,51 +90,56 @@ export default function Students() {
           contentdiv={".content-div"}
           imgpath={"/grouppic.jpeg"}
         />
+        
+        <>
+          <div className="w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
+            <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
 
-        <div className="w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
-          <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
+            <div className="sm:w-[85%] w-[85%] mx-auto py-10">
+              {/* Tab Navigation */}
+              {isLoading ? (<Loading/>) : ( 
+                <>
+                  <TabNav onTabChange={setCurrentTab} tabData={tabData} />
 
-          <div className="sm:w-[85%] w-[85%] mx-auto py-10">
-            {/* Tab Navigation */}
-            <TabNav onTabChange={setCurrentTab} tabData={tabData} />
-
-            {/* render faculty component for phD*/}
-            {currentTab === 4 ? (
-              studentData &&
-              studentData[currentTab] && (
-                <FacultyDetails
-                  data={{
-                    facultyData: studentData?.[currentTab] || [], // Ensure facultyData is always an array
-                  }}
-                  className={""}
-                  activeIndex={activeIndex}
-                  setActiveIndex={setActiveIndex}
-                />
-              )
-            ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mx-auto p-4 sm:p-8 md:p-12 lg:px-0 lg:py-10">
-                {studentData &&
-                  studentData[currentTab] &&
-                  studentData[currentTab].map((student) => (
-                    <div key={student.id}>
-                      <YearCard
-                        year={student.Title}
-                        onClick={() => handleYearClick(student.Title)}
+                  {/* render faculty component for phD*/}
+                  {currentTab === 4 ? (
+                    studentData &&
+                    studentData[currentTab] && (
+                      <FacultyDetails
+                        data={{
+                          facultyData: studentData?.[currentTab] || [], // Ensure facultyData is always an array
+                        }}
+                        className={""}
+                        activeIndex={activeIndex}
+                        setActiveIndex={setActiveIndex}
                       />
+                    )
+                  ) : (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 mx-auto p-4 sm:p-8 md:p-12 lg:px-0 lg:py-10">
+                      {studentData &&
+                        studentData[currentTab] &&
+                        studentData[currentTab].map((student) => (
+                          <div key={student.id}>
+                            <YearCard
+                              year={student.Title}
+                              onClick={() => handleYearClick(student.Title)}
+                            />
 
-                      {/* Render Modal */}
-                      <Modal
-                        open={isModalOpen && selectedYear === student.Title}
-                        onClose={handleCloseModal}
-                      >
-                        <ListComp key={selectedYear} item={student} />
-                      </Modal>
+                            {/* Render Modal */}
+                            <Modal
+                              open={isModalOpen && selectedYear === student.Title}
+                              onClose={handleCloseModal}
+                            >
+                              <ListComp key={selectedYear} item={student} />
+                            </Modal>
+                          </div>
+                        ))}
                     </div>
-                  ))}
-              </div>
-            )}
+                  )}
+                </>)} 
+            </div>
           </div>
-        </div>
+        </>
       </div>
     </>
   );

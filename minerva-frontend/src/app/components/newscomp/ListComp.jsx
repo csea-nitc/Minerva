@@ -15,9 +15,9 @@ const ListComp = ({ item, flag = 0 }) => {
     : [];
 
   return (
-    <div className="overflow-x-scroll mb-8 p-6 bg-background text-foreground rounded-lg  text-center">
+    <div className="overflow-x-scroll mb-16 p-6 bg-background text-foreground rounded-lg text-center shadow-lg border border-gray-300">
       <div className="mb-2 flex items-center justify-between">
-        <h2 className="text-xl font-jakarta font-semibold text-center w-full ">
+        <h2 className="text-xl font-jakarta font-semibold text-center w-full text-[#800080]">
           {item.Title}
         </h2>
       </div>
@@ -28,7 +28,7 @@ const ListComp = ({ item, flag = 0 }) => {
             remarkPlugins={[remarkGfm]}
             components={{
               table: ({ children }) => (
-                <table className="min-w-full table-auto border-collapse mt-4 mb-6 text-lg">
+                <table className="min-w-full table-auto border-collapse mt-4 mb-6 text-lg border border-gray-200">
                   {children}
                 </table>
               ),
@@ -72,33 +72,30 @@ const ListComp = ({ item, flag = 0 }) => {
         </div>
       )}
 
-      {/* conditionally rendering for dcc page , different schema in backend */}
-
-      { !flag ? ( 
-          item.pdf && item.pdf?.length > 0 && (
-            <div className="grid gap-5 mt-4">
-              {item.pdf.map((pdf) => (
-                <PDF
-                  key={`${pdf.pdf?.Id}-${pdf.pdf?.documentId}`}
-                  title={`${pdf.Name}`}
-                  url={`${backend_url}${pdf.pdf?.url}`}
-                />
-              ))}
-            </div>
-            ) 
-          ): 
-          (
-            <div className="grid gap-5 mt-4">
-              {item.pdf.map((pdf) => (
-                <PDF
-                  key={`${pdf.Id}-${pdf.documentId}`}
-                  title={`${pdf.name}`}
-                  url={`${backend_url}${pdf.url}`}
-                />
-              ))}
-            </div>
-          )
-      }
+      {/* Conditionally rendering for dcc page, different schema in backend */}
+      {!flag ? (
+        item.pdf && item.pdf?.length > 0 && (
+          <div className="grid gap-5 mt-4">
+            {item.pdf.map((pdf) => (
+              <PDF
+                key={`${pdf.pdf?.Id}-${pdf.pdf?.documentId}`}
+                title={`${pdf.Name}`}
+                url={`${backend_url}${pdf.pdf?.url}`}
+              />
+            ))}
+          </div>
+        )
+      ) : (
+        <div className="grid gap-5 mt-4">
+          {item.pdf.map((pdf) => (
+            <PDF
+              key={`${pdf.Id}-${pdf.documentId}`}
+              title={`${pdf.name}`}
+              url={`${backend_url}${pdf.url}`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
