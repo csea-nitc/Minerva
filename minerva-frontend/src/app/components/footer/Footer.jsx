@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <>
       <footer className="px-[3%] py-[1%] bg-[#800080] font-verdana text-white z-10 relative">
-        <div className="flex flex-col md:flex-row justify-around items-end gap-6 border-b border-b-white ">
+        <div className="flex flex-col md:flex-row justify-center items-end gap-6 border-b border-b-white ">
           <div className="flex flex-col gap-16">
             <div className="px-2 md:px-4 flex items-center gap-6 translate-x-2 md:-translate-x-8 md:translate-y-4">
               <img className="h-[96px] w-[81px]" src="/nitc-logo.png" alt="" />
@@ -49,7 +49,7 @@ export default function Footer() {
               >
                 Feedback
               </Link>
-              <Link className="px-2 py-4 border-b border-white" href="">
+              <Link className="px-2 py-4 border-b border-white" href="/credits">
                 Credits
               </Link>
             </div>

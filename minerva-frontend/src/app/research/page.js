@@ -4,11 +4,16 @@ import { useState, useEffect } from "react";
 import ImageHero from "../components/imagehero/Imagehero";
 import TabNav from "../components/tabnav/TabNav";
 import Link from "next/link";
+import ListComp from "../components/newscomp/ListComp";
 
 const TabData = ["Areas Of Research", "Research Groups", "Completed PhDs"];
 
+const backend_url = process.env.NEXT_PUBLIC_API_URL ; 
+const token  = process.env.NEXT_PUBLIC_TOKEN ; 
+
 export default function Programmes() {
     const [selectedTab, setSelectedTab] = useState(0);
+    const [data , setData ] = useState( [] ) ; 
 
     const [issmall, setIsSmall] = useState(false);
 
@@ -20,7 +25,28 @@ export default function Programmes() {
         window.addEventListener("resize", checkSmall);
         return () => window.removeEventListener("resize", checkSmall);
     }, []);
-
+    
+    useEffect( ( ) => {
+        const fetchData = async () => {
+            try {
+                const data = await fetch(
+                    `${backend_url}/api/completed-ph-d`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
+    
+                const Data = await data.json();
+                setData( Data.data ? Data.data : [] );
+            } catch (err) {
+                console.error("Fetch error:", err);
+            }
+        };
+        fetchData();
+    }); 
+    
     return (
         <>
             <ImageHero
@@ -85,12 +111,7 @@ export default function Programmes() {
                             ) : (
                                 // Content for Completed PhDs
                                 <div>
-                                    <p className="text-[1.2em] leading-[35px] text-justify">
-                                        {tabData[selectedTab].para1}
-                                    </p>
-                                    <p className="text-[1.2em] leading-[35px] text-justify mt-4">
-                                        {tabData[selectedTab].para2}
-                                    </p>
+                                    <ListComp item = {data}/>
                                 </div>
                             )}
                         </div>

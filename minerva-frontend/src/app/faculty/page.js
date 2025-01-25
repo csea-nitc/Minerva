@@ -72,7 +72,6 @@ export default function Home() {
 
         const result = await response.json();
         setHod(result.data);
-        console.log(result.data);
       } catch (error) {
         console.error("Error fetching hod data:", error);
       }
@@ -204,7 +203,7 @@ export default function Home() {
                             </Link>
                           </li>
                         )}
-                        
+
                         {hod.office_location && (
                           <li className="m-4">
                             Office Location: {hod.office_location}
