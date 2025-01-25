@@ -4,7 +4,7 @@ import React from "react";
 const DownloadButton = ({ text, href, isExternal }) => {
   return (
     <button
-      className="md:w-[350px] w-[90%] flex flex-row items-center justify-between border-2 text-white font-jakarta rounded-xl font-bold tracking-[0.08em] text-2xl p-5 sm:text-3xl border-white"
+      className="md:w-[350px] w-[90%] flex flex-row items-center justify-between border-2 text-white font-jakarta rounded-xl font-bold tracking-[0.08em] text-2xl p-3 sm:text-3xl border-white"
       onClick={() => {
         if (isExternal) {
           window.open(href, "_blank");
@@ -14,7 +14,7 @@ const DownloadButton = ({ text, href, isExternal }) => {
       }}
     >
       {/* Text */}
-      <span className="flex items-center justify-center w-full text-left text-[1.1rem] md:text-[1.8rem] translate-y-1">
+      <span className="flex items-center justify-center w-full text-left text-[1.4rem] md:text-[1.8rem]">
         {text}
       </span>
 

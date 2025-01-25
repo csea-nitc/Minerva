@@ -74,33 +74,34 @@ const Herosupport = ({ props }) => {
         />
 
         <div className="w-full bg-accent flex flex-col items-center justify-center">
-          <div className="w-[100%] bg-accent md:gap-20 justify-center flex flex-col gap-2 md:flex-row relative z-10 bottom-[12vh] mb-[-18vh] mt-3 md:mt-10 h-[100vh] md:h-[50vh]">
-
-    
-            <div className="flex flex-col font-jakarta lg:mt-10 items-center gap-10 sm:pt-0 pt-10 lg:justify-between md:px-10 h-[70%] md:h-[80%] md:mb-10 px-5">
-            <div className="w-[100%] text-3xl text-white font-jakarta font-bold md:ml-10 md:text-left">BROCHURES</div>
+          <div className="w-[100%] bg-accent md:gap-20 justify-center flex flex-col gap-2 md:flex-row relative z-10 bottom-[12vh] mb-[-15vh] mt-3 md:mt-10  md:h-[20vw]">
+            <div className="flex flex-col font-jakarta lg:mt-10 items-center gap-4 md:gap-6 sm:pt-0 pt-10 lg:justify-between md:px-10  md:h-[80%] md:mb-10 px-5">
+              <div className="pl-1 md:pl-1 w-[100%] text-3xl text-white font-jakarta font-bold  md:text-left">
+                Brochures
+              </div>
               <DownloadButton
-                text="UG BROCHURE"
+                text="UG Brochure"
                 href={`${backend_url}${dept_brochure.pdf?.url}`}
                 isExternal={true}
               />
               <DownloadButton
-                text="PG BROCHURE"
+                text="PG Brochure"
                 href={`${backend_url}${phd_brochure.pdf?.url}`}
                 isExternal={true}
               />
             </div>
 
-
-            <div className="flex flex-col font-jakarta md:border-l-2 lg:mt-10 items-center justify-between md:px-10 h-[70%] md:h-[80%] md:mb-10 m-5 mb-10">
-            <div className="w-[100%] text-3xl text-white font-jakarta font-bold md:ml-10 md:text-left">LATEST</div>
+            <div className="flex flex-col font-jakarta md:border-l-2 lg:mt-10 items-center justify-between md:px-10 md:h-[80%] md:mb-10 m-5 mb-10">
+              <div className="pl-1 mb-2 w-[100%] text-3xl text-white font-jakarta font-bold md:ml-10 md:text-left">
+                Latest
+              </div>
               {data.map((item) => (
                 <a
                   key={item.id}
                   href={`/announcements/${item.documentId}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white text-left text-lg lg:text-2xl pl-5 pr-3 py-1 text-wrap break-words lg:w-[600px] w-[365px] flex items-center underline hover:underline-offset-4 hover:text-blue-300 h-full"
+                  className="text-white text-lg lg:text-2xl pl-1 md:pl-5 pr-3 py-1 text-wrap text-justify break-words lg:w-[600px] flex items-center underline hover:underline-offset-4 hover:text-purple-300 h-full"
                 >
                   {item.Title}
                 </a>
