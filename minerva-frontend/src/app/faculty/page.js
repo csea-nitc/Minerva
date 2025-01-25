@@ -22,7 +22,7 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${backend_url}/api/faculty-pages?populate=photograph&pagination[pageSize]=100`,
+          `${backend_url}/api/faculty-pages?populate=photograph`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -204,6 +204,7 @@ export default function Home() {
                             </Link>
                           </li>
                         )}
+                        
                         {hod.office_location && (
                           <li className="m-4">
                             Office Location: {hod.office_location}
@@ -217,7 +218,14 @@ export default function Home() {
                         )}
 
                         {hod.education && (
-                          <li className="m-4">Education: {hod.education}</li>
+                            <li className="m-4 mb-3">
+                              Education:
+                              <ul  className="px-8">
+                                {hod.education.split("~").map((item, index) => (
+                                  <li key={index} className="mb-3">{item} </li>
+                                ))}
+                              </ul>
+                            </li>
                         )}
 
                         {hod.specialisation && (
@@ -233,15 +241,21 @@ export default function Home() {
                         )}
 
                         {hod.external_links && (
-                          <li className="m-4">
+                          <ul className="m-4">
                             External Links: <span> </span>
-                            <Link
-                              href={hod.external_links}
-                              className="text-purple-600 underline hover:text-purple-800"
-                            >
-                              {hod.external_links}
-                            </Link>
-                          </li>
+                            {hod.external_links.split(",").map((item, index) => (
+                              <li key={index} className="px-8 mb-3">
+                                <Link 
+                                  href={item} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="text-purple-600 underline hover:text-purple-800"
+                                >
+                                  {item}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
                         )}
 
                         {hod.additional_info && (

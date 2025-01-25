@@ -19,7 +19,7 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const newsD = await fetch(`${backend_url}/api/news?populate[pdf][populate]=*&populate=image&sort[0]=createdAt:desc&pagination[pageSize]=500`, {
+        const newsD = await fetch(`${backend_url}/api/news?populate[pdf][populate]=*&populate=image&sort[0]=createdAt:desc`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

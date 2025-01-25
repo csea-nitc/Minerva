@@ -253,13 +253,19 @@ export default function FacultyDetails({
 
                             {filteredFacultyData[activeIndex]
                               .additional_info && (
-                              <li className="m-4">
-                                Additional Info:{" "}
+                                <ul>
                                 {
-                                  filteredFacultyData[activeIndex]
-                                    .additional_info
+                                filteredFacultyData[activeIndex]
+                                .additional_info.split( "~" ).map( ( item , index ) => ( 
+                                  <li className="m-4" key = {index}>
+                                  Additional Info:{" "}
+                                  {
+                                    item
+                                  }
+                                  </li>
+                                ))
                                 }
-                              </li>
+                              </ul> 
                             )}
 
                             {filteredFacultyData[activeIndex]

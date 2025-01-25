@@ -15,7 +15,7 @@ const ListComp = ({ item, flag = 0 }) => {
     : [];
 
   return (
-    <div className="overflow-x-scroll mb-16 p-6 bg-background text-foreground rounded-lg text-center shadow-lg border border-gray-300">
+    <div className=" mb-16 p-6 bg-background text-foreground rounded-lg text-center shadow-lg border border-gray-300">
       <div className="mb-2 flex items-center justify-between">
         <h2 className="text-xl font-jakarta font-semibold text-center w-full text-[#800080]">
           {item.Title}
