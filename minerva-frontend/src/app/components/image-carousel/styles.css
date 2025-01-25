@@ -12,12 +12,12 @@
 .swiper-slide img {
   display: block;
   width: 100%;
-  border-radius: 30px;
+  border-radius: 15px;
 }
 
 .swiper-button-prev,
 .swiper-button-next {
-  color: white; /* Change arrow color */
+  color : #800080; /* Change arrow color */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  
   padding: 0;
   padding: 35px;
