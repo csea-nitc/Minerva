@@ -11,33 +11,22 @@ export default function page() {
         contentdiv={".content-div"}
       />
       <div className="px-[13%] md:px-[17%] font-jakarta text-lg w-[100vw] mt-[40vh] sm:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
-        <div>
-          <p className="py-4 px-[3%] font-jakarta text-justify">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
-            corporis molestiae velit dolorum qui maiores facilis quisquam dolor
-            nisi iure explicabo, sunt, vero ab similique numquam, deserunt harum
-            fugit quasi repellat. Laborum excepturi exercitationem nam alias
-            animi cumque facere dolore sed earum sit. Soluta molestiae eos
-            quisquam explicabo dolores alias earum inventore ab! Soluta
-            repudiandae, minus enim delectus debitis odit.
-          </p>
-        </div>
         <div className="py-4">
-          <h2 className="font-semibold text-2xl text-accent">Project Lead</h2>
+          <h2 className="font-semibold text-2xl text-accent">Project Leads</h2>
           <ul className="flex flex-col ">
-            <Link href={""}>
+            <Link href={"https://www.linkedin.com/in/arunnats/"}>
               <span className="underline underline-offset-2 text-blue-600">
-                Arun
+                Arun Natarajan
               </span>{" "}
               - B.Tech CSE 2026
             </Link>
-            <Link href={""}>
+            <Link href={"https://www.linkedin.com/in/hafeez-m/"}>
               <span className="underline underline-offset-2 text-blue-600">
-                Hafeez
+                Hafeez Muhammed
               </span>{" "}
               - B.Tech CSE 2026
             </Link>
-            <Link href={""}>
+            <Link href={"https://www.linkedin.com/in/aditya-kamble27/"}>
               <span className="underline underline-offset-2 text-blue-600">
                 Adithya Kamble
               </span>{" "}
@@ -48,19 +37,19 @@ export default function page() {
         <div className="py-4">
           <h2 className="font-semibold text-2xl text-accent">Developers</h2>
           <ul className="flex flex-col ">
-            <Link href={""}>
+            <Link href={"https://www.linkedin.com/in/nadeem-m-siyam/"}>
               <span className="underline underline-offset-2 text-blue-600">
                 Nadeem M Siyam
               </span>{" "}
               - B.Tech CSE 2027
             </Link>
-            <Link href={""}>
+            <Link href={"https://www.linkedin.com/in/devadath-kartha-387002288/"}>
               <span className="underline underline-offset-2 text-blue-600">
                 Devadath A Kartha
               </span>{" "}
               - B.Tech CSE 2027
             </Link>
-            <Link href={""}>
+            <Link href={"https://www.linkedin.com/in/rohith-s-cs?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_api"}>
               <span className="underline underline-offset-2 text-blue-600">
                 Rohith S Nair
               </span>{" "}
@@ -72,7 +61,7 @@ export default function page() {
               </span>{" "}
               - B.Tech CSE 2027
             </Link>
-            <Link href={""}>
+            <Link href={"https://www.linkedin.com/in/munukuntla-rithvik-reddy/"}>
               <span className="underline underline-offset-2 text-blue-600">
                 Rithvik
               </span>{" "}
@@ -91,13 +80,13 @@ export default function page() {
               </span>{" "}
               - B.Tech CSE 2027
             </Link>
-            <Link href={""}>
+            <Link href={"https://www.linkedin.com/in/visruth-mohandas-b49968333/"}>
               <span className="underline underline-offset-2 text-blue-600">
                 Visruth Mohandas
               </span>{" "}
               - B.Tech CSE 2027
             </Link>
-            <Link href={""}>
+            <Link href={"https://www.linkedin.com/in/neha-suresh-196538286/"}>
               <span className="underline underline-offset-2 text-blue-600">
                 Neha Suresh
               </span>{" "}
@@ -105,7 +94,7 @@ export default function page() {
             </Link>
           </ul>
         </div>
-        <div className="py-4">
+        {/* <div className="py-4">
           <h2 className="font-semibold text-2xl text-accent">Advisors</h2>
           <ul className="flex flex-col ">
             <Link href={""}>
@@ -127,7 +116,7 @@ export default function page() {
               - Professor CSED
             </Link>
           </ul>
-        </div>
+        </div> */}
       </div>
     </>
   );
