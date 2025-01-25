@@ -29,16 +29,23 @@ export default function Home() {
             },
           }
         );
-
+  
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-
+  
         const result = await response.json();
-
+  
         if (result && result.data && Array.isArray(result.data)) {
-          setFacultyData(result.data);
-          setFilteredFacultyData(result.data);
+          // Sort the faculty data alphabetically by name
+          const sortedData = result.data.sort((a, b) => {
+            const nameA = a.name?.toLowerCase() || ""; // Assuming `name` is the key for the faculty name
+            const nameB = b.name?.toLowerCase() || "";
+            return nameA.localeCompare(nameB);
+          });
+  
+          setFacultyData(sortedData);
+          setFilteredFacultyData(sortedData);
         } else {
           console.error("Data structure is unexpected:", result);
         }
@@ -46,9 +53,10 @@ export default function Home() {
         console.error("Fetch error:", err);
       }
     };
-
+  
     fetchData();
   }, []);
+  
 
   useEffect(() => {
     const fetchHodData = async () => {
