@@ -71,7 +71,8 @@ const Herosupport = ({ props }) => {
         <div className="w-full bg-accent flex flex-col items-center justify-center">
           <div className="w-[100%] bg-accent md:gap-20 justify-center flex flex-col gap-2 md:flex-row relative z-10 bottom-[12vh] mb-[-18vh] mt-3 md:mt-10 h-[100vh] md:h-[50vh]">
     
-            <div className="flex flex-col items-center justify-between lg:mt-10 relative p-5 h-[35%] md:h-[80%]">
+            <div className="flex flex-col font-jakarta lg:mt-10 items-center justify-between md:px-10 h-[70%] md:h-[80%] md:mb-10 px-5">
+            <div className="w-[100%] text-3xl text-white font-jakarta font-bold md:ml-10 md:text-left">BROCHURES</div>
               <DownloadButton
                 text="UG BROCHURE"
                 href={`${backend_url}${dept_brochure.pdf?.url}`}
@@ -84,7 +85,7 @@ const Herosupport = ({ props }) => {
               />
             </div>
 
-            <div className="flex flex-col font-jakarta md:border-l-2 lg:mt-10 items-center justify-between md:px-10 h-[45%] md:h-[80%] md:mb-10 m-5">
+            <div className="flex flex-col font-jakarta md:border-l-2 lg:mt-10 items-center justify-between md:px-10 h-[70%] md:h-[80%] md:mb-10 m-5 mb-10">
             <div className="w-[100%] text-3xl text-white font-jakarta font-bold md:ml-10 md:text-left">LATEST</div>
               {data.map((item) => (
                 <a
