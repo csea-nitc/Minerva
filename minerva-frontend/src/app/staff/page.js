@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef, use } from "react";
+import { useState, useEffect } from "react";
 import FacultyDetails from "../components/facultydetails/FacultyDetails";
 import ImageHero from "../components/imagehero/Imagehero";
 import Loading from "../components/loading/loading";
@@ -31,8 +31,13 @@ export default function Home() {
         console.log(result);
 
         if (result && result.data && Array.isArray(result.data)) {
-          console.log(result.data);
-          setStaffData(result.data);
+          // Sorting staffData alphabetically by name
+          const sortedData = result.data.sort((a, b) => {
+            const nameA = a.name.toLowerCase();
+            const nameB = b.name.toLowerCase();
+            return nameA.localeCompare(nameB);
+          });
+          setStaffData(sortedData);
         } else {
           console.error("Data structure is unexpected:", result);
         }
