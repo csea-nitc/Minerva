@@ -3,13 +3,13 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <>
-      <footer className="px-[3%] py-[1%] bg-[#800080] font-verdana text-white z-10 relative">
-        <div className="flex flex-col md:flex-row justify-center items-end gap-6 border-b border-b-white ">
+      <footer className="px-[3%] py-[1%]  bg-[#800080] font-verdana text-white z-10 relative">
+        <div className="flex flex-col md:flex-row justify-between items-end md:gap-6 border-b border-b-white px-[5%]">
           <div className="flex flex-col gap-16">
             <div className="px-2 md:px-4 flex items-center gap-6 translate-x-2 md:-translate-x-8 md:translate-y-4">
               <img className="h-[96px] w-[81px]" src="/nitc-logo.png" alt="" />
               <div className="flex flex-col gap-2">
-                <p className="font-bold text-[4vw] md:text-[2vw] lg:text-[1.5vw] xl:text-[1.1vw]">
+                <p className="font-bold text-[3vw] md:text-[2vw] lg:text-[1.5vw] xl:text-[1.1vw]">
                   Department of Computer <br />
                   Science and Engineering
                 </p>
@@ -25,7 +25,7 @@ export default function Footer() {
             />
           </div>
 
-          <div className="max-w-[400px] flex-grow">
+          <div className="max-w-[400px] flex-grow mb-4 md:translate-x-0 -translate-x-14">
             <div className="flex flex-col text-nowrap text-[4vw] sm:[3vw] md:text-[2vw] lg:[1.4vw] xl:text-[.7vw]">
               <p className="px-2 py-4 border-b border-white"></p>
               <Link className="px-2 py-4 border-b border-white" href="/terms">
