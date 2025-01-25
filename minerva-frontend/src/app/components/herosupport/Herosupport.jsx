@@ -69,60 +69,34 @@ const Herosupport = ({ props }) => {
         />
 
         <div className="w-full bg-accent flex flex-col items-center justify-center">
-          <div className="w-[100%] bg-accent md:gap-10 justify-center flex flex-col md:flex-row relative z-10 bottom-[12vh] mb-[-18vh] mt-10">
-            <div className="flex flex-col gap items-center justify-center lg:mt-10 relative h-[100%] ">
-              <div className="md:px-10 md:pl-3 pt-2 md:pr-3 ">
-                <div className="text-white text-4xl text-bold font-Teko text-left mb-10">
-                  Our Programmes
-                </div>
-                <div className="h-[30%] md:h-[22%] mt-[35px] -translate-y-7 flex md:flex-col justify-center items-center gap-4 mb-5">
-                  <DownloadButton
-                    text="UG BROCHURE"
-                    href={`${backend_url}${dept_brochure.pdf?.url}`}
-                    isExternal={true}
-                  />
-                  <DownloadButton
-                    text="PG BROCHURE"
-                    href= {`${backend_url}${phd_brochure.pdf?.url}`}
-                    isExternal={true}
-                  />
-                </div>
-              </div>
+          <div className="w-[100%] bg-accent md:gap-20 justify-center flex flex-col gap-2 md:flex-row relative z-10 bottom-[12vh] mb-[-18vh] mt-3 md:mt-10 h-[100vh] md:h-[50vh]">
+    
+            <div className="flex flex-col items-center justify-between lg:mt-10 relative p-5 h-[35%] md:h-[80%]">
+              <DownloadButton
+                text="UG BROCHURE"
+                href={`${backend_url}${dept_brochure.pdf?.url}`}
+                isExternal={true}
+              />
+              <DownloadButton
+                text="PG BROCHURE"
+                href={`${backend_url}${phd_brochure.pdf?.url}`}
+                isExternal={true}
+              />
             </div>
 
-            <div className="flex flex-col relative bottom-14 md:bottom-0 md:top-2 mt-10 font-teko mb-3 h-[100%] items-center justify-center text-center">
-              <div className="border-l-2 md:mb-12 mb-10">
-                <div className="text-white pl-5 text-left text-3xl lg:text-4xl text-bold font-Teko pb-2 ">
-                  Links
-                </div>
-                <div className="flex flex-col">
-                  {data.map((item) => (
-                    <a
-                      key={item.id}
-                      href={`/announcements/${item.documentId}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white text-left text-2xl lg:text-3xl pl-5 pr-3 py-1 text-wrap break-words lg:w-[600px] w-[365px] flex items-center underline hover:underline-offset-4 hover:text-blue-300"
-                    >
-                      {item.Title}
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                        className="w-8 h-8 ml-1"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M13.5 10.5L21 3m0 0h-6.75M21 3v6.75M21 12v6.75A2.25 2.25 0 0118.75 21h-13.5A2.25 2.25 0 013 18.75v-13.5A2.25 2.25 0 015.25 3H12"
-                        />
-                      </svg>
-                    </a>
-                  ))}
-                </div>
-              </div>
+            <div className="flex flex-col font-jakarta md:border-l-2 lg:mt-10 items-center justify-between md:px-10 h-[45%] md:h-[80%] md:mb-10 m-5">
+            <div className="w-[100%] text-3xl text-white font-jakarta font-bold md:ml-10 md:text-left">LATEST</div>
+              {data.map((item) => (
+                <a
+                  key={item.id}
+                  href={`/announcements/${item.documentId}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white text-left text-lg lg:text-2xl pl-5 pr-3 py-1 text-wrap break-words lg:w-[600px] w-[365px] flex items-center underline hover:underline-offset-4 hover:text-blue-300 h-full"
+                >
+                  {item.Title}
+                </a>
+              ))}
             </div>
           </div>
 

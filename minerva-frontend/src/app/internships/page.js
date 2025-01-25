@@ -82,7 +82,7 @@ export default function Internships() {
             <>
               <TabNav onTabChange={setSelectedTab} tabData={tabData} />
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mt-10 mx-auto ">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mx-auto p-4 sm:p-8 md:p-12 lg:px-0 lg:py-10 ">
                 {internships &&
                   internships.map((stat) => (
                     <div key={stat.id}>
