@@ -97,7 +97,6 @@ export default function post({ params: promiseParams }) {
           }
         );
         const Data = await data.json();
-        console.log( data )  ; 
 
         setData(Data.data);
       } catch (err) {

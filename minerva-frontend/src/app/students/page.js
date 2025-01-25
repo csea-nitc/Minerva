@@ -117,23 +117,24 @@ export default function Students() {
                   ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 mx-auto p-4 sm:p-8 md:p-12 lg:px-0 lg:py-10">
                       {studentData &&
-                        studentData[currentTab] &&
-                        studentData[currentTab].map((student) => (
-                          <div key={student.id}>
-                            <YearCard
-                              year={student.Title}
-                              onClick={() => handleYearClick(student.Title)}
-                            />
+                        studentData[currentTab]
+                          .sort((a, b) => parseInt(b.Title) - parseInt(a.Title)) // Sort by numeric value of Title
+                          .map((student) => (
+                            <div key={student.id}>
+                              <YearCard
+                                year={student.Title}
+                                onClick={() => handleYearClick(student.Title)}
+                              />
 
-                            {/* Render Modal */}
-                            <Modal
-                              open={isModalOpen && selectedYear === student.Title}
-                              onClose={handleCloseModal}
-                            >
-                              <ListComp key={selectedYear} item={student} />
-                            </Modal>
-                          </div>
-                        ))}
+                              {/* Render Modal */}
+                              <Modal
+                                open={isModalOpen && selectedYear === student.Title}
+                                onClose={handleCloseModal}
+                              >
+                                <ListComp key={selectedYear} item={student} />
+                              </Modal>
+                            </div>
+                          ))}
                     </div>
                   )}
                 </>)} 
