@@ -32,23 +32,28 @@ const Herosupport = ({ props }) => {
   useEffect(() => {
     const fetchAllData = async () => {
       try {
-        const [announcementsRes, deptBrochureRes, phdBrochureRes] = await Promise.all([
-          fetch(`${backend_url}/api/announcements?sort[0]=createdAt:desc&pagination[pageSize]=3`, {
-            headers: { Authorization: `Bearer ${token}` },
-          }),
-          fetch(`${backend_url}/api/deparment-brochure?populate=pdf`, {
-            headers: { Authorization: `Bearer ${token}` },
-          }),
-          fetch(`${backend_url}/api/ph-d-brochure?populate=pdf`, {
-            headers: { Authorization: `Bearer ${token}` },
-          }),
-        ]);
+        const [announcementsRes, deptBrochureRes, phdBrochureRes] =
+          await Promise.all([
+            fetch(
+              `${backend_url}/api/announcements?sort[0]=createdAt:desc&pagination[pageSize]=3`,
+              {
+                headers: { Authorization: `Bearer ${token}` },
+              }
+            ),
+            fetch(`${backend_url}/api/deparment-brochure?populate=pdf`, {
+              headers: { Authorization: `Bearer ${token}` },
+            }),
+            fetch(`${backend_url}/api/ph-d-brochure?populate=pdf`, {
+              headers: { Authorization: `Bearer ${token}` },
+            }),
+          ]);
 
-        const [announcementsData, deptBrochureData, phdBrochureData] = await Promise.all([
-          announcementsRes.json(),
-          deptBrochureRes.json(),
-          phdBrochureRes.json(),
-        ]);
+        const [announcementsData, deptBrochureData, phdBrochureData] =
+          await Promise.all([
+            announcementsRes.json(),
+            deptBrochureRes.json(),
+            phdBrochureRes.json(),
+          ]);
 
         setData(announcementsData.data || []);
         Setdept(deptBrochureData.data || []);
@@ -65,12 +70,11 @@ const Herosupport = ({ props }) => {
     <div className="relative mt-[90vh] z-10">
       <div className="w-[100%] mt-[15vh]">
         <div
-          className={`w-full h-[20vh] relative z-10 bottom-[6.5vh] translate-y-3 ${styles.topSquiggly}`}
+          className={`w-full h-[20vh] relative z-10 bottom-[6.5vh] md:translate-y-3 ${styles.topSquiggly}`}
         />
 
         <div className="w-full bg-accent flex flex-col items-center justify-center">
           <div className="w-[100%] bg-accent md:gap-20 justify-center flex flex-col gap-2 md:flex-row relative z-10 bottom-[12vh] mb-[-18vh] mt-3 md:mt-10 h-[100vh] md:h-[50vh]">
-    
             <div className="flex flex-col items-center justify-between lg:mt-10 relative p-5 h-[35%] md:h-[80%]">
               <DownloadButton
                 text="UG BROCHURE"
@@ -85,7 +89,9 @@ const Herosupport = ({ props }) => {
             </div>
 
             <div className="flex flex-col font-jakarta md:border-l-2 lg:mt-10 items-center justify-between md:px-10 h-[45%] md:h-[80%] md:mb-10 m-5">
-            <div className="w-[100%] text-3xl text-white font-jakarta font-bold md:ml-10 md:text-left">LATEST</div>
+              <div className="w-[100%] text-3xl text-white font-jakarta font-bold md:ml-10 md:text-left">
+                LATEST
+              </div>
               {data.map((item) => (
                 <a
                   key={item.id}
