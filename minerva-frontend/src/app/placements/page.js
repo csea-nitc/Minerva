@@ -56,7 +56,7 @@ export default function Placements() {
       <div>
         <ImageHero
           title="PLACEMENTS"
-          font={"100px"}
+          font={"80px"}
           mobileFont={"40px"}
           contentdiv={".content-div"}
           imgpath={"/ccd.jpg"}

@@ -100,7 +100,7 @@ export default function DistinguishedAlumni() {
     <>
       <ImageHero
         title="Distinguished Alumni"
-        font={"65px"}
+        font={"70px"}
         mobileFont={"55px"}
         contentdiv={".content-div"}
       />

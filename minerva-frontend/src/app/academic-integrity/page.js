@@ -6,7 +6,7 @@ export default function AcademicIntegrity() {
             <div>
                 <ImageHero
                     title="Academic Integrity"
-                    font={"65px"}
+                    font={"80px"}
                     mobileFont={"55px"}
                     contentdiv={".content-div"}
                 />

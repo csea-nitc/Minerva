@@ -43,7 +43,7 @@ export default function ESSFPage() {
         <>
             <ImageHero
                 title={"Emergency Student Support Fund"}
-                font={"80px"}
+                font={"60px"}
                 mobileFont={"20px"}
                 contentdiv={".content-div"}
                 increasedHeight={1}
