@@ -74,7 +74,7 @@ export default function page() {
             Design and Implementation
           </h2>
           <ul className="flex flex-col ">
-            <Link href={""}>
+            <Link href={"https://www.linkedin.com/in/tarun-nambiar-003b11285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"}>
               <span className="underline underline-offset-2 text-blue-600">
                 Tarun Pradeep
               </span>{" "}
@@ -94,29 +94,6 @@ export default function page() {
             </Link>
           </ul>
         </div>
-        {/* <div className="py-4">
-          <h2 className="font-semibold text-2xl text-accent">Advisors</h2>
-          <ul className="flex flex-col ">
-            <Link href={""}>
-              <span className="underline underline-offset-2 text-blue-600">
-                Dr. XYZ Kumar
-              </span>{" "}
-              - Professor CSED
-            </Link>
-            <Link href={""}>
-              <span className="underline underline-offset-2 text-blue-600">
-                Dr. ABC Kumar
-              </span>{" "}
-              - Professor CSED
-            </Link>
-            <Link href={""}>
-              <span className="underline underline-offset-2 text-blue-600">
-                Dr. MNO Kumar
-              </span>{" "}
-              - Professor CSED
-            </Link>
-          </ul>
-        </div> */}
       </div>
     </>
   );

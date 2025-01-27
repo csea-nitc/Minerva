@@ -1,6 +1,35 @@
+"use client"
 const hodDetails = require("./hodDetails.json");
+import { useState , useEffect } from "react";
 import ImageHero from "../components/imagehero/Imagehero";
+
+const backend_url = process.env.NEXT_PUBLIC_API_URL;
+const token = process.env.NEXT_PUBLIC_TOKEN;
+
 export default function ContactUsPage() {
+
+  const [data, setData] = useState(null);
+  
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const data = await fetch(
+            `${backend_url}/api/hod`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+          const Data = await data.json();
+  
+          setData(Data.data);
+        } catch (err) {
+          console.error("Fetch error:", err);
+        }
+      };
+      fetchData();
+    }, []);
   return (
     <>
       <ImageHero
@@ -18,7 +47,6 @@ export default function ContactUsPage() {
             {/* <p>
               <strong>Place Holder &darr;&darr;&darr;</strong>
             </p> */}
-            <img src="/csea-temp-footer.png" alt="" />
             {/* <p>
               <strong>Place Holder &uarr;&uarr;&uarr;</strong>
             </p> */}
@@ -40,11 +68,11 @@ export default function ContactUsPage() {
             </h2>
             <p className="md:text-lg pt-2">
               <a
-                href={hodDetails.link}
+                href="https://minerva.nitc.ac.in/faculty"
                 target="_blank"
                 className="text-blue-500 underline hover:text-blue-700 focus:text-blue-700"
               >
-                {hodDetails.name}
+                {data?.name}
               </a>
               <br />
               <strong>Email ID:</strong>{" "}
@@ -52,7 +80,7 @@ export default function ContactUsPage() {
                 href="mailto:hodcsed@nitc.ac.in"
                 className="text-blue-500 underline hover:text-blue-700 focus:text-blue-700"
               >
-                hodcsed@nitc.ac.in
+                {data?.contact_email}
               </a>
             </p>
           </div>
