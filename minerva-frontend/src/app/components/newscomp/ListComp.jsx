@@ -15,9 +15,9 @@ const ListComp = ({ item, flag = 0 }) => {
     : [];
 
   return (
-    <div className="overflow-x-scroll mb-8 p-6 bg-background text-foreground rounded-lg  text-center">
+    <div className="overflow-x-scroll mb-16 p-6 bg-background text-foreground rounded-lg text-center shadow-lg border border-gray-300">
       <div className="mb-2 flex items-center justify-between">
-        <h2 className="text-xl font-jakarta font-semibold text-center w-full ">
+        <h2 className="text-xl font-jakarta font-semibold text-center w-full text-[#800080]">
           {item.Title}
         </h2>
       </div>
@@ -28,17 +28,17 @@ const ListComp = ({ item, flag = 0 }) => {
             remarkPlugins={[remarkGfm]}
             components={{
               table: ({ children }) => (
-                <table className="min-w-full table-auto border-collapse mt-4 mb-6">
+                <table className="min-w-full table-auto border-collapse mt-4 mb-6 text-lg border border-gray-200">
                   {children}
                 </table>
               ),
               th: ({ children }) => (
-                <th className="px-4 py-2 text-left border-b font-bold text-gray-700 bg-[#c990c8]">
+                <th className="px-4 py-2 text-left border-b font-bold text-gray-700 bg-[#c990c8] text-lg">
                   {children}
                 </th>
               ),
               td: ({ children }) => (
-                <td className="px-4 py-2 border-b text-gray-600">{children}</td>
+                <td className="px-4 py-2 border-b text-gray-600 text-lg">{children}</td>
               ),
               tr: ({ children }) => (
                 <tr className="hover:bg-gray-50">{children}</tr>
@@ -46,12 +46,18 @@ const ListComp = ({ item, flag = 0 }) => {
               a: ({ href, children }) => (
                 <a
                   href={href}
-                  className="text-[#800080] hover:underline"
+                  className="text-[#800080] hover:underline text-lg"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   {children}
                 </a>
+              ),
+              p: ({ children }) => (
+                <p className="text-lg leading-relaxed mb-4">{children}</p>
+              ),
+              li: ({ children }) => (
+                <li className="text-lg leading-relaxed mb-2 list-disc list-inside">{children}</li>
               ),
             }}
           >
@@ -66,33 +72,30 @@ const ListComp = ({ item, flag = 0 }) => {
         </div>
       )}
 
-      {/* conditionally rendering for dcc page , different schema in backend */}
-
-      { !flag ? ( 
-          item.pdf && item.pdf.length > 0 && (
-            <div className="grid gap-5 mt-4">
-              {item.pdf.map((pdf) => (
-                <PDF
-                  key={`${pdf.pdf?.Id}-${pdf.pdf?.documentId}`}
-                  title={`${pdf.Name}`}
-                  url={`${backend_url}${pdf.pdf?.url}`}
-                />
-              ))}
-            </div>
-            ) 
-          ): 
-          (
-            <div className="grid gap-5 mt-4">
-              {item.pdf.map((pdf) => (
-                <PDF
-                  key={`${pdf.Id}-${pdf.documentId}`}
-                  title={`${pdf.name}`}
-                  url={`${backend_url}${pdf.url}`}
-                />
-              ))}
-            </div>
-          )
-      }
+      {/* Conditionally rendering for dcc page, different schema in backend */}
+      {!flag ? (
+        item.pdf && item.pdf?.length > 0 && (
+          <div className="grid gap-5 mt-4">
+            {item.pdf.map((pdf) => (
+              <PDF
+                key={`${pdf.pdf?.Id}-${pdf.pdf?.documentId}`}
+                title={`${pdf.Name}`}
+                url={`${backend_url}${pdf.pdf?.url}`}
+              />
+            ))}
+          </div>
+        )
+      ) : (
+        <div className="grid gap-5 mt-4">
+          {item.pdf.map((pdf) => (
+            <PDF
+              key={`${pdf.Id}-${pdf.documentId}`}
+              title={`${pdf.name}`}
+              url={`${backend_url}${pdf.url}`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

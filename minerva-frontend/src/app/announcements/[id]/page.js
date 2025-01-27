@@ -13,15 +13,13 @@ export default function post({ params: promiseParams }) {
   const { id } = params;
   const Id = decodeURIComponent(id);
 
-  console.log(Id);
-
   const [data, setData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await fetch(
-          `${backend_url}/api/announcements/${Id}?populate=*`,
+          `${backend_url}api/announcements/${id}?populate[pdf][populate]=*&populate=image`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

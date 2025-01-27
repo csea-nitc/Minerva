@@ -71,6 +71,7 @@ export default function FacultyDetails({
     setActiveIndex(activeIndex === index ? null : index);
   };
 
+
   return (
     <>
       <SearchBar onSearch={handleSearch} blankOne="faculty" blankTwo="name" />{" "}
@@ -97,7 +98,8 @@ export default function FacultyDetails({
                 >
                   <div>
                     <img
-                      src={`${backend_url}/${faculty?.photograph?.url}`}
+                      src={
+                        faculty.photograph ? (`${backend_url}${faculty?.photograph?.url}`) : "./pfp.jpg"}
                       // src={faculty.image}
                       alt=""
                       className="lg:w-[300px] lg:h-[360px] w-[250px] h-[300px] object-cover group-hover:scale-[1.04] duration-300"
@@ -156,120 +158,114 @@ export default function FacultyDetails({
                                   href={`mailto:${filteredFacultyData[activeIndex].contact_email}`}
                                   className="text-purple-600 underline hover:text-purple-800"
                                 >
-                                    <div className="flex flex-wrap bg-gray-100 mt-4 rounded-lg">
-                                        <div className="fac-det-name bg-[#800080] flex flex-col rounded-tr-lg md-lg:rounded-tr-none rounded-tl-lg justify-evenly items-center text-center md-lg:min-w-[30.5%] md-lg:max-w-[43.5%] w-full">
-                                            <h1 className="text-white lg-xl:text-[2.5rem] md:text-[1.5rem] text-[1.2rem] font-bold text-wrap break-words px-1">
-                                                {facultyData[activeIndex].name}
-                                            </h1>
-                                            <h2 className="text-white lg-xl:text-[1.5rem] text-wrap break-words md:text-[1.2rem] text-[1rem]">
-                                                {
-                                                    facultyData[activeIndex]
-                                                        .designation
-                                                }
-                                            </h2>
-                                        </div>
-                                        <div className="fac-det-details bg-[#d9d9d9] text-black flex-grow font-bold rounded-lg md-lg:rounded-tl-none md-lg:rounded-bl-none rounded-tl-none rounded-tr-none md-lg:rounded-tr-lg">
-                                            <ul className="text-[0.7rem] md:text-[0.85rem] lg:text-[0.95rem] p-0">
-                                                {facultyData[activeIndex]
-                                                    .contact_email && (
-                                                    <li className="m-4">
-                                                        Email:{" "}
-                                                        {
-                                                            facultyData[
-                                                                activeIndex
-                                                            ].contact_email
-                                                        }
-                                                    </li>
-                                                )}
-                                                {facultyData[activeIndex]
-                                                    .office_location && (
-                                                    <li className="m-4">
-                                                        Office Location:{" "}
-                                                        {
-                                                            facultyData[
-                                                                activeIndex
-                                                            ].office_location
-                                                        }
-                                                    </li>
-                                                )}
-                                                {facultyData[activeIndex]
-                                                    .contact_no && (
-                                                    <li className="m-4">
-                                                        Office Contact:{" "}
-                                                        {
-                                                            facultyData[
-                                                                activeIndex
-                                                            ].contact_no
-                                                        }
-                                                    </li>
-                                                )}
-                                                {facultyData[activeIndex]
-                                                    .education && (
-                                                    <li className="m-4">
-                                                        Education:{" "}
-                                                        {
-                                                            facultyData[
-                                                                activeIndex
-                                                            ].education
-                                                        }
-                                                    </li>
-                                                )}
-                                                {facultyData[activeIndex]
-                                                    .specialisation && (
-                                                    <li className="m-4">
-                                                        Specialisation:{" "}
-                                                        {
-                                                            facultyData[
-                                                                activeIndex
-                                                            ].specialisation
-                                                        }
-                                                    </li>
-                                                )}
-                                                {facultyData[activeIndex]
-                                                    .associated_frgs && (
-                                                    <li className="m-4">
-                                                        Associated FRGs:{" "}
-                                                        {
-                                                            facultyData[
-                                                                activeIndex
-                                                            ].associated_frgs
-                                                        }
-                                                    </li>
-                                                )}
-                                                {facultyData[activeIndex]
-                                                    .external_links && (
-                                                    <li className="m-4">
-                                                        External Links:{" "}
-                                                        {
-                                                            facultyData[
-                                                                activeIndex
-                                                            ].external_links
-                                                        }
-                                                    </li>
-                                                )}
+                                  {
+                                    filteredFacultyData[activeIndex]
+                                      .contact_email
+                                  }{" "}
+                                </Link>
+                              </li>
+                            )}
+                            {filteredFacultyData[activeIndex]
+                              .office_location && (
+                              <li className="m-4">
+                                Office Location:{" "}
+                                {
+                                  filteredFacultyData[activeIndex]
+                                    .office_location
+                                }
+                              </li>
+                            )}
+                            {filteredFacultyData[activeIndex].contact_no && (
+                              <li className="m-4">
+                                Office Contact:{" "}
+                                {filteredFacultyData[activeIndex].contact_no}
+                              </li>
+                            )}
+                            {filteredFacultyData[activeIndex].education && (
+                              <li className="m-4 mb-3">
+                                Education:
+                                <ul  className="px-8">
+                                  {filteredFacultyData[activeIndex].education.split("~").map((item, index) => (
+                                    <li key={index} className="mb-3">{item} </li>
+                                  ))}
+                                </ul>
+                              </li>
+                            )}
+                            {filteredFacultyData[activeIndex]
+                              .specialisation && (
+                              <li className="m-4">
+                                Specialisation:{" "}
+                                {
+                                  filteredFacultyData[activeIndex]
+                                    .specialisation
+                                }
+                              </li>
+                            )}
+                            {filteredFacultyData[activeIndex]
+                              .associated_frgs && (
+                              <li className="m-4">
+                                Associated FRGs:{" "}
+                                {
+                                  filteredFacultyData[activeIndex]
+                                    .associated_frgs
+                                }
+                              </li>
+                            )}
 
-                                                {facultyData[activeIndex]
-                                                    .additional_info && (
-                                                    <li className="m-4">
-                                                        Additional Info:{" "}
-                                                        {
-                                                            facultyData[
-                                                                activeIndex
-                                                            ].additional_info
-                                                        }
-                                                    </li>
-                                                )}
+                            {filteredFacultyData[activeIndex]
+                              .institute_page && (
+                              <ul className="m-4">
+                                Homepage : <span> </span>
+                                <li className="px-8">
+                                  <Link
+                                    href={
+                                      filteredFacultyData[activeIndex]
+                                        .institute_page
+                                    }
+                                    className="text-purple-600 underline hover:text-purple-800"
+                                  >
+                                    {
+                                      filteredFacultyData[activeIndex]
+                                        .institute_page
+                                    }
+                                  </Link>
+                                </li> 
+                              </ul>
+                            )}
 
+                            {filteredFacultyData[activeIndex].external_links && (
+                              <ul className="m-4">
+                                External Links: <span> </span>
+                                {filteredFacultyData[activeIndex].external_links.split(",").map((item, index) => (
+                                  <li key={index} className="px-8 mb-3">
+                                    <Link 
+                                      href={item} 
+                                      target="_blank" 
+                                      rel="noopener noreferrer"
+                                      className="text-purple-600 underline hover:text-purple-800"
+                                    >
+                                      {item}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
 
                             {filteredFacultyData[activeIndex]
                               .additional_info && (
-                              <li className="m-4">
-                                Additional Info:{" "}
+                                <ul>
                                 {
-                                  filteredFacultyData[activeIndex]
-                                    .additional_info
+                                filteredFacultyData[activeIndex]
+                                .additional_info.split( "~" ).map( ( item , index ) => ( 
+                                  <li className="m-4" key = {index}>
+                                  Additional Info:{" "}
+                                  {
+                                    item
+                                  }
+                                  </li>
+                                ))
                                 }
-                              </li>
+                              </ul> 
                             )}
 
                             {filteredFacultyData[activeIndex]

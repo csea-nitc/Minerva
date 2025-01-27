@@ -4,6 +4,7 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Loading from "../loading/loading";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,7 +23,7 @@ const Sidebar = () => {
     const fetchData = async () => {
       try {
         const linksD = await fetch(
-          `${backend_url}/api/quick-links?sort[0]=createdAt:desc`,
+          `${backend_url}/api/quick-links?sort[0]=createdAt:desc&populate[pdf][populate]=*&populate=image`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -188,7 +189,7 @@ const Sidebar = () => {
           </li>
         </ul>
         <button className="sm:text-[2rem] text-[2rem] text-black font-verdana font-bold bg-[#e3c7e3] w-[100%] text-center p-3">
-          Login
+          <Link href="https://admin.minerva.nitc.ac.in">Login</Link>
         </button>
       </div>
       {isOpen && (

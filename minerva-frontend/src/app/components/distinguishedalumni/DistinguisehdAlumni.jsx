@@ -1,4 +1,4 @@
-import Link from "next/link";
+import ReactMarkdown from "react-markdown";
 
 export default function DistinguisedAlumni({
   picture,
@@ -9,37 +9,43 @@ export default function DistinguisedAlumni({
   line2,
   url,
 }) {
-  return (
-    <div
-      className=" px-2 md:px-3 py-2 sm:py-3 
-    bg-[#DEBDDD] 
-    flex flex-row
-    transition-all duration-200
-    bg-opacity-10 
-    hover:bg-opacity-50
-    border-accent
-    border-4
-    rounded-2xl
-    font-jakarta w-[330px] sm:w-auto "
-    
-    >
-      <div className="w-[120px] h-auto relative overflow-hidden">
-        <img src={picture} alt="" className="w-full h-full object-cover rounded-md" />
-      </div>
+  const markdownLink = url ? `[Profile](${url})` : "";
 
-      <div className="flex flex-col px-3 pt-2 md:pt-0 justify-around flex-grow">
-        <p className="text-[1.1em] md:text-[1.5em]  md:text-start ">
-          {name}
+  return (
+    <div className="bg-white border max-w-4xl w-[85%] font-jakarta xs:w-[300px]   border-[#D1D1D1] rounded-xl shadow-md hover:shadow-lg transition-all duration-300 ease-in-out transform hover:scale-[1.02] p-2  mx-auto">
+    <div className="flex flex-row gap-6 xs:gap-0 xs:flex-col items-center h-full">
+      <div
+        className="relative max-400:w-[100px] w-[150px]  xs:w-full h-[150px] xs:h-[260px]  rounded-lg overflow-hidden border-2 border-[#800080]"
+        style={{ boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)" }}
+      >
+        <img
+          src={picture}
+          alt={name}
+          className="w-full h-full object-cover"
+        />
+      </div>
+  
+  <div className="flex-col flex justify-between">
+      <p className="mt-4 text-lg xs:text-xl font-semibold text-gray-900 text-center f">{name}</p>
+  
+      {url && (
+        <div className="mt-3 text-center">
+          <ReactMarkdown className="text-accent text-base font-medium">
+            {markdownLink}
+          </ReactMarkdown>
+        </div>
+      )}
+  
+      <div className="mt-2 text-center ">
+        <p className="text-gray-700 text-xs font-medium">
+          {program} - {year}
         </p>
-        <p className="text-[1em]">
-          {program}- {year}
-        </p>
-        <p className="text-[.9em]">{line1}</p>
-        <p className="text-[.9em]">{line2}</p>
-        <Link href={url} target="_blank" className="text-accent text-[1em]">
-          Profile
-        </Link>
+        <p className="text-gray-600 xs2:max-w-[170px] max-w-[220px] text-xs ">{line1}</p>
+        <p className="text-gray-600 max-w-[200px] text-xs mb-2">{line2}</p>
       </div>
     </div>
+    </div>
+  </div>
+  
   );
 }

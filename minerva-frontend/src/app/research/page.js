@@ -1,18 +1,22 @@
 "use client";
 import tabData from "./data";
-import { use, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import ImageHero from "../components/imagehero/Imagehero";
 import TabNav from "../components/tabnav/TabNav";
+import Link from "next/link";
+import ListComp from "../components/newscomp/ListComp";
 
-const TabData = [ "Areas Of Research" , "Research Groups" , "Completed PhDs" ] ; 
+const TabData = ["Areas Of Research", "Research Groups", "Completed PhDs"];
+
+const backend_url = process.env.NEXT_PUBLIC_API_URL ; 
+const token  = process.env.NEXT_PUBLIC_TOKEN ; 
 
 export default function Programmes() {
-    const [selectedTab, setSelectedTab] = useState( 0 ) ;
+    const [selectedTab, setSelectedTab] = useState(0);
+    const [data , setData ] = useState( [] ) ; 
 
-    const title = Object.keys(tabData).find(
-        (key) => tabData[key] === selectedTab
-    );
     const [issmall, setIsSmall] = useState(false);
+
     useEffect(() => {
         const checkSmall = () => {
             setIsSmall(window.innerWidth < 896);
@@ -20,7 +24,29 @@ export default function Programmes() {
         checkSmall();
         window.addEventListener("resize", checkSmall);
         return () => window.removeEventListener("resize", checkSmall);
-    });
+    }, []);
+    
+    useEffect( ( ) => {
+        const fetchData = async () => {
+            try {
+                const data = await fetch(
+                    `${backend_url}/api/completed-ph-d`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
+    
+                const Data = await data.json();
+                setData( Data.data ? Data.data : [] );
+            } catch (err) {
+                console.error("Fetch error:", err);
+            }
+        };
+        fetchData();
+    }); 
+    
     return (
         <>
             <ImageHero
@@ -33,10 +59,9 @@ export default function Programmes() {
                 <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
                 <div className="sm:w-[65%] w-[85%] mx-auto py-10">
                     {/* Tab Navigation */}
-                    <TabNav  tabData={TabData} onTabChange={setSelectedTab}/>
+                    <TabNav tabData={TabData} onTabChange={setSelectedTab} />
 
                     <div className="flex flex-col max-1240:pr-[2vw] mb-[10vh]">
-
                         {/* Content Rendering */}
                         <div className="font-jakarta mt-12">
                             {TabData[selectedTab] === "Areas Of Research" ? (
@@ -58,32 +83,35 @@ export default function Programmes() {
                             ) : TabData[selectedTab] === "Research Groups" ? (
                                 // Content for Research Groups
                                 <div>
-                                    <p className="text-[1.2em] leading-[35px] text-justify">
+                                    <p className="text-[1.6em] leading-[35px] text-justify">
                                         Following are the upcoming research
                                         groups in the Department:
                                     </p>
-                                    <ul className="mt-4 list-disc pl-8 text-[1.2em] text-gray-700">
+                                    <ul className="mt-4 list-disc pl-8 text-[1.6em] text-gray-700">
                                         {tabData[selectedTab].groups.map(
                                             (group, index) => (
-                                                <li
-                                                    key={index}
-                                                    className="mb-2"
-                                                >
-                                                    {group}
+                                                <li key={index} className="mb-2">
+                                                    {group.link ? (
+                                                        <Link
+                                                            href={group.link}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="text-[#800080] hover:underline"
+                                                        >
+                                                            {group.name}
+                                                        </Link>
+                                                    ) : (
+                                                        <span>{group.name}</span>
+                                                    )}
                                                 </li>
                                             )
                                         )}
                                     </ul>
                                 </div>
                             ) : (
-                                // Default content for other tabs
+                                // Content for Completed PhDs
                                 <div>
-                                    <p className="text-[1.2em] leading-[35px] text-justify">
-                                        {tabData[selectedTab].para1}
-                                    </p>
-                                    <p className="text-[1.2em] leading-[35px] text-justify mt-4">
-                                        {tabData[selectedTab].para2}
-                                    </p>
+                                    <ListComp item = {data}/>
                                 </div>
                             )}
                         </div>

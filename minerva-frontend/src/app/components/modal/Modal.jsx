@@ -20,11 +20,11 @@ export default function Modal({ open, onClose, children }) {
   return (
     <dialog
       ref={dialog}
-      className="bg-white rounded-lg shadow-lg w-[50%] "
+      className="bg-white rounded-lg shadow-lg md:w-[50%] sm:w-[100%] sm:h-[100%]"
       onClose={onClose}
       onClick={handleBackdropClick}
     >
-      <div className="flex flex-col items-center text-center">
+      <div className="flex flex-col text-center">
         <button
           onClick={onClose}
           className="flex justify-end w-full bg-[#800080] px-4 py-2"

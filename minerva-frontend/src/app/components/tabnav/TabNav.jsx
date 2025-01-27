@@ -47,7 +47,6 @@ export default function TabNav({ onTabChange, tabData }) {
               className={`w-6 h-6 transition-transform duration-200 ${
                 isOpen ? "rotate-180" : ""
               }`}
-              xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

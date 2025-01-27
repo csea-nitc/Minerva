@@ -17,11 +17,12 @@ export default function Internships() {
 
   const [selectedTab, setSelectedTab] = useState(0);
 
+  const [isLoading, setIsLoading] = useState(true); 
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedYear, setSelectedYear] = useState(null);
 
   let name ; 
-  
+
   if( selectedTab === 0 ) name = "b-teches"; 
   if ( selectedTab === 1 ) name = "m-teches"; 
   if ( selectedTab === 2 ) name = "m-tech-is";
@@ -41,7 +42,7 @@ export default function Internships() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const internshipsD = await fetch(`${backend_url}/api/internships-${name}?populate[pdf][populate]=*&sort=createdAt:asc`, {
+        const internshipsD = await fetch(`${backend_url}/api/internships-${name}?populate[pdf][populate]=*&sort=createdAt:desc`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -54,6 +55,8 @@ export default function Internships() {
         );
       } catch (err) {
         console.error("Fetch error:", err);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -73,27 +76,34 @@ export default function Internships() {
         <div className="w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
           <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
           <div className="sm:w-[65%] w-[85%] mx-auto py-10">
-            <TabNav onTabChange={setSelectedTab} tabData={tabData} />
+            {isLoading ? (
+              <Loading />
+            ) : (
+            <>
+              <TabNav onTabChange={setSelectedTab} tabData={tabData} />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mt-10 mx-auto ">
-              {internships &&
-                internships.map((stat) => (
-                  <div key={stat.id}>
-                    <YearCard
-                      year={stat.Title}
-                      onClick={() => handleYearClick(stat.Title)}
-                    />
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mx-auto p-4 sm:p-8 md:p-12 lg:px-0 lg:py-10 ">
+                {internships &&
+                  internships
+                  .sort((a, b) => parseInt(b.Title) - parseInt(a.Title))
+                  .map((stat) => (
+                    <div key={stat.id}>
+                      <YearCard
+                        year={stat.Title}
+                        onClick={() => handleYearClick(stat.Title)}
+                      />
 
-                    {/* Render Modal */}
-                    <Modal
-                      open={isModalOpen && selectedYear === stat.Title}
-                      onClose={handleCloseModal}
-                    >
-                      <ListComp key={selectedYear} item={stat} />
-                    </Modal>
-                  </div>
-                ))}
-            </div>
+                      {/* Render Modal */}
+                      <Modal
+                        open={isModalOpen && selectedYear === stat.Title}
+                        onClose={handleCloseModal}
+                      >
+                        <ListComp key={selectedYear} item={stat} />
+                      </Modal>
+                    </div>
+                  ))}
+              </div>
+            </>)}
           </div>
         </div>
       </div>
