@@ -4,10 +4,10 @@ import Link from "next/link";
 import DownloadButton from "../downloadbutton/DownloadButton";
 import { gsap } from "gsap";
 import styles from "./squigglyLine.module.css";
+import Loading from "../loading/loading";
 
 const Herosupport = ({ props }) => {
   const [isLoaded, setIsLoaded] = useState(false);
-
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -21,49 +21,59 @@ const Herosupport = ({ props }) => {
 
   // fetching latest announcements
   const [data, setData] = useState([]);
-
-  // fetching for phd and department brochures
   const [dept_brochure, Setdept] = useState([]);
   const [phd_brochure, Setphd] = useState([]);
+  const [isDataLoading, setIsDataLoading] = useState(true);
+  const [isBrochureLoading, setIsBrochureLoading] = useState(true);
 
   const token = process.env.NEXT_PUBLIC_TOKEN;
   const backend_url = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
-    const fetchAllData = async () => {
+    const fetchLatestData = async () => {
       try {
-        const [announcementsRes, deptBrochureRes, phdBrochureRes] =
-          await Promise.all([
-            fetch(
-              `${backend_url}/api/announcements?sort[0]=createdAt:desc&pagination[pageSize]=3`,
-              {
-                headers: { Authorization: `Bearer ${token}` },
-              }
-            ),
-            fetch(`${backend_url}/api/deparment-brochure?populate=pdf`, {
-              headers: { Authorization: `Bearer ${token}` },
-            }),
-            fetch(`${backend_url}/api/ph-d-brochure?populate=pdf`, {
-              headers: { Authorization: `Bearer ${token}` },
-            }),
-          ]);
-
-        const [announcementsData, deptBrochureData, phdBrochureData] =
-          await Promise.all([
-            announcementsRes.json(),
-            deptBrochureRes.json(),
-            phdBrochureRes.json(),
-          ]);
-
+        const announcementsRes = await fetch(
+          `${backend_url}/api/announcements?sort[0]=createdAt:desc&pagination[pageSize]=3`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
+        const announcementsData = await announcementsRes.json();
         setData(announcementsData.data || []);
+      } catch (err) {
+        console.error("Fetch error:", err);
+      } finally {
+        setIsDataLoading(false);
+      }
+    };
+
+    const fetchBrochures = async () => {
+      try {
+        const [deptBrochureRes, phdBrochureRes] = await Promise.all([
+          fetch(`${backend_url}/api/deparment-brochure?populate=pdf`, {
+            headers: { Authorization: `Bearer ${token}` },
+          }),
+          fetch(`${backend_url}/api/ph-d-brochure?populate=pdf`, {
+            headers: { Authorization: `Bearer ${token}` },
+          }),
+        ]);
+
+        const [deptBrochureData, phdBrochureData] = await Promise.all([
+          deptBrochureRes.json(),
+          phdBrochureRes.json(),
+        ]);
+
         Setdept(deptBrochureData.data || []);
         Setphd(phdBrochureData.data || []);
       } catch (err) {
         console.error("Fetch error:", err);
+      } finally {
+        setIsBrochureLoading(false);
       }
     };
 
-    fetchAllData();
+    fetchLatestData();
+    fetchBrochures();
   }, []);
 
   return (
@@ -74,43 +84,53 @@ const Herosupport = ({ props }) => {
         />
 
         <div className="w-full bg-accent flex flex-col items-center justify-center">
-          <div className="w-[100%] bg-accent md:gap-20 justify-center flex flex-col gap-2 md:flex-row relative z-10 bottom-[12vh] mb-[-13vh] mt-3 md:mt-10  md:h-[20vw]">
-            <div className="flex flex-col font-jakarta lg:mt-10 items-center gap-4 md:gap-6 sm:pt-0 pt-10 lg:justify-between md:px-10  md:h-[80%] md:mb-10 px-5">
-              <div className="pl-1 md:pl-1 w-[100%] text-3xl text-white font-jakarta font-bold  md:text-left">
+          <div className="w-[100%] bg-accent md:gap-20 justify-center flex flex-col gap-2 md:flex-row relative z-10 bottom-[12vh] mb-[-13vh] mt-3 md:mt-10 md:h-[20vw]">
+            <div className="flex flex-col font-jakarta lg:mt-10 items-center gap-4 md:gap-6 sm:pt-0 pt-10 lg:justify-between md:px-10 md:h-[80%] md:mb-10 px-5">
+              <div className="pl-1 md:pl-1 w-[100%] text-3xl text-white font-jakarta font-bold md:text-left">
                 Brochures
               </div>
-              <DownloadButton
-                text="UG Brochure"
-                href={`${backend_url}${dept_brochure.pdf?.url}`}
-                isExternal={true}
-              />
-              <DownloadButton
-                text="PG Brochure"
-                href={`${backend_url}${phd_brochure.pdf?.url}`}
-                isExternal={true}
-              />
+              {isBrochureLoading ? (
+                <Loading />
+              ) : (
+                <>
+                  <DownloadButton
+                    text="UG Brochure"
+                    href={`${backend_url}${dept_brochure.pdf?.url}`}
+                    isExternal={true}
+                  />
+                  <DownloadButton
+                    text="PG Brochure"
+                    href={`${backend_url}${phd_brochure.pdf?.url}`}
+                    isExternal={true}
+                  />
+                </>
+              )}
             </div>
 
             <div className="flex flex-col font-jakarta md:border-l-2 lg:mt-10 items-center justify-between md:px-10 md:h-[80%] md:mb-10 m-5 mb-10">
               <div className="pl-1 mb-2 w-[100%] text-3xl text-white font-jakarta font-bold md:ml-10 md:text-left">
                 Latest
               </div>
-              {data.map((item) => (
-                <a
-                  key={item.id}
-                  href={`/announcements/${item.documentId}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white text-lg lg:text-2xl pl-1 md:pl-5 pr-3 py-1 text-wrap text-justify break-words lg:w-[600px] flex items-center underline hover:underline-offset-4 hover:text-purple-300 h-full"
-                >
-                  {item.Title}
-                </a>
-              ))}
+              {isDataLoading ? (
+                <Loading />
+              ) : (
+                data.map((item) => (
+                  <a
+                    key={item.id}
+                    href={`/announcements/${item.documentId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white text-lg lg:text-2xl pl-1 md:pl-5 pr-3 py-1 text-wrap text-justify break-words lg:w-[600px] flex items-center underline hover:underline-offset-4 hover:text-purple-300 h-full"
+                  >
+                    {item.Title}
+                  </a>
+                ))
+              )}
             </div>
           </div>
 
           <div
-            className={`hidden md:flex border-l-[10px] border-[#800080] w-full h-[10vh] absolute z-10 ${styles.bottomSquiggly} relative  overflow-hidden`}
+            className={`hidden md:flex border-l-[10px] border-[#800080] w-full h-[10vh] absolute z-10 ${styles.bottomSquiggly} relative overflow-hidden`}
           />
         </div>
       </div>
