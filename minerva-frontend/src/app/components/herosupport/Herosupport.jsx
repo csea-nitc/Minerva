@@ -124,6 +124,7 @@ const Herosupport = ({ props }) => {
             className={`hidden md:flex border-l-[10px] border-[#800080] w-full h-[10vh] absolute z-10 ${styles.bottomSquiggly} relative overflow-hidden`}
           />
         </div>
+        
       </div>
     </div>
   );
