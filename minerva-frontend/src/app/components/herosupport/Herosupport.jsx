@@ -10,15 +10,6 @@ const Herosupport = ({ props }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const containerRef = useRef(null);
 
-  useEffect(() => {
-    gsap.from(containerRef.current, {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      ease: "power3.out",
-    });
-  }, []);
-
   // fetching latest announcements
   const [data, setData] = useState([]);
   const [dept_brochure, Setdept] = useState([]);
@@ -84,8 +75,8 @@ const Herosupport = ({ props }) => {
         />
 
         <div className="w-full bg-accent flex flex-col items-center justify-center">
-          <div className="w-[100%] bg-accent md:gap-20 justify-center flex flex-col gap-2 md:flex-row relative z-10 bottom-[12vh] mb-[-13vh] mt-3 md:mt-10 md:h-[20vw]">
-            <div className="flex flex-col font-jakarta lg:mt-10 items-center gap-4 md:gap-6 sm:pt-0 pt-10 lg:justify-between md:px-10 md:h-[80%] md:mb-10 px-5">
+          <div className="w-[100%] bg-accent md:gap-20 justify-center flex flex-col gap-2 md:flex-row relative z-10 bottom-[12vh] mb-[-15vh] mt-3 md:mt-10">
+            <div className="flex flex-col font-jakarta lg:mt-10 items-center gap-4 md:gap-6 sm:pt-0 pt-10 lg:justify-between md:px-10 md:mb-10 px-5">
               <div className="pl-1 md:pl-1 w-[100%] text-3xl text-white font-jakarta font-bold md:text-left">
                 Brochures
               </div>
