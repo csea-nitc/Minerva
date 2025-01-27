@@ -110,7 +110,7 @@ export default function post({ params: promiseParams }) {
     <>
       <ImageHero
         title={data?.name || "Loading"}
-        font={"50px"}
+        font={"60px"}
         mobileFont={"20px"}
         contentdiv={".content-div"}
       />

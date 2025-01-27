@@ -6,7 +6,7 @@ export default function CSEAPage() {
         <>
             <ImageHero
                 title={"Computer Science and Engineering Association"}
-                font={"90px"}
+                font={"50px"}
                 mobileFont={"30px"}
                 contentdiv={".content-div"}
                 increasedHeight={1}

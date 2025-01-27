@@ -37,7 +37,7 @@ export default function Adhoc() {
     <>
       <ImageHero
         title={"Adhoc"}
-        font={"60px"}
+        font={"80px"}
         mobileFont={"50px"}
         contentdiv={".content-div"}
       />

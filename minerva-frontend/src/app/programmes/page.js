@@ -27,7 +27,7 @@ export default function Programmes() {
     <>
       <ImageHero
         title={"Programmes"}
-        font={"60px"}
+        font={"80px"}
         mobileFont={"50px"}
         contentdiv={".content-div"}
         imgpath={"/view.jpg"}

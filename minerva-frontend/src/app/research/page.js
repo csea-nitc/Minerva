@@ -49,7 +49,7 @@ export default function Programmes() {
         <>
             <ImageHero
                 title={"Research"}
-                font={"60px"}
+                font={"80px"}
                 mobileFont={"50px"}
                 contentdiv={".content-div"}
             />
