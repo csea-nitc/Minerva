@@ -60,7 +60,7 @@ export default function Footer() {
             alt=""
           />
         </div>
-        <div className="pt-1 flex justify-between tracking-wide text-[.5vw]">
+        <div className="pt-1 flex justify-between tracking-wide text-[6px] md:text-[0.5vw]">
           <div className="flex flex-col gap-2">
             <p>Copyright © 2024-2025 CSED, NIT Calicut</p>
             <p>All Rights Reserved</p>
