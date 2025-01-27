@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 
 export default function FeedBack() {
     const [categoryType, setCategoryType] = useState("");
@@ -33,13 +34,13 @@ export default function FeedBack() {
             <p>
                 You are welcome to provide feedback on this website. Please
                 consider reading{" "}
-                <a
+                <Link
                     href="/about-site"
                     target="_blank"
-                    className="text-blue-500 underline hover:text-blue-700 focus:text-blue-700"
+                    className="text-[#800080] underline "
                 >
                     About the Site
-                </a>{" "}
+                </Link>{" "}
                 before filling this form.
             </p>
             <form

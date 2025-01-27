@@ -153,7 +153,7 @@ export default function AcademicIntegrity() {
                                 [1]
                                 <a
                                     href="https://www.cs.purdue.edu/resources/academic_integrity.html"
-                                    class="text-blue-600 hover:underline"
+                                    class="text-[#800080] hover:underline"
                                 >
                                     Academic Integrity - Perdue
                                 </a>

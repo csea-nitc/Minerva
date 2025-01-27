@@ -43,7 +43,7 @@ export default function accessibility() {
                             <a
                                 href="/feedback"
                                 target="_blank"
-                                className="text-blue-500 underline hover:text-blue-700 focus:text-blue-700"
+                                className="text-[#800080] underline"
                             >
                                 Tell Us
                             </a>{" "}
