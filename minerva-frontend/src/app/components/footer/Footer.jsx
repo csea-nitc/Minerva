@@ -29,6 +29,7 @@ export default function Footer() {
                         />
                     </div>
 
+
                     <div className="max-w-[400px] flex-grow mb-4 md:translate-x-0 font-bold -translate-x-14">
                         <div className="flex flex-col text-nowrap text-[4vw] sm:[3vw] md:text-[2vw] lg:[1.4vw] xl:text-[.7vw]">
                             {/* <p className="px-2 py-4 border-b border-white"></p> */}
@@ -79,4 +80,5 @@ export default function Footer() {
             </footer>
         </>
     );
+
 }
