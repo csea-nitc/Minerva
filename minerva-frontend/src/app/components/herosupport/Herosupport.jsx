@@ -10,15 +10,6 @@ const Herosupport = ({ props }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const containerRef = useRef(null);
 
-  useEffect(() => {
-    gsap.from(containerRef.current, {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      ease: "power3.out",
-    });
-  }, []);
-
   // fetching latest announcements
   const [data, setData] = useState([]);
   const [dept_brochure, Setdept] = useState([]);

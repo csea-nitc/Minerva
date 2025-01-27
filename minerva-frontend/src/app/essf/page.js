@@ -1,7 +1,42 @@
+"use client"
+
 const bankDetails = require("./bankDetails.json");
 const studentRepresentatives = require("./studentRepresentatives.json");
 import ImageHero from "../components/imagehero/Imagehero";
+import { useState ,useEffect } from "react";
+
 export default function ESSFPage() {
+
+  const [ rep_4th , SetRep_4th] = useState( [ ] ) ; 
+  const [ rep_3rd , SetRep_3rd] = useState( [ ] ) ; 
+
+  const token = process.env.NEXT_PUBLIC_TOKEN;
+  const backend_url = process.env.NEXT_PUBLIC_API_URL;
+
+  useEffect( ( )  =>  { 
+    const fetchData = async ( ) => { 
+      try{ 
+        const [ res1 , res2 ] = await Promise.all( [
+          fetch( `${backend_url}/api/essf-4th-year` , 
+            {
+              headers : { Authorization: `Bearer ${token}` }
+            }), 
+            fetch( `${backend_url}/api/essf-3rd-year` , {
+              headers : { Authorization : `Bearer ${token}` }
+            })
+        ]);
+
+        const [data1, data2] = await Promise.all([res1.json(), res2.json()]);
+
+        SetRep_4th( data1?.data || [ ]) ;
+        SetRep_3rd( data2?.data || [ ]) ;
+      }  catch( err  ){
+        console.error("Error fetching data:", err );
+      }
+    }
+    fetchData();
+  } , [ ])
+
   return (
     <>
       <ImageHero
@@ -37,22 +72,34 @@ export default function ESSFPage() {
             </h2>
             <div className="md:text-lg pt-2">
               Any full time B.Tech CSE student of NITC in need of funds is
-              requested to contact the following student representatives by
-              email:
+              requested to contact the following student representatives 
+          
               <div className="pt-6 pb-6">
-                {studentRepresentatives.map((representative) => (
-                  <div key={representative.email}>
-                    <p>{representative.name}</p>
+                  <div key={rep_4th.email}>
+                    <p>{rep_4th.name}</p>
                     <a
-                      href={"mailto:" + representative.email}
+                      href={"mailto:" + rep_4th.email}
                       className="text-blue-500 underline hover:text-blue-700 focus:text-blue-700"
                     >
-                      {representative.email}
+                      {rep_4th.email}
                     </a>
-                    <p>{representative.position}</p>
+                    <p>Fourth-Year B Tech Representative</p>
                   </div>
-                ))}
               </div>
+
+              <div className="pt-6 pb-6">
+                  <div key={rep_3rd.email}>
+                    <p>{rep_3rd.name}</p>
+                    <a
+                      href={"mailto:" + rep_3rd.email}
+                      className="text-blue-500 underline hover:text-blue-700 focus:text-blue-700"
+                    >
+                      {rep_3rd.email}
+                    </a>
+                    <p>Third-Year B Tech Representative</p>
+                  </div>
+              </div>
+
             </div>
             <p className="md:text-lg pt-2">
               The application form is available with the above representatives.
