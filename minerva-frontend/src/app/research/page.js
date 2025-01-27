@@ -15,7 +15,7 @@ const token = process.env.NEXT_PUBLIC_TOKEN;
 export default function Programmes() {
     const [selectedTab, setSelectedTab] = useState(0);
     const [data, setData] = useState([]);
-
+    const [isLoading, setIsLoading] = useState(true); // New state for loading
     const [issmall, setIsSmall] = useState(false);
 
     useEffect(() => {
@@ -30,20 +30,22 @@ export default function Programmes() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const data = await fetch(`${backend_url}/api/completed-ph-d`, {
+                const response = await fetch(`${backend_url}/api/completed-ph-d`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
                 });
 
-                const Data = await data.json();
+                const Data = await response.json();
                 setData(Data.data ? Data.data : []);
             } catch (err) {
                 console.error("Fetch error:", err);
+            } finally {
+                setIsLoading(false); // Set loading to false after fetching data
             }
         };
         fetchData();
-    });
+    }, []);
 
     return (
         <>
@@ -57,13 +59,14 @@ export default function Programmes() {
                 <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
                 <div className="sm:w-[65%] w-[85%] mx-auto py-10">
                     {/* Tab Navigation */}
-                    {data && data.length > 0 ? (
+                    {isLoading ? (
+                        <Loading /> // Show loading component if data is still loading
+                    ) : (
                         <>
                             <TabNav
                                 tabData={TabData}
                                 onTabChange={setSelectedTab}
                             />
-
                             <div className="flex flex-col max-1240:pr-[2vw] mb-[10vh]">
                                 {/* Content Rendering */}
                                 <div className="font-jakarta mt-12">
@@ -71,14 +74,9 @@ export default function Programmes() {
                                     "Areas Of Research" ? (
                                         // Content for Areas Of Research
                                         <div>
-                                            {tabData[
-                                                selectedTab
-                                            ].titlesAndAreas.map(
+                                            {tabData[selectedTab].titlesAndAreas.map(
                                                 (item, index) => (
-                                                    <div
-                                                        key={index}
-                                                        className="mb-6"
-                                                    >
+                                                    <div key={index} className="mb-6">
                                                         <h3 className="text-2xl font-bold text-[#800080]">
                                                             {item.title}
                                                         </h3>
@@ -94,36 +92,28 @@ export default function Programmes() {
                                         // Content for Research Groups
                                         <div>
                                             <p className="text-[1.6em] leading-[35px] text-justify">
-                                                Following are the upcoming
-                                                research groups in the
-                                                Department:
+                                                Following are the upcoming research
+                                                groups in the Department:
                                             </p>
                                             <ul className="mt-4 list-disc pl-8 text-[1.6em] text-gray-700">
-                                                {tabData[
-                                                    selectedTab
-                                                ].groups.map((group, index) => (
-                                                    <li
-                                                        key={index}
-                                                        className="mb-2"
-                                                    >
-                                                        {group.link ? (
-                                                            <Link
-                                                                href={
-                                                                    group.link
-                                                                }
-                                                                target="_blank"
-                                                                rel="noopener noreferrer"
-                                                                className="text-[#800080] hover:underline"
-                                                            >
-                                                                {group.name}
-                                                            </Link>
-                                                        ) : (
-                                                            <span>
-                                                                {group.name}
-                                                            </span>
-                                                        )}
-                                                    </li>
-                                                ))}
+                                                {tabData[selectedTab].groups.map(
+                                                    (group, index) => (
+                                                        <li key={index} className="mb-2">
+                                                            {group.link ? (
+                                                                <Link
+                                                                    href={group.link}
+                                                                    target="_blank"
+                                                                    rel="noopener noreferrer"
+                                                                    className="text-[#800080] hover:underline"
+                                                                >
+                                                                    {group.name}
+                                                                </Link>
+                                                            ) : (
+                                                                <span>{group.name}</span>
+                                                            )}
+                                                        </li>
+                                                    )
+                                                )}
                                             </ul>
                                         </div>
                                     ) : (
@@ -135,8 +125,6 @@ export default function Programmes() {
                                 </div>
                             </div>
                         </>
-                    ) : (
-                        <Loading />
                     )}
                 </div>
             </div>
