@@ -254,11 +254,11 @@ export default function FacultyDetails({
                             {filteredFacultyData[activeIndex]
                               .additional_info && (
                                 <ul>
+                                  Additional Info:{" "}
                                 {
                                 filteredFacultyData[activeIndex]
                                 .additional_info.split( "~" ).map( ( item , index ) => ( 
                                   <li className="m-4" key = {index}>
-                                  Additional Info:{" "}
                                   {
                                     item
                                   }
