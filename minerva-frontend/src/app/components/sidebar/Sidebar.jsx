@@ -14,6 +14,7 @@ const backend_url = process.env.NEXT_PUBLIC_API_URL;
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
   const [link, setLinks] = useState([]);
   const buttonRef = useRef(null);
   const sidebarRef = useRef(null);
@@ -41,6 +42,8 @@ const Sidebar = () => {
     fetchData();
   }, []);
 
+
+
   useEffect(() => {
     // GSAP animation for the button
     gsap.fromTo(
@@ -65,6 +68,7 @@ const Sidebar = () => {
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 640);
+      setIsTablet(window.innerWidth > 640 && window.innerWidth <= 1024);
     };
 
     handleResize(); // Initial check
@@ -96,8 +100,10 @@ const Sidebar = () => {
       );
     } else {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      if (!isMobile) {
+      if (!isMobile && !isTablet) {
         gsap.set(button, { x: "-23.5rem" });
+      } else if (isTablet){
+        gsap.set(button, { x: "-320px" });
       } else {
         gsap.set(button, { x: "-100vw" });
       }
