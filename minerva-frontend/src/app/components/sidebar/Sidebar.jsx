@@ -172,7 +172,7 @@ const Sidebar = () => {
         </div>
         <ul className="font-verdana flex flex-col justify-center items-center flex-grow lg:text-[1.5rem] sm:text-[1.3rem] text-[1.2rem] w-[90%] overflow-y-scroll scrollbar-none">
           <li className="m-4 text-black border-white border-2 text-center rounded-s">
-            <a href="">Home</a>
+            <Link href="/">Home</Link>
           </li>
           <li className="h-[0.1rem] w-[80%] bg-[#800080]"></li>
           <ul>
@@ -182,7 +182,7 @@ const Sidebar = () => {
                   key={item.id}
                   className="m-4 text-black border-white border-2 text-center rounded-s"
                 >
-                  <a href={`/node/${item.documentId}`}>{item.Title}</a>
+                  <Link href={`/node/${item.documentId}`}>{item.Title}</Link>
                 </li>
               ))
             ) : (

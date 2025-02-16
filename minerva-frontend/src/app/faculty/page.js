@@ -190,7 +190,7 @@ export default function Home() {
                       </h2>
                     </div>
                     <div className="fac-det-details bg-[#d9d9d9] text-black md-lg:w-[71.5%] rounded-lg rounded-tr-none rounded-tl-none md-lg:rounded-tr-lg md-lg:rounded-bl-none min-h-10 w-full font-bold">
-                      <ul className="text-[0.5rem] md:text-[0.7rem] lg:text-[0.9rem] p-0">
+                      <ul className="text-[0.7rem] md:text-[0.85rem] lg:text-[0.95rem] p-0">
                         {hod.contact_email && (
                           <li className="m-4">
                             Email:
@@ -238,7 +238,23 @@ export default function Home() {
                             Associated FRGs: {hod.associated_frgs}
                           </li>
                         )}
-
+                        {hod.institute_page && (
+                          <ul className="m-4">
+                            Homepage : <span> </span>
+                            <li className="px-8">
+                              <Link
+                                href={
+                                  hod.institute_page
+                                }
+                                className="text-purple-600 underline hover:text-purple-800"
+                              >
+                                {
+                                  hod.institute_page
+                                }
+                              </Link>
+                            </li> 
+                          </ul>
+                        )}
                         {hod.external_links && (
                           <ul className="m-4">
                             External Links: <span> </span>
