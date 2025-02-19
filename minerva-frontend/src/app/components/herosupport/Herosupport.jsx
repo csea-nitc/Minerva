@@ -1,10 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import Link from "next/link";
-import DownloadButton from "../downloadbutton/DownloadButton";
-import { gsap } from "gsap";
 import styles from "./squigglyLine.module.css";
-import Loading from "../loading/loading";
 
 const Herosupport = ({ props }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -12,10 +8,9 @@ const Herosupport = ({ props }) => {
 
   // fetching latest announcements
   const [data, setData] = useState([]);
-  const [dept_brochure, Setdept] = useState([]);
-  const [phd_brochure, Setphd] = useState([]);
+  const [link, setLinks] = useState([]);
   const [isDataLoading, setIsDataLoading] = useState(true);
-  const [isBrochureLoading, setIsBrochureLoading] = useState(true);
+  const [ isLinkLoading , setIsLinkLoading ] = useState( true ); 
 
   const token = process.env.NEXT_PUBLIC_TOKEN;
   const backend_url = process.env.NEXT_PUBLIC_API_URL;
@@ -38,35 +33,32 @@ const Herosupport = ({ props }) => {
       }
     };
 
-    const fetchBrochures = async () => {
+    // Fetch data for quick links
+    const fetchData = async () => {
       try {
-        const [deptBrochureRes, phdBrochureRes] = await Promise.all([
-          fetch(`${backend_url}/api/deparment-brochure?populate=pdf`, {
-            headers: { Authorization: `Bearer ${token}` },
-          }),
-          fetch(`${backend_url}/api/ph-d-brochure?populate=pdf`, {
-            headers: { Authorization: `Bearer ${token}` },
-          }),
-        ]);
+        const linksD = await fetch(
+          `${backend_url}/api/quick-links?sort[0]=createdAt:desc&populate[pdf][populate]=*&populate=image`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
-        const [deptBrochureData, phdBrochureData] = await Promise.all([
-          deptBrochureRes.json(),
-          phdBrochureRes.json(),
-        ]);
-
-        Setdept(deptBrochureData.data || []);
-        Setphd(phdBrochureData.data || []);
+        const linksData = await linksD.json();
+        setLinks(linksData.data ? linksData.data : []);
       } catch (err) {
         console.error("Fetch error:", err);
       } finally {
-        setIsBrochureLoading(false);
+        setIsLinkLoading( false ) ; 
       }
     };
 
+    fetchData();
     fetchLatestData();
-    fetchBrochures();
   }, []);
 
+ 
   return (
     <div className="relative mt-[90vh] z-10">
       <div className="w-[100%] mt-[15vh]">
@@ -75,35 +67,17 @@ const Herosupport = ({ props }) => {
         />
 
         <div className="w-full bg-accent flex flex-col items-center justify-center">
-          <div className="w-[100%] bg-accent md:gap-20 justify-center flex flex-col gap-2 md:flex-row relative z-10 bottom-[12vh] mb-[-15vh] mt-3 md:mt-10">
-            <div className="flex flex-col font-jakarta lg:mt-10 items-center gap-4 md:gap-6 sm:pt-0 pt-10 lg:justify-between md:px-10 md:mb-10 px-5">
-              <div className="pl-1 md:pl-1 w-[100%] text-3xl text-white font-jakarta font-bold md:text-left">
-                Brochures
-              </div>
-              {isBrochureLoading ? (
-                <Loading />
-              ) : (
-                <>
-                  <DownloadButton
-                    text="UG Brochure"
-                    href={`${backend_url}${dept_brochure.pdf?.url}`}
-                    isExternal={true}
-                  />
-                  <DownloadButton
-                    text="PG Brochure"
-                    href={`${backend_url}${phd_brochure.pdf?.url}`}
-                    isExternal={true}
-                  />
-                </>
-              )}
-            </div>
+          <div className="w-[100%] bg-accent justify-center flex flex-col gap-2 md:flex-row relative z-10 bottom-[12vh] mb-[-15vh] mt-3 md:mt-10 md:pl-[10%] ">
 
-            <div className="flex flex-col font-jakarta md:border-l-2 lg:mt-10 items-center justify-between md:px-10 md:h-[80%] md:mb-10 m-5 mb-10">
-              <div className="pl-1 mb-2 w-[100%] text-3xl text-white font-jakarta font-bold md:ml-10 md:text-left">
+            {/* latest section */}
+            <div className="flex flex-col font-jakarta lg:mt-10 justify-between md:h-[80%] md:mb-10 m-5 mb-1 md:w-[50%]">
+              <div className="mb-2 w-[100%] text-4xl text-white font-jakarta font-bold">
                 Latest
               </div>
               {isDataLoading ? (
-                <Loading />
+                <div className="flex items-center justify-center gap-3 py-8">
+                <div className="h-10 w-10 rounded-full border-4 border-l-gray-200 border-t-accent animate-spin" />
+                </div>
               ) : (
                 data.map((item) => (
                   <a
@@ -111,13 +85,48 @@ const Herosupport = ({ props }) => {
                     href={`/announcements/${item.documentId}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white text-lg lg:text-2xl pl-1 md:pl-5 pr-3 py-1 text-wrap text-justify break-words lg:w-[600px] flex items-center underline hover:underline-offset-4 hover:text-purple-300 h-full"
+                    className="text-white text-lg lg:text-2xl pr-3 py-1 text-wrap text-justify break-words lg:w-[600px] flex items-center underline hover:underline-offset-4 hover:text-purple-300 h-full"
                   >
                     {item.Title}
                   </a>
                 ))
               )}
             </div>
+            
+            {/* Vertical line */}
+            <div className="hidden md:flex items-stretch">
+              <div className="w-[1.5px] bg-white h-[90%]"></div>
+            </div>
+            
+            {/* Quick-links */}
+            <div className="flex flex-col font-jakarta lg:mt-10 justify-between md:h-[80%] md:mb-10 md:ml-[5%] md:w-[40%] m-5 mb-10">
+              <div className="mb-2 w-[100%] text-4xl text-white font-jakarta font-bold ">
+                Quick-Links
+              </div>
+              {isLinkLoading ? (
+                <div className="flex items-center justify-center gap-3 py-8">
+                <div className="h-10 w-10 rounded-full border-4 border-l-gray-200 border-t-accent animate-spin" />
+                </div>
+              ) : (
+                <div>
+                {
+                  link.map((item) => (
+                    <a
+                      key={item.id}
+                      href={`/node/${item.documentId}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white text-lg lg:text-2xl pr-3 py-1 text-wrap text-justify break-words lg:w-[600px] flex items-center underline hover:underline-offset-4 hover:text-purple-300 h-full"
+                    >
+                      {item.Title}
+                    </a>
+                  ))
+                }
+                <a href="/dcc" className="text-white text-lg lg:text-2xl pr-3 py-1 text-wrap text-justify break-words lg:w-[600px] flex items-center underline hover:underline-offset-4 hover:text-purple-300 h-full">DCC Minutes</a>
+                </div>
+              )}
+            </div>
+
           </div>
 
           <div

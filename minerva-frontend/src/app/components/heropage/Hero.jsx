@@ -51,7 +51,7 @@ const Hero = ({ props }) => {
           </p>
           {/* NATIONAL INSTITUTE OF TECHNOLOGY, CALICUT aligned to the right */}
           <p className="text-white font-saira lg-xl:text-[2rem] lg:text-[1.8rem] md:text-[1.5rem] sm:text-[1.3rem] text-[1rem]  font-extrabold text-right w-full leading-tight">
-            NATIONAL INSTITUTE OF TECHNOLOGY, CALICUT
+            NATIONAL INSTITUTE OF TECHNOLOGY CALICUT
           </p>
         </div>
       </div>

@@ -30,7 +30,7 @@ export default function Footer() {
                     </div>
 
 
-                    <div className="max-w-[400px] flex-grow mb-4 md:translate-x-0 font-bold -translate-x-14">
+                    <div className="md:max-w-[400px] flex-grow mb-4 md:translate-x-0 font-bold -translate-x-14 md:mt-0 mt-10 mb-10">
                         <div className="flex flex-col text-nowrap text-[4vw] sm:[3vw] md:text-[2vw] lg:[1.4vw] xl:text-[.7vw]">
                             {/* <p className="px-2 py-4 border-b border-white"></p> */}
                             <Link
@@ -70,11 +70,11 @@ export default function Footer() {
                 </div>
                 <div className="pt-1 flex justify-between tracking-wide text-[.5vw]">
                     <div className="flex flex-col gap-2">
-                        <p>Copyright © 2024-2025 CSED, NIT Calicut</p>
-                        <p>All Rights Reserved</p>
+                        <p className="md:text-[14px] text-[8px] font-jakarta ">Copyright © 2024-2025 CSED, NIT Calicut</p>
+                        <p className="md:text-[14px] text-[8px] font-jakarta ">All Rights Reserved</p>
                     </div>
                     <div>
-                        <p>Created by the CSEA and CSED</p>
+                        <a href = "https://assoc.cse.nitc.ac.in/" className="md:text-[14px] text-[12px] font-jakarta ">Created by the CSEA and CSED</a>
                     </div>
                 </div>
             </footer>

@@ -16,6 +16,8 @@ const Sidebar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
   const [link, setLinks] = useState([]);
+  const [dept_brochure, Setdept] = useState([]);
+  const [phd_brochure, Setphd] = useState([]);
   const buttonRef = useRef(null);
   const sidebarRef = useRef(null);
 
@@ -39,7 +41,31 @@ const Sidebar = () => {
       }
     };
 
-    fetchData();
+    const fetchBrochures = async () => {
+      try {
+        const [deptBrochureRes, phdBrochureRes] = await Promise.all([
+          fetch(`${backend_url}/api/deparment-brochure?populate=pdf`, {
+            headers: { Authorization: `Bearer ${token}` },
+          }),
+          fetch(`${backend_url}/api/ph-d-brochure?populate=pdf`, {
+            headers: { Authorization: `Bearer ${token}` },
+          }),
+        ]);
+
+        const [deptBrochureData, phdBrochureData] = await Promise.all([
+          deptBrochureRes.json(),
+          phdBrochureRes.json(),
+        ]);
+
+        Setdept(deptBrochureData.data || []);
+        Setphd(phdBrochureData.data || []);
+      } catch (err) {
+        console.error("Fetch error:", err);
+      }
+    };
+
+    fetchData( );
+    fetchBrochures( ) ; 
   }, []);
 
 
@@ -190,9 +216,32 @@ const Sidebar = () => {
             )}
           </ul>
           <li className="h-[0.1rem] w-[80%] bg-[#800080]"></li>
-          <li className="m-4 text-black border-white border-2 text-center rounded-s">
-            <a href="/dcc">DCC Minutes</a>
-          </li>
+          <ul>
+            <li className="m-4 text-black border-white border-2 text-center rounded-s">
+              <a href="/dcc">DCC Minutes</a>
+            </li>
+            <li className="m-4 text-black border-white border-2 text-center rounded-s">
+              <a href="/downloads">Downloads</a>
+            </li>
+          </ul>
+          <li className="h-[0.1rem] w-[80%] bg-[#800080]"></li>
+          
+          { dept_brochure && phd_brochure ? (
+            <ul>
+              <li
+                className="m-4 text-black border-white border-2 text-center rounded-s"
+              >
+                <Link href={`${backend_url}${dept_brochure.pdf?.url}`}>UG Brochure</Link>
+              </li>
+              <li
+                className="m-4 text-black border-white border-2 text-center rounded-s"
+              >
+                <Link href={`${backend_url}${phd_brochure.pdf?.url}`}>PG Brochure</Link>
+              </li>
+            </ul>
+          ) : (
+            <Loading />
+          )}
         </ul>
         <button className="sm:text-[2rem] text-[2rem] text-black font-verdana font-bold bg-[#e3c7e3] w-[100%] text-center p-3">
           <Link href="https://admin.minerva.nitc.ac.in">Login</Link>
