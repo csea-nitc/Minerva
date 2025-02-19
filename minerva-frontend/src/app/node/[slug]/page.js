@@ -7,7 +7,7 @@ import Loading from "../../components/loading/loading";
 
 const token = process.env.NEXT_PUBLIC_TOKEN;
 const backend_url = process.env.NEXT_PUBLIC_API_URL;
-
+ 
 export default function Home( { params : promiseParams } ) {
     const params = React.use(promiseParams); 
     const { slug } = params; 
