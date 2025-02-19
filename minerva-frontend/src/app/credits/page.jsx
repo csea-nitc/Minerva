@@ -28,7 +28,7 @@ export default function page() {
             </Link>
             <Link href={"https://www.linkedin.com/in/aditya-kamble27/"}>
               <span className="underline underline-offset-2 text-[#800080]">
-                Adithya Kamble
+                Adithya
               </span>{" "}
               - B.Tech CSE 2026
             </Link>
@@ -55,7 +55,7 @@ export default function page() {
               </span>{" "}
               - B.Tech CSE 2027
             </Link>
-            <Link href={""}>
+            <Link href={"https://www.linkedin.com/in/richie-james-b65101220/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"}>
               <span className="underline underline-offset-2 text-[#800080]">
                 Richie James
               </span>{" "}
@@ -63,7 +63,7 @@ export default function page() {
             </Link>
             <Link href={"https://www.linkedin.com/in/munukuntla-rithvik-reddy/"}>
               <span className="underline underline-offset-2 text-[#800080]">
-                Rithvik
+                M Rithvik Reddy
               </span>{" "}
               - B.Tech CSE 2027
             </Link>

@@ -14,6 +14,7 @@ const backend_url = process.env.NEXT_PUBLIC_API_URL;
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
   const [link, setLinks] = useState([]);
   const buttonRef = useRef(null);
   const sidebarRef = useRef(null);
@@ -41,6 +42,8 @@ const Sidebar = () => {
     fetchData();
   }, []);
 
+
+
   useEffect(() => {
     // GSAP animation for the button
     gsap.fromTo(
@@ -65,6 +68,7 @@ const Sidebar = () => {
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 640);
+      setIsTablet(window.innerWidth > 640 && window.innerWidth <= 1024);
     };
 
     handleResize(); // Initial check
@@ -96,8 +100,10 @@ const Sidebar = () => {
       );
     } else {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      if (!isMobile) {
+      if (!isMobile && !isTablet) {
         gsap.set(button, { x: "-23.5rem" });
+      } else if (isTablet){
+        gsap.set(button, { x: "-320px" });
       } else {
         gsap.set(button, { x: "-100vw" });
       }
@@ -166,7 +172,7 @@ const Sidebar = () => {
         </div>
         <ul className="font-verdana flex flex-col justify-center items-center flex-grow lg:text-[1.5rem] sm:text-[1.3rem] text-[1.2rem] w-[90%] overflow-y-scroll scrollbar-none">
           <li className="m-4 text-black border-white border-2 text-center rounded-s">
-            <a href="">Home</a>
+            <Link href="/">Home</Link>
           </li>
           <li className="h-[0.1rem] w-[80%] bg-[#800080]"></li>
           <ul>
@@ -176,7 +182,7 @@ const Sidebar = () => {
                   key={item.id}
                   className="m-4 text-black border-white border-2 text-center rounded-s"
                 >
-                  <a href={`/node/${item.documentId}`}>{item.Title}</a>
+                  <Link href={`/node/${item.documentId}`}>{item.Title}</Link>
                 </li>
               ))
             ) : (
