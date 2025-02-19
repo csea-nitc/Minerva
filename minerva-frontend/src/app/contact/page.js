@@ -71,7 +71,7 @@ export default function ContactUsPage() {
                                 <a
                                     href="https://minerva.nitc.ac.in/faculty"
                                     target="_blank"
-                                    className="text-blue-500 underline hover:text-blue-700 focus:text-blue-700"
+                                    className="text-purple-600 underline hover:text-purple-800"
                                 >
                                     {data?.name}
                                 </a>
@@ -79,7 +79,7 @@ export default function ContactUsPage() {
                                 <strong>Email ID:</strong>{" "}
                                 <a
                                     href="mailto:hodcsed@nitc.ac.in"
-                                    className="text-blue-500 underline hover:text-blue-700 focus:text-blue-700"
+                                    className="text-purple-600 underline hover:text-purple-800"
                                 >
                                     {data?.contact_email}
                                 </a>
