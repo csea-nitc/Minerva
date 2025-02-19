@@ -24,7 +24,6 @@ export default function CSEAPage() {
                 );
 
                 const Data = await response.json();
-                console.log(Data.data);
                 setData(Data.data);
             } catch (err) {
                 console.error("Fetch error:", err);
