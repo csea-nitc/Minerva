@@ -1,7 +1,40 @@
-import Activities from "../components/csea/Activities";
+'use client'
+import { useEffect, useState } from "react";
 import ImageHero from "../components/imagehero/Imagehero";
-const activitiesDetails = require("./activities.json");
+import Loading from "../components/loading/loading";
+import ListComp from "../components/newscomp/ListComp";
+
 export default function CSEAPage() {
+    const token = process.env.NEXT_PUBLIC_TOKEN;
+    const backend_url = process.env.NEXT_PUBLIC_API_URL;
+
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(
+                    `${backend_url}api/cseas?populate[pdf][populate]=*&populate=image`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
+
+                const Data = await response.json();
+                console.log(Data.data);
+                setData(Data.data);
+            } catch (err) {
+                console.error("Fetch error:", err);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchData();
+    }, []);
+
     return (
         <>
             <ImageHero
@@ -26,17 +59,25 @@ export default function CSEAPage() {
                         Maestros, Technical workshops, Linux Fest, FOSSMeet and
                         job/internship talks.
                     </p>
-                    <p className="md:text-lg pt-6">
+                    <p className="md:text-lg pt-6 mb-10">
                         <strong>Homepage: </strong>{" "}
                         <a
                             href="http://assoc.cse.nitc.ac.in"
                             target="_blank"
-                            className="text-[#800080] underline "
+                            className="text-[#800080] underline"
                         >
                             http://assoc.cse.nitc.ac.in
                         </a>
                     </p>
-                    <Activities activitiesDetails={activitiesDetails} />
+                    {loading ? (
+                        <Loading />
+                    ) : (
+                        data
+                        .sort((a, b) => parseInt(b.Title) - parseInt(a.Title))
+                        .map((item) => (
+                            <ListComp key={item.id || item.documentId} item={item} />
+                        ))
+                    )}
                 </div>
             </div>
         </>
