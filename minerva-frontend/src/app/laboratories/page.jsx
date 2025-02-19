@@ -14,7 +14,7 @@ const page = () => {
     const fetchData = async () => {
         try {
         const data = await fetch(
-            `${backend_url}api/labs?populate=*`,
+            `${backend_url}/api/labs?populate=*`,
             {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -48,7 +48,7 @@ const page = () => {
             <div className="w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
                 <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
                 <div className="sm:w-[65%] w-[85%] mx-auto py-10">
-                <div className="grid grid-cols-1 gap-y-6">
+                <div className="grid grid-cols-1">
                     {data && data.map((item) => ( 
                         <Card
                             key={item.id}

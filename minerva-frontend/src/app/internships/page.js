@@ -75,7 +75,7 @@ export default function Internships() {
           <div className="sm:w-[65%] w-[85%] mx-auto py-10">
             <TabNav onTabChange={setSelectedTab} tabData={tabData} />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mt-10 mx-auto ">
+            <div className="grid justify-items-center ml-2 md:-ml-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-6  mt-10 mx-auto ">
               {internships &&
                 internships.map((stat) => (
                   <div key={stat.id}>
