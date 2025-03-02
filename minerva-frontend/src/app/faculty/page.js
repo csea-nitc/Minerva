@@ -239,23 +239,30 @@ export default function Home() {
                           </li>
                         )}
                       
-                        {hod.external_links && (
-                          <ul className="m-4">
-                            External Links <span> </span>
-                            {hod.external_links.split(",").map((item, index) => (
+                      {hod.external_links && (
+                        <ul className="m-4">
+                          <span className="font-semibold">External Links:</span>
+                          {hod.external_links.split(",").map((entry, index) => {
+                            const [text, url] = entry.includes("|") ? entry.split("|") : ["", entry.trim()];
+
+                            // Extract domain name if no title is provided
+                            const domain = url.replace(/https?:\/\/(www\.)?/, "").split("/")[0];
+
+                            return (
                               <li key={index} className="px-8 mb-3">
                                 <Link 
-                                  href={item} 
+                                  href={url} 
                                   target="_blank" 
                                   rel="noopener noreferrer"
                                   className="text-purple-600 underline hover:text-purple-800"
                                 >
-                                  {item}
+                                  {text.trim() || domain || `External Link ${index + 1}`}
                                 </Link>
                               </li>
-                            ))}
-                          </ul>
-                        )}
+                            );
+                          })}
+                        </ul>
+                      )}
 
                         {hod.institute_page && (
                           <ul className="m-4">

@@ -214,19 +214,26 @@ export default function FacultyDetails({
 
                             {filteredFacultyData[activeIndex].external_links && (
                               <ul className="m-4">
-                                External Links: <span> </span>
-                                {filteredFacultyData[activeIndex].external_links.split(",").map((item, index) => (
-                                  <li key={index} className="px-8 mb-3">
-                                    <Link 
-                                      href={item} 
-                                      target="_blank" 
-                                      rel="noopener noreferrer"
-                                      className="text-purple-600 underline hover:text-purple-800"
-                                    >
-                                      {item}
-                                    </Link>
-                                  </li>
-                                ))}
+                                <span className="font-semibold">External Links:</span>
+                                {filteredFacultyData[activeIndex].external_links.split(",").map((entry, index) => {
+                                  const [text, url] = entry.includes("|") ? entry.split("|") : ["", entry.trim()];
+                                  
+                                  // Extract domain name if no text is provided
+                                  const domain = url.replace(/https?:\/\/(www\.)?/, "").split("/")[0];
+
+                                  return (
+                                    <li key={index} className="px-8 mb-3">
+                                      <Link 
+                                        href={url} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className="text-purple-600 underline hover:text-purple-800"
+                                      >
+                                        {text.trim() || domain || `External Link ${index + 1}`}
+                                      </Link>
+                                    </li>
+                                  );
+                                })}
                               </ul>
                             )}
 
