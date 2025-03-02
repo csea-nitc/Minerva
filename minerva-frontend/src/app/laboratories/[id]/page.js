@@ -113,6 +113,7 @@ export default function post({ params: promiseParams }) {
         font={"60px"}
         mobileFont={"20px"}
         contentdiv={".content-div"}
+        imgpath="/ssl.jpg"
       />
       {data ? (
         <>
