@@ -51,12 +51,12 @@ export default function ContactUsPage() {
               <strong>Place Holder &uarr;&uarr;&uarr;</strong>
             </p> */}
                             <p className="md:text-lg pt-6">
-                                Department of Computer Science and Engineering
-                                National Institute of Technology Calicut NIT
-                                Campus PO, Calicut, Kerala - 673 601, India{" "}
+                                Department of Computer Science and Engineering <br />
+                                National Institute of Technology Calicut <br /> 
+                                NIT Campus PO, Calicut <br />
+                                Kerala - 673 601, India{" "}
                                 <br />
-                                Phone: +91 495 2286800 <br />
-                                Fax: +91 495 2287250
+                                Phone: +91 495 2286800
                             </p>
                             <h2 className="md:text-2xl pt-6 font-bold">
                                 Office Working Hours:
@@ -81,7 +81,7 @@ export default function ContactUsPage() {
                                     href="mailto:hodcsed@nitc.ac.in"
                                     className="text-purple-600 underline hover:text-purple-800"
                                 >
-                                    {data?.contact_email}
+                                    hodcsed@nitc.ac.in
                                 </a>
                             </p>
                         </div>

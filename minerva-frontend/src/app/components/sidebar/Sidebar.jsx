@@ -231,12 +231,7 @@ const Sidebar = () => {
               <li
                 className="m-4 text-black border-white border-2 text-center rounded-s"
               >
-                <Link href={`${backend_url}${dept_brochure.pdf?.url}`}>UG Brochure</Link>
-              </li>
-              <li
-                className="m-4 text-black border-white border-2 text-center rounded-s"
-              >
-                <Link href={`${backend_url}${phd_brochure.pdf?.url}`}>PG Brochure</Link>
+                <Link href={`${backend_url}${dept_brochure.pdf?.url}`}>Department Brochure</Link>
               </li>
             </ul>
           ) : (
