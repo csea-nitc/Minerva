@@ -82,6 +82,16 @@ export default function Internships() {
             <>
               <TabNav onTabChange={setSelectedTab} tabData={tabData} />
 
+<<<<<<< HEAD
+            <div className="grid justify-items-center ml-2 md:-ml-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-6  mt-10 mx-auto ">
+              {internships &&
+                internships.map((stat) => (
+                  <div key={stat.id}>
+                    <YearCard
+                      year={stat.Title}
+                      onClick={() => handleYearClick(stat.Title)}
+                    />
+=======
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mx-auto p-4 sm:p-8 md:p-12 lg:px-0 lg:py-10 ">
                 {internships &&
                   internships
@@ -92,6 +102,7 @@ export default function Internships() {
                         year={stat.Title}
                         onClick={() => handleYearClick(stat.Title)}
                       />
+>>>>>>> 6bc598e2128061009f59d27c68b4e9295fb5e1af
 
                       {/* Render Modal */}
                       <Modal
