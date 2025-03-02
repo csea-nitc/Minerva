@@ -96,16 +96,31 @@ function DropdownButtons({ data }) {
       <div className="px-4 sm:px-0 mt-5 sm:mt-0 text-sm sm:text-lg">
         {tabData.map((button, index) => (
           <div
-            key={button}
+            key={button} 
             className={`shadow-lg relative transition-all sm:rounded-none duration-400 overflow-hidden ${
               activeButton === index ? "h-auto opacity-100" : "max-h-0 py-0 opacity-0"
             }`}
             style={{ backgroundColor: "#800080" }}
           >
             <ul className="p-2 rounded-xl">
-              {data[index]?.pdf.map((item) => (
+            {data[index]?.pdf
+
+              /*
+                Sorting pdfs based on extracted year - Highly dependant on naming pdf at backend , more reliable than sorting by created AT since pdfs can be added orremoved by mistake easily. This way any naming format can be changed in backend to carter to front-end sort.
+              */
+
+              .sort((a, b) => {
+                const extractYear = (name) => {
+                  const match = name.match(/\d{4}/); // Extracts a 4-digit year
+                  return match ? parseInt(match[0]) : Infinity; // Default to a high value if no year is found
+                };
+                return extractYear(b.Name) - extractYear(a.Name); // Sort in descending order order
+              })
+              .map((item) => (
                 <li key={`${item.pdf.documentId}-${index}`} className="px-4 py-2 text-white text-[1.2em]">
-                  <a href={`${backend_url}/${item.pdf.url}`} target="_blank" rel="noopener noreferrer">{item.Name}</a>
+                  <a href={`${backend_url}/${item.pdf.url}`} target="_blank" rel="noopener noreferrer">
+                    {item.Name}
+                  </a>
                 </li>
               ))}
             </ul>
