@@ -31,7 +31,7 @@ export default function Footer() {
 
 
                     <div className="md:max-w-[400px] flex-grow mb-4 md:translate-x-0 font-bold -translate-x-14 md:mt-0 mt-10 mb-10">
-                        <div className="flex flex-col text-nowrap text-[4vw] sm:[3vw] md:text-[2vw] lg:[1.4vw] xl:text-[.7vw]">
+                        <div className="flex flex-col text-nowrap text-[1rem] sm:text-[0.8rem] xl:text-[0.85rem] ">
                             {/* <p className="px-2 py-4 border-b border-white"></p> */}
                             <Link
                                 className="px-2 py-4 border-b border-white"
