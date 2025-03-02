@@ -238,26 +238,10 @@ export default function Home() {
                             Associated FRGs: {hod.associated_frgs}
                           </li>
                         )}
-                        {hod.institute_page && (
-                          <ul className="m-4">
-                            Homepage : <span> </span>
-                            <li className="px-8">
-                              <Link
-                                href={
-                                  hod.institute_page
-                                }
-                                className="text-purple-600 underline hover:text-purple-800"
-                              >
-                                {
-                                  hod.institute_page
-                                }
-                              </Link>
-                            </li> 
-                          </ul>
-                        )}
+                      
                         {hod.external_links && (
                           <ul className="m-4">
-                            External Links: <span> </span>
+                            External Links <span> </span>
                             {hod.external_links.split(",").map((item, index) => (
                               <li key={index} className="px-8 mb-3">
                                 <Link 
@@ -270,6 +254,21 @@ export default function Home() {
                                 </Link>
                               </li>
                             ))}
+                          </ul>
+                        )}
+
+                        {hod.institute_page && (
+                          <ul className="m-4">
+                            <li >
+                              <Link
+                                href={
+                                  hod.institute_page
+                                }
+                                className="text-purple-600 underline hover:text-purple-800"
+                              >
+                                Visit Homepage
+                              </Link>
+                            </li> 
                           </ul>
                         )}
 

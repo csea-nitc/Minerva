@@ -212,27 +212,6 @@ export default function FacultyDetails({
                               </li>
                             )}
 
-                            {filteredFacultyData[activeIndex]
-                              .institute_page && (
-                              <ul className="m-4">
-                                Homepage : <span> </span>
-                                <li className="px-8">
-                                  <Link
-                                    href={
-                                      filteredFacultyData[activeIndex]
-                                        .institute_page
-                                    }
-                                    className="text-purple-600 underline hover:text-purple-800"
-                                  >
-                                    {
-                                      filteredFacultyData[activeIndex]
-                                        .institute_page
-                                    }
-                                  </Link>
-                                </li> 
-                              </ul>
-                            )}
-
                             {filteredFacultyData[activeIndex].external_links && (
                               <ul className="m-4">
                                 External Links: <span> </span>
@@ -266,6 +245,24 @@ export default function FacultyDetails({
                                 ))
                                 }
                               </ul> 
+                            )}
+
+                            {filteredFacultyData[activeIndex]
+                              .institute_page && (
+                              <ul className="m-4">
+                      
+                                <li >
+                                  <Link
+                                    href={
+                                      filteredFacultyData[activeIndex]
+                                        .institute_page
+                                    }
+                                    className="text-purple-600 underline hover:text-purple-800"
+                                  >
+                                    Visit Homepage
+                                  </Link>
+                                </li> 
+                              </ul>
                             )}
 
                             {filteredFacultyData[activeIndex]
