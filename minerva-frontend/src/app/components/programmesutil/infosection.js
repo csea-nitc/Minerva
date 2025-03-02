@@ -17,17 +17,17 @@ export default function InfoSection({
     const [data , setData]  = useState( [] ); 
     
     let name ; 
-  
-    useEffect( ( ) => {
 
-        if( title === "B.Tech") name = "b-teches"; 
-        if ( title === "M.Tech-CSE") name = "m-teches"; 
-        if ( title === "M.Tech-CSE (IS)") name = "m-tech-is";
-        if ( title === "M.Tech-CSE (AIDA)") name = "m-tech-aidas";
+    useEffect(() => {
+        if (title === "B.Tech") name = "b-teches";
+        if (title === "M.Tech-CSE") name = "m-teches";
+        if (title === "M.Tech-CSE (IS)") name = "m-tech-is";
+        if (title === "M.Tech-CSE (AIDA)") name = "m-tech-aidas";
+        
 
         const fetchData = async () => {
             try {
-                const data = await fetch(
+                const response = await fetch(
                     `${backend_url}/api/programme-${name}?populate[pdf][populate]=*`,
                     {
                         headers: {
@@ -35,16 +35,32 @@ export default function InfoSection({
                         },
                     }
                 );
+    
+                const jsonData = await response.json();
+                let fetchedData = jsonData.data ? jsonData.data : [];
+    
+                const desiredOrder = ["Curriculum", "Syllabi", "Ordinances and Regulations", "Outcomes"];
+                
+                // Sort fetched data based on desired order
 
-                const Data = await data.json();
-                setData( Data.data ? Data.data : [] );
+                /*
+                    sorting array based on entry names in backend to get desired response order , to get rid of created_at sort 
+                */
+               
+                let sortedData = desiredOrder.map((title) =>
+                    fetchedData.find((item) => item.Title === title) 
+                );
+    
+                setData(sortedData);
             } catch (err) {
                 console.error("Fetch error:", err);
+                setData([]); 
             }
         };
+    
+        if (title !== "PhD") fetchData();
+    }, [title]);
 
-        if( title !== "PhD" )fetchData();
-    }, [title] ); 
     return (
         <div className="flex flex-col max-1240:pr-[2vw] mb-[10vh] ">
             
