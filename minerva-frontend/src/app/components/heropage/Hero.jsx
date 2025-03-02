@@ -7,7 +7,7 @@ const Hero = ({ props }) => {
         <div className="w-[100%] h-[100vh] m-0 p-0 box-border fixed top-0">
             <div
                 className="relative container-fluid w-[100%] h-[100%] flex flex-col text-center justify-center items-center bg-cover bg-center pt-5"
-                style={{ backgroundImage: "url('./Hero/hero-bg.png')" }}
+                style={{ backgroundImage: "url('/landingaltaltaltalt.jpg')" }}
             >
                 <div className="absolute flex flex-col justify-center items-center -translate-y-5">
                     {/* DEPARTMENT OF aligned to the left */}
