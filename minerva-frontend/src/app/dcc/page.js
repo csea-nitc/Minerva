@@ -62,7 +62,7 @@ export default function Home() {
         <div className="sm:w-[65%] w-[85%] mx-auto py-10">
 
           {/* Title */}
-          <div className="md:block lg:block pr-4">
+          <div className="md:block lg:block">
             <div
               className="text-[3em] sm:text-[5em] font-extrabold text sm:"
               style={{ color: "#800080" }}
@@ -70,14 +70,14 @@ export default function Home() {
               Minutes
             </div>
             <div
-              className="h-[7px]   w-full mt-1"
+              className="h-[7px] w-full mt-1"
               style={{ backgroundColor: "#800080" }}
             ></div>
           </div>
 
           {  isLoading  &&  <Loading /> }
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mx-auto p-4 sm:p-8 md:p-12 lg:px-0 lg:py-10">
+          <div className="grid justify-items-center ml-2 md:-ml-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-6  mt-10 mx-auto">
             {dcc
               .sort((a, b) => parseInt(b.Title) - parseInt(a.Title))
               .map((stat) => (
