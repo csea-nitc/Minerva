@@ -7,7 +7,7 @@ import Loading from "../../components/loading/loading";
 
 const token = process.env.NEXT_PUBLIC_TOKEN;
 const backend_url = process.env.NEXT_PUBLIC_API_URL;
-
+ 
 export default function Home( { params : promiseParams } ) {
     const params = React.use(promiseParams); 
     const { slug } = params; 
@@ -21,7 +21,7 @@ export default function Home( { params : promiseParams } ) {
         const fetchData = async () => {
             try {
                 const data = await fetch(
-                    `${backend_url}/api/quick-links/${Slug}?populate=*`,
+                    `${backend_url}/api/quick-links/${Slug}?populate[pdf][populate]=*&populate=image`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,
@@ -30,7 +30,6 @@ export default function Home( { params : promiseParams } ) {
                 );
 
                 const Data = await data.json();
-                console.log( Data.data ); 
                 setData( Data.data ? Data.data : [] );
             } catch (err) {
                 console.error("Fetch error:", err);

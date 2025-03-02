@@ -97,7 +97,6 @@ export default function post({ params: promiseParams }) {
           }
         );
         const Data = await data.json();
-        console.log( data )  ; 
 
         setData(Data.data);
       } catch (err) {
@@ -111,7 +110,7 @@ export default function post({ params: promiseParams }) {
     <>
       <ImageHero
         title={data?.name || "Loading"}
-        font={"50px"}
+        font={"60px"}
         mobileFont={"20px"}
         contentdiv={".content-div"}
       />

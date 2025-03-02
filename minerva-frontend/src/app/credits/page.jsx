@@ -11,35 +11,24 @@ export default function page() {
         contentdiv={".content-div"}
       />
       <div className="px-[13%] md:px-[17%] font-jakarta text-lg w-[100vw] mt-[40vh] sm:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
-        <div>
-          <p className="py-4 px-[3%] font-jakarta text-justify">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
-            corporis molestiae velit dolorum qui maiores facilis quisquam dolor
-            nisi iure explicabo, sunt, vero ab similique numquam, deserunt harum
-            fugit quasi repellat. Laborum excepturi exercitationem nam alias
-            animi cumque facere dolore sed earum sit. Soluta molestiae eos
-            quisquam explicabo dolores alias earum inventore ab! Soluta
-            repudiandae, minus enim delectus debitis odit.
-          </p>
-        </div>
         <div className="py-4">
-          <h2 className="font-semibold text-2xl text-accent">Project Lead</h2>
+          <h2 className="font-semibold text-2xl text-accent">Project Leads</h2>
           <ul className="flex flex-col ">
-            <Link href={""}>
-              <span className="underline underline-offset-2 text-blue-600">
-                Arun
+            <Link href={"https://www.linkedin.com/in/arunnats/"}>
+              <span className="underline underline-offset-2 text-[#800080]">
+                Arun Natarajan
               </span>{" "}
               - B.Tech CSE 2026
             </Link>
-            <Link href={""}>
-              <span className="underline underline-offset-2 text-blue-600">
-                Hafeez
+            <Link href={"https://www.linkedin.com/in/hafeez-m/"}>
+              <span className="underline underline-offset-2 text-[#800080]">
+                Hafeez Muhammed
               </span>{" "}
               - B.Tech CSE 2026
             </Link>
-            <Link href={""}>
-              <span className="underline underline-offset-2 text-blue-600">
-                Adithya Kamble
+            <Link href={"https://www.linkedin.com/in/aditya-kamble27/"}>
+              <span className="underline underline-offset-2 text-[#800080]">
+                Adithya
               </span>{" "}
               - B.Tech CSE 2026
             </Link>
@@ -48,33 +37,33 @@ export default function page() {
         <div className="py-4">
           <h2 className="font-semibold text-2xl text-accent">Developers</h2>
           <ul className="flex flex-col ">
-            <Link href={""}>
-              <span className="underline underline-offset-2 text-blue-600">
+            <Link href={"https://www.linkedin.com/in/nadeem-m-siyam/"}>
+              <span className="underline underline-offset-2 text-[#800080]">
                 Nadeem M Siyam
               </span>{" "}
               - B.Tech CSE 2027
             </Link>
-            <Link href={""}>
-              <span className="underline underline-offset-2 text-blue-600">
+            <Link href={"https://www.linkedin.com/in/devadath-kartha-387002288/"}>
+              <span className="underline underline-offset-2 text-[#800080]">
                 Devadath A Kartha
               </span>{" "}
               - B.Tech CSE 2027
             </Link>
-            <Link href={""}>
-              <span className="underline underline-offset-2 text-blue-600">
+            <Link href={"https://www.linkedin.com/in/rohith-s-cs?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_api"}>
+              <span className="underline underline-offset-2 text-[#800080]">
                 Rohith S Nair
               </span>{" "}
               - B.Tech CSE 2027
             </Link>
-            <Link href={""}>
-              <span className="underline underline-offset-2 text-blue-600">
+            <Link href={"https://www.linkedin.com/in/richie-james-b65101220/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"}>
+              <span className="underline underline-offset-2 text-[#800080]">
                 Richie James
               </span>{" "}
               - B.Tech CSE 2027
             </Link>
-            <Link href={""}>
-              <span className="underline underline-offset-2 text-blue-600">
-                Rithvik
+            <Link href={"https://www.linkedin.com/in/munukuntla-rithvik-reddy/"}>
+              <span className="underline underline-offset-2 text-[#800080]">
+                M Rithvik Reddy
               </span>{" "}
               - B.Tech CSE 2027
             </Link>
@@ -85,46 +74,23 @@ export default function page() {
             Design and Implementation
           </h2>
           <ul className="flex flex-col ">
-            <Link href={""}>
-              <span className="underline underline-offset-2 text-blue-600">
+            <Link href={"https://www.linkedin.com/in/tarun-nambiar-003b11285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"}>
+              <span className="underline underline-offset-2 text-[#800080]">
                 Tarun Pradeep
               </span>{" "}
               - B.Tech CSE 2027
             </Link>
-            <Link href={""}>
-              <span className="underline underline-offset-2 text-blue-600">
+            <Link href={"https://www.linkedin.com/in/visruth-mohandas-b49968333/"}>
+              <span className="underline underline-offset-2 text-[#800080]">
                 Visruth Mohandas
               </span>{" "}
               - B.Tech CSE 2027
             </Link>
-            <Link href={""}>
-              <span className="underline underline-offset-2 text-blue-600">
+            <Link href={"https://www.linkedin.com/in/neha-suresh-196538286/"}>
+              <span className="underline underline-offset-2 text-[#800080]">
                 Neha Suresh
               </span>{" "}
               - B.Tech CSE 2027
-            </Link>
-          </ul>
-        </div>
-        <div className="py-4">
-          <h2 className="font-semibold text-2xl text-accent">Advisors</h2>
-          <ul className="flex flex-col ">
-            <Link href={""}>
-              <span className="underline underline-offset-2 text-blue-600">
-                Dr. XYZ Kumar
-              </span>{" "}
-              - Professor CSED
-            </Link>
-            <Link href={""}>
-              <span className="underline underline-offset-2 text-blue-600">
-                Dr. ABC Kumar
-              </span>{" "}
-              - Professor CSED
-            </Link>
-            <Link href={""}>
-              <span className="underline underline-offset-2 text-blue-600">
-                Dr. MNO Kumar
-              </span>{" "}
-              - Professor CSED
             </Link>
           </ul>
         </div>

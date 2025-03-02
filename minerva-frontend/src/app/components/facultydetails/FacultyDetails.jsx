@@ -71,6 +71,7 @@ export default function FacultyDetails({
     setActiveIndex(activeIndex === index ? null : index);
   };
 
+
   return (
     <>
       <SearchBar onSearch={handleSearch} blankOne="faculty" blankTwo="name" />{" "}
@@ -97,7 +98,8 @@ export default function FacultyDetails({
                 >
                   <div>
                     <img
-                      src={`${backend_url}${faculty?.photograph?.url}`}
+                      src={
+                        faculty.photograph ? (`${backend_url}${faculty?.photograph?.url}`) : "./pfp.jpg"}
                       // src={faculty.image}
                       alt=""
                       className="lg:w-[300px] lg:h-[360px] w-[250px] h-[300px] object-cover group-hover:scale-[1.04] duration-300"
@@ -180,9 +182,13 @@ export default function FacultyDetails({
                               </li>
                             )}
                             {filteredFacultyData[activeIndex].education && (
-                              <li className="m-4">
-                                Education:{" "}
-                                {filteredFacultyData[activeIndex].education}
+                              <li className="m-4 mb-3">
+                                Education:
+                                <ul  className="px-8">
+                                  {filteredFacultyData[activeIndex].education.split("~").map((item, index) => (
+                                    <li key={index} className="mb-3">{item} </li>
+                                  ))}
+                                </ul>
                               </li>
                             )}
                             {filteredFacultyData[activeIndex]
@@ -205,34 +211,61 @@ export default function FacultyDetails({
                                 }
                               </li>
                             )}
+
                             {filteredFacultyData[activeIndex]
-                              .external_links && (
-                              <li className="m-4">
+                              .institute_page && (
+                              <ul className="m-4">
+                                Homepage : <span> </span>
+                                <li className="px-8">
+                                  <Link
+                                    href={
+                                      filteredFacultyData[activeIndex]
+                                        .institute_page
+                                    }
+                                    className="text-purple-600 underline hover:text-purple-800"
+                                  >
+                                    {
+                                      filteredFacultyData[activeIndex]
+                                        .institute_page
+                                    }
+                                  </Link>
+                                </li> 
+                              </ul>
+                            )}
+
+                            {filteredFacultyData[activeIndex].external_links && (
+                              <ul className="m-4">
                                 External Links: <span> </span>
-                                <Link
-                                  href={
-                                    filteredFacultyData[activeIndex]
-                                      .external_links
-                                  }
-                                  className="text-purple-600 underline hover:text-purple-800"
-                                >
-                                  {
-                                    filteredFacultyData[activeIndex]
-                                      .external_links
-                                  }
-                                </Link>
-                              </li>
+                                {filteredFacultyData[activeIndex].external_links.split(",").map((item, index) => (
+                                  <li key={index} className="px-8 mb-3">
+                                    <Link 
+                                      href={item} 
+                                      target="_blank" 
+                                      rel="noopener noreferrer"
+                                      className="text-purple-600 underline hover:text-purple-800"
+                                    >
+                                      {item}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
                             )}
 
                             {filteredFacultyData[activeIndex]
                               .additional_info && (
-                              <li className="m-4">
-                                Additional Info:{" "}
+                                <ul>
+                                  Additional Info:{" "}
                                 {
-                                  filteredFacultyData[activeIndex]
-                                    .additional_info
+                                filteredFacultyData[activeIndex]
+                                .additional_info.split( "~" ).map( ( item , index ) => ( 
+                                  <li className="m-4" key = {index}>
+                                  {
+                                    item
+                                  }
+                                  </li>
+                                ))
                                 }
-                              </li>
+                              </ul> 
                             )}
 
                             {filteredFacultyData[activeIndex]

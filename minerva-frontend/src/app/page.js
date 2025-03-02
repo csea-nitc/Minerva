@@ -105,7 +105,7 @@ export default function Home() {
                   PROFILE
                 </div>
               </div>
-              <div className=" h-auto font-jakarta text-justify font-bold text-black xl:text-[1.6rem] md-lg:text-[1.4rem] sm:text-[1.3rem] text-[1.1rem] w-[100%] flex flex-col justify- mx-auto">
+              <div className=" h-auto font-jakarta text-justify  text-black xl:text-[1.6rem] md-lg:text-[1.4rem] sm:text-[1.3rem] text-[1.1rem] w-[100%] flex flex-col justify- mx-auto">
                 <p className="mb-3">
                   The Department of Computer Science and Engineering, NIT
                   Calicut offers undergraduate and postgraduate programs in
@@ -135,7 +135,7 @@ export default function Home() {
                 VISION
               </div>
               <div className="md-lg:w-[70%] w-[100%] flex justify-center items-center">
-                <p className="xl:w-[90%] md-lg:w-[65%] w-[100%] text-black font-jakarta font-bold md-lg:text-right text-justify  xl:text-[1.6rem] md-lg:text-[1.4rem] sm:text-[1.3rem] text-[1.1rem] ml-auto mb-6 md-lg:mb-0">
+                <p className="xl:w-[90%] md-lg:w-[65%] w-[100%] text-black font-jakarta  md-lg:text-right text-justify  xl:text-[1.6rem] md-lg:text-[1.4rem] sm:text-[1.3rem] text-[1.1rem] ml-auto mb-6 md-lg:mb-0">
                   To be a Centre of Excellence in the Discipline of Computing.
                 </p>
               </div>
@@ -150,7 +150,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="md-lg:w-[72%] w-[100%] flex items-center justify-between">
-                <p className="w-[100%] md-lg:w-[90%] text-black font-jakarta font-bold text-justify xl:text-[1.6rem] md-lg:text-[1.3rem] sm:text-[1.3rem] text-[1.1rem] md-lg:mt-3">
+                <p className="w-[100%] md-lg:w-[90%] text-black font-jakarta text-justify xl:text-[1.6rem] md-lg:text-[1.3rem] sm:text-[1.3rem] text-[1.1rem] md-lg:mt-3">
                   To develop human resource with sound knowledge- theory and
                   practical - in the discipline of computing and the ability to
                   apply the knowledge to the benefit of the society at large.
@@ -172,7 +172,7 @@ export default function Home() {
                 HISTORY
               </div>
             </div>
-            <div className=" font-jakarta font-bold text-justify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.6rem] md-lg:text-[1.4rem] sm:text-[1.3rem] text-[1.1rem]">
+            <div className=" font-jakarta text-justify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.6rem] md-lg:text-[1.4rem] sm:text-[1.3rem] text-[1.1rem]">
               <p className="">
                 From its inception about a century ago, computing has become the
                 defining technology of our age. The study of computing is the
@@ -214,7 +214,7 @@ export default function Home() {
                 className="history-image rounded-md md:hidden w-[90%] z-10 mb-5"
               />
             </div>
-            <div className="text-black font-jakarta font-bold text-justify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.6rem] md-lg:text-[1.4rem] sm:text-[1.3rem] text-[1.1rem] ">
+            <div className="text-black font-jakarta text-justify md:mr-[2rem] lg:mr-[0rem] flex justify-center items-center xl:text-[1.6rem] md-lg:text-[1.4rem] sm:text-[1.3rem] text-[1.1rem] ">
               <p className="pb-10">
                 Undergraduate programme in Computer Science and Engineering
                 started in the year 1985 in the then Electrical Engineering

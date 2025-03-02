@@ -20,7 +20,7 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${backend_url}/api/announcements?populate[pdf][populate]=*&populate=image&sort[0]=createdAt:desc&pagination[pageSize]=500`,
+          `${backend_url}/api/announcements?populate[pdf][populate]=*&populate=image&sort[0]=createdAt:desc`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -147,6 +147,14 @@ export default function Home() {
                         </button>
                       ))}
                       
+                      <button
+                        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                        disabled={currentPage === totalPages}
+                        className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg font-poppins text-sm sm:text-base transition-colors duration-200 flex items-center justify-center
+                                  bg-gray-200 text-black hover:bg-accent"
+                      >
+                        .....
+                      </button>
                       <button
                         onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                         disabled={currentPage === totalPages}

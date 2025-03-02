@@ -1,9 +1,7 @@
 "use client";
 import ImageHero from "../components/imagehero/Imagehero";
-import PDF from "../components/pdf/PDF";
 import Graph from "../components/graph/Graph";
 import ListComp from "../components/newscomp/ListComp";
-import { ResponsiveBar } from "@nivo/bar";
 import React, { useEffect, useState } from "react";
 import Loading from "../components/loading/loading";
 import TabNav from "../components/tabnav/TabNav";
@@ -58,7 +56,7 @@ export default function Placements() {
       <div>
         <ImageHero
           title="PLACEMENTS"
-          font={"100px"}
+          font={"80px"}
           mobileFont={"40px"}
           contentdiv={".content-div"}
           imgpath={"/ccd.jpg"}
@@ -78,7 +76,7 @@ export default function Placements() {
             )}
 
             {/* MarkdowTable */}
-            <div className="flex items-center justify-center py-5 m-auto">
+            <div className="py-5 m-auto">
               {placements && placements.length > 0 ? (
                 <ListComp
                   key={selectedTab}

@@ -22,23 +22,30 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${backend_url}/api/faculty-pages?populate=photograph&pagination[pageSize]=100`,
+          `${backend_url}/api/faculty-pages?populate=photograph`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           }
         );
-
+  
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-
+  
         const result = await response.json();
-
+  
         if (result && result.data && Array.isArray(result.data)) {
-          setFacultyData(result.data);
-          setFilteredFacultyData(result.data);
+          // Sort the faculty data alphabetically by name
+          const sortedData = result.data.sort((a, b) => {
+            const nameA = a.name?.toLowerCase() || ""; // Assuming `name` is the key for the faculty name
+            const nameB = b.name?.toLowerCase() || "";
+            return nameA.localeCompare(nameB);
+          });
+  
+          setFacultyData(sortedData);
+          setFilteredFacultyData(sortedData);
         } else {
           console.error("Data structure is unexpected:", result);
         }
@@ -46,9 +53,10 @@ export default function Home() {
         console.error("Fetch error:", err);
       }
     };
-
+  
     fetchData();
   }, []);
+  
 
   useEffect(() => {
     const fetchHodData = async () => {
@@ -64,7 +72,6 @@ export default function Home() {
 
         const result = await response.json();
         setHod(result.data);
-        console.log(result.data);
       } catch (error) {
         console.error("Error fetching hod data:", error);
       }
@@ -125,7 +132,7 @@ export default function Home() {
                     >
                       <div>
                         <img
-                          src={`${process.env.NEXT_PUBLIC_API_URL}${hod?.photograph[0]?.url}`}
+                          src={`${process.env.NEXT_PUBLIC_API_URL}${hod?.photograph?.[0]?.url || ''}`}
                           alt=""
                           className="lg:w-[280px] lg:h-[360px] w-[250px] h-[300px] object-cover group-hover:scale-[1.04] duration-300"
                         />
@@ -183,7 +190,7 @@ export default function Home() {
                       </h2>
                     </div>
                     <div className="fac-det-details bg-[#d9d9d9] text-black md-lg:w-[71.5%] rounded-lg rounded-tr-none rounded-tl-none md-lg:rounded-tr-lg md-lg:rounded-bl-none min-h-10 w-full font-bold">
-                      <ul className="text-[0.5rem] md:text-[0.7rem] lg:text-[0.9rem] p-0">
+                      <ul className="text-[0.7rem] md:text-[0.85rem] lg:text-[0.95rem] p-0">
                         {hod.contact_email && (
                           <li className="m-4">
                             Email:
@@ -196,6 +203,7 @@ export default function Home() {
                             </Link>
                           </li>
                         )}
+
                         {hod.office_location && (
                           <li className="m-4">
                             Office Location: {hod.office_location}
@@ -209,7 +217,14 @@ export default function Home() {
                         )}
 
                         {hod.education && (
-                          <li className="m-4">Education: {hod.education}</li>
+                            <li className="m-4 mb-3">
+                              Education:
+                              <ul  className="px-8">
+                                {hod.education.split("~").map((item, index) => (
+                                  <li key={index} className="mb-3">{item} </li>
+                                ))}
+                              </ul>
+                            </li>
                         )}
 
                         {hod.specialisation && (
@@ -223,17 +238,39 @@ export default function Home() {
                             Associated FRGs: {hod.associated_frgs}
                           </li>
                         )}
-
+                        {hod.institute_page && (
+                          <ul className="m-4">
+                            Homepage : <span> </span>
+                            <li className="px-8">
+                              <Link
+                                href={
+                                  hod.institute_page
+                                }
+                                className="text-purple-600 underline hover:text-purple-800"
+                              >
+                                {
+                                  hod.institute_page
+                                }
+                              </Link>
+                            </li> 
+                          </ul>
+                        )}
                         {hod.external_links && (
-                          <li className="m-4">
+                          <ul className="m-4">
                             External Links: <span> </span>
-                            <Link
-                              href={hod.external_links}
-                              className="text-purple-600 underline hover:text-purple-800"
-                            >
-                              {hod.external_links}
-                            </Link>
-                          </li>
+                            {hod.external_links.split(",").map((item, index) => (
+                              <li key={index} className="px-8 mb-3">
+                                <Link 
+                                  href={item} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="text-purple-600 underline hover:text-purple-800"
+                                >
+                                  {item}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
                         )}
 
                         {hod.additional_info && (

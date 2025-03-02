@@ -38,31 +38,12 @@ export default function accessibility() {
                             should help all visitors of this website.
                         </p>
                         <p className="md:text-lg pt-6">
-                            <strong>Place Holder &darr;&darr;&darr;</strong>
-                            <br />
-                            Lorem ipsum dolor, sit amet consectetur adipisicing
-                            elit. Totam optio distinctio natus nemo.
-                            Exercitationem sed distinctio nobis accusamus
-                            excepturi accusantium, dolores eaque nihil ipsum,
-                            modi nostrum numquam, rerum dolore reprehenderit!
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Molestias et maxime cupiditate atque soluta,
-                            quibusdam, eligendi totam culpa placeat accusamus
-                            fuga beatae ipsa iure facilis adipisci sequi, nobis
-                            ab autem. Rem amet modi laudantium quae iste, quis
-                            consequuntur. Itaque excepturi deserunt eveniet id
-                            repellendus eos exercitationem, nulla ut ullam
-                            consequuntur natus repellat molestias quo nam
-                            officia enim laboriosam nemo minus! <br />
-                            <strong>Place Holder &uarr;&uarr;&uarr;</strong>
-                        </p>
-                        <p className="md:text-lg pt-6">
                             If you have any problem or suggestion regarding the
                             accessibility of this website, please{" "}
                             <a
                                 href="/feedback"
                                 target="_blank"
-                                className="text-blue-500 underline hover:text-blue-700 focus:text-blue-700"
+                                className="text-[#800080] underline"
                             >
                                 Tell Us
                             </a>{" "}

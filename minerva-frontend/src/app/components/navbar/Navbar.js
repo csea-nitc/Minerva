@@ -118,7 +118,7 @@ const Navbar = () => {
             </Link>
             <div className="login bg-white text-[26px] h-fit pt-1 flex items-center px-4 rounded-md max-1060:text-[22px] max-920:text-[18px]">
               <Link
-                href="https://minerva.arunnats.com/admin"
+                href="https://admin.minerva.nitc.ac.in"
                 style={{ color: "#800080" }}
                 onClick={closeMenu}
               >

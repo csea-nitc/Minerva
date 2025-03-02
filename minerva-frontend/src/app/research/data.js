@@ -55,16 +55,46 @@ const tabData = [
     // content for "Research Groups"
     {
       groups: [
-        "Algorithms and Formal Methods",
-        "Bioinformatics, Artificial Intelligence and Data Analytics",
-        "Hardware and Security Group",
-        "Intelligent Computing",
-        "Machine Learning and Computational Intelligence",
-        "Secure Communication Systems",
-        "Social Media Analytics and Cloud Security",
-        "Systems and Verification",
-        "Computer Vision, Learning and Applications",
-        "Advanced Software Engineering Research",
+         {
+          name: "Algorithms and Formal Methods",
+          link: "https://sheerazuddins.github.io/Webpages/"
+         },
+        {
+          name: "Bioinformatics, Artificial Intelligence and Data Analytics",
+          link: "https://sites.google.com/nitc.ac.in/bdbl-csed/home"
+        },
+        {
+          name: "Hardware and Security Group",
+          link: "https://sites.google.com/nitc.ac.in/csed-hsg"
+        },
+        { 
+          name: "Intelligent Computing",
+          link: ""
+        },
+        {
+          name: "Machine Learning and Computational Intelligence",
+          link: "https://nitc-mlrg.netlify.app/people_current.html"
+        },
+        {
+          name: "Secure Communication Systems",
+          link: "https://sites.google.com/view/scout-lab/students"
+        },
+        {
+          name: "Social Media Analytics and Cloud Security",
+          link: "https://sites.google.com/nitc.ac.in/smacs/people?authuser=0"
+        },
+        {
+          name: "Systems and Verification",
+          link: "https://shamlashaminoushad.github.io/Systems_lab/"
+        },
+        {
+          name: "Computer Vision, Learning and Applications",
+          link: "https://cvla.in/"
+        },
+        {
+          name:"Advanced Software Engineering Research",
+          link: "https://sites.google.com/nitc.ac.in/aser/home?authuser=0" 
+        },
       ],
     },
 

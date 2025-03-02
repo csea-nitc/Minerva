@@ -4,6 +4,7 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Loading from "../loading/loading";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,7 +14,10 @@ const backend_url = process.env.NEXT_PUBLIC_API_URL;
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
   const [link, setLinks] = useState([]);
+  const [dept_brochure, Setdept] = useState([]);
+  const [phd_brochure, Setphd] = useState([]);
   const buttonRef = useRef(null);
   const sidebarRef = useRef(null);
 
@@ -22,7 +26,7 @@ const Sidebar = () => {
     const fetchData = async () => {
       try {
         const linksD = await fetch(
-          `${backend_url}/api/quick-links?sort[0]=createdAt:desc`,
+          `${backend_url}/api/quick-links?sort[0]=createdAt:desc&populate[pdf][populate]=*&populate=image`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -37,8 +41,34 @@ const Sidebar = () => {
       }
     };
 
-    fetchData();
+    const fetchBrochures = async () => {
+      try {
+        const [deptBrochureRes, phdBrochureRes] = await Promise.all([
+          fetch(`${backend_url}/api/deparment-brochure?populate=pdf`, {
+            headers: { Authorization: `Bearer ${token}` },
+          }),
+          fetch(`${backend_url}/api/ph-d-brochure?populate=pdf`, {
+            headers: { Authorization: `Bearer ${token}` },
+          }),
+        ]);
+
+        const [deptBrochureData, phdBrochureData] = await Promise.all([
+          deptBrochureRes.json(),
+          phdBrochureRes.json(),
+        ]);
+
+        Setdept(deptBrochureData.data || []);
+        Setphd(phdBrochureData.data || []);
+      } catch (err) {
+        console.error("Fetch error:", err);
+      }
+    };
+
+    fetchData( );
+    fetchBrochures( ) ; 
   }, []);
+
+
 
   useEffect(() => {
     // GSAP animation for the button
@@ -64,6 +94,7 @@ const Sidebar = () => {
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 640);
+      setIsTablet(window.innerWidth > 640 && window.innerWidth <= 1024);
     };
 
     handleResize(); // Initial check
@@ -95,8 +126,10 @@ const Sidebar = () => {
       );
     } else {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      if (!isMobile) {
+      if (!isMobile && !isTablet) {
         gsap.set(button, { x: "-23.5rem" });
+      } else if (isTablet){
+        gsap.set(button, { x: "-320px" });
       } else {
         gsap.set(button, { x: "-100vw" });
       }
@@ -165,7 +198,7 @@ const Sidebar = () => {
         </div>
         <ul className="font-verdana flex flex-col justify-center items-center flex-grow lg:text-[1.5rem] sm:text-[1.3rem] text-[1.2rem] w-[90%] overflow-y-scroll scrollbar-none">
           <li className="m-4 text-black border-white border-2 text-center rounded-s">
-            <a href="">Home</a>
+            <Link href="/">Home</Link>
           </li>
           <li className="h-[0.1rem] w-[80%] bg-[#800080]"></li>
           <ul>
@@ -175,7 +208,7 @@ const Sidebar = () => {
                   key={item.id}
                   className="m-4 text-black border-white border-2 text-center rounded-s"
                 >
-                  <a href={`/node/${item.documentId}`}>{item.Title}</a>
+                  <Link href={`/node/${item.documentId}`}>{item.Title}</Link>
                 </li>
               ))
             ) : (
@@ -183,12 +216,35 @@ const Sidebar = () => {
             )}
           </ul>
           <li className="h-[0.1rem] w-[80%] bg-[#800080]"></li>
-          <li className="m-4 text-black border-white border-2 text-center rounded-s">
-            <a href="/dcc">DCC Minutes</a>
-          </li>
+          <ul>
+            <li className="m-4 text-black border-white border-2 text-center rounded-s">
+              <a href="/dcc">DCC Minutes</a>
+            </li>
+            <li className="m-4 text-black border-white border-2 text-center rounded-s">
+              <a href="/downloads">Downloads</a>
+            </li>
+          </ul>
+          <li className="h-[0.1rem] w-[80%] bg-[#800080]"></li>
+          
+          { dept_brochure && phd_brochure ? (
+            <ul>
+              <li
+                className="m-4 text-black border-white border-2 text-center rounded-s"
+              >
+                <Link href={`${backend_url}${dept_brochure.pdf?.url}`}>UG Brochure</Link>
+              </li>
+              <li
+                className="m-4 text-black border-white border-2 text-center rounded-s"
+              >
+                <Link href={`${backend_url}${phd_brochure.pdf?.url}`}>PG Brochure</Link>
+              </li>
+            </ul>
+          ) : (
+            <Loading />
+          )}
         </ul>
         <button className="sm:text-[2rem] text-[2rem] text-black font-verdana font-bold bg-[#e3c7e3] w-[100%] text-center p-3">
-          Login
+          <Link href="https://admin.minerva.nitc.ac.in">Login</Link>
         </button>
       </div>
       {isOpen && (

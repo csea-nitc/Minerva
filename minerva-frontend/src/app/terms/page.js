@@ -118,7 +118,7 @@ export default function TermsPage() {
                             <a
                                 href="https://www.iitm.ac.in"
                                 target="_blank"
-                                className="text-blue-500 underline hover:text-blue-700 focus:text-blue-700"
+                                className="text-[#800080] underline"
                             >
                                 IITM website terms)
                             </a>
@@ -128,5 +128,4 @@ export default function TermsPage() {
             </div>
         </>
     );
-
 }
