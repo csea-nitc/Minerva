@@ -3,22 +3,8 @@
 import React, { useState, useEffect, useRef } from "react";
 
 const Hero = ({ props }) => {
-    const [ismobile, setIsMobile] = useState(false);
 
-    const handleResize = () => {
-        if (window.innerWidth <= 640) {
-            setIsMobile(true);
-        } else {
-            setIsMobile(false);
-        }
-    };
 
-    useEffect(() => {
-        window.addEventListener("resize", handleResize);
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
 
     
     return (
@@ -35,11 +21,11 @@ const Hero = ({ props }) => {
                     {/* COMPUTER SCIENCE AND ENGINEERING centered */}
                     <p className="text-white font-saira lg-xl:text-[4rem] lg:text-[3rem] md:text-[2.7rem] sm:text-[2.2rem] text-[2.3rem] font-extrabold text-left w-full leading-tight">
                         COMPUTER SCIENCE{" "}
-                        {ismobile && (
-                            <span className="block -m-6 w-[10%] h-[10%] mx-auto ">
+                        
+                            <span className="block sm:hidden -m-6 w-[10%] h-[10%] mx-auto ">
                                 <br />
                             </span>
-                        )}{" "}
+                     
                         AND ENGINEERING
                     </p>
                     {/* NATIONAL INSTITUTE OF TECHNOLOGY, CALICUT aligned to the right */}
