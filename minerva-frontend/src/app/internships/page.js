@@ -80,7 +80,6 @@ export default function Internships() {
             ) : (
             <>
               <TabNav onTabChange={setSelectedTab} tabData={tabData} />
-
               <div className="grid justify-items-center ml-2 md:-ml-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-6  mt-10 mx-auto ">
                 {internships &&
                   internships
@@ -91,6 +90,7 @@ export default function Internships() {
                         year={stat.Title}
                         onClick={() => handleYearClick(stat.Title)}
                       />
+
 
                       {/* Render Modal */}
                       <Modal
