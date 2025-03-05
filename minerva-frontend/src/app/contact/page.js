@@ -44,16 +44,10 @@ export default function ContactUsPage() {
                             <h2 className="md:text-2xl font-bold">
                                 Office Address:
                             </h2>
-                            {/* <p>
-              <strong>Place Holder &darr;&darr;&darr;</strong>
-            </p> */}
-                            {/* <p>
-              <strong>Place Holder &uarr;&uarr;&uarr;</strong>
-            </p> */}
                             <p className="md:text-lg pt-6">
-                                Department of Computer Science and Engineering <br />
-                                National Institute of Technology Calicut <br /> 
-                                NIT Campus PO, Calicut <br />
+                                Department of Computer Science and Engineering, <br />
+                                National Institute of Technology Calicut,<br /> 
+                                NIT Campus PO<br />
                                 Kerala - 673 601, India{" "}
                                 <br />
                                 Phone: +91 495 2286800
