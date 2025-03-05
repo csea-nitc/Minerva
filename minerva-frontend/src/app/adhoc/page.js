@@ -8,7 +8,7 @@ import TabNav from "../components/tabnav/TabNav";
 const token = process.env.NEXT_PUBLIC_TOKEN;
 const backend_url = process.env.NEXT_PUBLIC_API_URL;
 
-const tabData = ["Adhoc Faculty", "Adhoc Technical staff"];
+const tabData = ["Adhoc staff", "Adhoc Technical staff"];
 
 export default function Adhoc() {
   const [adhoc, setAdhoc] = useState([]);
