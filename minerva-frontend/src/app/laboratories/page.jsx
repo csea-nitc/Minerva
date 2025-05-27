@@ -12,16 +12,6 @@ const page = () => {
     const [data, setData] = useState(null);
 
     useEffect(() => {
-<<<<<<< HEAD
-    const fetchData = async () => {
-        try {
-        const data = await fetch(
-            `${backend_url}/api/labs?populate=*`,
-            {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-=======
         const fetchData = async () => {
             try {
                 const data = await fetch(`${backend_url}/api/labs?populate=*`, {
@@ -34,7 +24,6 @@ const page = () => {
                 setData(Data.data);
             } catch (err) {
                 console.error("Fetch error:", err);
->>>>>>> 6bc598e2128061009f59d27c68b4e9295fb5e1af
             }
         };
         fetchData();
@@ -54,11 +43,11 @@ const page = () => {
                 font={"80px"}
                 mobileFont={"20px"}
                 contentdiv={".content-div"}
+                imgpath="/labsalt.jpeg"
             />
             <div className="w-full mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
                 <div className="bg-[#800080] h-[100%] w-[10px] absolute"></div>
                 <div className="sm:w-[65%] w-[85%] mx-auto py-10">
-<<<<<<< HEAD
                 <div className="grid grid-cols-1">
                     {data && data.map((item) => ( 
                         <Card
@@ -71,25 +60,6 @@ const page = () => {
                         />
                     ))}
                 </div>
-=======
-                    {data ? (
-                        <div className="grid grid-cols-1 gap-y-6">
-                            {data &&
-                                data.map((item) => (
-                                    <Card
-                                        key={item.id}
-                                        title={item.name || "-"}
-                                        id={item.documentId || "-"}
-                                        faculty={item.faculty || "-"}
-                                        staff={item.staff || "-"}
-                                        location={item.location || "-"}
-                                    />
-                                ))}
-                        </div>
-                    ) : (
-                        <Loading />
-                    )}
->>>>>>> 6bc598e2128061009f59d27c68b4e9295fb5e1af
                 </div>
             </div>
         </>
