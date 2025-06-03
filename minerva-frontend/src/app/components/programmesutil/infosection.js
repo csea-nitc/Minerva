@@ -15,6 +15,7 @@ export default function InfoSection({
     img2
 }) {
     const [data , setData]  = useState( [] ); 
+    const [brochure, setBrochure] = useState(null);
     
     let name ; 
 
@@ -39,6 +40,8 @@ export default function InfoSection({
                 const jsonData = await response.json();
                 let fetchedData = jsonData.data ? jsonData.data : [];
     
+                const brochureEntry = fetchedData.find(item => item.Title === "Brochure");
+
                 const desiredOrder = ["Curriculum", "Syllabi", "Ordinances and Regulations", "Outcomes"];
                 
                 // Sort fetched data based on desired order
@@ -48,13 +51,15 @@ export default function InfoSection({
                 */
                
                 let sortedData = desiredOrder.map((title) =>
-                    fetchedData.find((item) => item.Title === title) 
-                );
+                    fetchedData.find((item) => item.Title === title)
+                ).filter(Boolean);
     
                 setData(sortedData);
+                setBrochure(brochureEntry);  
             } catch (err) {
                 console.error("Fetch error:", err);
                 setData([]); 
+                setBrochure(null);
             }
         };
     
@@ -67,7 +72,28 @@ export default function InfoSection({
             {/* Phd tab does not need this navigation */}
             {  title !== "PhD" &&  ( <DropdownButtons data = { data }  />) }
         
+            {/* Brochure section */}
+            {title !== "PhD" && brochure && (
+                <div className="brochure-section flex flex-col sm:w-[50%] sm:mx-0 w-[90%] mx-auto">
+                    {brochure.pdf?.map((pdfItem, idx) => (
+                    <a
+                        key={idx}
+                        href={`${backend_url}/${pdfItem.pdf.url}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-jakarta px-4 sm:px-2 py-2 mt-6 font-bold text-[1.2em] md:text-[1.5em] rounded-lg bg-[#800080] text-white text-center hover:bg-white hover:text-[#800080] transition-colors duration-200 border-2 border-[#800080] shadow-sm"
+                        >
+                        Brochure 
+                        
+                        </a>
+                        
+                    ))}
+                </div>
+            )}
+
+
             {/* about section */}
+             
             <div className=" font-jakarta text-[1.2em] leading-[35px] max-800:leading-7">
                 <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 text-justify ">
                     <div className="w-[90%] flex  order-1 sm:order-2 mx-auto sm:justify-self-end sm:mx-0">
