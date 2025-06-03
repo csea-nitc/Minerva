@@ -7,6 +7,91 @@ import { CONFIG_FILES } from "next/dist/shared/lib/constants";
 const backend_url = process.env.NEXT_PUBLIC_API_URL ; 
 const token  = process.env.NEXT_PUBLIC_TOKEN ; 
 
+const headingSizes = {
+  1: "text-5xl sm:text-5xl md:text-6xl",
+  2: "text-4xl sm:text-4xl md:text-5xl",
+  3: "text-3xl sm:text-3xl md:text-4xl",
+  4: "text-2xl sm:text-2xl md:text-3xl",
+};
+
+
+const renderNode = (node, key) => {
+  if (!node) return null;
+
+  switch (node.type) {
+    case 'paragraph':
+      return (
+        <p key={key} className="font-jakarta sm:text-2xl md:text-[1.2rem] my-2">
+          {node.children && node.children.map((child, i) => renderNode(child, `${key}-${i}`))}
+        </p>
+      );
+
+    case 'heading':
+        const Tag = `h${node.level || 2}`;
+        const sizeClass = headingSizes[node.level] || headingSizes[2]; // default to level 2 if undefined
+        return (
+            <Tag key={key} className={`text-accent font-jakarta font-bold flex justify-left items-center ${sizeClass}`}>
+            {node.children && node.children.map((child, i) => renderNode(child, `${key}-${i}`))}
+            </Tag>
+        );
+
+    case 'list':
+      if (node.format === 'unordered') {
+        return (
+          <ul key={key} className="list-disc ml-8 font-jakarta sm:text-lg md:text-xl">
+            {node.children && node.children.map((child, i) => renderNode(child, `${key}-${i}`))}
+          </ul>
+        );
+      } else if (node.format === 'ordered') {
+        return (
+          <ol key={key} className="list-decimal ml-8 font-jakarta sm:text-lg md:text-xl">
+            {node.children && node.children.map((child, i) => renderNode(child, `${key}-${i}`))}
+          </ol>
+        );
+      }
+      return null;
+
+    case 'list-item':
+      return (
+        <li key={key} className="my-2">
+          {node.children && node.children.map((child, i) => renderNode(child, `${key}-${i}`))}
+        </li>
+      );
+
+    case 'text':
+      // Handle marks like bold, italic, underline etc.
+      let text = node.text;
+
+      if (node.bold) text = <b key={key} className="text-accent">{text}</b>;
+      else if (node.italic) text = <em key={key}>{text}</em>;
+      else if (node.underline) text = <u key={key}>{text}</u>;
+      else text = <span key={key}>{text}</span>;
+
+      return text;
+
+    case 'link':
+      return (
+        <a
+          key={key}
+          href={node.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline font-bold"
+        >
+          {node.children && node.children.map((child, i) => renderNode(child, `${key}-${i}`))}
+        </a>
+      );
+
+    default:
+      // For any unknown type, try to render children
+      if (node.children) {
+        return node.children.map((child, i) => renderNode(child, `${key}-${i}`));
+      }
+      return null;
+  }
+};
+
+
 export default function InfoSection({
     title,
     para1,
@@ -102,9 +187,9 @@ export default function InfoSection({
                             className="object-cover h-[300px] shadow-[-20px_20px_0px_#CF92CE]  "
                         />
                     </div>
-                    <p className="w-full  pr-5 pl-2 sm:px-0 sm:pr-4 sm:pl-0  font-jakarta order-2 mt-6 sm:order-none sm:my-auto">
-                        {para1}
-                    </p>
+                    <div className="w-full  pr-5 pl-2 sm:px-0 sm:pr-4 sm:pl-0  font-jakarta order-2 mt-4 sm:order-none sm:my-auto">
+                        {para1.map((block, i) => renderNode(block, i))}
+                    </div>
                 </div>
 
                 <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 text-justify">
@@ -114,9 +199,9 @@ export default function InfoSection({
                             className="object-cover h-[300px]  shadow-[-20px_20px_0px_#CF92CE]"
                         />
                     </div>
-                    <p className="w-full mt-6 sm:my-auto  font-jakarta pl-2 pr-5 ">
-                        {para2}
-                    </p>
+                    <div className="w-full mt-6 sm:my-auto  font-jakarta pl-2 pr-5 ">
+                        {para2.map((block, i) => renderNode(block, i))}
+                    </div>
                 </div>
             </div>
 
